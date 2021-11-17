@@ -1,0 +1,122 @@
+/*USER ADDED*/
+.default-link{
+    text-decoration: none !important;
+}
+
+.display-inline{
+    display: inline-block !important;
+}
+
+.width_100 {
+    width: 100% !important;
+}
+.width_90 {
+    width: 90% !important;
+}
+.width_80 {
+    width: 80% !important;
+}
+.width_70 {
+    width: 70% !important;
+}
+.width_60 {
+    width: 50% !important;
+}
+.width_50 {
+    width: 50% !important;
+}
+.width_40 {
+    width: 40% !important;
+}
+.width_30 {
+    width: 30% !important;
+}
+.width_20 {
+    width: 20% !important;
+}
+.width_10 {
+    width: 10% !important;
+}
+.width_5 {
+    width: 5% !important;
+}
+
+.height_300 {
+    height: 300px !important;
+}
+
+.height_20 {
+    height: 20px !important;
+}
+
+.green_color {
+    color: rgba(75,192,192,0.8);
+}
+
+.red_color {
+    color: rgba(252,121,161,0.8);
+}
+
+.txt_review {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word; 
+    line-height: 1.2em;
+    height: 2.4em; /* line-height 가 1.2em 이고 2라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+}
+
+.input_07em {
+    font-size: 0.7em !important;
+}
+
+.input_08em {
+    font-size: 0.8em !important;
+}
+
+.input_09em {
+    font-size: 0.9em !important;
+}
+
+.input_11em {
+    font-size: 1.1em !important;
+}
+
+.input_12em {
+    font-size: 1.2em !important;
+}
+
+.font_bold {
+    font-weight: bold !important;
+}
+
+.imgbox-big {
+    height:200px;
+    width:200px;
+}
+.imgbox-med {
+    height:150px;
+    width:150px;
+}
+.imgbox-small {
+    height:75px;
+    width:75px;
+}
+  
+.profile-img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 350px) {
+    .form-control {
+        font-size: 0.9em !important;
+    }
+    * {
+        margin-right: -2px;
+    }
+}
