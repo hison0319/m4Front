@@ -98,7 +98,7 @@ const BoardModify = ({
           <hr></hr>
           {/* <EditSummer/> */}
           <Row className="px-2">
-            <Col className="my-4 pb-2">
+            <Col className="my-3 pb-2">
               {imagePreview}
             </Col>
           </Row>

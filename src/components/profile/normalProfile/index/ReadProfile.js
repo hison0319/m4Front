@@ -48,7 +48,7 @@ const ReadProfile = ({
                             <span className="d-block pt-5 h4 text-dark border-gray text-center">{street}, {city}</span>
                             <span className="d-block h7 mb-3 text-dark border-gray text-center">우편번호 : {zipcode}</span>
                             <span className="d-block h5 mb-3 border-gray text-center text-secondary">+{nationCode}&nbsp;&nbsp;{contactNumber}</span>
-                            {snsList.map((sns, idx) => 
+                            {snsList && snsList.map((sns, idx) => 
                               <Button
                                 key={"sns"+idx}
                                 className="my-1 text-center width_100"

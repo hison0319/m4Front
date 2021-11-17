@@ -23,8 +23,8 @@ const Editor = React.memo(() => {
 
   return (
     <>
-      <Row className="">
-        <Col className="">
+      <Row>
+        <Col>
           <Row className="mt-3 py-1" style={{backgroundColor:"#ddd"}}>
             <Col xs="12">
               <Link
@@ -41,7 +41,7 @@ const Editor = React.memo(() => {
               </Link>
             </Col>
           </Row>
-          <Row className="my-3">
+          <Row className="my-2">
             <Col>
               <Collapse isOpen={editOpen}>
                 <Options/>

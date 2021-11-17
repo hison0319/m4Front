@@ -78,7 +78,6 @@ const ModifyProfileContainer = ({
 
   // snsList
   const [varSnsList, setVarSnsList] = useState(snsList);
-  console.log('### varSnsList',varSnsList);
 
 // user 공개여부 정보 => 2021. 11. 14 공개정보는 사용 안하기로 합의
   // const [{ 
