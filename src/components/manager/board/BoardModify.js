@@ -56,7 +56,7 @@ const BoardModify = ({
   // }
   return (
     <>
-      <Row className="my-2 py-2">
+      <Row className="mb-2">
         <Col className="my-2 py-2">
           {/* <Row>
             <Col xs="12">
@@ -140,7 +140,7 @@ const BoardModify = ({
           </Row>
         </Col>
       </Row>
-      <div className="text-center btn-wrapper mt-2">
+      <div className="text-center btn-wrapper mb-5">
           <Button
           style={{width:"90%"}}
           color="success"

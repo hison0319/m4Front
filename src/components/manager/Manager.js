@@ -21,9 +21,9 @@ import {
     BackReadIcon,
 } from "components/common/icons/Index"
 
-import BoardManager from 'components/manager/board_manager/BoardManager';
-// import BookingManager from 'components/manager/booking_manager/BookingManager';
-import BookingManagerContainer from 'components/manager/booking_manager/BookingManagerContainer';
+import BoardManager from 'components/manager/board/BoardManager';
+// import BookingManager from 'components/manager/booking/BookingManager';
+import BookingManagerContainer from 'components/manager/booking/BookingManagerContainer';
 import Dashboard from 'components/manager/dashboard/Dashboard';
 
 function Manager(){

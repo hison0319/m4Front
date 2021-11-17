@@ -14,7 +14,7 @@ const Dashboard = React.memo(() => {
 
   return (
     <>
-      <Row>
+      <Row className="my-2 mx-1">
         <Col>
           <Row className="my-1">
             <Col>

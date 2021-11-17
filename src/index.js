@@ -12,6 +12,9 @@ import BoardDetailView from "views/BoardDetailView";
 import SigninView from "views/SigninView";
 import ProfileView from "views/ProfileView";
 import ManagerView from "views/ManagerView";
+import ManagerBoardView from "views/ManagerBoardView";
+import ManagerBookingView from "views/ManagerBookingView";
+import ManagerDashboardView from "views/ManagerDashboardView";
 import AboutusView from "views/AboutusView";
 import ErrorView from "views/ErrorView";
 
@@ -48,6 +51,21 @@ ReactDOM.render(
             path="/profile" 
             exact 
             render={props => <ProfileView {...props} />} 
+          />
+          <Route
+            path="/manager/board"
+            exact
+            render={props => <ManagerBoardView {...props} />}
+          />
+          <Route
+            path="/manager/booking"
+            exact
+            render={props => <ManagerBookingView {...props} />}
+          />
+          <Route
+            path="/manager/dashboard"
+            exact
+            render={props => <ManagerDashboardView {...props} />}
           />
           <Route
             path="/manager"

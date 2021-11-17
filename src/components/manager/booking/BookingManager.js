@@ -25,8 +25,8 @@ const BookingManager = (props) => {
 
   return (
     <>
-      <Row>
-        <Col>
+      <Row >
+        <Col className="my-4 py-2">
           <Row>
             <Col>
               <div>
@@ -41,7 +41,7 @@ const BookingManager = (props) => {
           </Row>
           <Row>
             <Col>
-              <div className="my-3 pb-3">
+              <div className="mb-1 pb-3">
                 <Calender
                 calendarInfo = {calendarInfo}
                 bookingsInfo = {bookingsInfo}
@@ -52,7 +52,7 @@ const BookingManager = (props) => {
           </Row>
           <Row>
             <Col>
-              <div className="my-2">
+              <div className="mb-3">
                 <TimeTable/>
               </div>
             </Col>

@@ -32,8 +32,8 @@ function BoardManager() {
   const goModifyText = isHave?"수정하기":"작성하기";
 
   const modeR = 
-    <section>
-      <div className="text-center btn-wrapper pt-5">
+    <section className="my-4">
+      <div className="text-center btn-wrapper">
           <Button
           style={{width:"90%"}}
           color="info"
@@ -49,7 +49,7 @@ function BoardManager() {
       </div>
       {isHave &&
       <div
-      className="mb-5"
+      className="mb-3"
       style={{marginTop:-40}}>
         <Board/>
       </div>
@@ -58,8 +58,8 @@ function BoardManager() {
     ;
   
   const modeW = 
-    <section>
-      <div className="text-center btn-wrapper mt-5">
+    <section className="my-4 mx-4">
+      <div className="text-center btn-wrapper">
           <Button
           style={{width:"90%"}}
           color="info"
