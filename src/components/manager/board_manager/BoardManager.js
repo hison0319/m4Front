@@ -26,7 +26,7 @@ function BoardManager() {
   })
 
   const [isHave] = useState(true);
-  const [mode, setMode] = useState("M");
+  const [mode, setMode] = useState("R");
 
   const alertRef = useRef();
   const goModifyText = isHave?"수정하기":"작성하기";

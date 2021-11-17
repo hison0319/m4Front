@@ -133,7 +133,7 @@ const BoardModify = ({
                 placeholder="가게 소개글을 작성해주세요."
                 value={varContext}
                 maxLength={5000}
-                rows="20" 
+                rows="13" 
                 onChange={onChangeText}/>
               </InputGroup>
             </Col>
