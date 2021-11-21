@@ -44,7 +44,7 @@ function Manager(){
     return (
         <>
             <Container>
-                <Row>
+                {/* <Row>
                     <Col>
                         <Link to={link} className="default-link">
                             <div className="text-left btn-wrapper">
@@ -62,7 +62,7 @@ function Manager(){
                             </div>
                         </Link>
                     </Col>
-                </Row>
+                </Row> */}
                 <Row className="pt-2 pb-5">
                     <Col>
                         <Row className="py-3 my-3">

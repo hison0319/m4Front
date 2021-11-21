@@ -74,23 +74,6 @@ const BusinessProfile = ({
                 </div>
             </Col>
         </Row>
-        <Row>
-            <Col>
-                <Link to={link} className="default-link">
-                    <div className="text-center btn-wrapper my-2">
-                        <Button
-                        className="width_90"
-                        color="primary"
-                        outline
-                        type="button">
-                        <span className="btn-inner--text">
-                            <StoreIcon/>&nbsp;&nbsp;매장 관리하기
-                        </span>
-                        </Button>
-                    </div>
-                </Link>
-            </Col>
-        </Row>
     </Container>
     ;
 

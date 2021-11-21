@@ -26,7 +26,7 @@ function BoardManager() {
   })
 
   const [isHave] = useState(true);
-  const [mode, setMode] = useState("R");
+  const [mode, setMode] = useState("M");
 
   const alertRef = useRef();
   const goModifyText = isHave?"수정하기":"작성하기";
@@ -58,7 +58,7 @@ function BoardManager() {
     ;
   
   const modeW = 
-    <section className="my-4 mx-4">
+    <section className="my-4 mx-2">
       <div className="text-center btn-wrapper">
           <Button
           style={{width:"90%"}}
