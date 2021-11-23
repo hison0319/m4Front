@@ -13,6 +13,7 @@ import {
   Col,
   Input,
   InputGroup,
+  InputGroupAddon,
   CustomInput,
 } from "reactstrap";
 import {
@@ -21,6 +22,10 @@ import {
 import PropTypes from "prop-types";
 
 const BoardModify = ({
+  varTimeUnit,
+  setTimeUnit,
+  openingHourCodeList,
+
   varContext,
   onChangeText,
   handleFileOnChange,
@@ -41,41 +46,39 @@ const BoardModify = ({
   setSatTimeList,
   sunTimeList,
   setSunTimeList,
+
+  optionList,
+  onSetOptionList,
+  removeOption,
+  addOption,
+  removeInput,
+  addInput,
+  optionAlert
 }) => {
   useEffect(() => {
     // console.log('!!!Editor is rendering!')
   })
 
-  // 시간단위가 필요한가..?
-  // const [selectTime, setSelectTime] = useState("05M");
-  // const timeArr = [];
-  // const time = ["30분","1시간","2시간","3시간","4시간","5시간","6시간","7시간","8시간"];
-  // const key = ["30","60","120","180","240","300","360","420","480"];
-  // for(let i=0; i<time.length; i++) {
-  //   timeArr.push({key:key[i], value:key[i], time:time[i]});
-  // }
   return (
     <>
       <Row className="mb-2">
         <Col className="my-2 py-2">
-          {/* <Row>
+          <Row>
             <Col xs="12">
               <InputGroup>
-                <InputGroupAddon addonType="prepend">시간단위</InputGroupAddon>
+                <InputGroupAddon addonType="prepend">이용시간단위</InputGroupAddon>
                 <Input
                 type="select"
-                name="selectTime"
-                value={selectTime}
-                onChange={(e)=>{
-                  setSelectTime(e.target.value);
-                }}>
-                    {timeArr.map((item) => 
-                        <option key={item.key} value={item.value}>{item.time}</option>
+                name="varTimeUnit"
+                value={varTimeUnit}
+                onChange={setTimeUnit}>
+                    {openingHourCodeList.map((item) => 
+                        <option key={item.code} value={item.code}>{item.text}</option>
                     )}
                 </Input>
               </InputGroup>
             </Col>
-          </Row> */}
+          </Row>
           <EditDay
           week={week}
           monTimeList={monTimeList}
@@ -94,7 +97,14 @@ const BoardModify = ({
           setSunTimeList={setSunTimeList}
           />
           <hr></hr>
-          <EditOption/>
+          <EditOption
+          optionList={optionList}
+          setOptionList={onSetOptionList}
+          removeOption={removeOption}
+          addOption={addOption}
+          removeInput={removeInput}
+          addInput={addInput}/>
+          {optionAlert}
           <hr></hr>
           {/* <EditSummer/> */}
           <Row className="px-2">
@@ -159,6 +169,10 @@ const BoardModify = ({
 };
 
 BoardModify.propTypes = {
+  varTimeUnit: PropTypes.number,
+  setTimeUnit: PropTypes.func,
+  openingHourCodeList: PropTypes.array,
+
   varContext: PropTypes.string,
   onChangeText: PropTypes.func,
   handleFileOnChange: PropTypes.func,
@@ -179,6 +193,14 @@ BoardModify.propTypes = {
   setSatTimeList: PropTypes.func,
   sunTimeList: PropTypes.array,
   setSunTimeList: PropTypes.func,
+
+  optionList: PropTypes.array,
+  onSetOptionList: PropTypes.func,
+  removeOption: PropTypes.func,
+  addOption: PropTypes.func,
+  removeInput: PropTypes.func,
+  addInput: PropTypes.func,
+  optionAlert: PropTypes.object, 
 };
 
 export default BoardModify

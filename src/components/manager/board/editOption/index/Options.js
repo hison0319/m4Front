@@ -1,42 +1,42 @@
-import React, { useState, useEffect, useRef } from 'react';
-
+/*
+작성자 : 손한이
+작성일 : 2021.11.21
+내용 :  option list 뷰
+*/
+import React from 'react';
 import Option from './Option';
-
 import {
   Row,
   Col,
   Button,
 } from "reactstrap";
+import PropTypes from "prop-types";
 
-const InputOption = React.memo(() => {
-  useEffect(() => {
-    // console.log('InputOption is rendering!')
-  });
-
-  const TYPEID = "OT";
-  const typeIdNum = useRef(0);
-  const [optionList, setOptionList] = useState([{key:TYPEID+typeIdNum.current, id:TYPEID+typeIdNum.current}]);
-
-  const removeOption = (id) => {
-    setOptionList(optionList.filter(option => option.id !== id));
-  }
-
-  const addOption = () => {
-    typeIdNum.current += 1;
-    let id = TYPEID + typeIdNum.current;
-    
-    setOptionList(optionList.concat({key:id, id:id}));
-  }
-
+const Options = ({
+  optionList,
+  onSetOptionList,
+  removeOption,
+  addOption,
+  removeInput,
+  addInput,
+}) => {
   return (
     <>
       <Row className="mt-1">
         <Col >
           {optionList.map((item) => 
             <Option
-            key={item.id}
-            id={item.id}
-            onRemove={removeOption}/>
+            key={item.optionCategoryId}
+            optionCategoryId={item.optionCategoryId}
+            optionCategoryName={item.optionCategoryName}
+            optionsAllowMultiSelect={item.optionsAllowMultiSelect}
+            optionsLimited={item.optionsLimited}
+            optionsDayOfWeek={item.optionsDayOfWeek}
+            options={item.options}
+            onSetOptionList={onSetOptionList}
+            onRemove={removeOption}
+            removeInput={removeInput}
+            addInput={addInput}/>
           )}
           <Row>
             <Col>
@@ -61,6 +61,15 @@ const InputOption = React.memo(() => {
       </Row>
     </>
   );
-});
+};
 
-export default InputOption;
+Options.propTypes = {
+  optionList: PropTypes.array,
+  onSetOptionList: PropTypes.func,
+  removeOption: PropTypes.func,
+  addOption: PropTypes.func,
+  removeInput: PropTypes.func,
+  addInput: PropTypes.func,
+}
+
+export default Options;

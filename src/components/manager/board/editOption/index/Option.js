@@ -1,7 +1,11 @@
-import React, { useState, useEffect, useRef }  from 'react';
+/*
+작성자 : 손한이
+작성일 : 2021.11.21
+내용 :  option 뷰, 기능
+*/
+import React, { useState, useRef }  from 'react';
 import InputOption from './InputOption';
 import AlertModal from 'components/common/alert/AlertModal';
-
 import {
   Row,
   Col,
@@ -12,80 +16,29 @@ import {
   Input,
   CustomInput,
 } from "reactstrap";
-
 import {
   RemoveOptionIcon,
   AddOptionIcon,
 } from "components/common/icons/Index"
+import PropTypes from "prop-types";
 
-const Option = React.memo((props) => {
-  useEffect(() => {
-    // console.log('Option is rendering!')
-  });
+const Option = ({
+  optionCategoryId,
+  optionCategoryName,
+  optionsAllowMultiSelect,
+  optionsLimited,
+  optionsDayOfWeek,
+  options,
+  onSetOptionList,
+  onRemove,
+  removeInput,
+  addInput,
+}) => {
+  const [categoryName, setCategoryName] = useState(optionCategoryName);
+  const [isAllowMultiSelect, setIsAllowMultiSelect] = useState(optionsAllowMultiSelect);
+  const [islimited, setIslimited] = useState(optionsLimited);
+  const [isHaveDayOfWeek, setIsHaveDayOfWeek] = useState(optionsDayOfWeek);
 
-  const alertRef = useRef();
-  const TYPEID = props.id;
-  // console.log(TYPEID);
-  const onRemove = props.onRemove;
-
-  const onRemoveClick = (id) => {
-    onRemove(id);
-  }
-
-  const [optionType, setOptionType] = useState("");
-  const [monoOption, setMonoOption] = useState(true);
-  const [limitedOption, setLimitedOption] = useState(false);
-  const [holydayOption, setholydayOption] = useState(true);
-
-  const [optionNameList, setOptionNameList] = useState(["손한이","이관호"]);
-  const [optionAMTList, setOptionAMTList] = useState([3000000,5000]);
-  const [optionEAList, setOptionEAList] = useState([]);
-  const [optionHolydayList, setOptionHolydayList] = useState(
-    [
-    [true,true,true,false,true,true,true],
-    [false,true,false,false,false,false,false]
-    ]
-  );
-
-  const NAMEID = TYPEID+"ON";
-  const nameIdNum = useRef(0);
-  
-  const exOption = [1,2];
-  const [inputList, setInputList] = useState(()=>{
-      let newInputList = [];
-      for(let i=0; i<exOption.length; i++) {
-        newInputList = newInputList.concat([
-          {
-            id:NAMEID+nameIdNum.current,
-            limitedOption:limitedOption,
-            holydayOption:holydayOption,
-            optionName:optionNameList[i],
-            optionAMT:optionAMTList[i],
-            optionEA:optionEAList[i],
-            optionHolydayList:optionHolydayList[i],
-          }
-        ])
-        nameIdNum.current += 1;
-      }
-      return newInputList;
-    }
-  );
-
-  const removeInput = (id) => {
-    if(inputList.length === 1) {
-      alertRef.current.showAlert();
-      return false;
-    }
-    setInputList(inputList.filter(input => input.id !== id));
-  }
-
-  const addInput = () => {
-    nameIdNum.current += 1;
-    let id = NAMEID + nameIdNum.current;
-    
-    setInputList(inputList.concat({key:id, id:id}));
-  }
-  
   return (
     <>
       <Row className="my-1">
@@ -94,7 +47,7 @@ const Option = React.memo((props) => {
             className="btn-icon-only rounded-circle pt-1 pl-1"
             color="neutral"
             onClick={()=>{
-              onRemoveClick(TYPEID);
+              onRemove(optionCategoryId);
             }}
           >
             <span className="btn-inner--icon text-secondary">
@@ -109,71 +62,71 @@ const Option = React.memo((props) => {
             </InputGroupAddon>
             <Input
             type="text"
-            name="optionType"
-            id="optionType"
-            value={optionType}
+            name="categoryName"
+            id="categoryName"
+            value={categoryName}
             maxLength={50}
             placeholder="옵션 종류"
             onChange={(e)=>{
-              setOptionType(e.target.value);
+              setCategoryName(e.target.value);
             }}/>
           </InputGroup>
         </Col>
       </Row>
       <Row>
-        <Col>
-            <div className="text-right mt-2">
+        <Col className="mx-3">
+            <div className="text-right mt-3">
               <CustomInput
               type="switch"
-              id="typeSingle"
-              name="typeSingle"
-              label="한번에 한 개만 선택할 수 있습니다."
+              id="isAllowMultiSelect"
+              name="isAllowMultiSelect"
+              label="동시에 여러개를 선택할 수 있습니다."
               className="text-secondary" 
-              checked={monoOption}
+              checked={isAllowMultiSelect}
               onChange={()=>{
-                setMonoOption(!monoOption);
+                setIsAllowMultiSelect(!isAllowMultiSelect);
               }}/>
             </div>
-            <div className="text-right mt-2">
+            <div className="text-right mt-3">
               <CustomInput
               type="switch"
-              id="typeLimit"
-              name="typeLimit"
+              id="islimited"
+              name="islimited"
               label="갯수 제한이 있습니다."
               className="text-secondary" 
-              checked={limitedOption}
+              checked={islimited}
               onChange={()=>{
-                setLimitedOption(!limitedOption);
+                setIslimited(!islimited);
               }}/>
             </div>
-            <div className="text-right mt-2 mb-2">
+            <div className="text-right mt-3 mb-3">
               <CustomInput
               type="switch"
-              id="typeHoly"
-              name="typeHoly"
+              id="isHaveDayOfWeek"
+              name="isHaveDayOfWeek"
               label="휴무 요일이 있습니다."
               className="text-secondary" 
-              checked={holydayOption}
+              checked={isHaveDayOfWeek}
               onChange={()=>{
-                setholydayOption(!holydayOption);
+                setIsHaveDayOfWeek(!isHaveDayOfWeek);
               }}/>
             </div>
         </Col>
       </Row>
       <Row>
         <Col>
-          {inputList.map((item) => 
+          {options.map((item) => 
             <InputOption
-            key={item.id}
-            id={item.id}
-            limitedOption={limitedOption}
-            holydayOption={holydayOption}
-            onRemove={removeInput}
+            key={item.optionId}
+            optionCategoryId={optionCategoryId}
+            optionId={item.optionId}
+            limitedOption={islimited}
+            holydayOption={isHaveDayOfWeek}
             optionName={item.optionName}
-            optionAMT={item.optionAMT}
-            optionEA={item.optionEA}
-            optionHolydayList={item.optionHolydayList}
-            />
+            opriontPrice={item.opriontPrice}
+            optionTotalCount={item.optionTotalCount}
+            optionDayOfWeek={item.optionDayOfWeek}
+            removeInput={removeInput}/>
           )}
         </Col>
       </Row>
@@ -185,7 +138,7 @@ const Option = React.memo((props) => {
             size="sm"
             color="secondary"
             onClick={()=>{
-              addInput();
+              addInput(optionCategoryId);
             }}
           >
             <span className="btn-inner--icon">
@@ -194,15 +147,21 @@ const Option = React.memo((props) => {
           </Button>
         </Col>
       </Row>
-      <AlertModal
-        ref={alertRef}
-        comment="최소 한개의 옵션이 필요합니다."
-        onSaveClick={()=>{
-          //nothing
-        }}
-      />
     </>
   );
-});
+};
+
+Option.propTypes = {
+  optionCategoryId: PropTypes.string.isRequired,
+  optionCategoryName: PropTypes.string,
+  optionsAllowMultiSelect: PropTypes.bool,
+  optionsLimited: PropTypes.bool,
+  optionsDayOfWeek: PropTypes.bool,
+  options: PropTypes.array,
+  onSetOptionList: PropTypes.func,
+  onRemove: PropTypes.func,
+  removeInput: PropTypes.func,
+  addInput: PropTypes.func,
+}
 
 export default Option;

@@ -14,25 +14,61 @@ export const validateURL = url => {
 /* 공백 제거 */
 export const removeWhitespace = text => {
     const regex = /\s/g;
-    return text.toString().replace(regex, '');
+    try{
+        if(typeof(text) === "string") {
+            return text.toString().replace(regex, '');
+        } else {
+            text = String(text);
+            return text.toString().replace(regex, '');
+        }
+    }catch{
+        return null
+    }
 };
 
 /* 특수문자 제거 */
 export const removeSpc = text => {
     const regex = /[~!@#$%^&*()_+|<>?:{}]/;
-    return text.toString().replace(regex, '');
+    try{
+        if(typeof(text) === "string") {
+            return text.toString().replace(regex, '');
+        } else {
+            text = String(text);
+            return text.toString().replace(regex, '');
+        }
+    }catch{
+        return null
+    }
 };
 
 /* 숫자 이외 제거 */
 export const removeNotNumber = text => {
     const regex = /[^0-9]/;
-    return text.toString().replace(regex, '');
+    try{
+        if(typeof(text) === "string") {
+            return text.toString().replace(regex, '');
+        } else {
+            text = String(text);
+            return text.toString().replace(regex, '');
+        }
+    }catch{
+        return null
+    }
 };
 
 /* 번호양식 이외 제거 */
 export const removeNotPhone = text => {
     const regex = /[^0-9-\s]/;
-    return text.toString().replace(regex, '');
+    try{
+        if(typeof(text) === "string") {
+            return text.toString().replace(regex, '');
+        } else {
+            text = String(text);
+            return text.toString().replace(regex, '');
+        }
+    }catch{
+        return null
+    }
 };
 
 /* 돈 타입 만들기(소수점 허용 안함) */
@@ -148,6 +184,27 @@ export const delNullStrArray = (arr) => {
 }
 
 /*
+객체로 구성된 배열에서
+해당 객체가 소유한 키값과
+동일한 값을 가진 객체의 인덱스를 반환
+ex) ([{key:1},{key:2}], "key", 1) => 0
+*/
+export const getIndexEqualKey = (arr, key, value) => {
+    try {
+        if(!Array.isArray(arr)) {
+            arr = arr.values();
+        }
+        for(const [idx,obj] of arr.entries()) {
+            if(obj[key] === value) return idx
+        }
+        return -1;
+    } catch (error) {
+        console.log("getIndexEqualKey exception\n"+error);
+        return -1;
+    }
+}
+
+/*
 국가 코드
 */
 export const getNationCodeListAll = () => {
@@ -164,16 +221,15 @@ export const getNationCodeListAll = () => {
 */
 export const getOpeningHourCodeListAll = () => {
     const openingHourCodeList = [
-        {text:'30분', code:0.5},
-        {text:'1시간', code:1},
-        {text:'2시간', code:2},
-        {text:'3시간', code:3},
-        {text:'4시간', code:4},
-        {text:'5시간', code:5},
-        {text:'6시간', code:6},
-        {text:'7시간', code:7},
-        {text:'8시간', code:8},
-        {text:'하루종일', code:24},
+        {text:'30분', code:30},
+        {text:'1시간', code:60},
+        {text:'2시간', code:120},
+        {text:'3시간', code:180},
+        {text:'4시간', code:240},
+        {text:'5시간', code:300},
+        {text:'6시간', code:360},
+        {text:'7시간', code:420},
+        {text:'8시간', code:480},
     ];
     return openingHourCodeList;
 }
