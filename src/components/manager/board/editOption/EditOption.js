@@ -56,7 +56,7 @@ const EditOption = React.memo(({
               <Collapse isOpen={editOpen}>
                 <Options
                 optionList={optionList}
-                setOptionList={onSetOptionList}
+                onSetOptionList={onSetOptionList}
                 removeOption={removeOption}
                 addOption={addOption}
                 removeInput={removeInput}

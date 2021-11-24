@@ -14,7 +14,7 @@ import {
 } from "reactstrap";
 import AlertModal from 'components/common/alert/AlertModal';
 import {
-    modifyArray,
+    modifyArrayWithIdx,
     delNullStrArray,
     validateURL,
 } from "utils/common";
@@ -33,7 +33,7 @@ const InputSNSList = ({
     );
 
     const onSetInputSnsList = (idx, sns) => {
-        const newSnsList = delNullStrArray(modifyArray(localSnsList,idx,sns,""));
+        const newSnsList = delNullStrArray(modifyArrayWithIdx(localSnsList,idx,sns,""));
         setLocalSnsList(newSnsList.concat([""]));
         setSnsList(newSnsList);
     }

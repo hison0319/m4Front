@@ -5,7 +5,6 @@
 */
 import React, { useState, useRef }  from 'react';
 import InputOption from './InputOption';
-import AlertModal from 'components/common/alert/AlertModal';
 import {
   Row,
   Col,
@@ -39,6 +38,8 @@ const Option = ({
   const [islimited, setIslimited] = useState(optionsLimited);
   const [isHaveDayOfWeek, setIsHaveDayOfWeek] = useState(optionsDayOfWeek);
 
+  
+
   return (
     <>
       <Row className="my-1">
@@ -69,6 +70,7 @@ const Option = ({
             placeholder="옵션 종류"
             onChange={(e)=>{
               setCategoryName(e.target.value);
+              onSetOptionList(optionCategoryId, "", "categoryName", e.target.value);
             }}/>
           </InputGroup>
         </Col>
@@ -78,37 +80,40 @@ const Option = ({
             <div className="text-right mt-3">
               <CustomInput
               type="switch"
-              id="isAllowMultiSelect"
-              name="isAllowMultiSelect"
+              id={"optionsAllowMultiSelect"+optionCategoryId}
+              name={"optionsAllowMultiSelect"+optionCategoryId}
               label="동시에 여러개를 선택할 수 있습니다."
               className="text-secondary" 
               checked={isAllowMultiSelect}
               onChange={()=>{
                 setIsAllowMultiSelect(!isAllowMultiSelect);
+                onSetOptionList(optionCategoryId, "", "optionsAllowMultiSelect", !isAllowMultiSelect);
               }}/>
             </div>
             <div className="text-right mt-3">
               <CustomInput
               type="switch"
-              id="islimited"
-              name="islimited"
+              id={"optionsLimited"+optionCategoryId}
+              name={"optionsLimited"+optionCategoryId}
               label="갯수 제한이 있습니다."
               className="text-secondary" 
               checked={islimited}
               onChange={()=>{
                 setIslimited(!islimited);
+                onSetOptionList(optionCategoryId, "", "optionsLimited", !islimited);
               }}/>
             </div>
             <div className="text-right mt-3 mb-3">
               <CustomInput
               type="switch"
-              id="isHaveDayOfWeek"
-              name="isHaveDayOfWeek"
+              id={"optionsDayOfWeek"+optionCategoryId}
+              name={"optionsDayOfWeek"+optionCategoryId}
               label="휴무 요일이 있습니다."
               className="text-secondary" 
               checked={isHaveDayOfWeek}
               onChange={()=>{
                 setIsHaveDayOfWeek(!isHaveDayOfWeek);
+                onSetOptionList(optionCategoryId, "", "optionsDayOfWeek", !isHaveDayOfWeek);
               }}/>
             </div>
         </Col>
@@ -120,10 +125,11 @@ const Option = ({
             key={item.optionId}
             optionCategoryId={optionCategoryId}
             optionId={item.optionId}
-            limitedOption={islimited}
-            holydayOption={isHaveDayOfWeek}
+            onSetOptionList={onSetOptionList}
+            islimited={islimited}
+            isHaveDayOfWeek={isHaveDayOfWeek}
             optionName={item.optionName}
-            opriontPrice={item.opriontPrice}
+            optionPrice={item.optionPrice}
             optionTotalCount={item.optionTotalCount}
             optionDayOfWeek={item.optionDayOfWeek}
             removeInput={removeInput}/>

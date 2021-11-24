@@ -140,7 +140,7 @@ export const getValueArray = (objectArr,key) => {
 받은 배열의 해당 인덱스의 요소를 변경함,
 배열 길이보다 더 큰 인덱스 전달 시 중간 공백을 빈값 요소로 채움.
 */
-export const modifyArray = (arr, idx, element, nullValue) => {
+export const modifyArrayWithIdx = (arr, idx, value, nullValue) => {
     try {
         if(!Array.isArray(arr)) {
             arr = arr.values();
@@ -151,10 +151,28 @@ export const modifyArray = (arr, idx, element, nullValue) => {
                 rtnArr.push(nullValue);
             }
         }
-        rtnArr.splice(idx,1,element);
+        rtnArr.splice(idx,1,value);
         return rtnArr;
     } catch (error) {
-        console.log("modifyArray exception\n"+error);
+        console.log("modifyArrayWithIdx exception\n"+error);
+        return [];
+    }
+}
+
+/*
+배열, 키, 변경 요소
+받은 배열의 해당 키의 요소를 값으로 변경함,
+*/
+export const modifyArrayWithKey = (arr, key, value) => {
+    try {
+        if(!Array.isArray(arr)) {
+            arr = arr.values();
+        }
+        const rtnArr = arr.slice();
+        rtnArr[key] = value;
+        return rtnArr;
+    } catch (error) {
+        console.log("modifyArrayWithKey exception\n"+error);
         return [];
     }
 }

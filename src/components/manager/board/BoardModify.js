@@ -99,7 +99,7 @@ const BoardModify = ({
           <hr></hr>
           <EditOption
           optionList={optionList}
-          setOptionList={onSetOptionList}
+          onSetOptionList={onSetOptionList}
           removeOption={removeOption}
           addOption={addOption}
           removeInput={removeInput}

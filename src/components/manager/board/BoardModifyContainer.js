@@ -49,9 +49,6 @@ async function putShopImages(Images, id) {
 }
 
 const BoardModifyContainer = () => {
-  useEffect(() => {
-    // console.log('!!!BoardModifyContainer is rendering!')
-  })
   const {spinner} = useContext(ProgressContext);
   const _id = 1; //temporary
   const [stateGet] = useAsync(() => getShopBoard(_id), [_id], false);
@@ -161,14 +158,14 @@ const BoardModifyContainer = () => {
           {
             optionId:"OO00",
             optionName:"손한이",
-            opriontPrice:10000,
+            optionPrice:10000,
             optionTotalCount:0,
             optionDayOfWeek:['MON','SAT','SUN',],
           },
           {
             optionId:"OO01",
             optionName:"이관호",
-            opriontPrice:5000,
+            optionPrice:5000,
             optionTotalCount:0,
             optionDayOfWeek:['MON'],
           },
@@ -184,14 +181,14 @@ const BoardModifyContainer = () => {
           {
             optionId:"OO10",
             optionName:"가발",
-            opriontPrice:3000,
+            optionPrice:3000,
             optionTotalCount:10,
             optionDayOfWeek:[],
           },
           {
             optionId:"OO11",
             optionName:"안경",
-            opriontPrice:1000,
+            optionPrice:1000,
             optionTotalCount:5,
             optionDayOfWeek:[],
           },
@@ -202,14 +199,18 @@ const BoardModifyContainer = () => {
   // key를 위한 타입 id
   const categoryKey = "CA";
   const categoryNum = useRef(0);
-  // 옵션 수정. 카테고리번호, 옵션번호, 키, 값
-  const onSetOptionList = (categoryIdx, optionIdx, key, value) => {
+  // 옵션 수정.
+  const onSetOptionList = (optionCategoryId, optionId, key, value) => {
     const newOptionList = deepCopyArray(optionList);
-    if(optionIdx !== -1) { // -1이 아닌 경우 옵션 인덱스 선택으로 옵션 수정
+    const categoryIdx = getIndexEqualKey(optionList,"optionCategoryId",optionCategoryId);
+
+    if(optionId) { // 옵션 아이디가 빈값이 아닌 경우 옵션 인덱스 선택으로 옵션 수정
+      const optionIdx = getIndexEqualKey(newOptionList[categoryIdx]["options"],"optionId",optionId);
       newOptionList[categoryIdx]["options"][optionIdx][key] = value;
-    } else { // -1인 경우 옵션 카테고리 인덱스로 옵션 카테고리 수정
+    } else { // 옵션 아이디가 빈값인 경우 옵션 카테고리 인덱스로 옵션 카테고리 수정
       newOptionList[categoryIdx][key] = value;
     }
+    setOptionList(newOptionList);
   };
   // 옵션 삭제.
   const removeOption = (id) => {
@@ -231,7 +232,7 @@ const BoardModifyContainer = () => {
           {
             optionId:id+optionKey+0,
             optionName:"",
-            opriontPrice:0,
+            optionPrice:0,
             optionTotalCount:0,
             optionDayOfWeek:[],
           },
@@ -244,8 +245,6 @@ const BoardModifyContainer = () => {
   const optionNum = useRef(0);
   // 하위 옵션 삭제
   const removeInput = (optionCategoryId, optionId) => {
-    console.log("optionCategoryId",optionCategoryId);
-    console.log("optionId",optionId);
     const categoryIdx = getIndexEqualKey(optionList,"optionCategoryId",optionCategoryId);
     if(optionList[categoryIdx]["options"].length === 1) {
       alertRef.current.showAlert();
@@ -266,7 +265,7 @@ const BoardModifyContainer = () => {
       {
         optionId:id,
         optionName:"",
-        opriontPrice:0,
+        optionPrice:0,
         optionTotalCount:0,
         optionDayOfWeek:[],
       }
@@ -282,6 +281,10 @@ const BoardModifyContainer = () => {
       //nothing
     }}
   />
+
+  useEffect(() => {
+    console.log('##### OptionList',optionList);
+  })
 
   return (
     <>
@@ -312,7 +315,7 @@ const BoardModifyContainer = () => {
       setSunTimeList={setSunTimeList}
 
       optionList={optionList}
-      setOptionList={onSetOptionList}
+      onSetOptionList={onSetOptionList}
       removeOption={removeOption}
       addOption={addOption}
       removeInput={removeInput}

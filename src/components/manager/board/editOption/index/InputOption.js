@@ -19,7 +19,6 @@ import {
   RemoveOptionIcon,
 } from "components/common/icons/Index"
 import { 
-  modifyArray,
   makeMoneyType,
   removeNotNumber,
 } from "utils/common"
@@ -28,40 +27,48 @@ import PropTypes from "prop-types";
 const InputOption = ({
   optionCategoryId,
   optionId,
-  limitedOption,
-  holydayOption,
+  onSetOptionList,
+  islimited,
+  isHaveDayOfWeek,
   optionName,
-  opriontPrice,
+  optionPrice,
   optionTotalCount,
   optionDayOfWeek,
   removeInput,
 }) => {
   const [localOptionName, setLocalOptionName] = useState(optionName);
-  const [localOptionAMT, setLocalOptionAMT] = useState(makeMoneyType(opriontPrice));
-  const [localOptionEA, setLocalOptionEA] = useState(optionTotalCount);
-  const [localOptionHolydayList, setLocalOptionHolydayList] = useState(optionDayOfWeek?optionDayOfWeek:[]);
+  const [localOptionPrice, setLocalOptionPrice] = useState(makeMoneyType(optionPrice));
+  const [localOptionTotalCount, setLocalOptionTotalCount] = useState(optionTotalCount);
+  const [localOptionDayOfWeek, setLocalOptionDayOfWeek] = useState(optionDayOfWeek?optionDayOfWeek:[]);
   
-  const onSetHolydayOption = (idx) => {
-    const newLocalOptionHolydayList = modifyArray(localOptionHolydayList, idx, !localOptionHolydayList[idx], false);
-    setLocalOptionHolydayList(newLocalOptionHolydayList);
+  const onSetLocalOptionDayOfWeek = (key) => {
+    let newLocalOptionDayOfWeek;
+    if(localOptionDayOfWeek.includes(key)) {
+      newLocalOptionDayOfWeek = localOptionDayOfWeek.filter(day => day !== key);
+    } else {
+      newLocalOptionDayOfWeek = localOptionDayOfWeek.concat([key]);
+    }
+    setLocalOptionDayOfWeek(newLocalOptionDayOfWeek);
+    onSetOptionList(optionCategoryId, optionId, "optionDayOfWeek", newLocalOptionDayOfWeek);
   }
-  const DAYS = ["월","화","수","목","금","토","일"];
-  const KEYS = ["MON","TUE","WED","THU","FRI","SAT","SUN"];
-  const holydayList = [];
+  const DAYTEXT = ["월","화","수","목","금","토","일"];
+  const DAYKEY = ["MON","TUE","WED","THU","FRI","SAT","SUN"];
+  const DayOfWeekList = [];
 
-  if(holydayOption) {
-    for(let i=0; i<localOptionHolydayList.length; i++) {
-      holydayList.push(
-        <FormGroup check inline key={KEYS[i]}>
+  if(isHaveDayOfWeek) {
+    for(let i=0; i<DAYKEY.length; i++) {
+      DayOfWeekList.push(
+        <FormGroup check inline key={DAYKEY[i]}>
           <Label check>
             <Input
             type="checkbox"
-            checked={localOptionHolydayList[i]}
+            checked={
+              localOptionDayOfWeek.includes(DAYKEY[i])
+            }
             onChange={()=>{
-              // setMon(!mon);
-              onSetHolydayOption(i);
+              onSetLocalOptionDayOfWeek(DAYKEY[i]);
             }}
-            />{DAYS[i]}
+            />{DAYTEXT[i]}
           </Label>
         </FormGroup>
       );
@@ -98,6 +105,7 @@ const InputOption = ({
             placeholder="옵션 이름"
             onChange={(e) =>{
               setLocalOptionName(e.target.value);
+              onSetOptionList(optionCategoryId, optionId, "optionName", e.target.value);
             }}/>
           </InputGroup>
         </Col>
@@ -111,12 +119,13 @@ const InputOption = ({
             type="text"
             id={optionId+"optionPrice"}
             name={optionId+"optionPrice"}
-            value={localOptionAMT || ''}
+            value={localOptionPrice || ''}
             maxLength={12}
             placeholder="가격" 
             onChange={(e) =>{
               const newValue = makeMoneyType(e.target.value);
-              setLocalOptionAMT(newValue);
+              setLocalOptionPrice(newValue);
+              onSetOptionList(optionCategoryId, optionId, "optionPrice", newValue);
             }}
             />
           </InputGroup>
@@ -125,23 +134,24 @@ const InputOption = ({
           <InputGroup className="my-1">
             <InputGroupAddon addonType="prepend">EA</InputGroupAddon>
             <Input  
-            disabled={!limitedOption}
+            disabled={!islimited}
             className="text-right"
             type="text"
-            id={optionId+"optionEA"}
-            name={optionId+"optionEA"}
-            value={localOptionEA || ''}
+            id={optionId+"optionTotalCount"}
+            name={optionId+"optionTotalCount"}
+            value={localOptionTotalCount || ''}
             maxLength={3}
             placeholder="개수" 
             onChange={(e) =>{
               const newValue = removeNotNumber(e.target.value);
-              setLocalOptionEA(newValue);
+              setLocalOptionTotalCount(newValue);
+              onSetOptionList(optionCategoryId, optionId, "optionTotalCount", newValue);
             }} 
             />
           </InputGroup>
         </Col>
       </Row>
-      {holydayOption &&
+      {isHaveDayOfWeek &&
       <Row className="mt-1">
         <Col>
           <Row>
@@ -151,7 +161,7 @@ const InputOption = ({
           </Row>
           <Row className="mb-4">
             <Col className="text-right">
-              {holydayList}
+              {DayOfWeekList}
             </Col>
           </Row>
         </Col>
@@ -163,10 +173,11 @@ const InputOption = ({
 InputOption.propTypes = {
   optionCategoryId: PropTypes.string.isRequired,
   optionId: PropTypes.string.isRequired,
-  limitedOption: PropTypes.bool,
-  holydayOption: PropTypes.bool,
+  onSetOptionList: PropTypes.func,
+  islimited: PropTypes.bool,
+  isHaveDayOfWeek: PropTypes.bool,
   optionName: PropTypes.string,
-  opriontPrice: PropTypes.number,
+  optionPrice: PropTypes.number,
   optionTotalCount: PropTypes.number,
   optionDayOfWeek: PropTypes.array,
   removeInput: PropTypes.func,
