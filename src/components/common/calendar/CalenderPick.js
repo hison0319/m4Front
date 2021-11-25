@@ -41,12 +41,12 @@ function CalenderPick(props) {
                       onPickCal(localDate,e.format('YYYY-MM-DD'));
                     }
                   }}
-                  readOnly={true}
-                  onKeyDown={(e) => {e.preventDefault()}}
-                  // InputProps={{
-                  //   readOnly: true,
-                  //   onKeyDown: (e) => { e.preventDefault() }
-                  // }}
+                  // readOnly={true}
+                  // onKeyDown={(e) => {e.preventDefault()}}
+                  InputProps={{
+                    readOnly: true,
+                    onKeyDown: (e) => { e.preventDefault() }
+                  }}
               />
             </InputGroup>
           </FormGroup>
