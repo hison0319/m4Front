@@ -41,7 +41,10 @@ function CalenderPick(props) {
                       onPickCal(localDate,e.format('YYYY-MM-DD'));
                     }
                   }}
-                  InputProps={{readOnly: true}}
+                  InputProps={{
+                    readOnly: true,
+                    onKeyDown: (e) => { e.preventDefault() }
+                  }}
               />
             </InputGroup>
           </FormGroup>
