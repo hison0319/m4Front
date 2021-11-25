@@ -1,4 +1,4 @@
-import React, {  } from "react";
+import React, { useEffect } from "react";
 import ReactDatetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
 
@@ -10,7 +10,12 @@ import {
 } from "reactstrap";
 
 function CalenderPick(props) {
-
+  useEffect(() => {
+    const dateTimeInput = document.getElementById("calenderPick2").getElementsByClassName("form-control")[0]
+    dateTimeInput.readOnly = true;
+    dateTimeInput.style.backgroundColor = "#fff";
+  })
+  
   const onPickCal = props.onPickCal;
   let localDate = props.date;
 
@@ -27,7 +32,8 @@ function CalenderPick(props) {
         >
           <FormGroup>
             <InputGroup
-            className="mx-2">
+            className="mx-2"
+            id="calenderPick2">
               <InputGroupAddon addonType="prepend">
                 <InputGroupText></InputGroupText>
               </InputGroupAddon>

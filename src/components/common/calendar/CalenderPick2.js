@@ -12,7 +12,9 @@ import {
 
 const CalenderPick2 = (props) => {
   useEffect(() => {
-    // console.log('CalenderPick2 is rendering!')
+    const dateTimeInput = document.getElementById("calenderPick2").getElementsByClassName("form-control")[0]
+    dateTimeInput.readOnly = true;
+    dateTimeInput.style.backgroundColor = "#fff";
   })
   const {localDate, onPreCal, onPickCal, onNextCal} = props;
 
@@ -38,7 +40,8 @@ const CalenderPick2 = (props) => {
             <PaginationItem>
               <FormGroup>
                 <InputGroup
-                className="mx-2">
+                className="mx-2"
+                id="calenderPick2">
                   <ReactDatetime
                     value={localDate}
                     dateFormat="YYYY-MM-DD"
@@ -48,12 +51,6 @@ const CalenderPick2 = (props) => {
                       if(typeof(e) === 'object' && Object.keys(e)[0] === '_isAMomentObject') {
                         onPickCal(e);
                       }
-                    }}
-                    // readOnly={true}
-                    // onKeyDown={(e) => {e.preventDefault()}}
-                    InputProps={{
-                      readOnly: true,
-                      onKeyDown: (e) => { e.preventDefault() }
                     }}
                   />
                 </InputGroup>
