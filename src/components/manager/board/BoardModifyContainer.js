@@ -1,7 +1,7 @@
 /*
 작성자 : 손한이
 작성일 : 2021.11.13
-내용 :  shop manager의 수정(기능)
+내용 :  shop manager의 board 수정 (기능)
        API -  - get, put
 */
 import React, { useState, useEffect, useContext, useRef } from 'react';
@@ -11,7 +11,6 @@ import ImgBox from 'components/common/imagebox/ImgBox';
 import { 
   useTextInput,
   useNumberInput,
-  useCheckInput
 } from 'hooks';
 import axios from 'axios';
 import useAsync from "utils/useAsync";
@@ -70,14 +69,16 @@ const BoardModifyContainer = () => {
   });
   const openingHourCodeList = getOpeningHourCodeListAll();
 
-  // board shop date text input
+  // #####################
+  // shop introduce text input
   const [{ 
     varContext
   }, onChangeText] = useTextInput({
     varContext: board?board.context:"",
   });
 
-  // board shop image input
+  // #####################
+  // shop image input
   const [imgFileList, setImgFileList] = useState(board?board.imgFileList:[]);
   const [imageItemList, setImageItemList] = useState(board?board.imageItemList:[]);
 
@@ -100,6 +101,7 @@ const BoardModifyContainer = () => {
   }
   const imagePreview = <ImgBox items={imageItemList}/>
   
+  // #####################
   // shop oppening hour
   const week = ["MON/","TUE/","WED/","THU/","FRI/","SAT/","SUN/"];
   const [monTimeList, setMonTimeList] = useState([
@@ -144,6 +146,8 @@ const BoardModifyContainer = () => {
   const [satTimeList, setSatTimeList] = useState([]);
   const [sunTimeList, setSunTimeList] = useState([]);
 
+  // #####################
+  // shop option
   //건의 사항 : 갯수가 유효한 옵션인지, 휴무가 있는 옵션인지에 대한 컬럼 생성.
   const [optionList, setOptionList] = useState(
     board?board.optionList:
@@ -246,6 +250,7 @@ const BoardModifyContainer = () => {
   // 하위 옵션 삭제
   const removeInput = (optionCategoryId, optionId) => {
     const categoryIdx = getIndexEqualKey(optionList,"optionCategoryId",optionCategoryId);
+    // 옵션은 최소 1개 있어야함
     if(optionList[categoryIdx]["options"].length === 1) {
       alertRef.current.showAlert();
       return false;
@@ -272,7 +277,7 @@ const BoardModifyContainer = () => {
     );
     setOptionList(newOptionList);
   }
-  // 옵션은 최소 1개 있어야함
+  // 옵션 알람
   const alertRef = useRef();
   const optionAlert = <AlertModal
     ref={alertRef}

@@ -49,6 +49,7 @@ const CalenderPick2 = (props) => {
                         onPickCal(e);
                       }
                     }}
+                    InputProps={{readOnly: true}}
                   />
                 </InputGroup>
               </FormGroup>

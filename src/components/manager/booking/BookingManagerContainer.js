@@ -1,6 +1,11 @@
+/*
+작성자 : 손한이
+작성일 : 2021.11.13
+내용 :  shop manager의 예약 확인 (기능)
+       API -  - get
+*/
 import React, { useState, useEffect } from 'react'
 import BookingManager from './BookingManager';
-
 import { useSelector, useDispatch } from "react-redux";
 import {
     setCalpick2Date,
@@ -39,23 +44,23 @@ const BookingManagerContainer = React.memo(() => {
     // Redux Axios bookings info
     const _bookings = [
         {
-            date : 20210830,
+            date : 20211103,
             num : 5
         },
         {
-            date : 20210905,
+            date : 20211105,
             num : 3
         },
         {
-            date : 20210914,
+            date : 20211114,
             num : 8
         },
         {
-            date : 20210925,
+            date : 20211125,
             num : 6
         },
         {
-            date : 20211001,
+            date : 20211201,
             num : 3
         },
     ];
