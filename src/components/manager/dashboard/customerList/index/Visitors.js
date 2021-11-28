@@ -1,3 +1,9 @@
+/*
+작성자 : 손한이
+작성일 : 2021.11.28
+내용 : shop manager의 Dashboard - 방문 고객, 매너 등급 지정 (기능, 뷰)
+      API - put
+*/
 import React, { useState } from 'react';
 import { 
   Button,
@@ -6,20 +12,39 @@ import {
   Label,
   Input,
 } from 'reactstrap';
-
 import {
   BasicUserIcon,
   WhiteUserIcon,
   BlackUserIcon
 } from "components/common/icons/Index"
+import { getDotStrMax } from "utils/common"
+import PropTypes from "prop-types";
 
-function Visitors() {
-  const [toggleWhite, setToggleWhite] = useState(false);
-  const [toggleBlack, setToggleBlack] = useState(false);
+const Visitors = ({
+  id,
+  userId,
+  name,
+  visitDate,
+  type,
+  onSetVisitorList,
+}) => {
+  const [toggleWhite, setToggleWhite] = useState(type==="W"?true:false);
+  const [toggleBlack, setToggleBlack] = useState(type==="B"?true:false);
 
   const _BasicUserIcon = <BasicUserIcon/>;
   const _WhiteUserIcon = <WhiteUserIcon/>;
   const _BlackUserIcon = <BlackUserIcon/>;
+
+  const [mannerType, setMannerType] = useState(type);
+
+  let btnIcon;
+  if(type === "W") {
+    btnIcon = <WhiteUserIcon/>;
+  } else if(type === "B") {
+    btnIcon = <BlackUserIcon/>;
+  } else {
+    btnIcon = <BasicUserIcon/>;
+  }
 
   const [addToggle, setAddToggle] = useState(false);
   // var mode = ""; //W or B
@@ -27,6 +52,9 @@ function Visitors() {
     // alert(mode);
     setAddToggle(!_addToggle);
   };
+  const onSave = () => {
+    onSetVisitorList(id, "type", mannerType)
+  }
   return (
     <>
       <tr>
@@ -35,45 +63,28 @@ function Visitors() {
           <Button
             className="btn-1"
             color="neutral"
-            href="/profile"
+            href={"/profile?userId="+userId}
           >
             <small>
-              손한이
+              {getDotStrMax(name,5)}
             </small>
           </Button>
         </td>
         <td className="text-center py-3">
           <small>
-            2021-07-01
+            {visitDate}
           </small>
         </td>
         <td className="text-center pt-2">
           <Button
-            className="btn-icon-only rounded-circle mx-0 my-0 px-0 py-0"
-            color="neutral"
-            onClick={()=>{
-              setToggleWhite(!toggleWhite);
-              // mode = "W";
-              toggleModal(addToggle);
-            }}
+          className="btn-icon-only rounded-circle"
+          color="neutral"
+          onClick={()=>{
+            toggleModal(addToggle);
+          }}
           >
             <span className="btn-inner--icon">
-            {toggleWhite?_WhiteUserIcon:_BasicUserIcon}
-            </span>
-          </Button>
-        </td>
-        <td className="text-center pt-2">
-        <Button
-            className="btn-icon-only rounded-circle mx-0 my-0 px-0 py-0"
-            color="neutral"
-            onClick={()=>{
-              setToggleBlack(!toggleBlack);
-              // mode = "B";
-              toggleModal(addToggle);
-            }}
-          >
-            <span className="btn-inner--icon">
-              {toggleBlack?_BlackUserIcon:_BasicUserIcon}
+              {btnIcon}
             </span>
           </Button>
           <Modal
@@ -83,7 +94,7 @@ function Visitors() {
           >
             <div className="modal-header">
               <h6 className="modal-title" id="modal-title-default">
-                Hani
+                {name}
               </h6>
               <button
                 aria-label="Close"
@@ -96,8 +107,22 @@ function Visitors() {
               </button>
             </div>
             <FormGroup
-            className="px-2">
-              <Label for="exampleText">comment</Label>
+            className="px-3 pt-3">
+              <Label for="exampleText">매너 기록(본 내용은 고객에게 보이지 않습니다.)</Label>
+              <Input
+              bsSize="sm"
+              type="select"
+              name="mannerType"
+              id="mannerType"
+              value={mannerType}
+              onChange={(e)=>{
+                console.dir(e.target.value)
+                setMannerType(e.target.value);
+              }}>
+                  <option value="W">화이트</option>
+                  <option value="B">블랙</option>
+                  <option value="N">일반</option>
+              </Input>
               <Input
               type="textarea"
               name="text"
@@ -107,8 +132,11 @@ function Visitors() {
               <Button
               color="primary"
               type="button"
-              onClick={() => toggleModal(addToggle)}>
-                Save
+              onClick={() => {
+              onSave()
+              toggleModal(addToggle)
+              }}>
+                저장
               </Button>
               <Button
                 className="ml-auto"
@@ -117,7 +145,7 @@ function Visitors() {
                 type="button"
                 onClick={() => toggleModal(addToggle)}
               >
-                Close
+                닫기
               </Button>
             </div>
           </Modal>
@@ -125,6 +153,15 @@ function Visitors() {
       </tr>
     </>
   );
+}
+
+Visitors.VisitorList = {
+  id: PropTypes.string,
+  userId: PropTypes.string,
+  name: PropTypes.string,
+  visitDate: PropTypes.string,
+  type: PropTypes.string,
+  onSetVisitorList: PropTypes.func,
 }
 
 export default Visitors;

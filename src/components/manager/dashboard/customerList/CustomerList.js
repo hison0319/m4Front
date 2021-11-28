@@ -1,6 +1,10 @@
+/*
+작성자 : 손한이
+작성일 : 2021.11.28
+내용 : shop manager의 Dashboard - 고객 명단 (기능, 뷰)
+*/
 import React, { useState, useEffect } from "react";
 import classnames from "classnames";
-
 import {
   Card,
   CardBody,
@@ -12,7 +16,6 @@ import {
   Row,
   Col
 } from "reactstrap";
-
 import VisitorListContainer from "./index/VisitorListContainer"
 import WhiteListContainer from "./index/WhiteListContainer"
 import BlackListContainer from "./index/BlackListContainer"
@@ -27,10 +30,11 @@ const CustomerList = React.memo(() => {
     e.preventDefault();
     setPlainTabs(index);
   };
+
   return (
     <>
       <Row className="justify-content-center">
-        <Col className="mt-5 mt-lg-0" lg="6">
+        <Col className="mt-5">
           {/* Menu */}
           <div className="nav-wrapper">
             <Nav
@@ -42,7 +46,7 @@ const CustomerList = React.memo(() => {
               <NavItem>
                 <NavLink
                   aria-selected={plainTabs === 1}
-                  className={classnames("mb-sm-3 mb-md-0", {
+                  className={classnames("mb-sm-2 mb-md-0", {
                     active: plainTabs === 1
                   })}
                   onClick={e => toggleNavs(e, 1)}
@@ -55,7 +59,7 @@ const CustomerList = React.memo(() => {
               <NavItem>
                 <NavLink
                   aria-selected={plainTabs === 2}
-                  className={classnames("mb-sm-3 mb-md-0", {
+                  className={classnames("mb-sm-2 mb-md-0", {
                     active: plainTabs === 2
                   })}
                   onClick={e => toggleNavs(e, 2)}
@@ -68,7 +72,7 @@ const CustomerList = React.memo(() => {
               <NavItem>
                 <NavLink
                   aria-selected={plainTabs === 3}
-                  className={classnames("mb-sm-3 mb-md-0", {
+                  className={classnames("mb-sm-2 mb-md-0", {
                     active: plainTabs === 3
                   })}
                   onClick={e => toggleNavs(e, 3)}

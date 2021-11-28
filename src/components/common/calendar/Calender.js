@@ -29,8 +29,8 @@ const Calender = React.memo((props) => {
   const nextYear     = month===12?date.clone().add(1,'years').year():year;
   const preMonth     = date.clone().subtract(1,'months').month()+1;
   const nextMonth    = date.clone().add(1,'months').month()+1;
-  const firstDayWeek = moment(year+monthStr+'01','YYYYMMDD').day();
-  const lastDayWeek  = moment(year+monthStr+days,'YYYYMMDD').day();
+  const firstDayWeek = moment(year+monthStr+'01','YYYY-MM-DD').day();
+  const lastDayWeek  = moment(year+monthStr+days,'YYYY-MM-DD').day();
   
   const preMonthStr  = String(preMonth).length<2?"0"+String(preMonth):String(preMonth);
   const nextMonthStr = String(nextMonth).length<2?"0"+String(nextMonth):String(nextMonth);
@@ -101,7 +101,7 @@ const Calender = React.memo((props) => {
     }, false);
   },[])
 
-  //console.log('date',date);
+  // console.log('date',date);
   // console.log('dateform',dateform);
   // console.log('year',year);
   // console.log('month',month);
@@ -127,7 +127,7 @@ const Calender = React.memo((props) => {
   let dayTemp = preMonthDays - (i-1);
   for(i; i>0; i--) {
     dayStrTemp = String(dayTemp);
-    idTemp = preYear + preMonthStr + dayStrTemp;
+    idTemp = preYear + "-" + preMonthStr + "-" + dayStrTemp;
     for(let j=0; j<bookingsInfo.length; j++) {
       if(idTemp === String(bookingsInfo[j].date)) {
         bookingsTemp = bookingsInfo[j].num;
@@ -144,7 +144,7 @@ const Calender = React.memo((props) => {
   for(i; i>0; i--) {
     dayStrTemp = String(dayTemp);
     dayStrTemp = dayStrTemp.length<2?"0"+dayStrTemp:dayStrTemp;
-    idTemp = year + monthStr + dayStrTemp;
+    idTemp = year + "-" + monthStr + "-" + dayStrTemp;
     for(let j=0; j<bookingsInfo.length; j++) {
       if(idTemp === String(bookingsInfo[j].date)) {
         bookingsTemp = bookingsInfo[j].num;
@@ -163,7 +163,7 @@ const Calender = React.memo((props) => {
   for(i; i<6; i++) {
     dayStrTemp = String(dayTemp);
     dayStrTemp = dayStrTemp.length<2?"0"+dayStrTemp:dayStrTemp;
-    idTemp = nextYear + nextMonthStr + dayStrTemp;
+    idTemp = nextYear + "-" + nextMonthStr + "-" + dayStrTemp;
     for(let j=0; j<bookingsInfo.length; j++) {
       if(idTemp === String(bookingsInfo[j].date)) {
         bookingsTemp = bookingsInfo[j].num;

@@ -161,15 +161,15 @@ export const modifyArrayWithIdx = (arr, idx, value, nullValue) => {
 
 /*
 배열, 키, 변경 요소
-받은 배열의 해당 키의 요소를 값으로 변경함,
+받은 배열의 해당 인덱스의 해당 키의 요소를 값으로 변경함,
 */
-export const modifyArrayWithKey = (arr, key, value) => {
+export const modifyArrayWithKey = (arr, idx, key, value) => {
     try {
         if(!Array.isArray(arr)) {
             arr = arr.values();
         }
         const rtnArr = arr.slice();
-        rtnArr[key] = value;
+        rtnArr[idx][key] = value;
         return rtnArr;
     } catch (error) {
         console.log("modifyArrayWithKey exception\n"+error);
@@ -251,3 +251,25 @@ export const getOpeningHourCodeListAll = () => {
     ];
     return openingHourCodeList;
 }
+
+/*
+문자열 특정 길이가 넘어가면 ...으로 표현
+*/
+export const getDotStrMax = (str, maxlength) => {
+    try {
+        let rtn = "";
+        if(typeof(str) === 'string') {
+            rtn = str;
+        } else {
+            rtn = String(str)
+        }
+        if(rtn.length > maxlength) {
+            rtn = rtn.substring(0,maxlength);
+            rtn = rtn + "...";
+        }
+        return rtn;
+    } catch (error) {
+        console.log("getDotStrMax exception\n"+error);
+        return "";
+    }
+};

@@ -1,28 +1,31 @@
+/*
+작성자 : 손한이
+작성일 : 2021.11.13
+내용 :  shop manager의 예약 확인 (뷰)
+*/
 import React, { useEffect } from "react";
 import {
   Container,
   Row,
   Col
 } from "reactstrap";
-
 import CalenderPick2 from "components/common/calendar/CalenderPick2"
 import Calender from "components/common/calendar/Calender"
 import TimeTable from "./index/TimeTable"
+import PropTypes from "prop-types";
 
-const BookingManager = (props) => {
+const BookingManager = ({
+  localDate,
+  onPreCal,
+  onPickCal,
+  onNextCal,
+  calendarInfo,
+  bookingsInfo,
+  dayBookings,
+}) => {
   useEffect(() => {
     // console.log('BookingManager is rendering!')
   })
-
-  // For CalenderPick2
-  const localDate = props.localDate;
-  const onPreCal  = props.onPreCal;
-  const onPickCal = props.onPickCal;
-  const onNextCal = props.onNextCal;
-
-  // For Calender
-  const calendarInfo = props.calendarInfo;
-  const bookingsInfo = props.bookingsInfo;
 
   return (
     <>
@@ -55,7 +58,8 @@ const BookingManager = (props) => {
             <Row>
               <Col>
                 <div className="mb-3">
-                  <TimeTable/>
+                  <TimeTable
+                  dayBookings={dayBookings}/>
                 </div>
               </Col>
             </Row>
@@ -65,5 +69,15 @@ const BookingManager = (props) => {
     </>
   );
 };
+
+BookingManager.propTypes = {
+  localDate: PropTypes.object,
+  onPreCal: PropTypes.func,
+  onPickCal: PropTypes.func,
+  onNextCal: PropTypes.func,
+  calendarInfo: PropTypes.object,
+  bookingsInfo: PropTypes.array,
+  dayBookings: PropTypes.array,
+}
 
 export default BookingManager;

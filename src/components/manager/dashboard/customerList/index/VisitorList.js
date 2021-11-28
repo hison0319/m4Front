@@ -1,40 +1,51 @@
+/*
+작성자 : 손한이
+작성일 : 2021.11.28
+내용 : shop manager의 Dashboard - 방문 고객 명단 (뷰)
+*/
 import React, { useEffect } from 'react';
 import { 
   Table,
 } from 'reactstrap';
-
 import PaginationFive from 'components/common/pagination/PaginationFive';
 import Visitors from './Visitors';
+import PropTypes from "prop-types";
 
-function VisitorList(props) {
+const VisitorList = ({
+  curPage,
+  pickPage,
+  prePage,
+  nextPage,
+  preShiftPage,
+  nextShiftPage,
+  visitorList,
+  onSetVisitorList
+}) => {
   useEffect(() => {
     // console.log('VisitorList is rendering!')
   })
-
-  const curPage = props.curPage;
-  const pickPage = props.pickPage;
-  const prePage = props.prePage;
-  const nextPage = props.nextPage;
-  const preShiftPage = props.preShiftPage;
-  const nextShiftPage = props.nextShiftPage;
 
   return (
     <Table size="sm" style={{fontSize:"0.8em"}}>
       <thead>
         <tr className="text-center">
-          {/* <th>#</th> */}
           <th>이름</th>
           <th>방문일</th>
-          <th>화이트</th>
-          <th>블랙</th>
+          <th>매너등급</th>
         </tr>
       </thead>
       <tbody>
-        <Visitors/>
-        <Visitors/>
-        <Visitors/>
-        <Visitors/>
-        <Visitors/>
+        {visitorList && visitorList.length > 0 &&
+        visitorList.map((item)=>
+        <Visitors
+        key={item.id}
+        id={item.id}
+        userId={item.userId}
+        name={item.name}
+        visitDate={item.visitDate}
+        type={item.type}
+        onSetVisitorList={onSetVisitorList}
+        />)}
       </tbody>
       <tfoot>
         <tr>
@@ -54,6 +65,17 @@ function VisitorList(props) {
       </tfoot>
     </Table>
   );
+}
+
+VisitorList.VisitorList = {
+  curPage: PropTypes.number,
+  pickPage: PropTypes.func,
+  prePage: PropTypes.func,
+  nextPage: PropTypes.func,
+  preShiftPage: PropTypes.func,
+  nextShiftPage: PropTypes.func,
+  visitorList: PropTypes.array,
+  onSetVisitorList: PropTypes.func,
 }
 
 export default VisitorList;

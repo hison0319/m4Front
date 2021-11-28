@@ -12,7 +12,7 @@ export const setCalDate = date => ({
 //State initial
 const initialState = {
     date         : moment(),
-    dateform     : moment().format('YYYYMMDD'),
+    dateform     : moment().format('YYYY-MM-DD'),
     year         : moment().year(),
     month        : moment().month() + 1,
     day          : moment().date(),
@@ -27,7 +27,7 @@ export default function calendarForManager (state = initialState, action) {
             return {
                 ...state,
                 date: action.date,
-                dateform: action.date.format('YYYYMMDD'),
+                dateform: action.date.format('YYYY-MM-DD'),
                 year: action.date.year(),
                 month: action.date.month() + 1,
                 day: action.date.date(),

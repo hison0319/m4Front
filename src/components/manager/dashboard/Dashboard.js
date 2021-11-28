@@ -1,3 +1,8 @@
+/*
+작성자 : 손한이
+작성일 : 2021.11.28
+내용 :  shop manager의 Dashboard (뷰)
+*/
 import React, { useEffect } from "react";
 import {
   Row,
@@ -14,9 +19,9 @@ const Dashboard = React.memo(() => {
 
   return (
     <>
-      <Row className="my-2 mx-2">
+      <Row className="my-2">
         <Col>
-          <Row className="my-1">
+          <Row className="mx-1 my-1">
             <Col>
               <ChartsContainer/>
             </Col>

@@ -1,3 +1,8 @@
+/*
+작성자 : 손한이
+작성일 : 2021.11.13
+내용 :  shop manager의 예약 상세 내역 (뷰)
+*/
 import React, { useState } from 'react';
 import {
   Row,
@@ -6,36 +11,62 @@ import {
   CardBody,
   Button,
   } from 'reactstrap';
+import { makeMoneyType } from "utils/common"
+import PropTypes from "prop-types";
 
-function Booking() {
+const Booking = ({
+  startDateTime,
+  endDateTime,
+  memberId,
+  price,
+  reservationOption,
+}) => {
 
   const [readToggle, setReadToggle] = useState(false);
 
+  // console.log(reservationOption);
+  
   return (
     <>
       <Row>
+        <Col xs="3" className="pt-4">
+          <small>{startDateTime<10?"0"+startDateTime:startDateTime}~{endDateTime<10?"0"+endDateTime:endDateTime}</small>
+        </Col>
+        <Col xs="9">
+          <Button
+            className=""
+            color="neutral"
+            data-dismiss="modal"
+            type="button"
+            onClick={()=>{}}>
+            <small style={{verticalAlign:"top"}}>
+                &nbsp;&nbsp;{memberId}&nbsp;님
+            </small>
+          </Button>
+        </Col>
+      </Row>
+      <Row>
         <Col xs="3">
-          <small>08~09</small>
         </Col>
         <Col xs="9">
           <Card className="shadow">
-            <CardBody className="px-1 py-1">
-              <Button
-              color="link default-link">
-                  <article
-                  className="text-secondary text-justify txt_review"
-                  style={{ fontSize: '0.9rem', whiteSpace: 'pre-line' }}
-                  onClick={function(e) {
-                      setReadToggle(!readToggle);
-                      if(readToggle) {
-                          e.target.classList.add('txt_review');
-                      } else {
-                          e.target.classList.remove('txt_review');
-                      }
-                  }}>
-                  내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다. 
-                  </article>
-              </Button>
+            <CardBody className="px-3 py-3">
+              <article
+              className="text-secondary text-justify"
+              style={{ fontSize: '0.9rem', whiteSpace: 'pre-line' }}
+              >
+              price : {makeMoneyType(price)}
+              {reservationOption && reservationOption.length > 0 &&
+              reservationOption.map((item) => 
+              <div className="pt-1">
+              [ {item.optionsCategory.name} ]
+                {item.optionsCategory.option.map((option)=>
+                  <div>
+                  {option.name}&nbsp;&nbsp;{option.count && option.count>1 && option.count+"개"}
+                  </div>
+                )}
+              </div>)}
+              </article>
             </CardBody>
           </Card>
         </Col>
@@ -43,7 +74,14 @@ function Booking() {
       <hr></hr>
     </>
   );
+}
 
+Booking.propTypes = {
+  startDateTime: PropTypes.number,
+  endDateTime: PropTypes.number,
+  memberId: PropTypes.string,
+  price: PropTypes.number,
+  reservationOption: PropTypes.array,
 }
 
 export default Booking;

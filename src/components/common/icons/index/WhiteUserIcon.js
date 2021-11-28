@@ -3,7 +3,7 @@ import { FaRegGrinSquint } from 'react-icons/fa';
 
 function WhiteUserIcon() {
     const _style = {
-        fontSize: "1.5em",
+        fontSize: "1.4em",
         lineHeight: "1"
     }
 

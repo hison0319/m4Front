@@ -1,3 +1,8 @@
+/*
+작성자 : 손한이
+작성일 : 2021.11.28
+내용 : shop manager의 Dashboard - 블랙 고객 명단 (기능)
+*/
 import React, { useState, useEffect } from 'react'
 import BlackList from './BlackList';
 
