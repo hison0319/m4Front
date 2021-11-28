@@ -24,6 +24,8 @@ import {
   removeNotPhone,
 } from "utils/common";
 import PropTypes from "prop-types";
+import ReactDatetime from "react-datetime";
+import "react-datetime/css/react-datetime.css";
 
 const ModifyProfile = ({
   varName,
@@ -39,6 +41,7 @@ const ModifyProfile = ({
   nationCodeListAll,
   snsList,
   setSnsList,
+  setVarBirth,
 
   // varNamePublic,
   // varZipcodePublic,
@@ -64,7 +67,7 @@ const ModifyProfile = ({
     <>
       <Row className="px-2">
         <Col>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
@@ -98,7 +101,7 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
@@ -127,7 +130,7 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
@@ -153,7 +156,7 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
@@ -242,17 +245,22 @@ const ModifyProfile = ({
                     생년월일
                   </InputGroupText>
                 </InputGroupAddon>
-                <Input
-                  type="date"
-                  name="varBirth"
-                  id="varBirth"
-                  value={varBirth}
-                  onChange={onChangeText}
-                />
+                  <ReactDatetime
+                    className="width_70"
+                    value={varBirth}
+                    dateFormat="YYYY-MM-DD"
+                    timeFormat={false}
+                    closeOnSelect={true}
+                    onChange={(e)=>{
+                      if(typeof(e) === 'object' && Object.keys(e)[0] === '_isAMomentObject') {
+                        setVarBirth(e);
+                      }
+                    }}
+                  />
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
@@ -281,9 +289,9 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col>
-              <div className="text-center btn-wrapper my-2">
+              <div className="text-center btn-wrapper my-3">
                   <Button
                   className="width_90"
                   color="success"
@@ -320,6 +328,7 @@ ModifyProfile.propTypes = {
 
   snsList: PropTypes.array,
   setSnsList: PropTypes.func,
+  setVarBirth: PropTypes.func,
   
   varNationCode: PropTypes.number,
   onChangeNumber: PropTypes.func,

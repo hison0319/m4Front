@@ -42,7 +42,7 @@ const InputSNSList = ({
         <>
             {localSnsList.map((sns, idx) =>
                 <Row
-                className="my-2"
+                className="my-3"
                 key={"sns"+idx}>
                     <Col xs="12" >
                         <InputGroup>

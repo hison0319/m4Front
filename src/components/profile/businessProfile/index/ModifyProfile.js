@@ -69,7 +69,7 @@ const ModifyProfile = ({
     <>
       <Row className="px-2">
         <Col>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
@@ -103,7 +103,7 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
@@ -132,7 +132,7 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
@@ -158,7 +158,7 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
@@ -184,7 +184,7 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
@@ -305,7 +305,7 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
@@ -335,9 +335,9 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col>
-              <div className="text-center btn-wrapper my-2">
+              <div className="text-center btn-wrapper my-3">
                   <Button
                   className="width_90"
                   color="success"

@@ -54,7 +54,6 @@ const ModifyProfileContainer = ({
     varCity,
     varStreet,
     varContactNumber,
-    varBirth,
     varIntroduce,
    }, onChangeText] = useTextInput({
     varName: name,
@@ -62,9 +61,11 @@ const ModifyProfileContainer = ({
     varCity: city,
     varStreet: street,
     varContactNumber: contactNumber,
-    varBirth: birth,
     varIntroduce: introduce,
   });
+
+  // user birt
+  const [varBirth, setVarBirth] = useState(birth);
 
   // 국가코드는 number type으로 별도 관리
   const [{ varNationCode }, onChangeNumber] = useNumberInput({
@@ -188,6 +189,7 @@ const ModifyProfileContainer = ({
       nationCodeListAll={nationCodeListAll}
       snsList={varSnsList}
       setSnsList={setVarSnsList}
+      setVarBirth={setVarBirth}
 
       // varNamePublic={varNamePublic}
       // varZipcodePublic={varZipcodePublic}
