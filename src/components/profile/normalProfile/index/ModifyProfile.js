@@ -3,7 +3,7 @@
 작성일 : 2021.10.31
 내용 :  일반 계정의 프로필 수정모드(화면)
 */
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Row,
   Col,
@@ -63,6 +63,13 @@ const ModifyProfile = ({
 
   refetch,
 }) => {
+  // 모바일에서 react-datetime input 클릭시 키보드 안뜨게함.
+  useEffect(() => {
+    const dateTimeInput = document.getElementById("birthReactDatetime").getElementsByClassName("form-control")[0]
+    dateTimeInput.readOnly = true;
+    dateTimeInput.style.backgroundColor = "#fff";
+  })
+
   return (
     <>
       <Row className="px-2">
@@ -232,7 +239,8 @@ const ModifyProfile = ({
           </Row>
           <Row className="mb-2">
             <Col xs="12" >
-            <InputGroup>
+            <InputGroup
+            id="birthReactDatetime">
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText>
                     {/* <CustomInput
