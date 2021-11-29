@@ -57,11 +57,13 @@ const Booking = ({
               >
               price : {makeMoneyType(price)}
               {reservationOption && reservationOption.length > 0 &&
-              reservationOption.map((item) => 
-              <div className="pt-1">
+              reservationOption.map((item, idxC) => 
+              <div className="pt-1"
+              key={"CA"+idxC}>
               [ {item.optionsCategory.name} ]
-                {item.optionsCategory.option.map((option)=>
-                  <div>
+                {item.optionsCategory.option.map((option,idxO)=>
+                  <div
+                  key={"CA"+idxO}>
                   {option.name}&nbsp;&nbsp;{option.count && option.count>1 && option.count+"개"}
                   </div>
                 )}
