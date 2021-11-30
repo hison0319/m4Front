@@ -122,8 +122,6 @@ const Calender = React.memo((props) => {
   let bookingsTemp = 0;
   let dayTypeTemp = 0;
 
-  console.log('Calender bookingsInfo : ',bookingsInfo);
-
   // 전 월 출력
   let i = firstDayWeek===0?7:firstDayWeek;
   let dayTemp = preMonthDays - (i-1);

@@ -71,8 +71,7 @@ const BookingManagerContainer = () => {
     },[loading, error, spinner]);
 
     // Redux Axios bookings info
-    console.log('BookingManagerContainer, bookings :',bookings);
-    const monthBookings = bookings?bookings.monthBookings:[
+    const monthBookings = [
         {
             date : "2021-11-03",
             num : 5
