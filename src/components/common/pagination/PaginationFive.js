@@ -1,49 +1,51 @@
+/*
+작성자 : 손한이
+작성일 : 2021.11.30
+내용 : common - page nation - 5 page 조회 (기능, 뷰)
+*/
 import React, { useEffect } from 'react';
 import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
-function PaginationFive(props) {
+const PaginationFive = ({
+  curPage,
+  totalPage,
+  onSetCurPage,
+}) => {
   useEffect(() => {
     // console.log('PaginationFive is rendering!')
   })
-  const curPage = props.curPage;
-  const pickPage = props.pickPage;
-  const prePage = props.prePage;
-  const nextPage = props.nextPage;
-  const preShiftPage = props.preShiftPage;
-  const nextShiftPage = props.nextShiftPage;
 
-  let pageList = [];
-  const first = parseInt((curPage-1)/5)*5+1;
-  let pageTemp = first;
-  for(let i=0; i<5; i++) {
-    if (pageTemp === curPage) {
-      pageList.push(<span className="font-weight-bold">{pageTemp}</span>);
-    } else {
-      pageList.push(<span>{pageTemp}</span>);
-    }
-    pageTemp = pageTemp + 1;
+  const pageList = [];
+  const firstPage = parseInt((curPage-1)/5)*5+1;
+  const endPage = firstPage+4 > totalPage ? totalPage : firstPage+4;
+
+  for(let i=firstPage; i<=endPage; i++) {
+    pageList.push({num:i});
   }
 
-  const pickPageWraper = (e) => {
-    e.preventDefault();
-    const _pickPage = Number(e.target.innerText);
-    pickPage(_pickPage);
+  // page nation 기능
+  const pickPage = (pickPage) => {
+    onSetCurPage(pickPage);
   }
-  const prePageWraper = (e) => {
+  const prePage = (e) => {
     e.preventDefault();
-    prePage();
+    const _chgPage = curPage===1?curPage:curPage - 1
+    onSetCurPage(_chgPage);
   }
-  const preShiftPageWraper = (e) => {
+  const nextPage = (e) => {
     e.preventDefault();
-    preShiftPage();
+    const _chgPage = curPage===totalPage?curPage:curPage + 1
+    onSetCurPage(_chgPage);
   }
-  const nextPageWraper = (e) => {
+  const preShiftPage = (e) => {
     e.preventDefault();
-    nextPage();
+    const _chgPage = curPage-5<1?1:curPage - 5
+    onSetCurPage(_chgPage);
   }
-  const nextShiftPageWraper = (e) => {
+  const nextShiftPage = (e) => {
     e.preventDefault();
-    nextShiftPage();
+    const _chgPage = curPage+5>totalPage?totalPage:curPage + 5
+    onSetCurPage(_chgPage);
   }
 
   return (
@@ -62,60 +64,39 @@ function PaginationFive(props) {
             <PaginationItem>
               <PaginationLink
               first
-              onClick={preShiftPageWraper}
+              onClick={preShiftPage}
               href="#" />
             </PaginationItem>
             <PaginationItem>
               <PaginationLink
               previous
-              onClick={prePageWraper}
+              onClick={prePage}
               href="#" />
             </PaginationItem>
-            <PaginationItem>
+            {pageList.map((item)=>
+            <PaginationItem key={"p"+item.num}>
               <PaginationLink
-              onClick={pickPageWraper}
+              onClick={(e)=>{
+                e.preventDefault();
+                pickPage(item.num);
+              }}
               href="#">
-                {pageList[0]}
+                <span
+                className={item.num === curPage ? "font-weight-bold" : ""}>
+                {item.num}</span>
               </PaginationLink>
             </PaginationItem>
-            <PaginationItem>
-              <PaginationLink
-              onClick={pickPageWraper}
-              href="#">
-                {pageList[1]}
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink
-              onClick={pickPageWraper}
-              href="#">
-                {pageList[2]}
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink
-              onClick={pickPageWraper}
-              href="#">
-                {pageList[3]}
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink
-              onClick={pickPageWraper}
-              href="#">
-                {pageList[4]}
-              </PaginationLink>
-            </PaginationItem>
+            )}
             <PaginationItem>
               <PaginationLink
               next
-              onClick={nextPageWraper}
+              onClick={nextPage}
               href="#" />
             </PaginationItem>
             <PaginationItem>
               <PaginationLink
               last
-              onClick={nextShiftPageWraper}
+              onClick={nextShiftPage}
               href="#" />
             </PaginationItem>
           </Pagination>

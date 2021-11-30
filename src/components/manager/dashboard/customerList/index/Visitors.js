@@ -28,13 +28,6 @@ const Visitors = ({
   type,
   onSetVisitorList,
 }) => {
-  const [toggleWhite, setToggleWhite] = useState(type==="W"?true:false);
-  const [toggleBlack, setToggleBlack] = useState(type==="B"?true:false);
-
-  const _BasicUserIcon = <BasicUserIcon/>;
-  const _WhiteUserIcon = <WhiteUserIcon/>;
-  const _BlackUserIcon = <BlackUserIcon/>;
-
   const [mannerType, setMannerType] = useState(type);
 
   let btnIcon;
@@ -47,9 +40,7 @@ const Visitors = ({
   }
 
   const [addToggle, setAddToggle] = useState(false);
-  // var mode = ""; //W or B
   const toggleModal = _addToggle => {
-    // alert(mode);
     setAddToggle(!_addToggle);
   };
   const onSave = () => {
@@ -58,7 +49,6 @@ const Visitors = ({
   return (
     <>
       <tr>
-        {/* <th scope="row">1</th> */}
         <td className="text-center">
           <Button
             className="btn-1"
@@ -108,7 +98,7 @@ const Visitors = ({
             </div>
             <FormGroup
             className="px-3 pt-3">
-              <Label for="exampleText">매너 기록(본 내용은 고객에게 보이지 않습니다.)</Label>
+              <Label for="exampleText"><small>매너 기록(본 내용은 고객에게 보이지 않습니다.)</small></Label>
               <Input
               bsSize="sm"
               type="select"
@@ -116,7 +106,6 @@ const Visitors = ({
               id="mannerType"
               value={mannerType}
               onChange={(e)=>{
-                console.dir(e.target.value)
                 setMannerType(e.target.value);
               }}>
                   <option value="W">화이트</option>

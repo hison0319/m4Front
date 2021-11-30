@@ -25,50 +25,27 @@ const VisitorListContainer = () => {
     useEffect(() => {
         // console.log('VisitorListContainer is rendering!')
     })
-    // page nation 기능
-    const [curPage, setCurPage] = useState(1);
+
+    // page nation 정의
+    const [curPage, setCurPage] = useState(7);
     const MIN = 1
     const MAX = 10;
-
-    const pickPage = (_pickPage) => {
-        setCurPage(_pickPage);
-    }
-    const prePage = () => {
-        const _chgPage = curPage===MIN?curPage:curPage - 1
-        setCurPage(_chgPage);
-    }
-    const nextPage = () => {
-        const _chgPage = curPage===MAX?curPage:curPage + 1
-        setCurPage(_chgPage);
-    }
-    const preShiftPage = () => {
-        const _chgPage = curPage-5<MIN?MIN:curPage - 5
-        setCurPage(_chgPage);
-    }
-    const nextShiftPage = () => {
-        const _chgPage = curPage+5>MAX?MAX:curPage + 5
-        setCurPage(_chgPage);
-    }
-
+    
     // 방문자 리스트 get api
     const {spinner} = useContext(ProgressContext);
     const _id = 1; //temporary
-    const [getState] = useAsync(() => getVisitors(_id), [_id], false);
+    const [getState] = useAsync(() => getVisitors(_id, curPage), [_id], false);
     const { loading, data: visitors, error } = getState;
-    
-    useEffect(() => {
-        if(loading) {
-        spinner.start();
-        } else {
-        spinner.stop();
-        }
-        if(error) {
-        // window.location.href = '/error/100';
-        }
-    },[loading, error, spinner]);
+    const totalPage = 12;
 
-    const [visitorList, setVisitorList] = useState(visitors?visitors:
-    [
+    // page nation 기능
+    const onSetCurPage = (page) => {
+        setCurPage(page);
+        getVisitors(_id, page);
+    }
+
+    // 방문자 리스트
+    const testData = [
         {
             id:"vis001",
             userId:"hison0319",
@@ -104,7 +81,8 @@ const VisitorListContainer = () => {
             visitDate:"2021-11-20",
             type:"B"
         },
-    ]);
+    ];
+    const [visitorList, setVisitorList] = useState(visitors?visitors:testData);
 
     //매너등급 저장 (chg state, put)
     const onSetVisitorList = (id, key, val) => {
@@ -112,17 +90,25 @@ const VisitorListContainer = () => {
         const newVisitorList = modifyArrayWithKey(visitorList, idx, key, val);
         setVisitorList(newVisitorList);
     }
-    
+
+    useEffect(() => {
+        if(loading) {
+        spinner.start();
+        } else {
+        spinner.stop();
+        setVisitorList(testData);
+        }
+        if(error) {
+        // window.location.href = '/error/100';
+        }
+    },[loading, error, spinner, visitors]);
 
     return (
         <>
             <VisitorList
             curPage = {curPage}
-            pickPage = {pickPage}
-            prePage = {prePage}
-            nextPage = {nextPage}
-            preShiftPage = {preShiftPage}
-            nextShiftPage = {nextShiftPage}
+            totalPage = {totalPage}
+            onSetCurPage = {onSetCurPage}
             visitorList= {visitorList}
             onSetVisitorList={onSetVisitorList}
             />

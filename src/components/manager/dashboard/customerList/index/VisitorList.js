@@ -13,11 +13,8 @@ import PropTypes from "prop-types";
 
 const VisitorList = ({
   curPage,
-  pickPage,
-  prePage,
-  nextPage,
-  preShiftPage,
-  nextShiftPage,
+  totalPage,
+  onSetCurPage,
   visitorList,
   onSetVisitorList
 }) => {
@@ -54,11 +51,8 @@ const VisitorList = ({
           colSpan="4">
             <PaginationFive
             curPage = {curPage}
-            pickPage = {pickPage}
-            prePage = {prePage}
-            nextPage = {nextPage}
-            preShiftPage = {preShiftPage}
-            nextShiftPage = {nextShiftPage}
+            totalPage = {totalPage}
+            onSetCurPage = {onSetCurPage}
             />
           </td>
         </tr>
@@ -69,11 +63,8 @@ const VisitorList = ({
 
 VisitorList.VisitorList = {
   curPage: PropTypes.number,
-  pickPage: PropTypes.func,
-  prePage: PropTypes.func,
-  nextPage: PropTypes.func,
-  preShiftPage: PropTypes.func,
-  nextShiftPage: PropTypes.func,
+  totalPage: PropTypes.number,
+  onSetCurPage: PropTypes.func,
   visitorList: PropTypes.array,
   onSetVisitorList: PropTypes.func,
 }
