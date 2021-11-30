@@ -12,7 +12,7 @@ import moment from "moment";
 const Calender = React.memo((props) => {
   const calendarId = props.calendarId?props.calendarId:"calendar";
   const calendarInfo = props.calendarInfo;
-  const bookingsInfo = props.bookingsInfo;
+  const bookingsInfo = props.bookingsInfo?props.bookingsInfo:[];
 
   const date      = calendarInfo.date;
   const dateform  = calendarInfo.dateform;
@@ -121,6 +121,8 @@ const Calender = React.memo((props) => {
   let dayStrTemp = "";
   let bookingsTemp = 0;
   let dayTypeTemp = 0;
+
+  console.log('Calender bookingsInfo : ',bookingsInfo);
 
   // 전 월 출력
   let i = firstDayWeek===0?7:firstDayWeek;
