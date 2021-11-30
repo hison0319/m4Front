@@ -94,7 +94,7 @@ const BookingManagerContainer = () => {
         },
     ];
 
-    const dayBookings = bookings?bookings.monthBookings:[
+    const dayBookings = [
         {
             startDateTime:8,
             endDateTime:9,
