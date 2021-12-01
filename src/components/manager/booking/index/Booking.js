@@ -36,7 +36,6 @@ const Booking = ({
           <Button
             className="btn-1"
             color="neutral"
-            type="button"
             href={"/profile?userId="+memberId}>
             <small style={{verticalAlign:"top"}}>
                 &nbsp;&nbsp;{memberId}&nbsp;님
