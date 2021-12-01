@@ -1,8 +1,7 @@
 /*
 작성자 : 손한이
 작성일 : 2021.11.28
-내용 : shop manager의 Dashboard - 방문 고객, 매너 등급 지정 (기능, 뷰)
-      API - put
+내용 : shop manager의 Dashboard - 방문 고객, 매너 등급 지정 (뷰)
 */
 import React, { useState } from 'react';
 import { 
@@ -26,9 +25,11 @@ const Visitors = ({
   name,
   visitDate,
   type,
+  comment,
   onSetVisitorList,
 }) => {
   const [mannerType, setMannerType] = useState(type);
+  const [mannerComment, setMannerComment] = useState(comment);
 
   let btnIcon;
   if(type === "W") {
@@ -44,7 +45,15 @@ const Visitors = ({
     setAddToggle(!_addToggle);
   };
   const onSave = () => {
-    onSetVisitorList(id, "type", mannerType)
+    const newVisitor = {
+      comment: mannerComment,
+      id: "vis001",
+      name: "손한이",
+      type: mannerType,
+      userId: "hison0319",
+      visitDate: "2021-11-16",
+    }
+    onSetVisitorList(id, newVisitor);
   }
   return (
     <>
@@ -114,8 +123,10 @@ const Visitors = ({
               </Input>
               <Input
               type="textarea"
-              name="text"
-              id="exampleText" />
+              name="mannerComment"
+              id="mannerComment"
+              value={mannerComment}
+              onChange={(e)=>setMannerComment(e.target.value)}/>
             </FormGroup>
             <div className="modal-footer">
               <Button
@@ -144,12 +155,13 @@ const Visitors = ({
   );
 }
 
-Visitors.VisitorList = {
+Visitors.propTypes = {
   id: PropTypes.string,
   userId: PropTypes.string,
   name: PropTypes.string,
   visitDate: PropTypes.string,
   type: PropTypes.string,
+  comment: PropTypes.string,
   onSetVisitorList: PropTypes.func,
 }
 

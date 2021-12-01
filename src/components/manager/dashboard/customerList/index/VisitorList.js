@@ -41,6 +41,7 @@ const VisitorList = ({
         name={item.name}
         visitDate={item.visitDate}
         type={item.type}
+        comment={item.comment}
         onSetVisitorList={onSetVisitorList}
         />)}
       </tbody>
@@ -61,7 +62,7 @@ const VisitorList = ({
   );
 }
 
-VisitorList.VisitorList = {
+VisitorList.propTypes = {
   curPage: PropTypes.number,
   totalPage: PropTypes.number,
   onSetCurPage: PropTypes.func,

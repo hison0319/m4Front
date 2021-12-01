@@ -34,9 +34,8 @@ const Booking = ({
         </Col>
         <Col xs="9">
           <Button
-            className=""
+            className="btn-1"
             color="neutral"
-            data-dismiss="modal"
             type="button"
             href={"/profile?userId="+memberId}>
             <small style={{verticalAlign:"top"}}>

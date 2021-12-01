@@ -1,3 +1,8 @@
+/*
+작성자 : 손한이
+작성일 : 2021.12.01
+내용 : shop manager의 Dashboard - 블랙 고객 명단 (뷰)
+*/
 import React, { useEffect } from 'react';
 import { 
   Table,
@@ -5,18 +10,17 @@ import {
 
 import PaginationFive from 'components/common/pagination/PaginationFive';
 import Blacks from './Blacks';
+import PropTypes from "prop-types";
 
-function BlackList(props) {
+const BlackList = ({
+  curPage,
+  totalPage,
+  onSetCurPage,
+  blackList,
+}) => {
   useEffect(() => {
     // console.log('BlackList is rendering!')
   })
-
-  const curPage = props.curPage;
-  const pickPage = props.pickPage;
-  const prePage = props.prePage;
-  const nextPage = props.nextPage;
-  const preShiftPage = props.preShiftPage;
-  const nextShiftPage = props.nextShiftPage;
 
   return (
     <Table size="sm" style={{fontSize:"0.8em"}}>
@@ -29,16 +33,16 @@ function BlackList(props) {
         </tr>
       </thead>
       <tbody>
-        <Blacks/>
-        <Blacks/>
-        <Blacks/>
-        <Blacks/>
-        <Blacks/>
-        <Blacks/>
-        <Blacks/>
-        <Blacks/>
-        <Blacks/>
-        <Blacks/>
+        {blackList && blackList.length > 0 &&
+        blackList.map((item)=>
+        <Blacks
+        key={item.id}
+        id={item.id}
+        userId={item.userId}
+        name={item.name}
+        visitDate={item.visitDate}
+        comment={item.comment}
+        />)}
       </tbody>
       <tfoot>
         <tr>
@@ -47,17 +51,21 @@ function BlackList(props) {
           colSpan="3">
             <PaginationFive
             curPage = {curPage}
-            pickPage = {pickPage}
-            prePage = {prePage}
-            nextPage = {nextPage}
-            preShiftPage = {preShiftPage}
-            nextShiftPage = {nextShiftPage}
+            totalPage = {totalPage}
+            onSetCurPage = {onSetCurPage}
             />
           </td>
         </tr>
       </tfoot>
     </Table>
   );
+}
+
+BlackList.propTypes = {
+  curPage: PropTypes.number,
+  totalPage: PropTypes.number,
+  onSetCurPage: PropTypes.func,
+  blackList: PropTypes.array,
 }
 
 export default BlackList;

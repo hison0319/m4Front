@@ -1,3 +1,8 @@
+/*
+작성자 : 손한이
+작성일 : 2021.12.01
+내용 : shop manager의 Dashboard - 화이트 고객 명단 (뷰)
+*/
 import React, { useEffect } from 'react';
 import { 
   Table,
@@ -5,18 +10,17 @@ import {
 
 import PaginationFive from 'components/common/pagination/PaginationFive';
 import Whites from './Whites';
+import PropTypes from "prop-types";
 
-function WhiteList(props) {
+const WhiteList = ({
+  curPage,
+  totalPage,
+  onSetCurPage,
+  whiteList,
+}) => {
   useEffect(() => {
     // console.log('WhiteList is rendering!')
   })
-  
-  const curPage = props.curPage;
-  const pickPage = props.pickPage;
-  const prePage = props.prePage;
-  const nextPage = props.nextPage;
-  const preShiftPage = props.preShiftPage;
-  const nextShiftPage = props.nextShiftPage;
 
   return (
     <Table size="sm" style={{fontSize:"0.8em"}}>
@@ -29,16 +33,16 @@ function WhiteList(props) {
         </tr>
       </thead>
       <tbody>
-        <Whites/>
-        <Whites/>
-        <Whites/>
-        <Whites/>
-        <Whites/>
-        <Whites/>
-        <Whites/>
-        <Whites/>
-        <Whites/>
-        <Whites/>
+        {whiteList && whiteList.length > 0 &&
+        whiteList.map((item)=>
+        <Whites
+        key={item.id}
+        id={item.id}
+        userId={item.userId}
+        name={item.name}
+        visitDate={item.visitDate}
+        comment={item.comment}
+        />)}
       </tbody>
       <tfoot>
         <tr>
@@ -47,17 +51,21 @@ function WhiteList(props) {
           colSpan="3">
             <PaginationFive
             curPage = {curPage}
-            pickPage = {pickPage}
-            prePage = {prePage}
-            nextPage = {nextPage}
-            preShiftPage = {preShiftPage}
-            nextShiftPage = {nextShiftPage}
+            totalPage = {totalPage}
+            onSetCurPage = {onSetCurPage}
             />
           </td>
         </tr>
       </tfoot>
     </Table>
   );
+}
+
+WhiteList.propTypes = {
+  curPage: PropTypes.number,
+  totalPage: PropTypes.number,
+  onSetCurPage: PropTypes.func,
+  whiteList: PropTypes.array,
 }
 
 export default WhiteList;
