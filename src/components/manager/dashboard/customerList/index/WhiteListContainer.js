@@ -75,13 +75,13 @@ const WhiteListContainer = React.memo(() => {
             comment:"매우 훌륭한 인성"
         }
     ];
-    const [whiteList, setWhiteList] = useState(whites?whites:testData);
+    const [whiteList, setWhiteList] = useState(testData);
 
     // get useEffect
     useEffect(() => {
-        if(whites) {
-            setWhiteList(whites);
-        }
+        // if(whites) {
+        //     setWhiteList(whites);
+        // }
         if(loading) {
             spinner.start();
         } else {

@@ -75,13 +75,13 @@ const BlackListContainer = React.memo(() => {
             comment:"성격 파탄 의심"
         },
     ];
-    const [blackList, setBlackList] = useState(blacks?blacks:testData);
+    const [blackList, setBlackList] = useState(testData);
 
     // get useEffect
     useEffect(() => {
-        if(blacks) {
-            setBlackList(blacks);
-        }
+        // if(blacks) {
+        //     setBlackList(blacks);
+        // }
         if(loading) {
             spinner.start();
         } else {

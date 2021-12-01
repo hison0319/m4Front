@@ -93,7 +93,7 @@ const VisitorListContainer = () => {
             comment:"별로인 인성",
         },
     ];
-    const [visitorList, setVisitorList] = useState(visitors?visitors:testData);
+    const [visitorList, setVisitorList] = useState(testData);
 
     //매너등급 저장 (chg state, put)
     const onSetVisitorList = (id, val) => {
@@ -113,9 +113,9 @@ const VisitorListContainer = () => {
 
     // get useEffect
     useEffect(() => {
-        if(visitors) {
-            setVisitorList(visitors);
-        }
+        // if(visitors) {
+        //     setVisitorList(visitors);
+        // }
         if(loading) {
             spinner.start();
         } else {
