@@ -36,7 +36,7 @@ const NormalProfile = ({
 }) => {
 
     const profile = 
-    <Container className="pt-2 pb-5">
+    <Container className="pt-2 pb-3">
         <ReadProfile
         id={id}
         name={name}
@@ -74,7 +74,7 @@ const NormalProfile = ({
     ;
 
     const modifyProfile = 
-    <Container className="pt-2 pb-5">
+    <Container className="pt-2 pb-3">
         <ModifyProfileContainer
         id={id}
         name={name}

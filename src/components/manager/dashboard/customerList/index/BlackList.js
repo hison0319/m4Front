@@ -37,7 +37,6 @@ const BlackList = ({
         blackList.map((item)=>
         <Blacks
         key={item.id}
-        id={item.id}
         userId={item.userId}
         name={item.name}
         visitDate={item.visitDate}

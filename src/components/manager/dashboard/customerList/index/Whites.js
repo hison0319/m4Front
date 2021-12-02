@@ -3,20 +3,31 @@
 작성일 : 2021.11.28
 내용 : shop manager의 Dashboard - 화이트 고객 (뷰)
 */
-import React from 'react';
+import React, { useRef } from 'react';
 import { 
   Button
 } from 'reactstrap';
 import { getDotStrMax } from "utils/common"
 import PropTypes from "prop-types";
+import ModalView from "components/common/etc/ModalView"
+import NormalProfileContainer from 'components/profile/normalProfile/NormalProfileContainer';
 
 const Whites = ({
-  id,
   userId,
   name,
   visitDate,
   comment,
 }) => {
+  const alertRef = useRef();
+  const modalView = 
+  <ModalView
+    ref={alertRef}
+    item={<NormalProfileContainer userId={userId}/>}
+    closingModal={()=>{
+      //nothing
+    }}
+  />;
+
   return (
     <>
       <tr>
@@ -24,7 +35,7 @@ const Whites = ({
           <Button
           className="btn-1"
           color="neutral"
-          href={"/profile?userId="+userId}
+          onClick={()=>{alertRef.current.showAlert();}}
           >
             <small>
               {getDotStrMax(name,5)}
@@ -42,12 +53,12 @@ const Whites = ({
           </small>
         </td>
       </tr>
+      {modalView}
     </>
   );
 }
 
 Whites.propTypes = {
-  id: PropTypes.string,
   userId: PropTypes.string,
   name: PropTypes.string,
   visitDate: PropTypes.string,

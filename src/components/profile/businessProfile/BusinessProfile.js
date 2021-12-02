@@ -42,7 +42,7 @@ const BusinessProfile = ({
 }) => {
 
     const profile = 
-    <Container className="pt-2 pb-5">
+    <Container className="pt-2 pb-3">
         <ReadProfile
         id={id}
         businessRegNumber={businessRegNumber}
@@ -78,7 +78,7 @@ const BusinessProfile = ({
     ;
 
     const modifyProfile = 
-    <Container className="pt-2 pb-5">
+    <Container className="pt-2 pb-3">
         <ModifyProfileContainer
         id={id}
         businessRegNumber={businessRegNumber}

@@ -34,7 +34,7 @@ const ReadProfile = ({
 
   return (
     <>
-      <Row noGutters className="pt-2 pt-md-2 w-100 px-4 px-xl-0 position-relative">
+      <Row noGutters className="pt-2 pt-md-2 w-100 px-2 px-xl-0 position-relative">
         <Col className="py-2 mb-2 py-md-0 mb-md-5">
             <div className="position-relative">
                 <span className="d-block pb-2 mb-0 h6 text-uppercase text-info font-weight-bold">
@@ -87,7 +87,7 @@ ReadProfile.propTypes = {
   contactNumber: PropTypes.string,
   snsList: PropTypes.array,
   zipcode: PropTypes.string,
-  openingHours: PropTypes.array,
+  openingHours: PropTypes.string,
   introduce: PropTypes.string,
 };
 

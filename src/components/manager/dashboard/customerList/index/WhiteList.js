@@ -37,7 +37,6 @@ const WhiteList = ({
         whiteList.map((item)=>
         <Whites
         key={item.id}
-        id={item.id}
         userId={item.userId}
         name={item.name}
         visitDate={item.visitDate}
