@@ -98,7 +98,8 @@ const BookingManagerContainer = () => {
         {
             startDateTime:8,
             endDateTime:9,
-            memberId:"idTest001",
+            userId:"hison0319",
+            userName:"뚝이",
             reservationOption:
             [
                 {
@@ -118,7 +119,8 @@ const BookingManagerContainer = () => {
         {
             startDateTime:14,
             endDateTime:18,
-            memberId:"idTest002",
+            userId:"hison0319",
+            userName:"뚜루기",
             reservationOption:
             [
                 {

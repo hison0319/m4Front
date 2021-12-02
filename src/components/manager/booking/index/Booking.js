@@ -3,7 +3,7 @@
 작성일 : 2021.11.13
 내용 :  shop manager의 예약 상세 내역 (뷰)
 */
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Row,
   Col,
@@ -13,19 +13,27 @@ import {
   } from 'reactstrap';
 import { makeMoneyType } from "utils/common"
 import PropTypes from "prop-types";
+import ModalView from "components/common/etc/ModalView"
+import NormalProfileContainer from 'components/profile/normalProfile/NormalProfileContainer';
 
 const Booking = ({
   startDateTime,
   endDateTime,
-  memberId,
+  userId,
+  userName,
   price,
   reservationOption,
 }) => {
+  const alertRef = useRef();
+  const modalView = 
+  <ModalView
+    ref={alertRef}
+    item={<NormalProfileContainer userId={userId}/>}
+    closingModal={()=>{
+      //nothing
+    }}
+  />;
 
-  const [readToggle, setReadToggle] = useState(false);
-
-  // console.log(reservationOption);
-  
   return (
     <>
       <Row>
@@ -36,9 +44,9 @@ const Booking = ({
           <Button
             className="btn-1"
             color="neutral"
-            href={"/profile?userId="+memberId}>
+            onClick={()=>{alertRef.current.showAlert();}}>
             <small style={{verticalAlign:"top"}}>
-                &nbsp;&nbsp;{memberId}&nbsp;님
+                &nbsp;&nbsp;{userName}&nbsp;님
             </small>
           </Button>
         </Col>
@@ -72,6 +80,7 @@ const Booking = ({
         </Col>
       </Row>
       <hr></hr>
+      {modalView}
     </>
   );
 }
@@ -79,7 +88,8 @@ const Booking = ({
 Booking.propTypes = {
   startDateTime: PropTypes.number,
   endDateTime: PropTypes.number,
-  memberId: PropTypes.string,
+  userId: PropTypes.string,
+  userName: PropTypes.string,
   price: PropTypes.number,
   reservationOption: PropTypes.array,
 }

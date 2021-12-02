@@ -26,7 +26,6 @@ const BlackList = ({
     <Table size="sm" style={{fontSize:"0.8em"}}>
       <thead>
         <tr className="text-center">
-          {/* <th>#</th> */}
           <th>이름</th>
           <th>방문일</th>
           <th>정보</th>

@@ -33,7 +33,8 @@ const TimeTable = ({ dayBookings }) => {
           key={"booking"+idx}
           startDateTime={item.startDateTime}
           endDateTime={item.endDateTime}
-          memberId={item.memberId}
+          userId={item.userId}
+          userName={item.userName}
           price={item.price}
           reservationOption={item.reservationOption}/>
         )

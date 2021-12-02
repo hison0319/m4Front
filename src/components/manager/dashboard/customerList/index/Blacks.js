@@ -32,7 +32,7 @@ const Blacks = ({
     <>
       <tr>
         {/* <th scope="row">1</th> */}
-        <td className="text-center py-2">
+        <td className="text-center">
           <Button
           className="btn-1"
           color="neutral"
