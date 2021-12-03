@@ -88,6 +88,10 @@
     font-size: 1.2em !important;
 }
 
+input:hover {outline:none !important;}
+input:active {outline:none !important;}
+input:focus {outline:none !important;}
+
 .font_bold {
     font-weight: bold !important;
 }

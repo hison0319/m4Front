@@ -5,20 +5,18 @@ import {
   FormGroup,
   Input,
 } from 'reactstrap';
+import PropTypes from "prop-types";
 
-const SelectPeriod = (props) => {
+const SelectPeriod = ({
+  selectP,
+  sPOnChange,
+  date1,
+  date2,
+  total,
+}) => {
   useEffect(() => {
     // console.log('SelectPeriod is rendering!')
   })
-
-  const selectP = props.selectP;
-  const selectC = props.selectC;
-  const sPOnChange = props.sPOnChange;
-  const sCOnChange = props.sCOnChange;
-  const greenDate1 = props.greenDate1;
-  const greenDate2 = props.greenDate2;
-  const redDate1 = props.redDate1;
-  const redDate2 = props.redDate2;
 
   return (
     <div>
@@ -28,14 +26,9 @@ const SelectPeriod = (props) => {
             기간
           </small>
         </Col>
-        <Col>
-          <small>
-            조건
-          </small>
-        </Col>
       </Row>
       <Row>
-        <Col>
+        <Col xs="5">
           <FormGroup>
             <Input
             type="select"
@@ -45,42 +38,37 @@ const SelectPeriod = (props) => {
               sPOnChange(e.target.value);
             }}>
               <option value="PA">주</option>
-              <option value="PB">월</option>
-              <option value="PC">90 일</option>
+              <option value="PB">한달</option>
+              <option value="PC">90일</option>
+              <option value="PD">1년</option>
             </Input>
           </FormGroup>
         </Col>
-        <Col>
-          <FormGroup>
-            <Input
-            type="select"
-            name="select"
-            value={selectC}
-            onChange={(e)=>{
-              sCOnChange(e.target.value);
-            }}>
-              <option value="CA">전-후</option>
-              <option value="CB">시즌별</option>
-            </Input>
-          </FormGroup>
-        </Col>
-      </Row>
-      <Row>
-        <Col className="text-right">
-          <small className="green_color">
-            {greenDate1} ~ {greenDate2}
+        <Col
+        className="text-right pt-2"
+        xs="7">
+          <small>
+            {date1} ~ {date2}
           </small>
         </Col>
       </Row>
       <Row>
-        <Col className="text-right">
-          <small className="red_color">
-            {redDate1} ~ {redDate2}
-          </small>
+        <Col
+        className="text-right"
+        xs="12">
+          <small>total: {total}</small>
         </Col>
       </Row>
     </div>
   );
+};
+
+SelectPeriod.propTypes = {
+  selectP: PropTypes.string,
+  sPOnChange: PropTypes.func,
+  date1: PropTypes.string,
+  date2: PropTypes.string,
+  total: PropTypes.number,
 };
 
 export default SelectPeriod;

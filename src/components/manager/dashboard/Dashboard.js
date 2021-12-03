@@ -5,6 +5,7 @@
 */
 import React, { useEffect } from "react";
 import {
+  Container,
   Row,
   Col
 } from "reactstrap";
@@ -19,24 +20,26 @@ const Dashboard = React.memo(() => {
 
   return (
     <>
-      <Row className="my-2">
-        <Col>
-          <Row className="mx-1 my-1">
-            <Col>
-              <ChartsContainer/>
-            </Col>
-          </Row>
+      <Container>
+        <Row className="my-2">
+          <Col>
+            <Row className="mx-1 my-1">
+              <Col>
+                <ChartsContainer/>
+              </Col>
+            </Row>
 
-          <Row>
-            <Col>
-              <div className= "my-1">
-                <CustomerList/>
-              </div>
-            </Col>
-          </Row>
+            <Row>
+              <Col>
+                <div className= "my-1">
+                  <CustomerList/>
+                </div>
+              </Col>
+            </Row>
 
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 });

@@ -3,32 +3,29 @@ import {
   Row,
   Col
 } from "reactstrap";
-
 import SelectPeriod from "./index/SelectPeriod";
 import LineChart from "./index/LineChart";
+import PropTypes from "prop-types";
 
-const Charts = React.memo((props) => {
+const Charts = ({
+  rsvSelectP,
+  rsvSPOnChange,
+  rsvDate2,
+  rsvDate1,
+  rsvTotal,
+
+  nsSelectP,
+  nsSPOnChange,
+  nsDate2,
+  nsDate1,
+  nsTotal,
+
+  bookingChart,
+  noshowChart,
+}) => {
   useEffect(() => {
     // console.log('Charts is rendering!')
   })
-
-  const rsvSelectP = props.rsvSelectP;
-  const rsvSelectC = props.rsvSelectC;
-  const rsvSPOnChange = props.rsvSPOnChange;
-  const rsvSCOnChange = props.rsvSCOnChange;
-  const nsSelectP = props.nsSelectP;
-  const nsSelectC = props.nsSelectC;
-  const nsSPOnChange = props.nsSPOnChange;
-  const nsSCOnChange = props.nsSCOnChange;
-
-  const rsvGreenDate2 = props.rsvGreenDate2;
-  const rsvGreenDate1 = props.rsvGreenDate1;
-  const rsvRedDate2 = props.rsvRedDate2;
-  const rsvRedDate1 = props.rsvRedDate1;
-  const nsGreenDate2 = props.nsGreenDate2;
-  const nsGreenDate1 = props.nsGreenDate1;
-  const nsRedDate2 = props.nsRedDate2;
-  const nsRedDate1 = props.nsRedDate1;
 
   return (
     <>
@@ -38,18 +35,17 @@ const Charts = React.memo((props) => {
               예약 내역
               </div>
               <div className="my-3">
-              <LineChart/>
+              <LineChart
+              chartData={bookingChart}
+              />
               </div>
               <div className="my-2">
               <SelectPeriod
               selectP = {rsvSelectP}
-              selectC = {rsvSelectC}
               sPOnChange = {rsvSPOnChange}
-              sCOnChange = {rsvSCOnChange}
-              greenDate1 = {rsvGreenDate1}
-              greenDate2 = {rsvGreenDate2}
-              redDate1 = {rsvRedDate1}
-              redDate2 = {rsvRedDate2}
+              date1 = {rsvDate1}
+              date2 = {rsvDate2}
+              total = {rsvTotal}
               />
               </div>
           </Col>
@@ -61,24 +57,40 @@ const Charts = React.memo((props) => {
               도타캰 내역
               </div>
               <div className="my-3">
-              <LineChart/>
+              <LineChart
+              chartData={noshowChart}
+              />
               </div>
               <div className="my-1">
               <SelectPeriod
               selectP = {nsSelectP}
-              selectC = {nsSelectC}
               sPOnChange = {nsSPOnChange}
-              sCOnChange = {nsSCOnChange}
-              greenDate1 = {nsGreenDate1}
-              greenDate2 = {nsGreenDate2}
-              redDate1 = {nsRedDate1}
-              redDate2 = {nsRedDate2}
+              date1 = {nsDate1}
+              date2 = {nsDate2}
+              total = {nsTotal}
               />
               </div>
           </Col>
       </Row>
     </>
   );
-});
+};
+
+Charts.propTypes = {
+  rsvSelectP: PropTypes.string,
+  rsvSPOnChange: PropTypes.func,
+  rsvDate2: PropTypes.string,
+  rsvDate1: PropTypes.string,
+  rsvTotal: PropTypes.number,
+
+  nsSelectP: PropTypes.string,
+  nsSPOnChange: PropTypes.func,
+  nsDate2: PropTypes.string,
+  nsDate1: PropTypes.string,
+  nsTotal: PropTypes.number,
+
+  bookingChart: PropTypes.object,
+  noshowChart: PropTypes.object,
+};
 
 export default Charts;

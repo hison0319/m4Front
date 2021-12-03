@@ -8,6 +8,7 @@
 import React, { useState, useRef ,useEffect } from 'react';
 
 import {
+  Container,
   Button
  } from 'reactstrap';
 // core components
@@ -32,7 +33,7 @@ function BoardManager() {
   const goModifyText = isHave?"수정하기":"작성하기";
 
   const modeR = 
-    <section className="my-4">
+    <Container className="my-4">
       <div className="text-center btn-wrapper">
           <Button
           style={{width:"90%"}}
@@ -54,11 +55,11 @@ function BoardManager() {
         <Board/>
       </div>
       }
-    </section>
+    </Container>
     ;
   
   const modeW = 
-    <section className="my-4 mx-2">
+    <Container className="my-4">
       <div className="text-center btn-wrapper">
           <Button
           style={{width:"90%"}}
@@ -74,7 +75,7 @@ function BoardManager() {
           </Button>
       </div>
       <BoardModifyContainer/>
-    </section>
+    </Container>
     ;
 
   return (

@@ -7,7 +7,6 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import BoardModify from './BoardModify';
 import AlertModal from 'components/common/alert/AlertModal';
-import ImgBox from 'components/common/imagebox/ImgBox';
 import { 
   useTextInput,
   useNumberInput,
@@ -99,7 +98,6 @@ const BoardModifyContainer = () => {
     setImgFileList(newImgFileList);
     setImageItemList(newImageItemList);
   }
-  const imagePreview = <ImgBox items={imageItemList}/>
   
   // #####################
   // shop oppening hour
@@ -287,10 +285,6 @@ const BoardModifyContainer = () => {
     }}
   />
 
-  useEffect(() => {
-    console.log('##### OptionList',optionList);
-  })
-
   return (
     <>
       <BoardModify
@@ -301,7 +295,7 @@ const BoardModifyContainer = () => {
       varContext={varContext}
       onChangeText={onChangeText}
       handleFileOnChange={handleFileOnChange}
-      imagePreview={imagePreview}
+      imageItemList={imageItemList}
 
       week={week}
       monTimeList={monTimeList}
@@ -326,6 +320,7 @@ const BoardModifyContainer = () => {
       removeInput={removeInput}
       addInput={addInput}
       optionAlert={optionAlert}
+
       />
     </>
   );

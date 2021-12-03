@@ -11,7 +11,6 @@ import ProfileImageInput from 'components/profile/ProfileImageInput';
 import { 
   useTextInput,
   useNumberInput,
-  useCheckInput
 } from 'hooks';
 import axios from 'axios';
 import useAsync from "utils/useAsync";

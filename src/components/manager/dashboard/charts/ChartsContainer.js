@@ -1,6 +1,29 @@
-import React, { useState, useEffect } from 'react'
+/*
+작성자 : 손한이
+작성일 : 2021.12.02
+내용 :  shop manager의 Dashboard chart (기능)
+*/
+import React, { useState, useEffect, useContext } from 'react'
 import Charts from './Charts';
 import moment from "moment";
+import axios from 'axios';
+import useAsync from "utils/useAsync";
+import { ProgressContext } from "context/Progress"
+
+// 예약 내역 차트 get
+async function getBookingChart(id, period) {
+    const response = await axios.get(
+      `/api/v1/shopBookingChart/${id}${period}`
+    );
+    return response.data;
+}
+// 노쇼 내역 차트 get
+async function getNoshowChart(id, period) {
+    const response = await axios.get(
+      `/api/v1/shopNoshowChart/${id}${period}`
+    );
+    return response.data;
+}
 
 const ChartsContainer = React.memo(() => {
     useEffect(() => {
@@ -8,84 +31,108 @@ const ChartsContainer = React.memo(() => {
     })
 
     // common function
-    const setPeriod = (selectPeriod, selectCondition) => {
+    const setPeriod = (selectPeriod) => {
         let period = 1;
+        // 기간 => 1주일, 한달(30일), 90일, 1년(365일)
         if(selectPeriod === "PA") {
             period = 7;
         } else if(selectPeriod === "PB") {
-            period = 31;
+            period = 30;
         } else if(selectPeriod === "PC") {
             period = 90;
+        } else if(selectPeriod === "PD") {
+            period = 365;
         }
-        
-        let greenDate2 = moment().format('YYYY-MM-DD');
-        let greenDate1 = moment(greenDate2, 'YYYY-MM-DD').subtract(period,'days').format('YYYY-MM-DD');
-        let redDate2;
-        let redDate1;
-        if(selectCondition === "CA") {
-            redDate2 = moment(greenDate1, 'YYYY-MM-DD').subtract(1,'days').format('YYYY-MM-DD');
-            redDate1 = moment(redDate2, 'YYYY-MM-DD').subtract(period,'days').format('YYYY-MM-DD');
-        } else if(selectCondition === "CB") {
-            if(selectPeriod === "PA") {
-                redDate2 = moment(greenDate2, 'YYYY-MM-DD').subtract(1,'months').format('YYYY-MM-DD');
-                redDate1 = moment(greenDate1, 'YYYY-MM-DD').subtract(1,'months').format('YYYY-MM-DD');
-            } else {
-                redDate2 = moment(greenDate2, 'YYYY-MM-DD').subtract(1,'years').format('YYYY-MM-DD');
-                redDate1 = moment(greenDate1, 'YYYY-MM-DD').subtract(1,'years').format('YYYY-MM-DD');
-            }
-        }
+        let date2 = moment().format('YYYY-MM-DD');
+        let date1 = moment(date2, 'YYYY-MM-DD').subtract(period,'days').format('YYYY-MM-DD');
 
-        return {greenDate1,greenDate2,redDate1,redDate2}
+        return {date1,date2}
     }
 
     //number of reservations
     const [rsvSelectP, setRsvSelectP] = useState("PA");
-    const [rsvSelectC, setRsvSelectC] = useState("CA");
-    
     const rsvSPOnChange = (optionVal) => {
         setRsvSelectP(optionVal);
     }
-    const rsvSCOnChange = (optionVal) => {
-        setRsvSelectC(optionVal);
-    }
-
-    const rsvPeriod = setPeriod(rsvSelectP, rsvSelectC);
+    const rsvPeriod = setPeriod(rsvSelectP);
     
     //number of no show
-    const [nsSelectP, setNsSelectP] = useState("PA");
-    const [nsSelectC, setNsSelectC] = useState("CA");
-    
+    const [nsSelectP, setNsSelectP] = useState("PB");
     const nsSPOnChange = (optionVal) => {
         setNsSelectP(optionVal);
     }
-    const nsSCOnChange = (optionVal) => {
-        setNsSelectC(optionVal);
+    const nsPeriod = setPeriod(nsSelectP);
+
+    const bookingChartForTest = {
+        labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        label: "한주간 고생했어!",
+        data: [65, 59, 80, 81, 56, 55, 93],
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: 'rgba(75,192,192,1)',
+        total: 643,
     }
+    const noshowChartForTest = {
+        labels: ['30일전','27일전','24일전','21일전','18일전','15일전','12일전','9일전','6일전','3일전'],
+        label: "한달간 고생했어!",
+        data: [6, 4, 9, 3, 4, 2, 0, 1, 2, 0],
+        backgroundColor: 'rgba(252,121,161,0.4)',
+        borderColor: 'rgba(252,121,161,1)',
+        total: 30,
+    }
+
+    // 차트 내역 get api
+    const {spinner} = useContext(ProgressContext);
+    const _id = 1; //temporary
+    const [stateB] = useAsync(() => getBookingChart(_id, rsvPeriod), [_id], false);
+    const { loadingB, data: bookingChart, errorB } = stateB;
+    const [stateN] = useAsync(() => getNoshowChart(_id, nsPeriod), [_id], false);
+    const { loadingN, data: noshowChart, errorN } = stateN;
+
+    useEffect(() => {
+        // if(bookingChart) {}
+        if(loadingB) {
+            spinner.start();
+        } else {
+            spinner.stop();
+        }
+        if(errorB) {
+        // window.location.href = '/error/100';
+        }
+    },[loadingB, errorB, spinner, bookingChart]);
+    useEffect(() => {
+        // if(noshowChart) {}
+        if(loadingN) {
+            spinner.start();
+        } else {
+            spinner.stop();
+        }
+        if(errorN) {
+        // window.location.href = '/error/100';
+        }
+    },[loadingN, errorN, spinner, noshowChart]);
+
     
-    const nsPeriod = setPeriod(nsSelectP, nsSelectC);
-    
+
     return (
         <>
             <Charts
             //number of reservations
             rsvSelectP = {rsvSelectP}
-            rsvSelectC = {rsvSelectC}
             rsvSPOnChange = {rsvSPOnChange}
-            rsvSCOnChange = {rsvSCOnChange}
-            rsvGreenDate2 = {rsvPeriod.greenDate2}
-            rsvGreenDate1 = {rsvPeriod.greenDate1}
-            rsvRedDate2 = {rsvPeriod.redDate2}
-            rsvRedDate1 = {rsvPeriod.redDate1}
+            rsvDate2 = {rsvPeriod.date2}
+            rsvDate1 = {rsvPeriod.date1}
+            rsvTotal = {bookingChartForTest.total}
             
             //number of no show
             nsSelectP = {nsSelectP}
-            nsSelectC = {nsSelectC}
             nsSPOnChange = {nsSPOnChange}
-            nsSCOnChange = {nsSCOnChange}
-            nsGreenDate2 = {nsPeriod.greenDate2}
-            nsGreenDate1 = {nsPeriod.greenDate1}
-            nsRedDate2 = {nsPeriod.redDate2}
-            nsRedDate1 = {nsPeriod.redDate1}
+            nsDate2 = {nsPeriod.date2}
+            nsDate1 = {nsPeriod.date1}
+            nsTotal = {noshowChartForTest.total}
+
+            //Chart
+            bookingChart={bookingChartForTest}
+            noshowChart={noshowChartForTest}
             />
         </>
     );

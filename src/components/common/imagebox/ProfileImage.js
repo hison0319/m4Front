@@ -13,7 +13,6 @@ const ProfileImage = ({
       <div className="text-center">
         <div className="imgbox-big display-inline">
           <img
-            alt="..."
             className="profile-img rounded-circle shadow-lg"
             src={imageURL?imageURL:images.emptyUser}
             alt={alt?alt:""}

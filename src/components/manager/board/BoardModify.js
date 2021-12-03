@@ -7,6 +7,7 @@ import React, { useEffect } from 'react';
 import EditDay from "./editDay/EditDay";
 import EditOption from "./editOption/EditOption";
 // import EditSummer from './editSummer/EditSummer';
+import ImgBoxUpload from 'components/common/imagebox/ImgBoxUpload';
 import {
   Button,
   Row,
@@ -29,7 +30,7 @@ const BoardModify = ({
   varContext,
   onChangeText,
   handleFileOnChange,
-  imagePreview,
+  imageItemList,
 
   week,
   monTimeList,
@@ -109,7 +110,11 @@ const BoardModify = ({
           {/* <EditSummer/> */}
           <Row className="px-2">
             <Col className="my-3 pb-2">
-              {imagePreview}
+              <ImgBoxUpload
+              items={imageItemList}
+              imageIdx={0}
+              setImageIdx={()=>{}}
+              />
             </Col>
           </Row>
           <Row className="my-2">
@@ -176,7 +181,7 @@ BoardModify.propTypes = {
   varContext: PropTypes.string,
   onChangeText: PropTypes.func,
   handleFileOnChange: PropTypes.func,
-  imagePreview: PropTypes.object,
+  imageItemList: PropTypes.array,
 
   week: PropTypes.array,
   monTimeList: PropTypes.array,
