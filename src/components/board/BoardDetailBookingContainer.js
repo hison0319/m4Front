@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import BoardDetailBooking from './BoardDetailBooking';
-
 import { useSelector, useDispatch } from "react-redux";
 import {
     setCalpick2Date,
@@ -10,6 +9,16 @@ import {
 import {
     setCalDate
 } from 'modules/calendarForBoard';
+import axios from 'axios';
+import useAsync from "utils/useAsync";
+import { ProgressContext } from "context/Progress"
+
+async function getBookingInfo(id, date) {
+    const response = await axios.get(
+      `/api/v1/shopBookingInfo/${id}${date}`
+    );
+    return response.data;
+}
 
 const BoardDetailBookingContainer = React.memo(() => {
     useEffect(() => {
@@ -33,7 +42,6 @@ const BoardDetailBookingContainer = React.memo(() => {
         dispatch(subCalpick2Date());
         setSelectTime('');
     }
-    
     // Redux Calender operation
     const _calendar = useSelector(state => ({
         date        : state.calendarForBoard.date,
@@ -44,59 +52,54 @@ const BoardDetailBookingContainer = React.memo(() => {
         week        : state.calendarForBoard.week,
         days        : state.calendarForBoard.days,
     }));
+
+    const sysdate = _calendarPick2.date.format('YYYY-MM-DD');
+
+    const {spinner} = useContext(ProgressContext);
+    const _id = 1; //temporary
+    const [state] = useAsync(() => getBookingInfo(_id,sysdate), [_id], false);
+    const { loading, data: bookingInfo, error } = state;
+    
+    useEffect(() => {
+        if(loading) {
+        spinner.start();
+        } else {
+        spinner.stop();
+        }
+        if(error) {
+        // window.location.href = '/error/100';
+        }
+    },[loading, error, spinner]);
     
     // Redux Axios bookings info
-    const _bookings = [
+    const monthBookings = [
         {
-            date : 20210830,
+            date : "2021-12-03",
             num : 5
         },
         {
-            date : 20210905,
+            date : "2021-12-05",
             num : 3
         },
         {
-            date : 20210914,
+            date : "2021-12-14",
             num : 8
         },
         {
-            date : 20210925,
+            date : "2021-12-25",
             num : 6
         },
         {
-            date : 20211001,
+            date : "2022-01-01",
             num : 3
         },
     ];
 
-    const onSetCalDate = (date) => dispatch(setCalDate(date));
-    
-    // BookingManagerContainer operation
-    const [localDate, setLocalDate] = useState(_calendarPick2.date);
-    
-    const onPickCal = (setDate) => {
-        onSetCalpick2Date(setDate);
-        onSetCalDate(setDate);
-        setLocalDate(setDate);
-    }
-
-    const onPreCal = () => {
-        let newDate = localDate.clone().subtract(1,'days')
-        onSetCalDate(newDate);
-        onSubCalpick2Date();
-    }
-    
-    const onNextCal = () => {
-        let newDate = localDate.clone().add(1,'days')
-        onSetCalDate(newDate);
-        onAddCalpick2Date();
-    }
-
     // booking time infomations
     const [selectTime, setSelectTime] = useState('');
 
-    const ableTime = ['0800','0900','1000','1100','1200','1400','1500','1600','1700','1800'];
-    const disableTime = ['1000','1200','1400','1500','1800'];
+    const ableTime = ['08:00','09:00','10:00','11:00','12:00','14:00','15:00','16:00','17:00','18:00'];
+    const disableTime = ['10:00','12:00','14:00','15:00','18:00'];
 
     const onSelectTime = (time) => {
         setSelectTime(time);
@@ -204,6 +207,29 @@ const BoardDetailBookingContainer = React.memo(() => {
         },
     ]
 
+    const onSetCalDate = (date) => dispatch(setCalDate(date));
+    
+    // BookingManagerContainer operation
+    const [localDate, setLocalDate] = useState(_calendarPick2.date);
+    
+    const onPickCal = (setDate) => {
+        onSetCalpick2Date(setDate);
+        onSetCalDate(setDate);
+        setLocalDate(setDate);
+    }
+
+    const onPreCal = () => {
+        let newDate = localDate.clone().subtract(1,'days')
+        onSetCalDate(newDate);
+        onSubCalpick2Date();
+    }
+    
+    const onNextCal = () => {
+        let newDate = localDate.clone().add(1,'days')
+        onSetCalDate(newDate);
+        onAddCalpick2Date();
+    }
+
     return (
         <>
             <BoardDetailBooking
@@ -214,7 +240,7 @@ const BoardDetailBookingContainer = React.memo(() => {
             onNextCal       = {onNextCal}
             // For Calender
             calendarInfo    = {_calendar}
-            bookingsInfo    = {_bookings}
+            bookingsInfo    = {monthBookings}
             // For SelectTime
             ableTime        = {ableTime}
             disableTime     = {disableTime}

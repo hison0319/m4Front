@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import BoardDetail from 'components/board/BoardDetail';
+import BoardDetailContainer from 'components/board/BoardDetailContainer';
 import SpinnerGrow from "components/common/etc/SpinnerGrow";
 import { ProgressContext } from "context/Progress"
 
@@ -9,7 +9,7 @@ function BoardDetailView() {
     return (
         <>
             {inProgress && <SpinnerGrow/>}
-            <BoardDetail />
+            <BoardDetailContainer />
         </>
     )
 }

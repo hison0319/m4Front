@@ -4,7 +4,6 @@ import {
   Col,
   Button,
 } from 'reactstrap';
-
 import {
   TimeCheckedIcon,
   TimeUncheckedIcon
@@ -33,9 +32,10 @@ const SelectTime = (props) => {
             onClick={()=>{
               onSelectTime(time)
             }}>
-            <span className="btn-inner--text">
-              <TimeCheckedIcon/>&nbsp;&nbsp;{time}
-            </span>
+            <TimeCheckedIcon/><br></br>
+            <small className="btn-inner--text">
+              {time}
+            </small>
           </Button>
         </Col>
       );
@@ -52,10 +52,10 @@ const SelectTime = (props) => {
               onClick={()=>{
                 onSelectTime(time)
               }}>
-              <span className="btn-inner--text">
-                <TimeCheckedIcon/>
-                &nbsp;&nbsp;{time}
-              </span>
+              <TimeCheckedIcon/><br></br>
+              <small className="btn-inner--text">
+                {time}
+              </small>
             </Button>
           </Col>
           );
@@ -71,10 +71,10 @@ const SelectTime = (props) => {
               onClick={()=>{
                 onSelectTime(time)
               }}>
-              <span className="btn-inner--text">
-                <TimeUncheckedIcon/>
-                &nbsp;&nbsp;{time}
-              </span>
+              <TimeUncheckedIcon/><br></br>
+              <small className="btn-inner--text">
+                {time}
+              </small>
             </Button>
           </Col>
         );

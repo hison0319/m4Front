@@ -73,23 +73,23 @@ const BookingManagerContainer = () => {
     // Redux Axios bookings info
     const monthBookings = [
         {
-            date : "2021-11-03",
+            date : "2021-12-03",
             num : 5
         },
         {
-            date : "2021-11-05",
+            date : "2021-12-05",
             num : 3
         },
         {
-            date : "2021-11-14",
+            date : "2021-12-14",
             num : 8
         },
         {
-            date : "2021-11-25",
+            date : "2021-12-25",
             num : 6
         },
         {
-            date : "2021-12-01",
+            date : "2022-01-01",
             num : 3
         },
     ];

@@ -3,7 +3,7 @@
 작성일 : 2021.11.13
 내용 :  shop manager의 예약 상세 내역 (뷰)
 */
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import {
   Row,
   Col,
@@ -24,10 +24,10 @@ const Booking = ({
   price,
   reservationOption,
 }) => {
-  const alertRef = useRef();
+  const modalRef = useRef();
   const modalView = 
   <ModalView
-    ref={alertRef}
+    ref={modalRef}
     item={<NormalProfileContainer userId={userId}/>}
     closingModal={()=>{
       //nothing
@@ -44,7 +44,7 @@ const Booking = ({
           <Button
             className="btn-1"
             color="neutral"
-            onClick={()=>{alertRef.current.showAlert();}}>
+            onClick={()=>{modalRef.current.showAlert();}}>
             <small style={{verticalAlign:"top"}}>
                 &nbsp;&nbsp;{userName}&nbsp;님
             </small>
