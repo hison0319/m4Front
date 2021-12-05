@@ -1,7 +1,7 @@
 /*
 작성자 : 손한이
-작성일 : 2021.11.13
-내용 :  board detail (기능, 뷰)
+작성일 : 2021.12.05
+내용 :  board detail (기능)
        API - get
 */
 import React, { useState, useEffect, useContext, useRef } from 'react';

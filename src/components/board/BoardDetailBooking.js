@@ -1,3 +1,8 @@
+/*
+작성자 : 손한이
+작성일 : 2021.12.05
+내용 :  board detail 예약 (뷰)
+*/
 import React, { useEffect } from 'react';
 import {
     Container,

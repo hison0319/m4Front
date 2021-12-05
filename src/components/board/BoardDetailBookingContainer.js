@@ -1,3 +1,9 @@
+/*
+작성자 : 손한이
+작성일 : 2021.12.05
+내용 :  board detail 예약 (기능)
+       API - get
+*/
 import React, { useState, useEffect, useContext } from 'react'
 import BoardDetailBooking from './BoardDetailBooking';
 import { useSelector, useDispatch } from "react-redux";
