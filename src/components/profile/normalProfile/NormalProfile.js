@@ -11,7 +11,7 @@ import {
     Col,
     Button
  } from 'reactstrap';
-import ReviewList from 'components/review/ReviewList';
+import ReviewListContainer from 'components/review/ReviewListContainer';
 import ModifyProfileContainer from './index/ModifyProfileContainer.js';
 import ReadProfile from './index/ReadProfile';
 import {
@@ -67,7 +67,7 @@ const NormalProfile = ({
         </Row>
         <Row className="py-1 my-1 position-relative">
             <Col className="py-1 my-1">
-                <ReviewList/>
+                <ReviewListContainer/>
             </Col>
         </Row>
     </Container>

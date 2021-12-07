@@ -1,59 +1,90 @@
+/*
+작성자 : 손한이
+작성일 : 2021.12.05
+내용 :  Review 목록 (뷰)
+*/
 import React, { useState } from 'react';
-
 import {
+  Container,
   Row,
   Col,
   FormGroup,
   Input
 } from "reactstrap";
-
 import Review from "./index/Review";
 import Review2 from "./index/Review2";
 import WriteReview from "./index/WriteReview";
-
 import {HeartIcon} from 'components/common/icons/Index';
+import PropTypes from "prop-types";
 
-function ReviewList() {
+const ReviewList = ({
+  myReview,
+  reviewList,
+  listMode,
+  setMyReview,
+  onSetReview,
+  onScrolling,
+  onSetListMode
+}) => {
   const [selectList, setSelectList] = useState("B");
   return (
-    <>
-      <main className="my-1 py-1">
-        <WriteReview/>
-        <Row className="my-2">
-          <Col xs="6">
-            <div className="pl-3">
-              <FormGroup>
-                <Input
-                bsSize="sm"
-                type="select"
-                name="select"
-                id="exampleSelect"
-                value={selectList}
-                onChange={(e)=>{
-                  setSelectList(e.target.value);
-                }}
-                >
-                  <option value="A">최근순</option>
-                  <option value="B">높은점수</option>
-                  <option value="C">낮은점수</option>
-                </Input>
-              </FormGroup>
-            </div>
-          </Col>
-          <Col xs="6">
-            <div
-            style={{lineHeight:"1.8em"}}
-            className="text-secondary text-right pr-4"
-            >
-              <span>총점 <HeartIcon/> : </span>
-              <span>4.5</span>
-            </div>
-          </Col>
-        </Row>
-        <Review/>
-        <Review2/>
-      </main>
-    </>
+    <Container>
+      <WriteReview
+      myReview={myReview}
+      setMyReview={setMyReview}
+      onSetReview={onSetReview}
+      />
+      <Row className="my-2">
+        <Col xs="6">
+          <div className="pl-3">
+            <FormGroup>
+              <Input
+              bsSize="sm"
+              type="select"
+              name="select"
+              id="exampleSelect"
+              value={listMode}
+              onChange={(e)=>{
+                onSetListMode(e.target.value);
+              }}
+              >
+                <option value="A">최근순</option>
+                <option value="B">높은점수</option>
+                <option value="C">낮은점수</option>
+              </Input>
+            </FormGroup>
+          </div>
+        </Col>
+        <Col xs="6">
+          <div
+          style={{lineHeight:"1.8em"}}
+          className="text-secondary text-right pr-4"
+          >
+            <span>총점 <HeartIcon/> : </span>
+            <span>4.5</span>
+          </div>
+        </Col>
+      </Row>
+      {reviewList.map((item, idx)=>
+        <Review
+        key={item.reviewId+idx}
+        name={item.name}
+        rating={item.rating}
+        comment={item.comment}
+        />
+      )}
+    </Container>
   )
 }
+
+ReviewList.propTypes = {
+  myReview: PropTypes.object,
+  reviewList: PropTypes.array,
+  listMode: PropTypes.string,
+  setMyReview: PropTypes.func,
+  onSetReview: PropTypes.func,
+  onScrolling: PropTypes.func,
+  onSetListMode: PropTypes.func,
+}
+
 export default ReviewList;

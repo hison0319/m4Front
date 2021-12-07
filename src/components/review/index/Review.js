@@ -1,18 +1,26 @@
+/*
+작성자 : 손한이
+작성일 : 2021.12.07
+내용 :  Review (뷰)
+*/
 import React, { useState } from 'react';
-
 import { 
     Container,
     Card,
     CardBody,
     Button,
 } from 'reactstrap';
-
 import {
     HeartIcon,
     HeartBrokenIcon
 } from 'components/common/icons/Index';
+import PropTypes from "prop-types";
 
-function Review(){
+const Review = ({
+    name,
+    rating,
+    comment,
+}) => {
     const [readToggle, setReadToggle] = useState(false);
 
     const makeHeartArr = (num) => {
@@ -32,9 +40,9 @@ function Review(){
             <div className="my-1 py-1">
                 <Container>
                     <div>
-                    <span className="text-info mr-2">손한이</span>
+                    <span className="text-info mr-2">{name}</span>
                     <span>
-                        {makeHeartArr(4).map((icon,idx) => 
+                        {makeHeartArr(rating).map((icon,idx) => 
                             <span key={idx}>{icon}</span>
                         )}
                     </span>
@@ -54,12 +62,7 @@ function Review(){
                                         e.target.classList.remove('txt_review');
                                     }
                                 }}>
-                                리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 
-                                리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 
-                                리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 
-                                리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 
-                                리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 
-                                리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 
+                                {comment}
                                 </article>
                             </Button>
                         </CardBody>
@@ -69,5 +72,11 @@ function Review(){
         </>
     );
 }
+
+Review.propTypes = {
+    name: PropTypes.string,
+    rating: PropTypes.number,
+    comment: PropTypes.string,
+  }
 
 export default Review;

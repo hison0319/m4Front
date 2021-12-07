@@ -223,6 +223,31 @@ export const getIndexEqualKey = (arr, key, value) => {
 }
 
 /*
+객체 배열에서
+해당 키값으로 중복된 객체를 제거
+ex) ([{key:1},{key:2},{key:2}], "key") => [{key:1},{key:2}]
+*/
+export const delArrDupObject = (arr, key) => {
+    try {
+        if(!Array.isArray(arr)) {
+            arr = arr.values();
+        }
+        const rtnArr = [];
+        let tempObj  = {};
+        for(var i in arr) {
+            tempObj[arr[i][key]] = arr[i];
+        }
+        for(i in tempObj) {
+            rtnArr.push(tempObj[i]);
+        }
+         return rtnArr;
+    } catch (error) {
+        console.log("delArrDupObject exception\n"+error);
+        return [];
+    }
+}
+
+/*
 국가 코드
 */
 export const getNationCodeListAll = () => {

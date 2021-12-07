@@ -12,7 +12,7 @@ import {
 import BoardDetailRead from "./BoardDetailRead";
 import ModalView from "components/common/etc/ModalView"
 import BoardDetailBookingContainer from './BoardDetailBookingContainer';
-import ReviewList from 'components/review/ReviewList';
+import ReviewListContainer from 'components/review/ReviewListContainer';
 import {
     BookingIcon
 } from "components/common/icons/Index"
@@ -56,7 +56,7 @@ const BoardDetail = () => {
 
     return (
         <>
-            <Container>
+            <Container className="my-2 pb-3">
                 <BoardDetailRead
                 imageItemList={imageItemList}
                 shopName={shopName}
@@ -84,8 +84,8 @@ const BoardDetail = () => {
                     </span>
                     </Button>
                 </div>
-                <ReviewList/>
             </Container>
+            <ReviewListContainer/>
         </>
     );
 }
