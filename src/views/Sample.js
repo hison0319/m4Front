@@ -21,7 +21,7 @@ import React from "react";
 import { Container, Row } from "reactstrap";
 
 // core components
-import UserNavbar from "components/navbars/UserNavbar.js";
+// import UserNavbar from "components/navbars/UserNavbar.js";
 import CardsFooter from "components/common/argon_basic/CardsFooter.js";
 
 // index page sections
@@ -55,7 +55,7 @@ class Sample extends React.Component {
   render() {
     return (
       <>
-        <UserNavbar />
+        {/* <UserNavbar /> */}
         <main ref="main">
           <Hero />
           <Buttons />
