@@ -15,7 +15,7 @@ import BoardDetailBookingContainer from './BoardDetailBookingContainer';
 import ReviewListContainer from 'components/review/ReviewListContainer';
 import {
     BookingIcon
-} from "components/common/icons/Index"
+} from "components/common/icons"
 import axios from 'axios';
 import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"
@@ -27,7 +27,7 @@ async function getBoardDetail(id) {
     return response.data;
 }
 
-const BoardDetail = () => {
+const BoardDetailContainer = () => {
 
     //borad detail 내용 get API
     const {spinner} = useContext(ProgressContext);
@@ -90,4 +90,4 @@ const BoardDetail = () => {
     );
 }
 
-export default BoardDetail;
+export default BoardDetailContainer;

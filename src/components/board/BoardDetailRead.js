@@ -10,7 +10,7 @@ import {
     Button
 } from 'reactstrap';
 import ImgBox from 'components/common/imagebox/ImgBox';
-const BoardDetail = ({
+const BoardDetailRead = ({
     imageItemList,
     shopName,
     context,
@@ -50,4 +50,4 @@ const BoardDetail = ({
     );
 }
 
-export default BoardDetail;
+export default BoardDetailRead;

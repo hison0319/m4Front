@@ -50,7 +50,6 @@ function BusinessProfileContainer({userId}){
     // option hour 필요없음, sns주소(배열), 자기소개, 연락처(배열)(국가코드), 프로필 경로 필요
     
     //forTest start
-    console.log(userId);
     const id = 1;
     const businessRegNumber = "123-456-7890";
     const name = "한이's 편집샵";

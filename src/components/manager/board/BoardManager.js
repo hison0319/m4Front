@@ -18,7 +18,7 @@ import BoardModifyContainer from "./BoardModifyContainer";
 import {
   ModifyIcon,
   BackReadIcon
-} from "components/common/icons/Index"
+} from "components/common/icons"
 import axios from 'axios';
 import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"

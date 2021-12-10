@@ -3,6 +3,7 @@ import BackReadIcon from "./index/BackReadIcon";
 import BasicUserIcon from "./index/BasicUserIcon";
 import BlackUserIcon from "./index/BlackUserIcon";
 import BookingIcon from "./index/BookingIcon";
+import GoUpIcon from "./index/GoUpIcon";
 import HeartBrokenIcon from "./index/HeartBrokenIcon";
 import HeartIcon from "./index/HeartIcon";
 import ListDownIcon from "./index/ListDownIcon";
@@ -31,6 +32,7 @@ export {
     BasicUserIcon,
     BlackUserIcon,
     BookingIcon,
+    GoUpIcon,
     HeartBrokenIcon,
     HeartIcon,
     ListDownIcon,

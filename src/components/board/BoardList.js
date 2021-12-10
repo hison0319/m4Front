@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 // core components
 import Board from "components/board/Board";
 
-function FeedList() {
+function BoardList() {
   useEffect( ()=> {
     //event
   });
@@ -16,4 +16,4 @@ function FeedList() {
     </>
   )
 }
-export default FeedList;
+export default BoardList;

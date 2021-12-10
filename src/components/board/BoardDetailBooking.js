@@ -17,7 +17,7 @@ import SelectOptions from "./index/SelectOptions"
 import CheckOptions from "./index/CheckOptions"
 import {
     BookingIcon
-} from "components/common/icons/Index"
+} from "components/common/icons"
 
 const BoardDetailBooking = (props) => {
     useEffect(() => {

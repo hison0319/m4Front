@@ -3,36 +3,31 @@
 작성일 : 2021.12.05
 내용 :  Review 목록 (뷰)
 */
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Container,
   Row,
   Col,
   FormGroup,
-  Input
+  Input,
 } from "reactstrap";
 import Review from "./index/Review";
-import Review2 from "./index/Review2";
 import WriteReview from "./index/WriteReview";
-import {HeartIcon} from 'components/common/icons/Index';
+import {HeartIcon} from 'components/common/icons';
 import PropTypes from "prop-types";
 
 const ReviewList = ({
   myReview,
   reviewList,
   listMode,
-  setMyReview,
-  onSetReview,
-  onScrolling,
+  onSetMyReview,
   onSetListMode
 }) => {
-  const [selectList, setSelectList] = useState("B");
   return (
     <Container>
       <WriteReview
       myReview={myReview}
-      setMyReview={setMyReview}
-      onSetReview={onSetReview}
+      onSetMyReview={onSetMyReview}
       />
       <Row className="my-2">
         <Col xs="6">
@@ -81,9 +76,7 @@ ReviewList.propTypes = {
   myReview: PropTypes.object,
   reviewList: PropTypes.array,
   listMode: PropTypes.string,
-  setMyReview: PropTypes.func,
-  onSetReview: PropTypes.func,
-  onScrolling: PropTypes.func,
+  onSetMyReview: PropTypes.func,
   onSetListMode: PropTypes.func,
 }
 

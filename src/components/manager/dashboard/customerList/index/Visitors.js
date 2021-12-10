@@ -15,7 +15,7 @@ import {
   BasicUserIcon,
   WhiteUserIcon,
   BlackUserIcon
-} from "components/common/icons/Index"
+} from "components/common/icons"
 import { getDotStrMax } from "utils/common"
 import PropTypes from "prop-types";
 import ModalView from "components/common/etc/ModalView"

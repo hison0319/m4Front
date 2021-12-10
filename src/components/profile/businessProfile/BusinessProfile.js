@@ -6,7 +6,6 @@
 */
 
 import React from 'react';
-import { Link } from "react-router-dom";
 import { 
     Container,
     Row,
@@ -18,14 +17,12 @@ import ReadProfile from './index/ReadProfile';
 import {
     ModifyIcon,
     BackReadIcon,
-    StoreIcon,
-} from "components/common/icons/Index"
+} from "components/common/icons"
 import PropTypes from "prop-types";
 
 const BusinessProfile = ({
     mode,
     handleSetMode,
-    link,
     id,
     businessRegNumber,
     name,
@@ -135,7 +132,7 @@ BusinessProfile.propTypes = {
     contactNumber2: PropTypes.string,
     snsList: PropTypes.array,
     zipcode: PropTypes.string,
-    openingHours: PropTypes.array,
+    openingHours: PropTypes.string,
     introduce: PropTypes.string,
 };
 

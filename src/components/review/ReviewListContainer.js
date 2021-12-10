@@ -11,11 +11,12 @@ import {
   setReview,
   addReview,
 } from 'modules/review';
+import { modifyArrayWithIdx } from "utils/common"
 import axios from 'axios';
 import useAsync from "utils/useAsync";
-import { ProgressContext } from "context/Progress"
-
-import {Button} from "reactstrap";
+import { ProgressContext } from "context/Progress";
+import { Button } from "reactstrap";
+import { GoUpIcon } from "components/common/icons"
 
 async function getReviewList(id,target,idx,mode) {
   const response = await axios.get(
@@ -29,21 +30,22 @@ const ReviewListContainer = ({
   target
 }) => {
   // 리뷰 목록 번호
-  const scrollingIdx = useRef(0);
+  const getReviewIdx = useRef(0);
   // 리뷰 목록 모드 설정
   const [listMode, setListMode] = useState("B");
   const onSetListMode = (mode) => {
     setListMode(mode);
-    scrollingIdx.current = 0;
-    getReviewList(0,"",scrollingIdx.current,mode);
+    getReviewIdx.current = 0;
+    getReviewList(0,"",getReviewIdx.current,mode);
   }
 
-  //borad detail 내용 get API
+  // 리뷰 목록 get API
   const {spinner} = useContext(ProgressContext);
   const _id = 1; //temporary
-  const [state] = useAsync(() => getReviewList(_id,"",scrollingIdx), [_id], false);
+  const [state] = useAsync(() => getReviewList(_id,"",getReviewIdx), [_id], false);
   const { loading, data: reviewList, error } = state;
   
+  let getReviewToggle = true;
   useEffect(() => {
     if(reviewList) {
       onAddReview(reviewList)
@@ -51,6 +53,7 @@ const ReviewListContainer = ({
     if(loading) {
       spinner.start();
     } else {
+      getReviewToggle = true;
       spinner.stop();
     }
     if(error) {
@@ -61,7 +64,7 @@ const ReviewListContainer = ({
   const myReviewTest = {
     reviewId: "R001",
     name: "손한이",
-    rating: 4,
+    rating: "4",
     comment: "리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다."
   };
 
@@ -69,38 +72,35 @@ const ReviewListContainer = ({
     {
       reviewId: "R001",
       name: "손한이",
-      rating: 4,
+      rating: "4",
       comment: "리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다."
     },
     {
       reviewId: "R002",
       name: "이관호1",
-      rating: 3,
+      rating: "3",
       comment: "리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다."
     },
     {
       reviewId: "R003",
       name: "이관호2",
-      rating: 5,
+      rating: "5",
       comment: "리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다."
     },
     {
       reviewId: "R004",
       name: "이관호3",
-      rating: 2,
+      rating: "2",
       comment: "리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다."
     },
     {
       reviewId: "R005",
       name: "이관호4",
-      rating: 2,
+      rating: "2",
       comment: "리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다."
     },
   ];
-  // 내 리뷰정보
-  const [myReview, setMyReview] = useState(myReviewTest);
-
-  // Redux CalenderPick2 operation
+  // 리뷰 목록 생성
   const _review = useSelector(state => ({
     reviewList : state.review.reviewList
   }));
@@ -111,37 +111,62 @@ const ReviewListContainer = ({
   const onAddReview = (reviewList) => {
     dispatch(addReview(reviewList));
   }
-  useEffect(()=>{ // 최초 한번만 리뷰 목록 넣어줌, 차후 제거 요
-    onAddReview(reviewListTest);
+  useEffect(()=>{ 
+    onSetReview(reviewListTest); // 최초 한번 리뷰 목록 넣어줌
+    document.getElementById("topBtn").style.display = "none";
+    //top버튼 사라지기
+    setInterval(function () {
+      document.getElementById("topBtn").style.display = "none"
+    }, 5000)
   },[])
-  console.log('_review.reviewList',_review.reviewList,"reviewId");
-
-  const onScrolling = () => {
-    scrollingIdx.current += 1;
-    getReviewList(0,"",scrollingIdx.current,listMode);
+  
+  
+  //스크롤 최하단 내릴 시 리뷰 불러오기, top버튼 보이게하기
+  window.addEventListener("scroll", function() {
+    if(window.pageYOffset + window.innerHeight > document.documentElement.scrollHeight-30) {
+      if (getReviewToggle) {
+        getReviewToggle = false;
+        getReviewIdx.current += 1;
+        getReviewList(0,"",getReviewIdx.current,listMode);
+        onAddReview(reviewListTest);
+      }
+    }
+    if(window.scrollY > 300) {
+      document.getElementById("topBtn").style.display = ""
+    }
+  });
+  //top버튼 누를 시 최상단 이동
+  const goTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+  // 내 리뷰정보
+  const [myReview, setMyReview] = useState(myReviewTest);
+  // 내 리뷰 변경시 리뷰목록도 변경
+  const onSetMyReview = (review) => {
+    setMyReview(review);
+    const newReviewList = modifyArrayWithIdx(_review.reviewList, 0, review);
+    onSetReview(newReviewList);
   }
 
   return (
     <>
+      <Button
+      id="topBtn"
+      className="topBtn"
+      color="neutral"
+      onClick={goTop}>
+        <GoUpIcon/>
+      </Button>
       <ReviewList
       myReview={myReview}
       reviewList={_review.reviewList}
       listMode={listMode}
-      setMyReview={setMyReview}
-      onSetReview={onSetReview}
-      onScrolling={onScrolling}
+      onSetMyReview={onSetMyReview}
       onSetListMode={onSetListMode}
       />
-      <Button
-        className="ml-auto"
-        color="link"
-        type="button"
-        onClick={() => {
-          onAddReview(reviewListTest);
-        }}
-      >
-        test
-      </Button>
     </>
   )
 }

@@ -8,7 +8,7 @@ import {
 import {
   BackReadIcon,
   SNSInstagramIcon,
-} from "components/common/icons/Index"
+} from "components/common/icons"
 import PropTypes from "prop-types";
 
 const Error = ({

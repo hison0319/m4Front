@@ -17,7 +17,7 @@ import {
 import InputSNSList from 'components/profile/InputSNSList';
 import {
   SubmitIcon
-} from "components/common/icons/Index"
+} from "components/common/icons"
 import {
   removeSpc,
   removeNotNumber,

@@ -63,11 +63,11 @@ const ReadProfile = ({
                               </Button>
                             )}
                             <Link to={link} target="_blank" className="default-link">
-                              <article className="mt-4 text-secondary text-justify" style={{ fontSize: '0.9rem', whiteSpace: 'pre-line' }}>
+                              <article className="my-4 text-secondary text-justify" style={{ fontSize: '0.9rem', whiteSpace: 'pre-line' }}>
                               {introduce}</article>
                             </Link>
                             <span className="d-block small my-3 text-dark border-gray text-center">사업자 번호 : {businessRegNumber}</span>
-                            <span className="d-block small my-3 text-dark border-gray text-center">{openingHours}</span>
+                            <span className="d-block small my-3 text-dark border-gray text-center">open : {openingHours}</span>
                         </CardBody>
                     </Card>
                 </div>

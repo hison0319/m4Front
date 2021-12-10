@@ -7,7 +7,7 @@ import {
 import {
   TimeCheckedIcon,
   TimeUncheckedIcon
-} from "components/common/icons/Index"
+} from "components/common/icons"
 
 const SelectTime = (props) => {
   const ableTime        = props.ableTime;
