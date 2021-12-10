@@ -42,7 +42,7 @@ const Review = ({
                     <div>
                     <span className="text-info mr-2">{name}</span>
                     <span>
-                        {makeHeartArr(rating).map((icon,idx) => 
+                        {makeHeartArr(Number(rating)).map((icon,idx) => 
                             <span key={idx}>{icon}</span>
                         )}
                     </span>
@@ -75,7 +75,7 @@ const Review = ({
 
 Review.propTypes = {
     name: PropTypes.string,
-    rating: PropTypes.number,
+    rating: PropTypes.string,
     comment: PropTypes.string,
 }
 
