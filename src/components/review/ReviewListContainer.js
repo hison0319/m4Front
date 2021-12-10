@@ -127,7 +127,7 @@ const ReviewListContainer = ({
       if (getReviewToggle) {
         getReviewToggle = false;
         getReviewIdx.current += 1;
-        getReviewList(0,"",getReviewIdx.current,listMode);
+        // getReviewList(0,"",getReviewIdx.current,listMode);
         onAddReview(reviewListTest);
       }
     }
