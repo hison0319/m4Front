@@ -13,7 +13,7 @@ import {
 } from "reactstrap";
 import Review from "./index/Review";
 import WriteReview from "./index/WriteReview";
-import {HeartIcon} from 'components/common/icons';
+import {HeartIcon} from 'components/common/icons/index';
 import PropTypes from "prop-types";
 
 const ReviewList = ({
