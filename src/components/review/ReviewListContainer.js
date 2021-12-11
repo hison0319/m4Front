@@ -151,6 +151,8 @@ const ReviewListContainer = ({
     onSetReview(newReviewList);
   }
 
+  console.log('reviewList : ',_review.reviewList);
+
   return (
     <>
       <Button
