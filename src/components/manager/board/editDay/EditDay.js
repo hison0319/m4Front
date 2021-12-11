@@ -13,7 +13,7 @@ import InputDay from './index/InputDay';
 import {
   ListDownIcon,
   ListUpIcon,
-} from "components/common/icons/index"
+} from "components/common/icons"
 import {
   Row,
   Col,

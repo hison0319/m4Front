@@ -10,7 +10,7 @@ import {
 import {
   // SNSFacebookIcon,
   SNSInstagramIcon
-} from "components/common/icons/index"
+} from "components/common/icons"
 
 function Footer(){
   return (

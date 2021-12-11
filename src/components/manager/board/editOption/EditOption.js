@@ -9,7 +9,7 @@ import Options from './index/Options';
 import {
   ListDownIcon,
   ListUpIcon,
-} from "components/common/icons/index"
+} from "components/common/icons"
 import {
   Row,
   Col,

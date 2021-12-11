@@ -7,7 +7,7 @@ import {
 
 import {
   WarningIcon
-} from "components/common/icons/index"
+} from "components/common/icons"
 
 const AlertModal = forwardRef((props, ref) => {
   const onClosingModal = props.closingModal?props.closingModal:()=>{return false}

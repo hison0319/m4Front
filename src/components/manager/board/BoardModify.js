@@ -19,7 +19,7 @@ import {
 } from "reactstrap";
 import {
   SubmitIcon
-} from "components/common/icons/index"
+} from "components/common/icons"
 import PropTypes from "prop-types";
 
 const BoardModify = ({

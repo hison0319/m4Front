@@ -17,7 +17,7 @@ import {
 import {
   HeartIcon,
   WriteCommentIcon,
-} from "components/common/icons/index"
+} from "components/common/icons"
 import PropTypes from "prop-types";
 
 const WriteReview = ({

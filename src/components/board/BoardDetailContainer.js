@@ -15,7 +15,7 @@ import BoardDetailBookingContainer from './BoardDetailBookingContainer';
 import ReviewListContainer from 'components/review/ReviewListContainer';
 import {
     BookingIcon
-} from "components/common/icons/index"
+} from "components/common/icons"
 import axios from 'axios';
 import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"
