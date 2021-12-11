@@ -7,7 +7,7 @@ import {
 
 import {
   WarningIcon
-} from "components/common/icons/Index"
+} from "components/common/icons/Index";
 
 const AlertConfirmModal = forwardRef((props, ref) => {
   const [alertToggle, setAlertToggle] = useState(false);

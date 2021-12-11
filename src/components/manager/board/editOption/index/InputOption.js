@@ -17,11 +17,11 @@ import {
 } from "reactstrap";
 import {
   RemoveOptionIcon,
-} from "components/common/icons/Index"
+} from "components/common/icons/Index";
 import { 
   makeMoneyType,
   removeNotNumber,
-} from "utils/common"
+} from "utils/common";
 import PropTypes from "prop-types";
 
 const InputOption = ({

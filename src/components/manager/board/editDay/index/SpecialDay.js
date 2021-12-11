@@ -11,7 +11,7 @@ import {
 
 import {
   RemoveOptionIcon
-} from "components/common/icons/Index"
+} from "components/common/icons/Index";
 
 function InputGroupSpDay(props) {
 

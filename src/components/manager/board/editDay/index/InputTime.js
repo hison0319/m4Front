@@ -16,7 +16,7 @@ import {
 } from "reactstrap";
 import {
     RemoveOptionIcon
-} from "components/common/icons/Index"
+} from "components/common/icons/Index";
 import PropTypes from "prop-types";
 
 const InputTime = ({

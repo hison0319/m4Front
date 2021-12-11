@@ -15,10 +15,10 @@ import {
   BasicUserIcon,
   WhiteUserIcon,
   BlackUserIcon
-} from "components/common/icons/Index"
-import { getDotStrMax } from "utils/common"
+} from "components/common/icons/Index";
+import { getDotStrMax } from "utils/common";
 import PropTypes from "prop-types";
-import ModalView from "components/common/etc/ModalView"
+import ModalView from "components/common/etc/ModalView";
 import NormalProfileContainer from 'components/profile/normalProfile/NormalProfileContainer';
 
 const Visitors = ({

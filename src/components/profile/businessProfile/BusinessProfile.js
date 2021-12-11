@@ -17,7 +17,7 @@ import ReadProfile from './index/ReadProfile';
 import {
     ModifyIcon,
     BackReadIcon,
-} from "components/common/icons/Index"
+} from "components/common/icons/Index";
 import PropTypes from "prop-types";
 
 const BusinessProfile = ({
