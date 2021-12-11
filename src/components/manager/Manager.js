@@ -19,7 +19,7 @@ import {
     ManageChkBookIcon,
     ManageDashIcon,
     BackReadIcon,
-} from "components/common/icons"
+} from "components/common/icons/index"
 
 import BoardManager from 'components/manager/board/BoardManager';
 // import BookingManager from 'components/manager/booking/BookingManager';
