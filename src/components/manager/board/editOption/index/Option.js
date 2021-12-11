@@ -18,7 +18,7 @@ import {
 import {
   RemoveOptionIcon,
   AddOptionIcon,
-} from "components/common/icons/index"
+} from "components/common/icons"
 import PropTypes from "prop-types";
 
 const Option = ({

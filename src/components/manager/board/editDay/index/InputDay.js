@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import {
   AddOptionIcon
-} from "components/common/icons/index"
+} from "components/common/icons"
 import {
   chkNullAndUndefined,
   deepCopyArray,

@@ -17,7 +17,7 @@ import {
 } from "reactstrap";
 import {
   RemoveOptionIcon,
-} from "components/common/icons/index"
+} from "components/common/icons"
 import { 
   makeMoneyType,
   removeNotNumber,

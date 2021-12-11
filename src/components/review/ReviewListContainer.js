@@ -16,7 +16,7 @@ import axios from 'axios';
 import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress";
 import { Button } from "reactstrap";
-import { GoUpIcon } from "components/common/icons/index"
+import { GoUpIcon } from "components/common/icons"
 
 async function getReviewList(id,target,idx,mode) {
   const response = await axios.get(
