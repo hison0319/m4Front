@@ -9,7 +9,7 @@ import {
   Navbar,
 } from "reactstrap";
 
-import { LogoIcon } from "components/common/icons";
+import { LogoIcon } from "components/common/icons/Index";
 
 import ProfileIcon from 'components/common/imagebox/ProfileIcon'
 import ProfileIcon2 from 'components/common/imagebox/ProfileIcon2'

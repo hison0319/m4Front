@@ -15,7 +15,7 @@ import ProfileImage2 from 'components/common/imagebox/ProfileImage2'
 import {
   //NoshowAngryIcon,
   NoshowGhostIcon,
-} from "components/common/icons"
+} from "components/common/icons/Index"
 import PropTypes from "prop-types";
 
 const ReadProfile = ({
