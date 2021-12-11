@@ -48,7 +48,7 @@ const ReviewListContainer = ({
   let getReviewToggle = true;
   useEffect(() => {
     if(reviewList) {
-      onAddReview(reviewList)
+      // onAddReview(reviewList)
     }
     if(loading) {
       spinner.start();
