@@ -15,7 +15,7 @@ const CalenderPick2 = (props) => {
     const dateTimeInput = document.getElementById("calenderPick2").getElementsByClassName("form-control")[0]
     dateTimeInput.readOnly = true;
     dateTimeInput.style.backgroundColor = "#fff";
-  })
+  },[])
   const {localDate, onPreCal, onPickCal, onNextCal} = props;
 
   return (

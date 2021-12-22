@@ -22,6 +22,7 @@ const BookingManager = ({
   calendarInfo,
   bookingsInfo,
   dayBookings,
+  onModal,
 }) => {
   useEffect(() => {
     // console.log('BookingManager is rendering!')
@@ -59,7 +60,8 @@ const BookingManager = ({
               <Col>
                 <div className="mb-3">
                   <TimeTable
-                  dayBookings={dayBookings}/>
+                  dayBookings={dayBookings}
+                  onModal={onModal}/>
                 </div>
               </Col>
             </Row>
@@ -78,6 +80,7 @@ BookingManager.propTypes = {
   calendarInfo: PropTypes.object,
   bookingsInfo: PropTypes.array,
   dayBookings: PropTypes.array,
+  onModal: PropTypes.func,
 }
 
 export default BookingManager;

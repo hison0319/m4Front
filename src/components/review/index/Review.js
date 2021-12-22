@@ -17,9 +17,11 @@ import {
 import PropTypes from "prop-types";
 
 const Review = ({
+    userId,
     name,
     rating,
     comment,
+    onModal,
 }) => {
     const [readToggle, setReadToggle] = useState(false);
 
@@ -40,7 +42,14 @@ const Review = ({
             <div className="my-1 py-1">
                 <Container>
                     <div>
-                    <span className="text-info mr-2">{name}</span>
+                    <Button
+                        className="btn-1"
+                        color="neutral"
+                        onClick={()=>{onModal(userId);}}>
+                        <span>
+                            {name}&nbsp;님
+                        </span>
+                    </Button>
                     <span>
                         {makeHeartArr(Number(rating)).map((icon,idx) => 
                             <span key={idx}>{icon}</span>
@@ -74,9 +83,11 @@ const Review = ({
 }
 
 Review.propTypes = {
+    userId: PropTypes.string,
     name: PropTypes.string,
     rating: PropTypes.string,
     comment: PropTypes.string,
+    onModal: PropTypes.func,
 }
 
 export default Review;

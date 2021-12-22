@@ -20,19 +20,19 @@ import { ProgressContext } from "context/Progress"
 import { getNationCodeListAll } from 'utils/common'
 import PropTypes from "prop-types";
 
-async function putUser(user, id, imgFile) {
-  // console.log('### putUser id : ',id);
+async function putUser(user, userId, imgFile) {
+  // console.log('### putUser userId : ',userId);
   // console.log('### putUser user : ',user);
   // console.log('### putShop imgFile : ',imgFile);
   const response = await axios.put(
-    '/api/v1/user/'+id
+    '/api/v1/user/'+userId
     ,user
   );
   return response.data;
 }
 
 const ModifyProfileContainer = ({
-  id,
+  userId,
   name,
   zipcode,
   city,
@@ -148,7 +148,7 @@ const ModifyProfileContainer = ({
     contactNumber: varContactNumber,
     snsList: varSnsList,
     birth: varBirth,
-    introduce: varIntroduce},id,imgFile), [], true);
+    introduce: varIntroduce},userId,imgFile), [], true);
   const onRefetch = () => {
     refetch();
   }
@@ -218,7 +218,7 @@ const ModifyProfileContainer = ({
 }
 
 ModifyProfileContainer.propTypes = {
-  id: PropTypes.number,
+  userId: PropTypes.string,
   name: PropTypes.string,
   zipcode: PropTypes.string,
   city: PropTypes.string,

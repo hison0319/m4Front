@@ -3,7 +3,7 @@
 작성일 : 2021.11.13
 내용 :  shop manager의 예약 상세 내역 (뷰)
 */
-import React, { useRef } from 'react';
+import React from 'react';
 import {
   Row,
   Col,
@@ -13,7 +13,6 @@ import {
   } from 'reactstrap';
 import { makeMoneyType } from "utils/common"
 import PropTypes from "prop-types";
-import ModalView from "components/common/etc/ModalView"
 import NormalProfileContainer from 'components/profile/normalProfile/NormalProfileContainer';
 
 const Booking = ({
@@ -23,16 +22,8 @@ const Booking = ({
   userName,
   price,
   reservationOption,
+  onModal,
 }) => {
-  const modalRef = useRef();
-  const modalView = 
-  <ModalView
-    ref={modalRef}
-    item={<NormalProfileContainer userId={userId}/>}
-    closingModal={()=>{
-      //nothing
-    }}
-  />;
 
   return (
     <>
@@ -44,7 +35,7 @@ const Booking = ({
           <Button
             className="btn-1"
             color="neutral"
-            onClick={()=>{modalRef.current.showAlert();}}>
+            onClick={()=>{onModal(userId)}}>
             <small style={{verticalAlign:"top"}}>
                 &nbsp;&nbsp;{userName}&nbsp;님
             </small>
@@ -80,7 +71,6 @@ const Booking = ({
         </Col>
       </Row>
       <hr></hr>
-      {modalView}
     </>
   );
 }
@@ -92,6 +82,7 @@ Booking.propTypes = {
   userName: PropTypes.string,
   price: PropTypes.number,
   reservationOption: PropTypes.array,
+  onModal: PropTypes.func,
 }
 
 export default Booking;

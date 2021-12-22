@@ -16,6 +16,7 @@ import ManagerBoardView from "views/ManagerBoardView";
 import ManagerBookingView from "views/ManagerBookingView";
 import ManagerDashboardView from "views/ManagerDashboardView";
 import AboutusView from "views/AboutusView";
+import AlarmView from "views/AlarmView";
 import ErrorView from "views/ErrorView";
 
 import { ProgressProvider } from "context/Progress"
@@ -81,6 +82,11 @@ ReactDOM.render(
             path="/aboutus" 
             exact 
             render={props => <AboutusView {...props} />} 
+          />
+          <Route
+            path="/alarm"
+            exact
+            render={props => <AlarmView {...props} />}
           />
           <Route
             path="/error/:errorId"

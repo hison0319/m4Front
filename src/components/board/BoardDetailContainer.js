@@ -10,7 +10,7 @@ import {
     Button,
 } from 'reactstrap';
 import BoardDetailRead from "./BoardDetailRead";
-import ModalView from "components/common/etc/ModalView"
+import ModalView from "components/common/modalView/ModalView"
 import BoardDetailBookingContainer from './BoardDetailBookingContainer';
 import ReviewListContainer from 'components/review/ReviewListContainer';
 import {
@@ -27,7 +27,11 @@ async function getBoardDetail(id) {
     return response.data;
 }
 
-const BoardDetailContainer = () => {
+const BoardDetailContainer = ({
+    shopId,
+    //for review
+    reviewId
+}) => {
 
     //borad detail 내용 get API
     const {spinner} = useContext(ProgressContext);
@@ -85,7 +89,9 @@ const BoardDetailContainer = () => {
                     </Button>
                 </div>
             </Container>
-            <ReviewListContainer/>
+            <ReviewListContainer
+            userId={shopId}
+            reviewId={reviewId}/>
         </>
     );
 }

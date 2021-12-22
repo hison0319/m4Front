@@ -23,7 +23,7 @@ import PropTypes from "prop-types";
 const NormalProfile = ({
     mode,
     handleSetMode,
-    id,
+    userId,
     name,
     zipcode,
     city,
@@ -33,73 +33,77 @@ const NormalProfile = ({
     snsList,
     birth,
     introduce,
+    //for review
+    reviewId
 }) => {
 
     const profile = 
-    <Container className="pt-2 pb-3">
-        <ReadProfile
-        id={id}
-        name={name}
-        zipcode={zipcode}
-        city={city}
-        street={street}
-        nationCode={nationCode}
-        contactNumber={contactNumber}
-        snsList={snsList}
-        birth={birth}
-        introduce={introduce}
-        />
-        <Row>
-            <Col>
-                <div className="text-center btn-wrapper my-2">
-                    <Button
-                    className="width_90"
-                    color="info"
-                    outline
-                    type="button"
-                    onClick={()=>{handleSetMode("M")}}>
-                    <span className="btn-inner--text">
-                        <ModifyIcon/>&nbsp;&nbsp;수정하기
-                    </span>
-                    </Button>
-                </div>
-            </Col>
-        </Row>
-        <Row className="py-1 my-1 position-relative">
-            <Col className="py-1 my-1">
-                <ReviewListContainer/>
-            </Col>
-        </Row>
-    </Container>
+    <>
+        <Container className="pt-2 pb-3">
+            <ReadProfile
+            userId={userId}
+            name={name}
+            zipcode={zipcode}
+            city={city}
+            street={street}
+            nationCode={nationCode}
+            contactNumber={contactNumber}
+            snsList={snsList}
+            birth={birth}
+            introduce={introduce}
+            />
+            <Row>
+                <Col>
+                    <div className="text-center btn-wrapper my-2">
+                        <Button
+                        className="width_90"
+                        color="info"
+                        outline
+                        type="button"
+                        onClick={()=>{handleSetMode("M")}}>
+                        <span className="btn-inner--text">
+                            <ModifyIcon/>&nbsp;&nbsp;수정하기
+                        </span>
+                        </Button>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+        <ReviewListContainer
+        userId={userId}
+        reviewId={reviewId}/>
+    </>
     ;
 
     const modifyProfile = 
-    <Container className="pt-2 pb-3">
-        <ModifyProfileContainer
-        id={id}
-        name={name}
-        zipcode={zipcode}
-        city={city}
-        street={street}
-        nationCode={nationCode}
-        contactNumber={contactNumber}
-        snsList={snsList}
-        birth={birth}
-        introduce={introduce}
-        />
-        <div className="text-center btn-wrapper px-2">
-            <Button
-            className="width_90"
-            color="info"
-            outline
-            type="button"
-            onClick={()=>{handleSetMode("R")}}>
-            <span className="btn-inner--text">
-                <BackReadIcon/>&nbsp;&nbsp;보기
-            </span>
-            </Button>
-        </div>
-    </Container>
+    <>
+        <Container className="pt-2 pb-3">
+            <ModifyProfileContainer
+            userId={userId}
+            name={name}
+            zipcode={zipcode}
+            city={city}
+            street={street}
+            nationCode={nationCode}
+            contactNumber={contactNumber}
+            snsList={snsList}
+            birth={birth}
+            introduce={introduce}
+            />
+            <div className="text-center btn-wrapper px-2">
+                <Button
+                className="width_90"
+                color="info"
+                outline
+                type="button"
+                onClick={()=>{handleSetMode("R")}}>
+                <span className="btn-inner--text">
+                    <BackReadIcon/>&nbsp;&nbsp;보기
+                </span>
+                </Button>
+            </div>
+        </Container>
+    </>
     ;
     return (
         <>
@@ -115,7 +119,7 @@ const NormalProfile = ({
 NormalProfile.propTypes = {
     mode: PropTypes.oneOf(['M', 'R']).isRequired,
     handleSetMode: PropTypes.func.isRequired,
-    id: PropTypes.number,
+    userId: PropTypes.string,
     name: PropTypes.string,
     zipcode: PropTypes.string,
     city: PropTypes.string,
@@ -125,6 +129,7 @@ NormalProfile.propTypes = {
     snsList: PropTypes.array,
     birth: PropTypes.string,
     introduce: PropTypes.string,
+    reviewId: PropTypes.string,
 };
 
 export default NormalProfile;

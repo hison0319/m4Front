@@ -17,10 +17,14 @@ async function getUser(id) {
   return response.data;
 }
 
-function NormalProfileContainer({userId}){
+const NormalProfileContainer = ({
+    userId,
+    //for review
+    reviewId
+}) => {
     const {spinner} = useContext(ProgressContext);
-    const _id = 1; //임시
-    const [state] = useAsync(() => getUser(_id), [_id], false);
+    userId = "1"; //임시
+    const [state] = useAsync(() => getUser(userId), [userId], false);
     const { loading, data: user, error } = state;
     useEffect(() => {
         if(loading) {
@@ -33,7 +37,7 @@ function NormalProfileContainer({userId}){
         }
     },[loading, error, spinner]);
     
-    // const id = user?user.id:1;
+    // const userId = user?user.userId:1;
     // const name = user?user.name:"손한이";
     // const zipcode = user?user.zipcode:"12345";
     // const city = user?user.city:"경기도 하남시";
@@ -46,7 +50,6 @@ function NormalProfileContainer({userId}){
 
     //forTest start
     console.log(userId);
-    const id = 1;
     const name = "손한이";
     const zipcode = "12345";
     const city = "경기도 하남시";
@@ -70,7 +73,7 @@ function NormalProfileContainer({userId}){
             <NormalProfile
             mode={mode}
             handleSetMode={handleSetMode}
-            id={id}
+            userId={userId}
             name={name}
             zipcode={zipcode}
             city={city}
@@ -80,6 +83,8 @@ function NormalProfileContainer({userId}){
             snsList={snsList}
             birth={birth}
             introduce={introduce}
+            //for review
+            reviewId={reviewId}
             />
         </>
     );

@@ -16,7 +16,8 @@ const VisitorList = ({
   totalPage,
   onSetCurPage,
   visitorList,
-  onSetVisitorList
+  onSetVisitorList,
+  onModal,
 }) => {
   useEffect(() => {
     // console.log('VisitorList is rendering!')
@@ -43,6 +44,7 @@ const VisitorList = ({
         type={item.type}
         comment={item.comment}
         onSetVisitorList={onSetVisitorList}
+        onModal={onModal}
         />)}
       </tbody>
       <tfoot>
@@ -68,6 +70,7 @@ VisitorList.propTypes = {
   onSetCurPage: PropTypes.func,
   visitorList: PropTypes.array,
   onSetVisitorList: PropTypes.func,
+  onModal: PropTypes.func,
 }
 
 export default VisitorList;

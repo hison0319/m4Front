@@ -4,8 +4,10 @@
 내용 :  shop manager의 예약 확인 (기능)
        API - get
 */
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import BookingManager from './BookingManager';
+import ModalNormalProfileView from "components/common/modalView/ModalNormalProfileView"
+import ModalBusinessProfileView from "components/common/modalView/ModalBusinessProfileView"
 import { useSelector, useDispatch } from "react-redux";
 import {
     setCalpick2Date,
@@ -26,7 +28,7 @@ async function getBookings(id, date) {
     return response.data;
 }
 
-const BookingManagerContainer = () => {
+const BookingManagerContainer = ({propDate}) => {
     useEffect(() => {
         // console.log('BookingManagerContainer is rendering!')
     })
@@ -52,11 +54,11 @@ const BookingManagerContainer = () => {
         days        : state.calendarForManager.days,
     }));
 
-    const sysdate = _calendarPick2.date.format('YYYY-MM-DD');
+    const chkDate = _calendarPick2.date.format('YYYY-MM-DD');
 
     const {spinner} = useContext(ProgressContext);
     const _id = 1; //temporary
-    const [state] = useAsync(() => getBookings(_id,sysdate), [_id], false);
+    const [state] = useAsync(() => getBookings(_id,chkDate), [_id], false);
     const { loading, data: bookings, error } = state;
     
     useEffect(() => {
@@ -69,6 +71,34 @@ const BookingManagerContainer = () => {
         // window.location.href = '/error/100';
         }
     },[loading, error, spinner]);
+
+    // 프로필 클릭 시 모달 뷰 오픈
+    const modalNormalProfileViewRef = useRef();
+    const modalBusinessProfileViewRef = useRef();
+    const modalNormalProfileView = 
+    <ModalNormalProfileView
+    ref={modalNormalProfileViewRef}
+    closingModal={()=>{
+    //nothing
+    }}
+    />;
+    const modalBusinessProfileView = 
+    <ModalBusinessProfileView
+    ref={modalBusinessProfileViewRef}
+    closingModal={()=>{
+    //nothing
+    }}
+    />;
+    const onModal = (userId) => {
+        //type 또는 userId code에 따라 shop인지, user인지 구분하여 출력
+        if(userId) {
+            modalNormalProfileViewRef.current.onSetUserId(userId);
+            modalNormalProfileViewRef.current.showAlert();
+        } else {
+            modalBusinessProfileViewRef.current.onSetUserId(userId);
+            modalBusinessProfileViewRef.current.showAlert();
+        }
+    }
 
     // Redux Axios bookings info
     const monthBookings = [
@@ -173,6 +203,12 @@ const BookingManagerContainer = () => {
         onAddCalpick2Date();
     }
 
+    useEffect(()=>{
+        if(propDate) {
+            onPickCal(propDate);
+        }
+    },[propDate])
+
     return (
         <>
             <BookingManager
@@ -186,7 +222,10 @@ const BookingManagerContainer = () => {
             bookingsInfo    = {monthBookings}
             // For TimeTable
             dayBookings     = {dayBookings}
+            onModal         = {onModal} 
             />
+            {modalNormalProfileView}
+            {modalBusinessProfileView}
         </>
     );
 };

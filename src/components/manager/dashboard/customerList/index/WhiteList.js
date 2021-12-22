@@ -17,6 +17,7 @@ const WhiteList = ({
   totalPage,
   onSetCurPage,
   whiteList,
+  onModal,
 }) => {
   useEffect(() => {
     // console.log('WhiteList is rendering!')
@@ -40,6 +41,7 @@ const WhiteList = ({
         name={item.name}
         visitDate={item.visitDate}
         comment={item.comment}
+        onModal={onModal}
         />)}
       </tbody>
       <tfoot>
@@ -64,6 +66,7 @@ WhiteList.propTypes = {
   totalPage: PropTypes.number,
   onSetCurPage: PropTypes.func,
   whiteList: PropTypes.array,
+  onModal: PropTypes.func,
 }
 
 export default WhiteList;

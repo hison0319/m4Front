@@ -10,17 +10,17 @@ import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"
 import BusinessProfile from "./BusinessProfile";
 
-async function getShop(id) {
+async function getShop(shopId) {
   const response = await axios.get(
-    `/api/v1/shop/${id}`
+    `/api/v1/shop/${shopId}`
   );
   return response.data;
 }
 
-function BusinessProfileContainer({userId}){
+const BusinessProfileContainer = ({shopId}) => {
     const {spinner} = useContext(ProgressContext);
-    const _id = 1; //임시
-    const [state] = useAsync(() => getShop(_id), [_id], false);
+    shopId = "1"; //임시
+    const [state] = useAsync(() => getShop(shopId), [shopId], false);
     const { loading, data: shop, error } = state;
     useEffect(() => {
         if(loading) {
@@ -33,7 +33,7 @@ function BusinessProfileContainer({userId}){
         }
     },[loading, error, spinner]);
 
-    // const id = shop?shop.id:0;
+    // const shopId = shop?shop.shopId:0;
     // const businessRegNumber = shop?shop.businessRegNumber:"";
     // const name = shop?shop.name:"";
     // const city = shop?shop.city:"";
@@ -50,7 +50,6 @@ function BusinessProfileContainer({userId}){
     // option hour 필요없음, sns주소(배열), 자기소개, 연락처(배열)(국가코드), 프로필 경로 필요
     
     //forTest start
-    const id = 1;
     const businessRegNumber = "123-456-7890";
     const name = "한이's 편집샵";
     const city = "경기도 하남시";
@@ -79,7 +78,7 @@ function BusinessProfileContainer({userId}){
             link={link}
             handleSetMode={handleSetMode}
             
-            id={id}
+            shopId={shopId}
             businessRegNumber={businessRegNumber}
             name={name}
             city={city}

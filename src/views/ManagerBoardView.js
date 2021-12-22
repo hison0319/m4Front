@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import Manager from 'components/manager/board/BoardManager';
-import SpinnerGrow from "components/common/etc/SpinnerGrow";
+import SpinnerGrow from "components/common/spinner/SpinnerGrow";
 import { ProgressContext } from "context/Progress"
 
 function ManagerBoardView() {

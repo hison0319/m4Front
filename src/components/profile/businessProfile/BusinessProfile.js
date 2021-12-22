@@ -23,7 +23,7 @@ import PropTypes from "prop-types";
 const BusinessProfile = ({
     mode,
     handleSetMode,
-    id,
+    shopId,
     businessRegNumber,
     name,
     city,
@@ -41,7 +41,7 @@ const BusinessProfile = ({
     const profile = 
     <Container className="pt-2 pb-3">
         <ReadProfile
-        id={id}
+        shopId={shopId}
         businessRegNumber={businessRegNumber}
         name={name}
         city={city}
@@ -77,7 +77,7 @@ const BusinessProfile = ({
     const modifyProfile = 
     <Container className="pt-2 pb-3">
         <ModifyProfileContainer
-        id={id}
+        shopId={shopId}
         businessRegNumber={businessRegNumber}
         name={name}
         city={city}
@@ -121,7 +121,7 @@ BusinessProfile.propTypes = {
     handleSetMode: PropTypes.func.isRequired,
     link: PropTypes.string.isRequired,
 
-    id: PropTypes.number,
+    shopId: PropTypes.string,
     businessRegNumber: PropTypes.string,
     name: PropTypes.string,
     city: PropTypes.string,

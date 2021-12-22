@@ -6,6 +6,8 @@
 */
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import ReviewList from './ReviewList';
+import ModalNormalProfileView from "components/common/modalView/ModalNormalProfileView"
+import ModalBusinessProfileView from "components/common/modalView/ModalBusinessProfileView"
 import { useSelector, useDispatch } from "react-redux";
 import { 
   setReview,
@@ -15,10 +17,8 @@ import { modifyArrayWithIdx } from "utils/common"
 import axios from 'axios';
 import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress";
-import { Button } from "reactstrap";
-import { GoUpIcon } from "components/common/icons/Index";
 
-async function getReviewList(id,target,idx,mode) {
+async function getReviewList(id,reviewId,idx,orderType) {
   const response = await axios.get(
     `/api/v1/reviewList/${id}`
   );
@@ -27,7 +27,7 @@ async function getReviewList(id,target,idx,mode) {
 
 const ReviewListContainer = ({
   userId,
-  target
+  reviewId,
 }) => {
   // 리뷰 목록 번호
   const getReviewIdx = useRef(0);
@@ -42,10 +42,9 @@ const ReviewListContainer = ({
   // 리뷰 목록 get API
   const {spinner} = useContext(ProgressContext);
   const _id = 1; //temporary
-  const [state] = useAsync(() => getReviewList(_id,"",getReviewIdx), [_id], false);
+  const [state] = useAsync(() => getReviewList(_id,"",getReviewIdx,""), [_id], false);
   const { loading, data: reviewList, error } = state;
   
-  let getReviewToggle = true;
   useEffect(() => {
     if(reviewList) {
       // onAddReview(reviewList)
@@ -53,7 +52,6 @@ const ReviewListContainer = ({
     if(loading) {
       spinner.start();
     } else {
-      getReviewToggle = true;
       spinner.stop();
     }
     if(error) {
@@ -61,8 +59,37 @@ const ReviewListContainer = ({
     }
   },[reviewList, loading, error, spinner]);
 
+  // 프로필 클릭 시 모달 뷰 오픈
+  const modalNormalProfileViewRef = useRef();
+  const modalBusinessProfileViewRef = useRef();
+  const modalNormalProfileView = 
+  <ModalNormalProfileView
+      ref={modalNormalProfileViewRef}
+      closingModal={()=>{
+      //nothing
+      }}
+  />;
+  const modalBusinessProfileView = 
+  <ModalBusinessProfileView
+      ref={modalBusinessProfileViewRef}
+      closingModal={()=>{
+      //nothing
+      }}
+  />;
+  const onModal = (userId) => {
+    //type 또는 userId code에 따라 shop인지, user인지 구분하여 출력
+    if(userId) {
+        modalNormalProfileViewRef.current.onSetUserId(userId);
+        modalNormalProfileViewRef.current.showAlert();
+    } else {
+        modalBusinessProfileViewRef.current.onSetUserId(userId);
+        modalBusinessProfileViewRef.current.showAlert();
+    }
+  }
+
   const myReviewTest = {
     reviewId: "R001",
+    userId: "a001",
     name: "손한이",
     rating: "4",
     comment: "리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다."
@@ -71,30 +98,35 @@ const ReviewListContainer = ({
   const reviewListTest = [
     {
       reviewId: "R001",
+      userId: "a001",
       name: "손한이",
       rating: "4",
       comment: "리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다."
     },
     {
       reviewId: "R002",
+      userId: "a001",
       name: "이관호1",
       rating: "3",
       comment: "리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다."
     },
     {
       reviewId: "R003",
+      userId: "a001",
       name: "이관호2",
       rating: "5",
       comment: "리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다."
     },
     {
       reviewId: "R004",
+      userId: "a001",
       name: "이관호3",
       rating: "2",
       comment: "리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다."
     },
     {
       reviewId: "R005",
+      userId: "a001",
       name: "이관호4",
       rating: "2",
       comment: "리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다. 리뷰 내용입니다."
@@ -113,36 +145,8 @@ const ReviewListContainer = ({
   }
   useEffect(()=>{ 
     onSetReview(reviewListTest); // 최초 한번 리뷰 목록 넣어줌
-    document.getElementById("topBtn").style.display = "none";
-    //top버튼 사라지기
-    setInterval(function () {
-      document.getElementById("topBtn").style.display = "none"
-    }, 5000)
   },[])
   
-  
-  //스크롤 최하단 내릴 시 리뷰 불러오기, top버튼 보이게하기
-  window.addEventListener("scroll", function() {
-    if(window.pageYOffset + window.innerHeight > document.documentElement.scrollHeight-30) {
-      if (getReviewToggle) {
-        getReviewToggle = false;
-        getReviewIdx.current += 1;
-        getReviewList(0,"",getReviewIdx.current,listMode);
-        onAddReview(reviewListTest);
-      }
-    }
-    if(window.scrollY > 300) {
-      document.getElementById("topBtn").style.display = ""
-    }
-  });
-  //top버튼 누를 시 최상단 이동
-  const goTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }
-  // 내 리뷰정보
   const [myReview, setMyReview] = useState(myReviewTest);
   // 내 리뷰 변경시 리뷰목록도 변경
   const onSetMyReview = (review) => {
@@ -151,24 +155,27 @@ const ReviewListContainer = ({
     onSetReview(newReviewList);
   }
 
+  const onGetReview = () => {
+    getReviewIdx.current += 1;
+    getReviewList(0,"",getReviewIdx.current,listMode);
+    onAddReview(reviewListTest);
+  }
+
   console.log('reviewList : ',_review.reviewList);
 
   return (
     <>
-      <Button
-      id="topBtn"
-      className="topBtn"
-      color="neutral"
-      onClick={goTop}>
-        <GoUpIcon/>
-      </Button>
       <ReviewList
       myReview={myReview}
       reviewList={_review.reviewList}
       listMode={listMode}
       onSetMyReview={onSetMyReview}
       onSetListMode={onSetListMode}
+      onGetReview={onGetReview}
+      onModal={onModal}
       />
+      {modalNormalProfileView}
+      {modalBusinessProfileView}
     </>
   )
 }

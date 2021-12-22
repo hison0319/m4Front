@@ -11,7 +11,10 @@ import {
 import Booking from './Booking';
 import PropTypes from "prop-types";
 
-const TimeTable = ({ dayBookings }) => {
+const TimeTable = ({ 
+  dayBookings,
+  onModal,
+}) => {
   
   console.log(dayBookings);
 
@@ -36,7 +39,8 @@ const TimeTable = ({ dayBookings }) => {
           userId={item.userId}
           userName={item.userName}
           price={item.price}
-          reservationOption={item.reservationOption}/>
+          reservationOption={item.reservationOption}
+          onModal={onModal}/>
         )
         :<small>내역이 없습니다.</small>}
       </Col>
@@ -46,6 +50,7 @@ const TimeTable = ({ dayBookings }) => {
 
 TimeTable.propTypes = {
   dayBookings: PropTypes.array,
+  onModal: PropTypes.func,
 }
 
 export default TimeTable;

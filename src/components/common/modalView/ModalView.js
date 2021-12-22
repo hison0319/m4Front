@@ -2,7 +2,7 @@ import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import {
   Button,
   Modal
- } from 'reactstrap';
+} from 'reactstrap';
 
 const ModalView = forwardRef(({
   closingModal,

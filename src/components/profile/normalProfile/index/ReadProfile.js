@@ -19,7 +19,7 @@ import {
 import PropTypes from "prop-types";
 
 const ReadProfile = ({
-  id,
+  userId,
   name,
   zipcode,
   city,
@@ -107,7 +107,7 @@ const ReadProfile = ({
 }
 
 ReadProfile.propTypes = {
-  id: PropTypes.number,
+  userId: PropTypes.string,
   name: PropTypes.string,
   zipcode: PropTypes.string,
   city: PropTypes.string,

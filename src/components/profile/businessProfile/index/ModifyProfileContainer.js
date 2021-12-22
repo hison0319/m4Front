@@ -18,19 +18,19 @@ import { ProgressContext } from "context/Progress"
 import { getNationCodeListAll } from 'utils/common'
 import PropTypes from "prop-types";
 
-async function putShop(shop, id, imgFile) {
-  // console.log('### putShop id : ',id);
+async function putShop(shop, shopId, imgFile) {
+  // console.log('### putShop shopId : ',shopId);
   // console.log('### putShop shop : ',shop);
   // console.log('### putShop imgFile : ',imgFile);
   const response = await axios.put(
-    '/api/v1/shop/'+id
+    '/api/v1/shop/'+shopId
     ,shop
   );
   return response.data;
 }
 
 const ModifyProfileContainer = ({
-  id,
+  shopId,
   name,
   zipcode,
   city,
@@ -158,7 +158,7 @@ const ModifyProfileContainer = ({
     // contactNumber2: varContactNumber2,
     city: varCity,
     street: varStreet,
-    zipcode: varZipcode},id,imgFile), [], true);
+    zipcode: varZipcode},shopId,imgFile), [], true);
   const onRefetch = () => {
     refetch();
   }
@@ -232,7 +232,7 @@ const ModifyProfileContainer = ({
 }
 
 ModifyProfileContainer.propTypes = {
-  id: PropTypes.number,
+  shopId: PropTypes.string,
   businessRegNumber: PropTypes.string,
   name: PropTypes.string,
   city: PropTypes.string,

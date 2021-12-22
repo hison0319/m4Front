@@ -3,31 +3,20 @@
 작성일 : 2021.11.28
 내용 : shop manager의 Dashboard - 블랙 고객 (뷰)
 */
-import React, { useRef } from 'react';
+import React from 'react';
 import { 
   Button
 } from 'reactstrap';
 import { getDotStrMax } from "utils/common"
 import PropTypes from "prop-types";
-import ModalView from "components/common/etc/ModalView"
-import NormalProfileContainer from 'components/profile/normalProfile/NormalProfileContainer';
 
 const Blacks = ({
   userId,
   name,
   visitDate,
   comment,
+  onModal,
 }) => {
-  const alertRef = useRef();
-  const modalView = 
-  <ModalView
-    ref={alertRef}
-    item={<NormalProfileContainer userId={userId}/>}
-    closingModal={()=>{
-      //nothing
-    }}
-  />;
-
   return (
     <>
       <tr>
@@ -36,7 +25,7 @@ const Blacks = ({
           <Button
           className="btn-1"
           color="neutral"
-          onClick={()=>{alertRef.current.showAlert();}}
+          onClick={()=>{onModal(userId)}}
           >
             <small>
               {getDotStrMax(name,5)}
@@ -54,7 +43,6 @@ const Blacks = ({
           </small>
         </td>
       </tr>
-      {modalView}
     </>
   );
 }
@@ -64,6 +52,7 @@ Blacks.propTypes = {
   name: PropTypes.string,
   visitDate: PropTypes.string,
   comment: PropTypes.string,
+  onModal: PropTypes.func,
 }
 
 export default Blacks;

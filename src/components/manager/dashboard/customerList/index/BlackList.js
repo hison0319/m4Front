@@ -17,6 +17,7 @@ const BlackList = ({
   totalPage,
   onSetCurPage,
   blackList,
+  onModal,
 }) => {
   useEffect(() => {
     // console.log('BlackList is rendering!')
@@ -40,6 +41,7 @@ const BlackList = ({
         name={item.name}
         visitDate={item.visitDate}
         comment={item.comment}
+        onModal={onModal}
         />)}
       </tbody>
       <tfoot>
@@ -64,6 +66,7 @@ BlackList.propTypes = {
   totalPage: PropTypes.number,
   onSetCurPage: PropTypes.func,
   blackList: PropTypes.array,
+  onModal: PropTypes.func,
 }
 
 export default BlackList;

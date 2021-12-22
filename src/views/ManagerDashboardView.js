@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import Dashboard from 'components/manager/dashboard/Dashboard';
-import SpinnerGrow from "components/common/etc/SpinnerGrow";
+import SpinnerGrow from "components/common/spinner/SpinnerGrow";
 import { ProgressContext } from "context/Progress"
 
 function ManagerDashboardView() {

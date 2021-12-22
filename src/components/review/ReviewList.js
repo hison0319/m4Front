@@ -10,6 +10,7 @@ import {
   Col,
   FormGroup,
   Input,
+  Button,
 } from "reactstrap";
 import Review from "./index/Review";
 import WriteReview from "./index/WriteReview";
@@ -21,10 +22,12 @@ const ReviewList = ({
   reviewList,
   listMode,
   onSetMyReview,
-  onSetListMode
+  onSetListMode,
+  onGetReview,
+  onModal,
 }) => {
   return (
-    <Container>
+    <Container className="pb-3">
       <WriteReview
       myReview={myReview}
       onSetMyReview={onSetMyReview}
@@ -63,11 +66,27 @@ const ReviewList = ({
       {reviewList.map((item, idx)=>
         <Review
         key={item.reviewId+idx}
+        userId={item.userId}
         name={item.name}
         rating={item.rating}
         comment={item.comment}
+        onModal={onModal}
         />
       )}
+      <Row>
+        <Col className="text-center py-3">
+          <Button
+            block
+            className="width_90 display-inline"
+            color="natural"
+            type="button"
+            // disabled={true}
+            onClick={onGetReview}
+          >
+            &nbsp;&nbsp;리뷰 더 불러오기
+          </Button>
+        </Col>
+      </Row>
     </Container>
   )
 }
@@ -78,6 +97,8 @@ ReviewList.propTypes = {
   listMode: PropTypes.string,
   onSetMyReview: PropTypes.func,
   onSetListMode: PropTypes.func,
+  onGetReview: PropTypes.func,
+  onModal: PropTypes.func,
 }
 
 export default ReviewList;

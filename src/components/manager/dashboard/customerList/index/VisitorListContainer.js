@@ -4,8 +4,10 @@
 내용 : shop manager의 Dashboard - 방문 고객 명단 (기능)
       API - get, put
 */
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import VisitorList from './VisitorList';
+import ModalNormalProfileView from "components/common/modalView/ModalNormalProfileView"
+import ModalBusinessProfileView from "components/common/modalView/ModalBusinessProfileView"
 import axios from 'axios';
 import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"
@@ -48,6 +50,34 @@ const VisitorListContainer = () => {
     const onSetCurPage = (page) => {
         setCurPage(page);
         getVisitors(_id, page);
+    }
+
+    // 프로필 클릭 시 모달 뷰 오픈
+    const modalNormalProfileViewRef = useRef();
+    const modalBusinessProfileViewRef = useRef();
+    const modalNormalProfileView = 
+    <ModalNormalProfileView
+    ref={modalNormalProfileViewRef}
+    closingModal={()=>{
+    //nothing
+    }}
+    />;
+    const modalBusinessProfileView = 
+    <ModalBusinessProfileView
+    ref={modalBusinessProfileViewRef}
+    closingModal={()=>{
+    //nothing
+    }}
+    />;
+    const onModal = (userId) => {
+        //type 또는 userId code에 따라 shop인지, user인지 구분하여 출력
+        if(userId) {
+            modalNormalProfileViewRef.current.onSetUserId(userId);
+            modalNormalProfileViewRef.current.showAlert();
+        } else {
+            modalBusinessProfileViewRef.current.onSetUserId(userId);
+            modalBusinessProfileViewRef.current.showAlert();
+        }
     }
 
     // 방문자 리스트
@@ -134,7 +164,10 @@ const VisitorListContainer = () => {
             onSetCurPage = {onSetCurPage}
             visitorList= {visitorList}
             onSetVisitorList={onSetVisitorList}
+            onModal={onModal}
             />
+            {modalNormalProfileView}
+            {modalBusinessProfileView}
         </>
     );
 };

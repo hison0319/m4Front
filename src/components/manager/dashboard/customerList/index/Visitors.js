@@ -3,7 +3,7 @@
 작성일 : 2021.11.28
 내용 : shop manager의 Dashboard - 방문 고객, 매너 등급 지정 (뷰)
 */
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { 
   Button,
   Modal,
@@ -18,8 +18,6 @@ import {
 } from "components/common/icons/Index";
 import { getDotStrMax } from "utils/common";
 import PropTypes from "prop-types";
-import ModalView from "components/common/etc/ModalView";
-import NormalProfileContainer from 'components/profile/normalProfile/NormalProfileContainer';
 
 const Visitors = ({
   id,
@@ -29,17 +27,8 @@ const Visitors = ({
   type,
   comment,
   onSetVisitorList,
+  onModal,
 }) => {
-  const alertRef = useRef();
-  const modalView = 
-  <ModalView
-    ref={alertRef}
-    item={<NormalProfileContainer userId={userId}/>}
-    closingModal={()=>{
-      //nothing
-    }}
-  />;
-
   const [mannerType, setMannerType] = useState(type);
   const [mannerComment, setMannerComment] = useState(comment);
   
@@ -74,7 +63,7 @@ const Visitors = ({
           <Button
             className="btn-1"
             color="neutral"
-            onClick={()=>{alertRef.current.showAlert();}}
+            onClick={()=>{onModal(userId)}}
           >
             <small>
               {getDotStrMax(name,5)}
@@ -163,7 +152,6 @@ const Visitors = ({
           </Modal>
         </td>
       </tr>
-      {modalView}
     </>
   );
 }
@@ -176,6 +164,7 @@ Visitors.propTypes = {
   type: PropTypes.string,
   comment: PropTypes.string,
   onSetVisitorList: PropTypes.func,
+  onModal: PropTypes.func,
 }
 
 export default Visitors;

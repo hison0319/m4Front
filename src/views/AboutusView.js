@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Footer from "components/footers/Footer";
-import SpinnerGrow from "components/common/etc/SpinnerGrow";
+import SpinnerGrow from "components/common/spinner/SpinnerGrow";
 import { ProgressContext } from "context/Progress"
 
 function AboutusView() {

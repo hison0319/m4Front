@@ -17,7 +17,7 @@ import ProfileImage2 from 'components/common/imagebox/ProfileImage2'
 import PropTypes from "prop-types";
 
 const ReadProfile = ({
-  id,
+  shopId,
   businessRegNumber,
   name,
   city,
@@ -79,7 +79,7 @@ const ReadProfile = ({
 }
 
 ReadProfile.propTypes = {
-  id: PropTypes.number,
+  shopId: PropTypes.string,
   businessRegNumber: PropTypes.string,
   name: PropTypes.string,
   city: PropTypes.string,
