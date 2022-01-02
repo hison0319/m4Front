@@ -3,7 +3,7 @@
 작성일 : 2021.10.25
 내용 :  비지니스 계정의 프로필 수정모드(화면)
 */
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Row,
   Col,
@@ -13,6 +13,10 @@ import {
   Input,
   // CustomInput,
   Button,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
 } from "reactstrap";
 import InputSNSList from 'components/profile/InputSNSList';
 import {
@@ -65,6 +69,7 @@ const ModifyProfile = ({
   refetch,
 }) => {
 
+  const [toggle, setToggle] = useState(true);
   return (
     <>
       <Row className="px-2">
@@ -73,7 +78,8 @@ const ModifyProfile = ({
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
+                  <InputGroupText
+                  className="input_test">
                     {/* <CustomInput
                     type="switch"
                     name="varNamePublic"
@@ -90,6 +96,7 @@ const ModifyProfile = ({
                 type="text"
                 name="varName"
                 id="varName"
+                className="input_test"
                 placeholder="가게 이름"
                 maxLength={30}
                 value={varName||''}
@@ -198,7 +205,7 @@ const ModifyProfile = ({
                     연락처 1
                   </InputGroupText>
                 </InputGroupAddon>
-                <Input
+                {/* <Input
                   type="select"
                   name="varNationCode1"
                   id="varNationCode1"
@@ -207,7 +214,30 @@ const ModifyProfile = ({
                   {nationCodeListAll.map((item) => 
                       <option key={item.nation+item.code} value={item.code}>{item.nation}</option>
                   )}
-                </Input>
+                </Input> */}
+                <Dropdown
+                isOpen={toggle}
+                toggle={()=>{setToggle(!toggle)}}>
+                  <DropdownToggle
+                  caret
+                  color="natural"
+                  >
+                    kor
+                  </DropdownToggle>
+                  <DropdownMenu container="body">
+                    <DropdownItem
+                    onClick={function noRefCheck(){}}
+                    className="small">
+                      Action 1
+                    </DropdownItem>
+                    <DropdownItem onClick={function noRefCheck(){}}>
+                      Action 2
+                    </DropdownItem>
+                    <DropdownItem onClick={function noRefCheck(){}}>
+                      Action 3
+                    </DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
                 <Input
                 type="text"
                 name="varContactNumber1"

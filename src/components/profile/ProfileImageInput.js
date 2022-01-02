@@ -10,7 +10,9 @@ import {
     InputGroup,
     InputGroupAddon,
     InputGroupText,
+    Input,
     CustomInput,
+    FormText,
 } from "reactstrap";
 import ProfileImage from "components/common/imagebox/ProfileImage";
 import PropTypes from "prop-types";
@@ -44,27 +46,22 @@ const ProfileImageInput = ({
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs="12" >
+                        <Col className="mt-4" xs="12">
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                                {/* <CustomInput
-                                type="switch"
-                                name="varImagePublic"
-                                id="varImagePublic"
-                                checked={varImagePublic}
-                                onChange={onCheck}
-                                label="공개여부"/> */}
+                            {/* <InputGroupText
+                            className="input_test">
                                 프로필 이미지
-                            </InputGroupText>
+                            </InputGroupText> */}
                             </InputGroupAddon>
                             <CustomInput
                             type="file"
                             id="image"
                             name="image"
+                            className="input_test"
                             accept='image/jpg,impge/png,image/jpeg,image/gif' 
                             onChange={handleFileOnChange}
-                            label="jpg, jpeg, png, ..."/>
+                            label="사진 업로드"/>
                         </InputGroup>
                         </Col>
                     </Row>

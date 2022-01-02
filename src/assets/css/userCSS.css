@@ -92,6 +92,56 @@ input:hover {outline:none !important;}
 input:active {outline:none !important;}
 input:focus {outline:none !important;}
 
+.input_test:focus {
+    outline:none !important;
+    outline-offset: none !important;
+    box-shadow: none !important;
+    border-color: #ccc;
+    outline-color: #ccc;
+}
+
+.input_test {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline-color: none;
+}
+
+.custom-file-input:focus {
+    outline:none !important;
+    outline-offset: none !important;
+    box-shadow: none !important;
+    border-color: #ccc !important;
+    outline-color: #ccc !important;
+}
+
+.custom-file-input {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    outline-color: none !important;
+}
+
+.custom-file-label:focus {
+    outline:none !important;
+    outline-offset: none !important;
+    box-shadow: none !important;
+    border-color: #ccc !important;
+    outline-color: #ccc !important;
+}
+
+.custom-file-label {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    outline-color: none !important;
+    line-height: 2em;
+}
+
+.custom-file-label::after {
+    display: none;
+}
+
 .font_bold {
     font-weight: bold !important;
 }
