@@ -11,14 +11,10 @@ import {
   InputGroupAddon,
   InputGroupText,
   Input,
-  // CustomInput,
   Button,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
 } from "reactstrap";
 import InputSNSList from 'components/profile/InputSNSList';
+import DropboxSelect from 'components/common/dropbox/DropboxSelect';
 import {
   SubmitIcon
 } from "components/common/icons/Index";
@@ -39,56 +35,28 @@ const ModifyProfile = ({
   varBusinessRegNumber,
   varIntroduce,
   onChangeText,
-  varNationCode1,
-  varNationCode2,
-  onChangeNumber,
+  varNation1,
+  varNation2,
+  onSetNAtionCode,
   nationCodeListAll,
   snsList,
   setSnsList,
 
-  // varNamePublic,
-  // varZipcodePublic,
-  // varCityPublic,
-  // varStreetPublic,
-  // varContactNumberPublic1,
-  // varContactNumberPublic2,
-  // varBusinessRegNumberPublic,
-  // varIntroducePublic,
-  // onCheck,
-
-  // alertRef1,
-  // alertRef2,
-  // alertRef3,
-
-  // AlertModal1,
-  // AlertModal2,
-  // AlertModal3,
-  AlertModal4,
-  AlertModal5,
+  AlertModal1,
+  AlertModal2,
 
   refetch,
 }) => {
-
-  const [toggle, setToggle] = useState(true);
   return (
     <>
       <Row className="px-2">
         <Col>
-          <Row className="my-3">
+          <Row className="my-4">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText
-                  className="input_test">
-                    {/* <CustomInput
-                    type="switch"
-                    name="varNamePublic"
-                    id="varNamePublic"
-                    checked={varNamePublic}
-                    onChange={(e)=>{
-                      e.preventDefault();
-                      alertRef1.current.showAlert();
-                    }}/> */}
+                  className="input_text_custom01">
                     가게 이름
                   </InputGroupText>
                 </InputGroupAddon>
@@ -96,13 +64,12 @@ const ModifyProfile = ({
                 type="text"
                 name="varName"
                 id="varName"
-                className="input_test"
+                className="input_custom01"
                 placeholder="가게 이름"
                 maxLength={30}
                 value={varName||''}
                 onChange={(e)=>{
                   //특수기호 제거
-                  // alert("test");
                   e.target.value = removeSpc(e.target.value);
                   onChangeText(e);
                 }}
@@ -110,17 +77,12 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-3">
+          <Row className="my-4">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    {/* <CustomInput
-                    type="switch"
-                    name="varZipcodePublic"
-                    id="varZipcodePublic"
-                    checked={varZipcodePublic}
-                    onChange={onCheck}/> */}
+                  <InputGroupText
+                  className="input_text_custom01">
                     우편번호
                   </InputGroupText>
                 </InputGroupAddon>
@@ -128,6 +90,7 @@ const ModifyProfile = ({
                 type="text"
                 name="varZipcode"
                 id="varZipcode"
+                className="input_custom01"
                 placeholder="우편번호"
                 maxLength={10}
                 value={varZipcode||''}
@@ -139,17 +102,12 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-3">
+          <Row className="my-4">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    {/* <CustomInput
-                    type="switch"
-                    name="varCityPublic"
-                    id="varCityPublic"
-                    checked={varCityPublic}
-                    onChange={onCheck}/> */}
+                  <InputGroupText
+                  className="input_text_custom01">
                     주소 1
                   </InputGroupText>
                 </InputGroupAddon>
@@ -157,6 +115,7 @@ const ModifyProfile = ({
                 type="text"
                 name="varCity"
                 id="varCity"
+                className="input_custom01"
                 placeholder="주소"
                 maxLength={100}
                 value={varCity||''}
@@ -165,17 +124,12 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-3">
+          <Row className="my-4">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    {/* <CustomInput
-                    type="switch"
-                    name="varStreetPublic"
-                    id="varStreetPublic"
-                    checked={varStreetPublic}
-                    onChange={onCheck}/> */}
+                  <InputGroupText
+                  className="input_text_custom01">
                     주소 2
                   </InputGroupText>
                 </InputGroupAddon>
@@ -183,6 +137,7 @@ const ModifyProfile = ({
                 type="text"
                 name="varStreet"
                 id="varStreet"
+                className="input_custom01"
                 placeholder="상세주소"
                 maxLength={200}
                 value={varStreet||''}
@@ -191,58 +146,25 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-3">
+          <Row className="my-4">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    {/* <CustomInput
-                    type="switch"
-                    name="varContactNumberPublic1"
-                    id="varContactNumberPublic1"
-                    checked={varContactNumberPublic1}
-                    onChange={onCheck}/> */}
+                  <InputGroupText
+                  className="input_text_custom01">
                     연락처 1
                   </InputGroupText>
                 </InputGroupAddon>
-                {/* <Input
-                  type="select"
-                  name="varNationCode1"
-                  id="varNationCode1"
-                  value={varNationCode1||82}
-                  onChange={onChangeNumber}>
-                  {nationCodeListAll.map((item) => 
-                      <option key={item.nation+item.code} value={item.code}>{item.nation}</option>
-                  )}
-                </Input> */}
-                <Dropdown
-                isOpen={toggle}
-                toggle={()=>{setToggle(!toggle)}}>
-                  <DropdownToggle
-                  caret
-                  color="natural"
-                  >
-                    kor
-                  </DropdownToggle>
-                  <DropdownMenu container="body">
-                    <DropdownItem
-                    onClick={function noRefCheck(){}}
-                    className="small">
-                      Action 1
-                    </DropdownItem>
-                    <DropdownItem onClick={function noRefCheck(){}}>
-                      Action 2
-                    </DropdownItem>
-                    <DropdownItem onClick={function noRefCheck(){}}>
-                      Action 3
-                    </DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
+                <DropboxSelect
+                  defaultValue={varNation1}
+                  dropItem={nationCodeListAll}
+                  onClickDropItem={(item)=>{onSetNAtionCode(1,item)}}
+                />
                 <Input
                 type="text"
                 name="varContactNumber1"
                 id="varContactNumber1"
-                className="width_40"
+                className="width_40 input_custom01"
                 placeholder="연락처1"
                 maxLength={20}
                 value={varContactNumber1||''}
@@ -258,31 +180,21 @@ const ModifyProfile = ({
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    {/* <CustomInput
-                    type="switch"
-                    name="varContactNumberPublic2"
-                    id="varContactNumberPublic2"
-                    checked={varContactNumberPublic2}
-                    onChange={onCheck}/> */}
+                  <InputGroupText
+                  className="input_text_custom01">
                     연락처 2
                   </InputGroupText>
                 </InputGroupAddon>
-                <Input
-                  type="select"
-                  name="varNationCode2"
-                  id="varNationCode2"
-                  value={varNationCode2||82}
-                  onChange={onChangeNumber}>
-                  {nationCodeListAll.map((item) => 
-                      <option key={item.nation+item.code} value={item.code}>{item.nation}</option>
-                  )}
-                </Input>
+                <DropboxSelect
+                  defaultValue={varNation2}
+                  dropItem={nationCodeListAll}
+                  onClickDropItem={(item)=>{onSetNAtionCode(2,item)}}
+                />
                 <Input
                 type="text"
                 name="varContactNumber2"
                 id="varContactNumber2"
-                className="width_40"
+                className="width_40 input_custom01"
                 placeholder="연락처2"
                 maxLength={20}
                 value={varContactNumber2||''}
@@ -306,16 +218,8 @@ const ModifyProfile = ({
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    {/* <CustomInput
-                    type="switch"
-                    name="varBusinessRegNumberPublic"
-                    id="varBusinessRegNumberPublic"
-                    checked={varBusinessRegNumberPublic}
-                    onChange={(e)=>{
-                      e.preventDefault();
-                      alertRef3.current.showAlert();
-                    }}/> */}
+                  <InputGroupText
+                  className="input_text_custom01">
                     사업자 번호
                   </InputGroupText>
                 </InputGroupAddon>
@@ -324,6 +228,7 @@ const ModifyProfile = ({
                 name="varBusinessRegNumber"
                 id="varBusinessRegNumber"
                 placeholder="사업자 번호"
+                className="input_custom01"
                 maxLength={20}
                 value={varBusinessRegNumber||''}
                 onChange={(e)=>{
@@ -335,20 +240,12 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-3">
+          <Row className="my-4">
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    {/* <CustomInput
-                    type="switch"
-                    name="varIntroducePublic"
-                    id="varIntroducePublic"
-                    checked={varIntroducePublic}
-                    onChange={(e)=>{
-                      e.preventDefault();
-                      alertRef2.current.showAlert();
-                    }}/> */}
+                  <InputGroupText
+                  className="input_text_custom01">
                     가게 소개
                   </InputGroupText>
                 </InputGroupAddon>
@@ -356,6 +253,7 @@ const ModifyProfile = ({
                 type="textarea"
                 name="varIntroduce"
                 id="varIntroduce"
+                className="input_textarea_custom01"
                 maxLength={500}
                 placeholder="가게소개 (500자 이내)"
                 rows="10"
@@ -365,7 +263,7 @@ const ModifyProfile = ({
               </InputGroup>
             </Col>
           </Row>
-          <Row className="my-3">
+          <Row className="my-2">
             <Col>
               <div className="text-center btn-wrapper my-3">
                   <Button
@@ -384,11 +282,8 @@ const ModifyProfile = ({
           </Row>
         </Col>
       </Row>
-      {/* {AlertModal1} */}
-      {/* {AlertModal2} */}
-      {/* {AlertModal3} */}
-      {AlertModal4}
-      {AlertModal5}
+      {AlertModal1}
+      {AlertModal2}
     </>
   );
 }
@@ -403,34 +298,16 @@ ModifyProfile.propTypes = {
   varBusinessRegNumber: PropTypes.string,
   varIntroduce: PropTypes.string,
   onChangeText: PropTypes.func,
-  varNationCode1: PropTypes.number,
-  varNationCode2: PropTypes.number,
-  onChangeNumber: PropTypes.func,
+  varNation1: PropTypes.string,
+  varNation2: PropTypes.string,
+  onSetNAtionCode: PropTypes.func,
   nationCodeListAll: PropTypes.array,
 
   snsList: PropTypes.array,
   setSnsList: PropTypes.func,
 
-  // varImagePublic: PropTypes.bool,
-  // varNamePublic: PropTypes.bool,
-  // varZipcodePublic: PropTypes.bool,
-  // varCityPublic: PropTypes.bool,
-  // varStreetPublic: PropTypes.bool,
-  // varContactNumberPublic1: PropTypes.bool,
-  // varContactNumberPublic2: PropTypes.bool,
-  // varBusinessRegNumberPublic: PropTypes.bool,
-  // varIntroducePublic: PropTypes.bool,
-  // onCheck: PropTypes.func,
-
-  // alertRef1: PropTypes.object.isRequired,
-  // alertRef2: PropTypes.object.isRequired,
-  // alertRef3: PropTypes.object.isRequired,
-
-  // AlertModal1: PropTypes.object.isRequired,
-  // AlertModal2: PropTypes.object.isRequired,
-  // AlertModal3: PropTypes.object.isRequired,
-  AlertModal4: PropTypes.object.isRequired,
-  AlertModal5: PropTypes.object.isRequired,
+  AlertModal1: PropTypes.object.isRequired,
+  AlertModal2: PropTypes.object.isRequired,
 
   refetch: PropTypes.func.isRequired,
 };

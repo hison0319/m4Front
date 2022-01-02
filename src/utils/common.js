@@ -252,9 +252,9 @@ export const delArrDupObject = (arr, key) => {
 */
 export const getNationCodeListAll = () => {
     const nationCodeList = [
-        {nation:'kor', code:82},
-        {nation:'jp', code:69},
-        {nation:'chi', code:58},
+        {text:'kor', value:82},
+        {text:'jp', value:69},
+        {text:'chi', value:58},
     ];
     return nationCodeList;
 }

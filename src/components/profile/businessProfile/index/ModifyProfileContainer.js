@@ -8,14 +8,14 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import ModifyProfile from './ModifyProfile';
 import AlertModal from 'components/common/alert/AlertModal';
 import ProfileImageInput from 'components/profile/ProfileImageInput';
-import { 
-  useTextInput,
-  useNumberInput,
-} from 'hooks';
+import { useTextInput } from 'hooks';
 import axios from 'axios';
 import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"
-import { getNationCodeListAll } from 'utils/common'
+import {
+  getNationCodeListAll,
+  getIndexEqualKey,
+} from 'utils/common'
 import PropTypes from "prop-types";
 
 async function putShop(shop, shopId, imgFile) {
@@ -68,81 +68,40 @@ const ModifyProfileContainer = ({
      varIntroduce: introduce,
   });
 
-  // 국가코드는 number type으로 별도 관리
-  const [{ varNationCode1, varNationCode2 }, onChangeNumber] = useNumberInput({
-    varNationCode1: nationCode1,
-    varNationCode2: nationCode2,
-  });
+  // 국가코드
+  const [varNationCode1, setVarNationCode1] = useState(82);
+  const [varNationCode2, setVarNationCode2] = useState(69);
   const nationCodeListAll = getNationCodeListAll();
+  const [varNation1, setVarNation1] = useState(nationCodeListAll[getIndexEqualKey(nationCodeListAll,"value",varNationCode1)].text);
+  const [varNation2, setVarNation2] = useState(nationCodeListAll[getIndexEqualKey(nationCodeListAll,"value",varNationCode2)].text);
+
+  const onSetNAtionCode = (idx, code) => {
+    if(idx === 1) {
+      setVarNationCode1(code);
+      setVarNation1(nationCodeListAll[getIndexEqualKey(nationCodeListAll,"value",code)].text);
+    } else {
+      setVarNationCode2(code);
+      setVarNation2(nationCodeListAll[getIndexEqualKey(nationCodeListAll,"value",code)].text);
+    }
+  }
 
   // snsList
   const [varSnsList, setVarSnsList] = useState(snsList);
 
-// user 공개여부 정보 => 2021. 11. 14 공개정보는 사용 안하기로 합의
-  // const [{ 
-  //   varImagePublic,
-  //   varNamePublic,
-  //   varZipcodePublic,
-  //   varCityPublic,
-  //   varStreetPublic,
-  //   varContactNumberPublic1,
-  //   varContactNumberPublic2,
-  //   varBusinessRegNumberPublic,
-  //   varIntroducePublic,
-  // }, onCheck] = useCheckInput({
-  //   varImagePublic: true,
-  //   varNamePublic: true,
-  //   varZipcodePublic: true,
-  //   varCityPublic: true,
-  //   varStreetPublic: true,
-  //   varContactNumberPublic1: true,
-  //   varContactNumberPublic2: true,
-  //   varBusinessRegNumberPublic: true,
-  //   varIntroducePublic: true,
-  // });
+  const alertRef1 = useRef();
+  const alertRef2 = useRef();
 
-  // const alertRef1 = useRef();
-  // const alertRef2 = useRef();
-  // const alertRef3 = useRef();
-  const alertRef4 = useRef();
-  const alertRef5 = useRef();
-
-  // const AlertModal1 = 
-  //   <AlertModal
-  //     ref={alertRef1}
-  //     comment="가게이름은 항상 공개합니다."
-  //     closingModal={()=>{
-  //       //nothing
-  //     }}
-  //   />;
-
-  // const AlertModal2 = 
-  //   <AlertModal
-  //     ref={alertRef2}
-  //     comment="가게소개는 항상 공개합니다."
-  //     closingModal={()=>{
-  //       //nothing
-  //     }}
-  //   />;
-  // const AlertModal3 = 
-  //   <AlertModal
-  //     ref={alertRef3}
-  //     comment="사업자번호는 항상 공개합니다."
-  //     closingModal={()=>{
-  //       //nothing
-  //     }}
-  //   />;
-  const AlertModal4 = 
+  const AlertModal1 = 
     <AlertModal
-      ref={alertRef4}
+      ref={alertRef1}
       comment="저장 했습니다."
       closingModal={()=>{
         window.location.href = '/';
       }}
     />;
-  const AlertModal5 = 
+  const AlertModal2 = 
     <AlertModal
-      ref={alertRef5}
+      ref={alertRef2}
       comment="죄송합니다. 오류로 인해 저장 실패했습니다. 개발자에게 문의해주세요."
       closingModal={()=>{
         //nothing
@@ -165,9 +124,9 @@ const ModifyProfileContainer = ({
   useEffect(()=>{
     const { loading, data: shop, error } = state;
     if(shop) {
-      alertRef4.current.showAlert();
+      alertRef1.current.showAlert();
     } else if(error) {
-      alertRef5.current.showAlert();
+      alertRef2.current.showAlert();
     }
     if(loading) {
       spinner.start();
@@ -182,8 +141,6 @@ const ModifyProfileContainer = ({
       setImgFile={setImgFile}
       previewURL={previewURL}
       setPreviewURL={setPreviewURL}
-      // varImagePublic={varImagePublic}
-      // onCheck={onCheck}
       />
       <ModifyProfile
       varName={varName}
@@ -195,35 +152,18 @@ const ModifyProfileContainer = ({
       varBusinessRegNumber={varBusinessRegNumber}
       varIntroduce={varIntroduce}
       onChangeText={onChangeText}
-      varNationCode1={varNationCode1}
-      varNationCode2={varNationCode2}
-      onChangeNumber={onChangeNumber}
+      varNation1={varNation1}
+      varNation2={varNation2}
+      onSetNAtionCode={onSetNAtionCode}
       nationCodeListAll={nationCodeListAll}
       snsList={varSnsList}
       setSnsList={setVarSnsList}
 
-      // varImagePublic={varImagePublic}
-      // varNamePublic={varNamePublic}
-      // varZipcodePublic={varZipcodePublic}
-      // varCityPublic={varCityPublic}
-      // varStreetPublic={varStreetPublic}
-      // varContactNumberPublic1={varContactNumberPublic1}
-      // varContactNumberPublic2={varContactNumberPublic2}
-      // varBusinessRegNumberPublic={varBusinessRegNumberPublic}
-      // varIntroducePublic={varIntroducePublic}
-      // onCheck={onCheck}
+      alertRef1={alertRef1} // 저장 했습니다.
+      alertRef2={alertRef2} // 죄송합니다. 오류로 인해 저장 실패했습니다. 개발자에게 문의해주세요.
 
-      // alertRef1={alertRef1} // 가게이름은 항상 공개합니다.
-      // alertRef2={alertRef2} // 가게소개는 항상 공개합니다.
-      // alertRef3={alertRef3} // 사업자번호는 항상 공개합니다.
-      alertRef4={alertRef4} // 저장 했습니다.
-      alertRef5={alertRef5} // 죄송합니다. 오류로 인해 저장 실패했습니다. 개발자에게 문의해주세요.
-
-      // AlertModal1={AlertModal1}
-      // AlertModal2={AlertModal2}
-      // AlertModal3={AlertModal3}
-      AlertModal4={AlertModal4}
-      AlertModal5={AlertModal5}
+      AlertModal1={AlertModal1}
+      AlertModal2={AlertModal2}
 
       refetch={onRefetch}
       />
@@ -241,7 +181,6 @@ ModifyProfileContainer.propTypes = {
   contactNumber2: PropTypes.string,
   snsList: PropTypes.array,
   zipcode: PropTypes.string,
-  // openingHours: PropTypes.array,
   introduce: PropTypes.string,
 };
 

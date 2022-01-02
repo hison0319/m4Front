@@ -63,7 +63,7 @@ const BusinessProfileContainer = ({shopId}) => {
     const introduce = "안녕하세요. 손한이 편집샵입니다. 잘부탁드립니다. 에~~~호 무야호~";
     //end
 
-    const [mode, setMode] = useState("M");
+    const [mode, setMode] = useState("R");
     const link = '/manager'
 
     const handleSetMode = (mode) => {

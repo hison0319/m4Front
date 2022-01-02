@@ -92,50 +92,28 @@ input:hover {outline:none !important;}
 input:active {outline:none !important;}
 input:focus {outline:none !important;}
 
-.input_test:focus {
+.input_custom01:focus,
+.custom-file-input:focus,
+.custom-file-label:focus,
+.input_textarea_custom01 {
     outline:none !important;
-    outline-offset: none !important;
     box-shadow: none !important;
-    border-color: #ccc;
-    outline-color: #ccc;
+    border-color: #ccc !important;
+    outline-color: #ccc !important;
 }
 
-.input_test {
+.input_custom01,
+.custom-file-input,
+.custom-file-label {
     border-top: none;
     border-left: none;
     border-right: none;
-    outline-color: none;
+    /* border-bottom: none; */
+    border-bottom: #ccc solid 0.2px;
 }
 
-.custom-file-input:focus {
-    outline:none !important;
-    outline-offset: none !important;
-    box-shadow: none !important;
-    border-color: #ccc !important;
-    outline-color: #ccc !important;
-}
-
-.custom-file-input {
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important;
-    outline-color: none !important;
-}
-
-.custom-file-label:focus {
-    outline:none !important;
-    outline-offset: none !important;
-    box-shadow: none !important;
-    border-color: #ccc !important;
-    outline-color: #ccc !important;
-}
-
-.custom-file-label {
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important;
-    outline-color: none !important;
-    line-height: 2em;
+.input_text_custom01 {
+    border: none;
 }
 
 .custom-file-label::after {

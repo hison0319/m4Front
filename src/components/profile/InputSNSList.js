@@ -42,18 +42,13 @@ const InputSNSList = ({
         <>
             {localSnsList.map((sns, idx) =>
                 <Row
-                className="my-3"
+                className="my-4"
                 key={"sns"+idx}>
                     <Col xs="12" >
                         <InputGroup>
                         <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                            {/* <CustomInput
-                            type="switch"
-                            name="varSnsPublic"
-                            id="varSnsPublic"
-                            checked={varSnsPublic}
-                            onChange={onCheck}/> */}
+                            <InputGroupText
+                            className="input_text_custom01">
                             SNS주소
                             </InputGroupText>
                         </InputGroupAddon>
@@ -61,6 +56,7 @@ const InputSNSList = ({
                         type="text"
                         name={"sns"+idx}
                         id={"sns"+idx}
+                        className="input_custom01"
                         placeholder="sns 주소"
                         maxLength={200}
                         value={sns}
