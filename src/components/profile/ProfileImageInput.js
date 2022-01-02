@@ -49,7 +49,7 @@ const ProfileImageInput = ({
                             type="file"
                             id="image"
                             name="image"
-                            accept='image/jpg,impge/png,image/jpeg,image/gif' 
+                            accept='image/jpg,impge/png,image/jpeg,image/gif'
                             onChange={handleFileOnChange}
                             label="사진 업로드"/>
                         </InputGroup>

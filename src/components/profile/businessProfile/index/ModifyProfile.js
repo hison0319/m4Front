@@ -55,8 +55,7 @@ const ModifyProfile = ({
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText
-                  className="input_text_custom01">
+                  <InputGroupText>
                     가게 이름
                   </InputGroupText>
                 </InputGroupAddon>
@@ -64,7 +63,6 @@ const ModifyProfile = ({
                 type="text"
                 name="varName"
                 id="varName"
-                className="input_custom01"
                 placeholder="가게 이름"
                 maxLength={30}
                 value={varName||''}
@@ -81,8 +79,7 @@ const ModifyProfile = ({
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText
-                  className="input_text_custom01">
+                  <InputGroupText>
                     우편번호
                   </InputGroupText>
                 </InputGroupAddon>
@@ -90,7 +87,6 @@ const ModifyProfile = ({
                 type="text"
                 name="varZipcode"
                 id="varZipcode"
-                className="input_custom01"
                 placeholder="우편번호"
                 maxLength={10}
                 value={varZipcode||''}
@@ -106,8 +102,7 @@ const ModifyProfile = ({
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText
-                  className="input_text_custom01">
+                  <InputGroupText>
                     주소 1
                   </InputGroupText>
                 </InputGroupAddon>
@@ -115,7 +110,6 @@ const ModifyProfile = ({
                 type="text"
                 name="varCity"
                 id="varCity"
-                className="input_custom01"
                 placeholder="주소"
                 maxLength={100}
                 value={varCity||''}
@@ -128,8 +122,7 @@ const ModifyProfile = ({
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText
-                  className="input_text_custom01">
+                  <InputGroupText>
                     주소 2
                   </InputGroupText>
                 </InputGroupAddon>
@@ -137,7 +130,6 @@ const ModifyProfile = ({
                 type="text"
                 name="varStreet"
                 id="varStreet"
-                className="input_custom01"
                 placeholder="상세주소"
                 maxLength={200}
                 value={varStreet||''}
@@ -150,8 +142,7 @@ const ModifyProfile = ({
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText
-                  className="input_text_custom01">
+                  <InputGroupText>
                     연락처 1
                   </InputGroupText>
                 </InputGroupAddon>
@@ -164,7 +155,7 @@ const ModifyProfile = ({
                 type="text"
                 name="varContactNumber1"
                 id="varContactNumber1"
-                className="width_40 input_custom01"
+                className="width_40"
                 placeholder="연락처1"
                 maxLength={20}
                 value={varContactNumber1||''}
@@ -180,8 +171,7 @@ const ModifyProfile = ({
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText
-                  className="input_text_custom01">
+                  <InputGroupText>
                     연락처 2
                   </InputGroupText>
                 </InputGroupAddon>
@@ -194,7 +184,7 @@ const ModifyProfile = ({
                 type="text"
                 name="varContactNumber2"
                 id="varContactNumber2"
-                className="width_40 input_custom01"
+                className="width_40"
                 placeholder="연락처2"
                 maxLength={20}
                 value={varContactNumber2||''}
@@ -218,8 +208,7 @@ const ModifyProfile = ({
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText
-                  className="input_text_custom01">
+                  <InputGroupText>
                     사업자 번호
                   </InputGroupText>
                 </InputGroupAddon>
@@ -228,7 +217,6 @@ const ModifyProfile = ({
                 name="varBusinessRegNumber"
                 id="varBusinessRegNumber"
                 placeholder="사업자 번호"
-                className="input_custom01"
                 maxLength={20}
                 value={varBusinessRegNumber||''}
                 onChange={(e)=>{
@@ -244,8 +232,7 @@ const ModifyProfile = ({
             <Col xs="12" >
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
-                  <InputGroupText
-                  className="input_text_custom01">
+                  <InputGroupText>
                     가게 소개
                   </InputGroupText>
                 </InputGroupAddon>
@@ -253,9 +240,9 @@ const ModifyProfile = ({
                 type="textarea"
                 name="varIntroduce"
                 id="varIntroduce"
-                className="input_textarea_custom01"
+                className="input_textarea_custom"
                 maxLength={500}
-                placeholder="가게소개 (500자 이내)"
+                placeholder="가게소개"
                 rows="10"
                 value={varIntroduce||''}
                 onChange={onChangeText}

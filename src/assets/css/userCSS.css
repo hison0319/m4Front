@@ -88,32 +88,63 @@
     font-size: 1.2em !important;
 }
 
-input:hover {outline:none !important;}
-input:active {outline:none !important;}
-input:focus {outline:none !important;}
-
-.input_custom01:focus,
-.custom-file-input:focus,
-.custom-file-label:focus,
-.input_textarea_custom01 {
+input:hover,
+.custom-file-input:hover,
+.custom-file-label:hover,
+.input_textarea_custom01:hover,
+.input-group-text:hover,
+.form-control:hover {
+    outline:none !important;
+    box-shadow: none !important;
+    border-color: #ccc !important;
+    outline-color: #ccc !important;
+}
+input:active,
+.custom-file-input:active,
+.custom-file-label:active,
+.input_textarea_custom01:active,
+.input-group-text:active,
+.form-control:active {
     outline:none !important;
     box-shadow: none !important;
     border-color: #ccc !important;
     outline-color: #ccc !important;
 }
 
-.input_custom01,
-.custom-file-input,
-.custom-file-label {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    /* border-bottom: none; */
-    border-bottom: #ccc solid 0.2px;
+input,
+.custom-file-input:focus,
+.custom-file-label:focus,
+.input-group-text:focus,
+.form-control:focus {
+    outline:none !important;
+    box-shadow: none !important;
+    border-color: #ccc !important;
+    outline-color: #ccc !important;
 }
 
-.input_text_custom01 {
-    border: none;
+input,
+.input_custom,
+.custom-file-input,
+.custom-file-label,
+.form-control {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: #ccc solid 0.2px !important;
+    border-radius: 0%;
+}
+
+.input-group-text {
+    border: none !important;
+}
+
+.custom-file-label {
+    line-height: 1.8em;
+}
+
+.input_textarea_custom {
+    border: #ccc solid 0.2px !important;
+    border-radius: 2%;
 }
 
 .custom-file-label::after {

@@ -94,7 +94,8 @@ const InputOption = ({
         <Col xs="11">
           <InputGroup>
             <InputGroupAddon addonType="prepend">
-              <InputGroupText></InputGroupText>
+              <InputGroupText>
+              </InputGroupText>
             </InputGroupAddon>
             <Input
             type="text"

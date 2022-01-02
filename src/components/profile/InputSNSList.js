@@ -47,8 +47,7 @@ const InputSNSList = ({
                     <Col xs="12" >
                         <InputGroup>
                         <InputGroupAddon addonType="prepend">
-                            <InputGroupText
-                            className="input_text_custom01">
+                            <InputGroupText>
                             SNS주소
                             </InputGroupText>
                         </InputGroupAddon>
@@ -56,7 +55,6 @@ const InputSNSList = ({
                         type="text"
                         name={"sns"+idx}
                         id={"sns"+idx}
-                        className="input_custom01"
                         placeholder="sns 주소"
                         maxLength={200}
                         value={sns}

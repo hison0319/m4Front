@@ -11,13 +11,14 @@ import ProfileImageInput from 'components/profile/ProfileImageInput';
 import {
   useTextInput,
   useNumberInput,
-  // useCheckInput
 } from 'hooks';
-// import useChecked from 'hooks/useTextInput';
 import axios from 'axios';
 import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"
-import { getNationCodeListAll } from 'utils/common'
+import {
+  getNationCodeListAll,
+  getIndexEqualKey,
+} from 'utils/common'
 import PropTypes from "prop-types";
 
 async function putUser(user, userId, imgFile) {
@@ -67,70 +68,33 @@ const ModifyProfileContainer = ({
   // user birt
   const [varBirth, setVarBirth] = useState(birth);
 
-  // 국가코드는 number type으로 별도 관리
-  const [{ varNationCode }, onChangeNumber] = useNumberInput({
-    varNationCode: nationCode,
-  });
+  // 국가코드
+  const [varNationCode, setVarNationCode] = useState(82);
   const nationCodeListAll = getNationCodeListAll();
+  const [varNation, setVarNation] = useState(nationCodeListAll[getIndexEqualKey(nationCodeListAll,"value",varNationCode)].text);
+
+  const onSetNAtionCode = (code) => {
+    setVarNationCode(code);
+    setVarNation(nationCodeListAll[getIndexEqualKey(nationCodeListAll,"value",code)].text);
+  }
 
   // snsList
   const [varSnsList, setVarSnsList] = useState(snsList);
 
-// user 공개여부 정보 => 2021. 11. 14 공개정보는 사용 안하기로 합의
-//  const [{ 
-//     varImagePublic,
-//     varNamePublic,
-//     varZipcodePublic,
-//     varCityPublic,
-//     varStreetPublic,
-//     varContactNumberPublic,
-//     varSnsPublic,
-//     varBirthPublic,
-//     varIntroducePublic,
-//   }, onCheck] = useCheckInput({
-//     varImagePublic: true,
-//     varNamePublic: true,
-//     varZipcodePublic: true,
-//     varCityPublic: true,
-//     varStreetPublic: true,
-//     varContactNumberPublic: true,
-//     varSnsPublic: true,
-//     varBirthPublic: true,
-//     varIntroducePublic: true,
-//   });
+  const alertRef1 = useRef();
+  const alertRef2 = useRef();
 
-  // const alertRef1 = useRef();
-  // const alertRef2 = useRef();
-  const alertRef3 = useRef();
-  const alertRef4 = useRef();
-
-  // const AlertModal1 = 
-  //   <AlertModal
-  //     ref={alertRef1}
-  //     comment="이름은 항상 공개합니다."
-  //     closingModal={()=>{
-  //       //nothing
-  //     }}
-  //   />;
-  // const AlertModal2 = 
-  //   <AlertModal
-  //     ref={alertRef2}
-  //     comment="소개는 항상 공개합니다."
-  //     closingModal={()=>{
-  //       //nothing
-  //     }}
-  //   />;
-  const AlertModal3 = 
+  const AlertModal1 = 
     <AlertModal
-      ref={alertRef3}
+      ref={alertRef1}
       comment="저장 했습니다."
       closingModal={()=>{
         window.location.href = '/?token=';
       }}
     />;
-  const AlertModal4 = 
+  const AlertModal2 = 
     <AlertModal
-      ref={alertRef4}
+      ref={alertRef2}
       comment="죄송합니다. 오류로 인해 저장 실패했습니다. 개발자에게 문의해주세요."
       closingModal={()=>{
         //nothing
@@ -155,9 +119,9 @@ const ModifyProfileContainer = ({
   useEffect(()=>{
     const { loading, data: user, error } = state;
     if(user) {
-      alertRef3.current.showAlert();
+      alertRef1.current.showAlert();
     } else if(error) {
-      alertRef4.current.showAlert();
+      alertRef2.current.showAlert();
     }
     if(loading) {
       spinner.start();
@@ -184,32 +148,17 @@ const ModifyProfileContainer = ({
       varBirth={varBirth}
       varIntroduce={varIntroduce}
       onChangeText={onChangeText}
-      varNationCode={varNationCode}
-      onChangeNumber={onChangeNumber}
+      varNation={varNation}
+      onSetNAtionCode={onSetNAtionCode}
       nationCodeListAll={nationCodeListAll}
       snsList={varSnsList}
       setSnsList={setVarSnsList}
       setVarBirth={setVarBirth}
+      alertRef1={alertRef1} // 저장 했습니다.
+      alertRef2={alertRef2} // 죄송합니다. 오류로 인해 저장 실패했습니다. 개발자에게 문의해주세요.
 
-      // varNamePublic={varNamePublic}
-      // varZipcodePublic={varZipcodePublic}
-      // varCityPublic={varCityPublic}
-      // varStreetPublic={varStreetPublic}
-      // varContactNumberPublic={varContactNumberPublic}
-      // varSnsPublic={varSnsPublic}
-      // varBirthPublic={varBirthPublic}
-      // varIntroducePublic={varIntroducePublic}
-      // onCheck={onCheck}
-
-      // alertRef1={alertRef1} // 이름은 항상 공개합니다.
-      // alertRef2={alertRef2} // 소개는 항상 공개합니다.
-      alertRef3={alertRef3} // 저장 했습니다.
-      alertRef4={alertRef4} // 죄송합니다. 오류로 인해 저장 실패했습니다. 개발자에게 문의해주세요.
-
-      // AlertModal1={AlertModal1}
-      // AlertModal2={AlertModal2}
-      AlertModal3={AlertModal3}
-      AlertModal4={AlertModal4}
+      AlertModal1={AlertModal1}
+      AlertModal2={AlertModal2}
 
       refetch={onRefetch}
       />

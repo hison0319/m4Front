@@ -35,7 +35,8 @@ function CalenderPick(props) {
             className="mx-2"
             id="calenderPick2">
               <InputGroupAddon addonType="prepend">
-                <InputGroupText></InputGroupText>
+                <InputGroupText>
+                </InputGroupText>
               </InputGroupAddon>
               <ReactDatetime
                   value={localDate}

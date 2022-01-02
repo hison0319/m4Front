@@ -24,7 +24,7 @@ const DropboxSelect = ({
         isOpen={isOpen}
         toggle={()=>{setIsOpen(!isOpen)}}
         style={{marginTop:"-1px"}}
-        className="input_custom01">
+        className="input_custom">
           <DropdownToggle
           caret
           color="natural"
