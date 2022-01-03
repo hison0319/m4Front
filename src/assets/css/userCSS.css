@@ -159,9 +159,19 @@ appearance: none;
 
 select{
 /*ios대응*/
--webkit-appearance: none;
+/* -webkit-appearance: none;
 -moz-appearance: none; 
-appearance: none;
+appearance: none; */
+}
+
+/* check box 다시 추가 */
+input[type="checkbox"]{
+    background-color:#fff;
+    -webkit-appearance:checkbox;
+}
+input:checked[type="checkbox"]{
+    background-color:#fff;
+    -webkit-appearance:checkbox;
 }
 
 .font_bold {
