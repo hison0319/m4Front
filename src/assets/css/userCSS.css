@@ -111,7 +111,7 @@ input:active,
     outline-color: #ccc !important;
 }
 
-input,
+input:focus,
 .custom-file-input:focus,
 .custom-file-label:focus,
 .input-group-text:focus,
@@ -150,6 +150,25 @@ input,
 
 .custom-file-label::after {
     display: none;
+}
+
+input{
+/*ios대응*/
+appearance: none;
+-webkit-appearance: none;
+-webkit-border-radius: 0;
+}
+select{
+/*ios대응*/
+-webkit-appearance: none;
+-moz-appearance: none; 
+appearance: none;
+
+/*화살표 배경 넣기*/
+background: url('이미지경로') no-repeat 98% 50% #fff; /*화살표 select박스 오른쪽 중앙 배치,배경 흰색*/
+}
+select::-ms-expand{ 
+display:none; /* 화살표 없애기 for IE10, 11*/
 }
 
 .font_bold {
