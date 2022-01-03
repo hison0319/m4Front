@@ -152,16 +152,18 @@ input,
 }
 
 input{
-/*ios대응*/
-appearance: none;
--webkit-appearance: none;
+    /*ios대응*/
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 select{
-/*ios대응*/
-/* -webkit-appearance: none;
--moz-appearance: none; 
-appearance: none; */
+    /*ios대응*/
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    appearance: none;
+    /*화살표 배경 넣기*/
+    background: #fff url('https://firebasestorage.googleapis.com/v0/b/noshowfront.appspot.com/o/test%2Ficon.png?alt=media') no-repeat 98% center;
 }
 
 /* check box 다시 추가 */
