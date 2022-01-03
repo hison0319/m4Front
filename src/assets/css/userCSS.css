@@ -132,7 +132,6 @@ input,
     border-right: none !important;
     border-bottom: #ccc solid 0.2px !important;
     border-radius: 0%;
-    background-color: #fff !important;
 }
 
 .input-group-text {
@@ -156,7 +155,6 @@ input{
 /*ios대응*/
 appearance: none;
 -webkit-appearance: none;
--webkit-border-radius: 0;
 }
 
 select{
@@ -164,10 +162,6 @@ select{
 -webkit-appearance: none;
 -moz-appearance: none; 
 appearance: none;
-}
-
-select::-ms-expand{ 
-display:none; /* 화살표 없애기 for IE10, 11*/
 }
 
 .font_bold {
