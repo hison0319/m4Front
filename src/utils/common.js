@@ -252,9 +252,9 @@ export const delArrDupObject = (arr, key) => {
 */
 export const getNationCodeListAll = () => {
     const nationCodeList = [
-        {text:'kor', value:82},
-        {text:'jp', value:69},
-        {text:'chi', value:58},
+        {text:'kor', value:"82"},
+        {text:'jp', value:"69"},
+        {text:'chi', value:"58"},
     ];
     return nationCodeList;
 }
@@ -264,15 +264,15 @@ export const getNationCodeListAll = () => {
 */
 export const getOpeningHourCodeListAll = () => {
     const openingHourCodeList = [
-        {text:'30분', code:30},
-        {text:'1시간', code:60},
-        {text:'2시간', code:120},
-        {text:'3시간', code:180},
-        {text:'4시간', code:240},
-        {text:'5시간', code:300},
-        {text:'6시간', code:360},
-        {text:'7시간', code:420},
-        {text:'8시간', code:480},
+        {text:'30분', code:"30"},
+        {text:'1시간', code:"60"},
+        {text:'2시간', code:"120"},
+        {text:'3시간', code:"180"},
+        {text:'4시간', code:"240"},
+        {text:'5시간', code:"300"},
+        {text:'6시간', code:"360"},
+        {text:'7시간', code:"420"},
+        {text:'8시간', code:"480"},
     ];
     return openingHourCodeList;
 }

@@ -36,7 +36,7 @@ const ModifyProfile = ({
   varBirth,
   varIntroduce,
   onChangeText,
-  varNation,
+  varNationCode,
   onSetNAtionCode,
   nationCodeListAll,
   snsList,
@@ -155,7 +155,7 @@ const ModifyProfile = ({
                   </InputGroupText>
                 </InputGroupAddon>
                 <DropboxSelect
-                  defaultValue={varNation}
+                  defaultValue={varNationCode}
                   dropItem={nationCodeListAll}
                   onClickDropItem={(item)=>{onSetNAtionCode(item)}}
                 />
@@ -268,7 +268,7 @@ ModifyProfile.propTypes = {
   setSnsList: PropTypes.func,
   setVarBirth: PropTypes.func,
   
-  varNation: PropTypes.string,
+  varNationCode: PropTypes.string,
   onSetNAtionCode: PropTypes.func,
   nationCodeListAll: PropTypes.array,
   

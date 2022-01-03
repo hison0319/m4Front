@@ -35,8 +35,8 @@ const ModifyProfile = ({
   varBusinessRegNumber,
   varIntroduce,
   onChangeText,
-  varNation1,
-  varNation2,
+  varNationCode1,
+  varNationCode2,
   onSetNAtionCode,
   nationCodeListAll,
   snsList,
@@ -147,7 +147,7 @@ const ModifyProfile = ({
                   </InputGroupText>
                 </InputGroupAddon>
                 <DropboxSelect
-                  defaultValue={varNation1}
+                  defaultValue={varNationCode1}
                   dropItem={nationCodeListAll}
                   onClickDropItem={(item)=>{onSetNAtionCode(1,item)}}
                 />
@@ -176,7 +176,7 @@ const ModifyProfile = ({
                   </InputGroupText>
                 </InputGroupAddon>
                 <DropboxSelect
-                  defaultValue={varNation2}
+                  defaultValue={varNationCode2}
                   dropItem={nationCodeListAll}
                   onClickDropItem={(item)=>{onSetNAtionCode(2,item)}}
                 />
@@ -285,8 +285,8 @@ ModifyProfile.propTypes = {
   varBusinessRegNumber: PropTypes.string,
   varIntroduce: PropTypes.string,
   onChangeText: PropTypes.func,
-  varNation1: PropTypes.string,
-  varNation2: PropTypes.string,
+  varNationCode1: PropTypes.string,
+  varNationCode2: PropTypes.string,
   onSetNAtionCode: PropTypes.func,
   nationCodeListAll: PropTypes.array,
 

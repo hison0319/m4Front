@@ -15,7 +15,7 @@ import { ProgressContext } from "context/Progress"
 import {
   getNationCodeListAll,
   getIndexEqualKey,
-} from 'utils/common'
+} from "utils/common"
 import PropTypes from "prop-types";
 
 async function putShop(shop, shopId, imgFile) {
@@ -69,19 +69,15 @@ const ModifyProfileContainer = ({
   });
 
   // 국가코드
-  const [varNationCode1, setVarNationCode1] = useState(82);
-  const [varNationCode2, setVarNationCode2] = useState(69);
+  const [varNationCode1, setVarNationCode1] = useState("82");
+  const [varNationCode2, setVarNationCode2] = useState("69");
   const nationCodeListAll = getNationCodeListAll();
-  const [varNation1, setVarNation1] = useState(nationCodeListAll[getIndexEqualKey(nationCodeListAll,"value",varNationCode1)].text);
-  const [varNation2, setVarNation2] = useState(nationCodeListAll[getIndexEqualKey(nationCodeListAll,"value",varNationCode2)].text);
 
   const onSetNAtionCode = (idx, code) => {
     if(idx === 1) {
       setVarNationCode1(code);
-      setVarNation1(nationCodeListAll[getIndexEqualKey(nationCodeListAll,"value",code)].text);
     } else {
       setVarNationCode2(code);
-      setVarNation2(nationCodeListAll[getIndexEqualKey(nationCodeListAll,"value",code)].text);
     }
   }
 
@@ -152,8 +148,8 @@ const ModifyProfileContainer = ({
       varBusinessRegNumber={varBusinessRegNumber}
       varIntroduce={varIntroduce}
       onChangeText={onChangeText}
-      varNation1={varNation1}
-      varNation2={varNation2}
+      varNationCode1={varNationCode1}
+      varNationCode2={varNationCode2}
       onSetNAtionCode={onSetNAtionCode}
       nationCodeListAll={nationCodeListAll}
       snsList={varSnsList}

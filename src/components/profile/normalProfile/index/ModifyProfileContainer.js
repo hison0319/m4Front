@@ -71,11 +71,9 @@ const ModifyProfileContainer = ({
   // 국가코드
   const [varNationCode, setVarNationCode] = useState(82);
   const nationCodeListAll = getNationCodeListAll();
-  const [varNation, setVarNation] = useState(nationCodeListAll[getIndexEqualKey(nationCodeListAll,"value",varNationCode)].text);
 
   const onSetNAtionCode = (code) => {
     setVarNationCode(code);
-    setVarNation(nationCodeListAll[getIndexEqualKey(nationCodeListAll,"value",code)].text);
   }
 
   // snsList
@@ -136,8 +134,6 @@ const ModifyProfileContainer = ({
       setImgFile={setImgFile}
       previewURL={previewURL}
       setPreviewURL={setPreviewURL}
-      // varImagePublic={varImagePublic}
-      // onCheck={onCheck}
       />
       <ModifyProfile
       varName={varName}
@@ -148,7 +144,7 @@ const ModifyProfileContainer = ({
       varBirth={varBirth}
       varIntroduce={varIntroduce}
       onChangeText={onChangeText}
-      varNation={varNation}
+      varNationCode={varNationCode}
       onSetNAtionCode={onSetNAtionCode}
       nationCodeListAll={nationCodeListAll}
       snsList={varSnsList}

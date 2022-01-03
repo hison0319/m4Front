@@ -6,6 +6,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 import PropTypes from "prop-types";
+import { getIndexEqualKey } from "utils/common"
 
 const DropboxSelect = ({
   defaultOpen,
@@ -15,7 +16,8 @@ const DropboxSelect = ({
 }) => {
 
   const [isOpen, setIsOpen] = useState(defaultOpen?defaultOpen:false);
-  const [selectValue, setSelectValue] = useState(defaultValue?defaultValue:"please default value");
+  const [selectText, setSelectText] = useState(
+    defaultValue?dropItem[getIndexEqualKey(dropItem,"value",defaultValue)].text:"please default value");
 
   return (
     <>
@@ -29,14 +31,14 @@ const DropboxSelect = ({
           caret
           color="natural"
           >
-            {selectValue}
+            {selectText}
           </DropdownToggle>
           <DropdownMenu container="body">
             {dropItem.map((item) =>
               <DropdownItem
               key={item.value}
               onClick={()=>{
-                setSelectValue(item.text);
+                setSelectText(item.text);
                 onClickDropItem(item.value);
               }}>
                 {item.text}

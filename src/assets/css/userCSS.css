@@ -132,6 +132,7 @@ input,
     border-right: none !important;
     border-bottom: #ccc solid 0.2px !important;
     border-radius: 0%;
+    background-color: #fff !important;
 }
 
 .input-group-text {
