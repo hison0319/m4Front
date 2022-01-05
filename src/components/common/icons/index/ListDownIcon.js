@@ -4,6 +4,7 @@ import { FaCaretDown } from 'react-icons/fa';
 function ListDownIcon() {
     const _style = {
         fontSize: "1.2em",
+        color: "#fff",
     }
 
     return (

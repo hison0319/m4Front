@@ -35,7 +35,7 @@ const EditOption = React.memo(({
     <>
       <Row>
         <Col>
-          <Row className="mt-3 py-1" style={{backgroundColor:"#ddd"}}>
+          <Row className="mt-3 py-1 main_background">
             <Col xs="12">
               <Link
               className="text-secondary default-link"
@@ -46,7 +46,7 @@ const EditOption = React.memo(({
               }
               to=""
               >
-                &nbsp;&nbsp;우리는 옵션이 있어요.
+                <span className='white_color'>&nbsp;&nbsp;우리는 옵션이 있어요.</span>
                 {editOpen?upIcon:downIcon}
               </Link>
             </Col>

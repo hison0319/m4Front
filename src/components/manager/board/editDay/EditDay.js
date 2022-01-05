@@ -64,7 +64,7 @@ const EditDay = React.memo(({
     <>
       <Row className="">
         <Col className="">
-          <Row className="mt-4 py-1" style={{backgroundColor:"#ddd"}}>
+          <Row className="mt-4 py-1 main_background">
             <Col xs="12">
               <Link
               className="text-secondary default-link"
@@ -75,7 +75,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                &nbsp;&nbsp;우리는 월요일에 문을 열어요.
+                <span className='white_color'>&nbsp;&nbsp;우리는 월요일에 문을 열어요.</span>
                 {monOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -90,7 +90,7 @@ const EditDay = React.memo(({
               </Collapse>
             </Col>
           </Row>
-          <Row className="py-1" style={{backgroundColor:"#ddd"}}>
+          <Row className="py-1 main_background" style={{backgroundColor:"#ddd"}}>
             <Col xs="12">
               <Link
               className="text-secondary default-link"
@@ -101,7 +101,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                &nbsp;&nbsp;우리는 화요일 문을 열어요.
+                <span className='white_color'>&nbsp;&nbsp;우리는 화요일 문을 열어요.</span>
                 {tueOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -115,7 +115,7 @@ const EditDay = React.memo(({
               </Collapse>
             </Col>
           </Row>
-          <Row className="py-1" style={{backgroundColor:"#ddd"}}>
+          <Row className="py-1 main_background" style={{backgroundColor:"#ddd"}}>
             <Col xs="12">
               <Link
               className="text-secondary default-link"
@@ -126,7 +126,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                &nbsp;&nbsp;우리는 수요일에 문을 열어요.
+                <span className='white_color'>&nbsp;&nbsp;우리는 수요일에 문을 열어요.</span>
                 {wedOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -140,7 +140,7 @@ const EditDay = React.memo(({
               </Collapse>
             </Col>
           </Row>
-          <Row className="py-1" style={{backgroundColor:"#ddd"}}>
+          <Row className="py-1 main_background" style={{backgroundColor:"#ddd"}}>
             <Col xs="12">
               <Link
               className="text-secondary default-link"
@@ -151,7 +151,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                &nbsp;&nbsp;우리는 목요일에 문을 열어요.
+                <span className='white_color'>&nbsp;&nbsp;우리는 목요일에 문을 열어요.</span>
                 {thuOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -165,7 +165,7 @@ const EditDay = React.memo(({
               </Collapse>
             </Col>
           </Row>
-          <Row className="py-1" style={{backgroundColor:"#ddd"}}>
+          <Row className="py-1 main_background" style={{backgroundColor:"#ddd"}}>
             <Col xs="12">
               <Link
               className="text-secondary default-link"
@@ -176,7 +176,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                &nbsp;&nbsp;우리는 금요일에 문을 열어요.
+                <span className='white_color'>&nbsp;&nbsp;우리는 금요일에 문을 열어요.</span>
                 {friOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -190,7 +190,7 @@ const EditDay = React.memo(({
               </Collapse>
             </Col>
           </Row>
-          <Row className="py-1" style={{backgroundColor:"#ddd"}}>
+          <Row className="py-1 main_background" style={{backgroundColor:"#ddd"}}>
             <Col xs="12">
               <Link
               className="text-secondary default-link"
@@ -201,7 +201,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                &nbsp;&nbsp;우리는 토요일에 문을 열어요.
+                <span className='white_color'>&nbsp;&nbsp;우리는 토요일에 문을 열어요.</span>
                 {satOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -215,7 +215,7 @@ const EditDay = React.memo(({
               </Collapse>
             </Col>
           </Row>
-          <Row className="py-1" style={{backgroundColor:"#ddd"}}>
+          <Row className="py-1 main_background" style={{backgroundColor:"#ddd"}}>
             <Col xs="12">
               <Link
               className="text-secondary default-link"
@@ -226,7 +226,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                &nbsp;&nbsp;우리는 일요일에 문을 열어요.
+                <span className='white_color'>&nbsp;&nbsp;우리는 일요일에 문을 열어요.</span>
                 {sunOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -240,7 +240,7 @@ const EditDay = React.memo(({
               </Collapse>
             </Col>
           </Row>
-          {/* <Row className="py-1" style={{backgroundColor:"#ddd"}}>
+          {/* <Row className="py-1 main_background" style={{backgroundColor:"#ddd"}}>
             <Col xs="12">
               <Link
               className="text-secondary default-link"
@@ -251,7 +251,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                &nbsp;&nbsp;우리는 특별한 영업일이 있어요.
+                <span className='white_color'>&nbsp;&nbsp;우리는 특별한 영업일이 있어요.</span>
                 {speOpen?upIcon:downIcon}
               </Link>
             </Col>

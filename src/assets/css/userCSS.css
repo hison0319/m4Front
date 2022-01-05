@@ -218,8 +218,20 @@ input[type="checkbox"]:disabled:after {
 /* reactstrap custom switch 설정 */
 .custom-control-input:checked~.custom-control-label::before {
     color: #fff;
-    border-color: red;
-    background-color: red;
+    border: none;
+    background: linear-gradient(45deg, Violet, Orange);
+}
+
+.input-group-text {
+    background: linear-gradient(#D66D75,#E29587);
+}
+
+.main_background {
+    background: linear-gradient(45deg, Violet, Orange);
+}
+
+.white_color {
+    color: #fff !important;
 }
 
 .font_bold {
