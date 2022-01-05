@@ -168,12 +168,58 @@ select{
 
 /* check box 다시 추가 */
 input[type="checkbox"]{
-    background-color:#fff !important;
-    -webkit-appearance:checkbox;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: lightgray;
+    height: 16px;
+    width: 16px;
+    border: 1px solid white;
+    border-radius: 10%;
 }
-input:checked[type="checkbox"]{
-    background-color:#fff !important;
-    -webkit-appearance:checkbox;
+
+input[type="checkbox"]:checked {
+    /* background: #2aa1c0; */
+    background: #fff no-repeat center/100% url('../img/selectButton.png');
+}
+
+input[type="checkbox"]:hover {
+    filter: brightness(90%);
+}
+
+input[type="checkbox"]:disabled {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+input[type="checkbox"]:after {
+    content: '';
+    position: relative;
+    left: 21%;
+    top: 10%;
+    width: 57%;
+    height: 60%;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    display: none;
+}
+
+input[type="checkbox"]:checked:after {
+    display: block;
+}
+
+input[type="checkbox"]:disabled:after {
+    border-color: #7b7b7b;
+}
+/* reactstrap custom switch 설정 */
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: red;
+    background-color: red;
 }
 
 .font_bold {
