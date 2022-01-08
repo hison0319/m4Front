@@ -223,7 +223,7 @@ input[type="checkbox"]:disabled:after {
 }
 
 .input-group-text {
-    background: linear-gradient(#D66D75,#E29587);
+    /* background: linear-gradient(#D66D75,#E29587); */
 }
 
 .main_background {
