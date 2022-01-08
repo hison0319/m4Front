@@ -9,7 +9,8 @@ function ProfileView() {
     // const sessionInfo = "BUSINESS_USER"
     const sessionInfo = "NORMAL_USER"
     const {inProgress} = useContext(ProgressContext);
-    
+    console.log('sessionInfo',sessionInfo);
+
     return (
         <>
             {inProgress && <SpinnerGrow/>}
