@@ -6,8 +6,8 @@ import SpinnerGrow from "components/common/spinner/SpinnerGrow";
 import { ProgressContext } from "context/Progress"
 
 function ProfileView() {
-    const sessionInfo = "BUSINESS_USER"
-    // const sessionInfo = "NORMAL_USER"
+    // const sessionInfo = "BUSINESS_USER"
+    const sessionInfo = "NORMAL_USER"
     const {inProgress} = useContext(ProgressContext);
     
     return (
