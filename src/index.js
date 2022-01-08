@@ -9,7 +9,7 @@ import "assets/funcs/commonJs"
 // import HomeView from "views/HomeView";
 import Sample from "views/Sample";
 import BoardDetailView from "views/BoardDetailView";
-import SigninView from "views/SigninView";
+import AccountView from "views/AccountView";
 import ProfileView from "views/ProfileView";
 import ManagerView from "views/ManagerView";
 import ManagerBoardView from "views/ManagerBoardView";
@@ -44,9 +44,9 @@ ReactDOM.render(
             render={props => <HomeView {...props} />} 
           /> */}
           <Route 
-            path="/signin" 
+            path="/account" 
             exact 
-            render={props => <SigninView {...props} />} 
+            render={props => <AccountView {...props} />} 
           />
           <Route 
             path="/profile" 
