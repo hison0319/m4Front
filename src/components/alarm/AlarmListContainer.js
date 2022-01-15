@@ -23,7 +23,6 @@ async function getAlarm(id) {
 }
 
 const AlarmListContainer = () => {
-
     // 알람 목록 번호
     const getAlarmIdx = useRef(0);
 
@@ -286,16 +285,22 @@ const AlarmListContainer = () => {
     const [alarmLists, setAlarmLists] = useState(testAlarmLists);
 
     //스크롤 최하단 내릴 시 알림 불러오기
+    let timer
     window.addEventListener("scroll", function() {
-        console.log("scrolling");
-        if(window.pageYOffset + window.innerHeight > document.documentElement.scrollHeight-30) {
-            if (getScrollEventToggle) {
-                getScrollEventToggle = false;
-                getAlarmIdx.current += 1;
-                getAlarm(0,"",getAlarmIdx.current);
-                setAlarmLists(alarmLists.concat(testGetAlarmLists));
-            }
+        if(timer) {
+            clearTimeout(timer);
         }
+        timer = setTimeout(function() {
+            if(window.pageYOffset + window.innerHeight > document.documentElement.scrollHeight-30) {
+                if (getScrollEventToggle) {
+                    getScrollEventToggle = false;
+                    getAlarmIdx.current += 1;
+                    getAlarm(0,"",getAlarmIdx.current);
+                    console.log("call event!!!");
+                    setAlarmLists(alarmLists.concat(testGetAlarmLists));
+                }
+            }
+        }, 100);
     });
 
     return (

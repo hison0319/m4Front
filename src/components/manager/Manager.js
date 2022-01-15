@@ -1,142 +1,103 @@
-/*
-작성자 : 손한이
-작성일 : 2021.11.13
-내용 :  shop manager(Collapse 뷰)
-*/
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useRef } from "react";
 import {
-    Container,
-    Row,
-    Col,
-    Collapse,
-    Button
-} from 'reactstrap';
-import {
-    ListDownIcon,
-    ListUpIcon,
-    ManageChkBoardIcon,
-    ManageChkBookIcon,
-    ManageDashIcon,
-    BackReadIcon,
-} from "components/common/icons/Index";
+  Container,
+  Row,
+  Col,
+  Button,
+} from "reactstrap";
+import ModalView from "components/common/modalView/ModalView";
+import BoardManager from "./board/BoardManager";
+import BookingManagerContainer from "./booking/BookingManagerContainer";
+import Dashboard from "./dashboard/Dashboard";
 
-import BoardManager from 'components/manager/board/BoardManager';
-// import BookingManager from 'components/manager/booking/BookingManager';
-import BookingManagerContainer from 'components/manager/booking/BookingManagerContainer';
-import Dashboard from 'components/manager/dashboard/Dashboard';
+const Manager = () => {
+  const boardModalRef = useRef();
+  const bookingModalRef = useRef();
+  const dashboardModalRef = useRef();
 
-function Manager(){
-    const [boardOpen, setBoardOpen] = useState(true);
-    const toggleBoard = () => setBoardOpen(!boardOpen);
+  const boardModal = <ModalView
+  ref={boardModalRef}
+  item={<BoardManager/>}
+  closingModal={()=>{
+      //nothing
+  }}
+  />
+  const bookingModal = <ModalView
+  ref={bookingModalRef}
+  item={<BookingManagerContainer/>}
+  closingModal={()=>{
+      //nothing
+  }}
+  />
+  const dashboardModal = <ModalView
+  ref={dashboardModalRef}
+  item={<Dashboard/>}
+  closingModal={()=>{
+      //nothing
+  }}
+  />
 
-    const [bookOpen, setBookOpen] = useState(false);
-    const toggleBook = () => setBookOpen(!bookOpen);
-
-    const [dashOpen, setDashOpen] = useState(false);
-    const toggleDash = () => setDashOpen(!dashOpen);
-
-    const downIcon = <span className="ml-2"><ListDownIcon/></span>;
-    const upIcon = <span className="ml-2"><ListUpIcon/></span>;
-
-    const link = "/";
-
-    return (
-        <>
-            <Container>
-                {/* <Row>
-                    <Col>
-                        <Link to={link} className="default-link">
-                            <div className="text-left btn-wrapper">
-                                <Button
-                                className="text-left"
-                                color="netural"
-                                outline
-                                type="button"
-                                onClick={()=>{
-                                }}>
-                                <span className="btn-inner--text">
-                                    <BackReadIcon/>&nbsp;&nbsp;돌아가기
-                                </span>
-                                </Button>
-                            </div>
-                        </Link>
-                    </Col>
-                </Row> */}
-                <Row className="pt-2 pb-5">
-                    <Col>
-                        <Row className="py-3 my-3">
-                            <Col>
-                                <Link
-                                className="h5 text-secondary default-link"
-                                onClick={(e) => {
-                                        e.preventDefault();
-                                        toggleBoard();
-                                    }
-                                }
-                                to=""
-                                >
-                                    <ManageChkBoardIcon/>
-                                    &nbsp;&nbsp;게시물 관리
-                                    {boardOpen?upIcon:downIcon}
-                                </Link>
-                                <Collapse isOpen={boardOpen}>
-                                    <BoardManager/>
-                                </Collapse>
-                            </Col>
-                        </Row>
-                        <hr></hr>
-                        <Row className="mt-5 py-3 my-3">
-                            <Col>
-                                <Link
-                                className="h5 text-secondary default-link"
-                                onClick={(e) => {
-                                        e.preventDefault();
-                                        toggleBook();
-                                    }
-                                }
-                                to=""
-                                >
-                                    <ManageChkBookIcon/>
-                                    &nbsp;&nbsp;예약 관리
-                                    {bookOpen?upIcon:downIcon}
-                                </Link>
-                                <Collapse isOpen={bookOpen}>
-                                    <div className="btn-wrapper mt-5">
-                                        <BookingManagerContainer/>
-                                    </div>
-                                </Collapse>
-                            </Col>
-                        </Row>
-                        <hr></hr>
-                        <Row className="mt-5 py-3 my-3">
-                            <Col>
-                                <Link
-                                className="h5 text-secondary default-link"
-                                onClick={(e) => {
-                                        e.preventDefault();
-                                        toggleDash();
-                                    }
-                                }
-                                to=""
-                                >
-                                    <ManageDashIcon/>
-                                    &nbsp;&nbsp;대시보드
-                                    {dashOpen?upIcon:downIcon}
-                                </Link>
-                                <Collapse isOpen={dashOpen}>
-                                    <div className="btn-wrapper">
-                                        <Dashboard/>
-                                    </div>
-                                </Collapse>
-                            </Col>
-                        </Row>
-                        <hr></hr>
-                    </Col>
-                </Row>
-            </Container>
-        </>
-    );
+  return (
+    <Container>
+      {boardModal}
+      {bookingModal}
+      {dashboardModal}
+      <Row className="my-5 pt-5 ">
+        <Col className="my-3 pt-3">
+          <div className="text-center btn-wrapper">
+              <Button
+              className="main_button color1"
+              color="info"
+              outline
+              type="button"
+              onClick={()=>{
+                boardModalRef.current.showAlert();
+              }}>
+              <span className="btn-inner--text">
+                게시글 관리
+              </span>
+              </Button>
+          </div>
+        </Col>
+      </Row>
+      <Row className="my-5">
+        <Col className="my-3">
+          <div className="text-center btn-wrapper">
+              <Button
+              className="main_button color1"
+              color="info"
+              outline
+              type="button"
+              onClick={()=>{
+                bookingModalRef.current.showAlert();
+              }}>
+              <span className="btn-inner--text">
+                예약 관리
+              </span>
+              </Button>
+          </div>
+        </Col>
+      </Row>
+      <Row className="my-5">
+        <Col className="my-3">
+          <div className="text-center btn-wrapper">
+              <Button
+              className="main_button color1"
+              color="info"
+              outline
+              type="button"
+              onClick={()=>{
+                dashboardModalRef.current.showAlert();
+              }}>
+              <span className="btn-inner--text">
+                대쉬보드
+              </span>
+              </Button>
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
 export default Manager;

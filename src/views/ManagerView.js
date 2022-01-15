@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import Manager from 'components/manager/Manager';
+import NavBottom from 'components/navigation/NavBottom';
 import SpinnerGrow from "components/common/spinner/SpinnerGrow";
 import { ProgressContext } from "context/Progress"
 
@@ -9,7 +10,8 @@ function ManagerView() {
     return (
         <>
             {inProgress && <SpinnerGrow/>}
-            <Manager />
+            <Manager/>
+            <NavBottom/>
         </>
     )
 }

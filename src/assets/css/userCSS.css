@@ -281,3 +281,152 @@ input[type="checkbox"]:disabled:after {
     cursor: pointer;
     transition: opacity 0.3s ease-in;
 }
+
+.main_button {
+    width: 80%;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.sub_button1 {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.color1 {
+    color: #a2d5fe;
+    border: solid 1px #a2d5fe;
+}
+
+.color2 {
+    background-color: #a2d5fe;
+    border: none;
+    color: #fff;
+}
+
+.color3 {
+    background-color: #07689f;
+    border: none;
+    color: #fff;
+}
+
+.color4 {
+    background-color: #a2d5fe;
+    border: none;
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 40px;
+    z-index: 999;
+    background-color: #07689f;
+    /* box-shadow: 1px 1px 1px 1px #a2d5fe; */
+}
+
+.navigation_bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    overflow: hidden;
+    background-color: #07689f;
+}
+/* nav태그 아래의 div태그들을 수평정렬 및 세로길이 설정 */
+.navigation_bottom > div {
+    /* 수평정렬, 5개의 button을 각각 20% width만큼 할당 */
+    float: left;
+    width: 25%;
+    text-align: center;
+
+    /* 세로길이 설정 */
+    height: 45px;
+    line-height: 45px;
+}
+
+/* 페이드 인 */
+.fade_in_box {
+    animation: fadein 0.5s;
+    -moz-animation: fadein 0.5s; /* Firefox */
+    -webkit-animation: fadein 0.5s; /* Safari and Chrome */
+    -o-animation: fadein 0.5s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 페이드 아웃 */
+.fade_out_box {
+    animation: fadeout 0.5s;
+    -moz-animation: fadeout 0.5s; /* Firefox */
+    -webkit-animation: fadeout 0.5s; /* Safari and Chrome */
+    -o-animation: fadeout 0.5s; /* Opera */
+    animation-fill-mode: forwards;
+}
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@-moz-keyframes fadeout { /* Firefox */
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes fadeout { /* Safari and Chrome */
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@-o-keyframes fadeout { /* Opera */
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

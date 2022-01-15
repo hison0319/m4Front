@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 
+import Header from 'components/navigation/Header';
+import NavBottom from 'components/navigation/NavBottom';
 import NormalProfileContainer from 'components/profile/normalProfile/NormalProfileContainer';
 import BusinessProfileContainer from 'components/profile/businessProfile/BusinessProfileContainer';
 import SpinnerGrow from "components/common/spinner/SpinnerGrow";
@@ -13,12 +15,14 @@ function ProfileView() {
 
     return (
         <>
+            <Header/>
             {inProgress && <SpinnerGrow/>}
             {sessionInfo === "BUSINESS_USER"?
             <BusinessProfileContainer
             userId={"test001"}/> :
             <NormalProfileContainer
             userId={"test002"}/>}
+            <NavBottom/>
         </>
     )
 }

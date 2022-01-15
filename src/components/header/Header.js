@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react';
-
-// core components
-// import UserNavbar from "components/navbars/UserNavbar";
+import UserNavbar from "components/navbars/UserNavbar";
 
 function Header() {
   useEffect( ()=> {
@@ -11,7 +9,7 @@ function Header() {
   return (
     <>
       <header>
-        {/* <UserNavbar/> */}
+        <UserNavbar/>
       </header>
       <div className="mb-5"></div>
     </>
