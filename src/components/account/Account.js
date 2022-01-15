@@ -30,64 +30,66 @@ const Account = () => {
   />
 
   return (
-    <Container>
-      {SigninModal}
-      {SignupModal}
-      <Row className="my-5 pt-5 ">
-        <Col className="my-3 pt-3">
-          <div className="text-center btn-wrapper">
-              <Button
-              className="main_button color1"
-              color="info"
-              outline
-              type="button"
-              onClick={()=>{
-                window.location.href = "http://3.36.163.171:8080/oauth2/authorization/line";
-              }}>
-              <span className="btn-inner--text">
-                일반계정 로그인
-              </span>
-              </Button>
-          </div>
-        </Col>
-      </Row>
-      <Row className="my-5">
-        <Col className="my-3">
-          <div className="text-center btn-wrapper">
-              <Button
-              className="main_button color1"
-              color="info"
-              outline
-              type="button"
-              onClick={()=>{
-                SigninModalRef.current.showAlert();
-              }}>
-              <span className="btn-inner--text">
-                사업자계정 로그인
-              </span>
-              </Button>
-          </div>
-        </Col>
-      </Row>
-      <Row className="my-5">
-        <Col className="my-3">
-          <div className="text-center btn-wrapper">
-              <Button
-              className="main_button color1"
-              color="info"
-              outline
-              type="button"
-              onClick={()=>{
-                SignupModalRef.current.showAlert();
-              }}>
-              <span className="btn-inner--text">
-                사업자 계정 가입
-              </span>
-              </Button>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+    <section className="middle_wrapper">
+      <Container>
+        {SigninModal}
+        {SignupModal}
+        <Row className="my-5">
+          <Col className="my-2">
+            <div className="text-center btn-wrapper">
+                <Button
+                className="main_button color_2 border_color_2"
+                color="info"
+                outline
+                type="button"
+                onClick={()=>{
+                  window.location.href = "http://3.36.163.171:8080/oauth2/authorization/line";
+                }}>
+                <span className="btn-inner--text">
+                  일반계정 로그인
+                </span>
+                </Button>
+            </div>
+          </Col>
+        </Row>
+        <Row className="my-5">
+          <Col className="my-2">
+            <div className="text-center btn-wrapper">
+                <Button
+                className="main_button color_2 border_color_2"
+                color="info"
+                outline
+                type="button"
+                onClick={()=>{
+                  SigninModalRef.current.showAlert();
+                }}>
+                <span className="btn-inner--text">
+                  사업자계정 로그인
+                </span>
+                </Button>
+            </div>
+          </Col>
+        </Row>
+        <Row className="my-5">
+          <Col className="my-2">
+            <div className="text-center btn-wrapper">
+                <Button
+                className="main_button color_2 border_color_2"
+                color="info"
+                outline
+                type="button"
+                onClick={()=>{
+                  SignupModalRef.current.showAlert();
+                }}>
+                <span className="btn-inner--text">
+                  사업자 계정 가입
+                </span>
+                </Button>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
   );
 }
 

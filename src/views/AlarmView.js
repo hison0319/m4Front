@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import AlarmListContainer from "components/alarm/AlarmListContainer";
+import NavBottom from 'components/navigation/NavBottom';
 import SpinnerGrow from "components/common/spinner/SpinnerGrow";
 import { ProgressContext } from "context/Progress"
 
@@ -9,6 +10,7 @@ function AboutusView() {
         <>
             {inProgress && <SpinnerGrow/>}
             <AlarmListContainer />
+            <NavBottom selected={4}/>
         </>
     )
 }

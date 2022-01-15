@@ -282,6 +282,14 @@ input[type="checkbox"]:disabled:after {
     transition: opacity 0.3s ease-in;
 }
 
+/* 메인 버튼 */
+.middle_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
 .main_button {
     width: 80%;
     height: 60px;
@@ -294,29 +302,63 @@ input[type="checkbox"]:disabled:after {
     border-radius: 10px;
 }
 
-.color1 {
+/* 기본 색상 */
+.basic_color_0 {
+    color: #000;
+}
+.basic_color_3 {
+    color: #333;
+}
+.basic_color_6 {
+    color: #666;
+}
+.basic_color_9 {
+    color: #999;
+}
+.basic_color_c {
+    color: #ccc;
+}
+.basic_color_f {
+    color: #fff;
+}
+.color_1 {
+    color: #fafafa;
+}
+.color_2 {
     color: #a2d5fe;
-    border: solid 1px #a2d5fe;
 }
-
-.color2 {
+.color_3 {
+    color: #07689f;
+}
+.color_4 {
+    color: #ff7e67;
+}
+.back_color_1 {
+    background-color: #fafafa;
+}
+.back_color_2 {
     background-color: #a2d5fe;
-    border: none;
-    color: #fff;
 }
-
-.color3 {
+.back_color_3 {
     background-color: #07689f;
-    border: none;
-    color: #fff;
+}
+.back_color_4 {
+    background-color: #ff7e67;
+}
+.border_color_1 {
+    border: 0.5px solid #fafafa;
+}
+.border_color_2 {
+    border: 0.5px solid #a2d5fe;
+}
+.border_color_3 {
+    border: 0.5px solid #07689f;
+}
+.border_color_4 {
+    border: 0.5px solid #ff7e67;
 }
 
-.color4 {
-    background-color: #a2d5fe;
-    border: none;
-    color: #fff;
-}
-
+/* 헤더, 네비게이션 */
 .header {
     display: flex;
     flex-direction: column;
@@ -325,8 +367,8 @@ input[type="checkbox"]:disabled:after {
     width: 100%;
     height: 40px;
     z-index: 999;
-    background-color: #07689f;
-    /* box-shadow: 1px 1px 1px 1px #a2d5fe; */
+    background-color: #fff;
+    border-bottom: 0.5px solid #ccc;
 }
 
 .navigation_bottom {
@@ -336,7 +378,8 @@ input[type="checkbox"]:disabled:after {
     right: 0;
     height: 50px;
     overflow: hidden;
-    background-color: #07689f;
+    background-color: #fff;
+    border-top: 0.5px solid #ccc;
 }
 /* nav태그 아래의 div태그들을 수평정렬 및 세로길이 설정 */
 .navigation_bottom > div {

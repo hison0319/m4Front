@@ -4,26 +4,24 @@ function Header() {
   //스크롤 이동에 따른 헤더 불러오기
   let timer;
   let fadeOutToggle;
+  let documentY;
   
   window.addEventListener("scroll", function() {
-    console.log("header scroll");
     if(timer) {
       clearTimeout(timer);
     }
     timer = setTimeout(function() {
-      let documentY = document.documentElement.scrollTop;
-      const header = document.getElementById("custom_header");
-      if(header) {
-        const headerClassList = header.classList;
+      documentY = document.documentElement.scrollTop;
+      if(document.getElementById("custom_header")) {
         if(documentY - window.__scrollPosition > 0) {
-          if(!headerClassList.contains("fade_out_box")) {
-            headerClassList.remove("fade_in_box");
-            headerClassList.add("fade_out_box");
+          if(!document.getElementById("custom_header").classList.contains("fade_out_box")) {
+            document.getElementById("custom_header").classList.remove("fade_in_box");
+            document.getElementById("custom_header").classList.add("fade_out_box");
           }
         } else if(documentY - window.__scrollPosition < 0) {
-          if(!headerClassList.contains("fade_in_box")) {
-            headerClassList.remove("fade_out_box");
-            headerClassList.add("fade_in_box");
+          if(!document.getElementById("custom_header").classList.contains("fade_in_box")) {
+            document.getElementById("custom_header").classList.remove("fade_out_box");
+            document.getElementById("custom_header").classList.add("fade_in_box");
             if(fadeOutToggle) {
               fadeOutHeader();
               fadeOutToggle = false;
@@ -37,12 +35,10 @@ function Header() {
 
   function fadeOutHeader() {
     setTimeout(function() {
-      const header = document.getElementById("custom_header");
-      if(header) {
-        const headerClassList = header.classList;
-        if(!headerClassList.contains("fade_out_box") && window.__scrollPosition !== 0) {
-          headerClassList.remove("fade_in_box");
-          headerClassList.add("fade_out_box");
+      if(document.getElementById("custom_header")) {
+        if(!document.getElementById("custom_header").classList.contains("fade_out_box") && document.documentElement.scrollTop > 20) {
+          document.getElementById("custom_header").classList.remove("fade_in_box");
+          document.getElementById("custom_header").classList.add("fade_out_box");
         }
         fadeOutToggle = true;
       }

@@ -22,7 +22,7 @@ function ProfileView() {
             userId={"test001"}/> :
             <NormalProfileContainer
             userId={"test002"}/>}
-            <NavBottom/>
+            <NavBottom selected={1}/>
         </>
     )
 }

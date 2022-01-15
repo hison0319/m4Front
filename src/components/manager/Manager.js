@@ -38,65 +38,67 @@ const Manager = () => {
   />
 
   return (
-    <Container>
-      {boardModal}
-      {bookingModal}
-      {dashboardModal}
-      <Row className="my-5 pt-5 ">
-        <Col className="my-3 pt-3">
-          <div className="text-center btn-wrapper">
-              <Button
-              className="main_button color1"
-              color="info"
-              outline
-              type="button"
-              onClick={()=>{
-                boardModalRef.current.showAlert();
-              }}>
-              <span className="btn-inner--text">
-                게시글 관리
-              </span>
-              </Button>
-          </div>
-        </Col>
-      </Row>
-      <Row className="my-5">
-        <Col className="my-3">
-          <div className="text-center btn-wrapper">
-              <Button
-              className="main_button color1"
-              color="info"
-              outline
-              type="button"
-              onClick={()=>{
-                bookingModalRef.current.showAlert();
-              }}>
-              <span className="btn-inner--text">
-                예약 관리
-              </span>
-              </Button>
-          </div>
-        </Col>
-      </Row>
-      <Row className="my-5">
-        <Col className="my-3">
-          <div className="text-center btn-wrapper">
-              <Button
-              className="main_button color1"
-              color="info"
-              outline
-              type="button"
-              onClick={()=>{
-                dashboardModalRef.current.showAlert();
-              }}>
-              <span className="btn-inner--text">
-                대쉬보드
-              </span>
-              </Button>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+    <section className="middle_wrapper">
+      <Container>
+        {boardModal}
+        {bookingModal}
+        {dashboardModal}
+          <Row className="my-5">
+            <Col className="my-2">
+              <div className="text-center btn-wrapper">
+                  <Button
+                  className="main_button color_3 border_color_3"
+                  color="info"
+                  outline
+                  type="button"
+                  onClick={()=>{
+                    boardModalRef.current.showAlert();
+                  }}>
+                  <span className="btn-inner--text">
+                    게시글 관리
+                  </span>
+                  </Button>
+              </div>
+            </Col>
+          </Row>
+          <Row className="my-5">
+            <Col className="my-2">
+              <div className="text-center btn-wrapper">
+                  <Button
+                  className="main_button color_3 border_color_3"
+                  color="info"
+                  outline
+                  type="button"
+                  onClick={()=>{
+                    bookingModalRef.current.showAlert();
+                  }}>
+                  <span className="btn-inner--text">
+                    예약 관리
+                  </span>
+                  </Button>
+              </div>
+            </Col>
+          </Row>
+          <Row className="my-5">
+            <Col className="my-2">
+              <div className="text-center btn-wrapper">
+                  <Button
+                  className="main_button color_3 border_color_3"
+                  color="info"
+                  outline
+                  type="button"
+                  onClick={()=>{
+                    dashboardModalRef.current.showAlert();
+                  }}>
+                  <span className="btn-inner--text">
+                    대쉬보드
+                  </span>
+                  </Button>
+              </div>
+            </Col>
+          </Row>
+      </Container>
+    </section>
   );
 }
 

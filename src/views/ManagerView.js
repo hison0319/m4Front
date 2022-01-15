@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-
 import Manager from 'components/manager/Manager';
 import NavBottom from 'components/navigation/NavBottom';
 import SpinnerGrow from "components/common/spinner/SpinnerGrow";
@@ -11,7 +10,7 @@ function ManagerView() {
         <>
             {inProgress && <SpinnerGrow/>}
             <Manager/>
-            <NavBottom/>
+            <NavBottom selected={2}/>
         </>
     )
 }
