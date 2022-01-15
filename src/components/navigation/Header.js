@@ -36,7 +36,7 @@ function Header() {
   function fadeOutHeader() {
     setTimeout(function() {
       if(document.getElementById("custom_header")) {
-        if(!document.getElementById("custom_header").classList.contains("fade_out_box") && document.documentElement.scrollTop > 20) {
+        if(!document.getElementById("custom_header").classList.contains("fade_out_box") && document.documentElement.scrollTop > 50) {
           document.getElementById("custom_header").classList.remove("fade_in_box");
           document.getElementById("custom_header").classList.add("fade_out_box");
         }
