@@ -35,8 +35,6 @@ const ModifyProfileContainer = ({
   zipcode,
   city,
   street,
-  nationCode1,
-  nationCode2,
   contactNumber1,
   contactNumber2,
   snsList,

@@ -7,14 +7,10 @@ import "assets/css/userCSS.css"
 import "assets/funcs/commonJs"
 
 // import HomeView from "views/HomeView";
-import Sample from "views/Sample";
 import BoardDetailView from "views/BoardDetailView";
 import AccountView from "views/AccountView";
 import ProfileView from "views/ProfileView";
 import ManagerView from "views/ManagerView";
-import ManagerBoardView from "views/ManagerBoardView";
-import ManagerBookingView from "views/ManagerBookingView";
-import ManagerDashboardView from "views/ManagerDashboardView";
 import AboutusView from "views/AboutusView";
 import AlarmView from "views/AlarmView";
 import ErrorView from "views/ErrorView";
@@ -38,11 +34,6 @@ ReactDOM.render(
             exact 
             render={props => <ProfileView {...props} />} 
           />
-          {/* <Route 
-            path="/home" 
-            exact 
-            render={props => <HomeView {...props} />} 
-          /> */}
           <Route 
             path="/account" 
             exact 
@@ -52,21 +43,6 @@ ReactDOM.render(
             path="/profile" 
             exact 
             render={props => <ProfileView {...props} />} 
-          />
-          <Route
-            path="/manager/board"
-            exact
-            render={props => <ManagerBoardView {...props} />}
-          />
-          <Route
-            path="/manager/booking"
-            exact
-            render={props => <ManagerBookingView {...props} />}
-          />
-          <Route
-            path="/manager/dashboard"
-            exact
-            render={props => <ManagerDashboardView {...props} />}
           />
           <Route
             path="/manager"
@@ -92,11 +68,6 @@ ReactDOM.render(
             path="/error/:errorId"
             exact
             render={props => <ErrorView {...props} />}
-          />
-          <Route
-            path="/sample"
-            exact
-            render={props => <Sample {...props} />}
           />
           <Redirect to="/" />
         </Switch>

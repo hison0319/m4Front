@@ -10,14 +10,12 @@ import AlertModal from 'components/common/alert/AlertModal';
 import ProfileImageInput from 'components/profile/ProfileImageInput';
 import {
   useTextInput,
-  useNumberInput,
 } from 'hooks';
 import axios from 'axios';
 import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"
 import {
   getNationCodeListAll,
-  getIndexEqualKey,
 } from 'utils/common'
 import PropTypes from "prop-types";
 
@@ -38,7 +36,6 @@ const ModifyProfileContainer = ({
   zipcode,
   city,
   street,
-  nationCode,
   contactNumber,
   snsList,
   birth,
@@ -69,7 +66,7 @@ const ModifyProfileContainer = ({
   const [varBirth, setVarBirth] = useState(birth);
 
   // 국가코드
-  const [varNationCode, setVarNationCode] = useState(82);
+  const [varNationCode, setVarNationCode] = useState("82");
   const nationCodeListAll = getNationCodeListAll();
 
   const onSetNAtionCode = (code) => {
@@ -106,7 +103,6 @@ const ModifyProfileContainer = ({
     zipcode: varZipcode,
     city: varCity,
     street: varStreet,
-    // nationCode: varNationCode,
     contactNumber: varContactNumber,
     snsList: varSnsList,
     birth: varBirth,
@@ -168,7 +164,6 @@ ModifyProfileContainer.propTypes = {
   zipcode: PropTypes.string,
   city: PropTypes.string,
   street: PropTypes.string,
-  nationCode: PropTypes.number,
   contactNumber: PropTypes.string,
   snsList: PropTypes.array,
   birth: PropTypes.string,
