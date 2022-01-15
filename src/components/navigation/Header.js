@@ -13,7 +13,7 @@ function Header() {
     timer = setTimeout(function() {
       documentY = document.documentElement.scrollTop;
       if(document.getElementById("custom_header")) {
-        if(documentY - window.__scrollPosition > 0) {
+        if(documentY - window.__scrollPosition > 0 && document.documentElement.scrollTop > 50) {
           if(!document.getElementById("custom_header").classList.contains("fade_out_box")) {
             document.getElementById("custom_header").classList.remove("fade_in_box");
             document.getElementById("custom_header").classList.add("fade_out_box");
