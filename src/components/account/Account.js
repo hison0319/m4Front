@@ -34,32 +34,28 @@ const Account = () => {
       <Container>
         {SigninModal}
         {SignupModal}
-        <Row className="my-5">
+        <Row className="my-3">
           <Col className="my-2">
             <div className="text-center btn-wrapper">
                 <Button
                 className="main_button color_2 border_color_2"
-                color="info"
-                outline
-                type="button"
+                color="none"
                 onClick={()=>{
                   window.location.href = "http://3.36.163.171:8080/oauth2/authorization/line";
                 }}>
-                <span className="btn-inner--text">
+                <span>
                   일반계정 로그인
                 </span>
                 </Button>
             </div>
           </Col>
         </Row>
-        <Row className="my-5">
+        <Row className="my-3">
           <Col className="my-2">
             <div className="text-center btn-wrapper">
                 <Button
                 className="main_button color_2 border_color_2"
-                color="info"
-                outline
-                type="button"
+                color="none"
                 onClick={()=>{
                   SigninModalRef.current.showAlert();
                 }}>
@@ -70,14 +66,12 @@ const Account = () => {
             </div>
           </Col>
         </Row>
-        <Row className="my-5">
+        <Row className="my-3">
           <Col className="my-2">
             <div className="text-center btn-wrapper">
                 <Button
                 className="main_button color_2 border_color_2"
-                color="info"
-                outline
-                type="button"
+                color="none"
                 onClick={()=>{
                   SignupModalRef.current.showAlert();
                 }}>

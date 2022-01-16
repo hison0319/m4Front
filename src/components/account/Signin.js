@@ -9,9 +9,9 @@ import {
 
 const Signin = () => {
     return (
-        <Container>
+        <Container className="my-5">
             <Row className="my-4">
-                <Col>
+                <Col className="my-3">
                     <Row>
                         <Col>
                             <small>이메일</small>
@@ -33,7 +33,7 @@ const Signin = () => {
                 </Col>
             </Row>
             <Row className="my-4">
-                <Col>
+                <Col className="my-3">
                     <Row>
                         <Col>
                             <small>비밀번호</small>
@@ -55,16 +55,14 @@ const Signin = () => {
                 </Col>
             </Row>
             <Row className="pt-3 my-5">
-                <Col>
+                <Col className="mt-4">
                     <div className="text-center btn-wrapper">
                         <Button
-                        className="sub_button1 color2"
-                        color="info"
-                        outline
-                        type="button"
+                        className="sub_button1 color_4 border_color_4"
+                        color="none"
                         onClick={()=>{
                         }}>
-                        <span className="btn-inner--text">
+                        <span>
                             로그인
                         </span>
                         </Button>
@@ -75,13 +73,11 @@ const Signin = () => {
                 <Col>
                     <div className="text-center btn-wrapper">
                         <Button
-                        className="sub_button1 color1"
-                        color="info"
-                        outline
-                        type="button"
+                        className="sub_button1 color_2 border_color_2"
+                        color="none"
                         onClick={()=>{
                         }}>
-                        <span className="btn-inner--text">
+                        <span>
                             이메일을 잊었습니다.
                         </span>
                         </Button>
@@ -92,13 +88,11 @@ const Signin = () => {
                 <Col>
                     <div className="text-center btn-wrapper">
                         <Button
-                        className="sub_button1 color1"
-                        color="info"
-                        outline
-                        type="button"
+                        className="sub_button1 color_2 border_color_2"
+                        color="none"
                         onClick={()=>{
                         }}>
-                        <span className="btn-inner--text">
+                        <span>
                             비밀번호를 잊었습니다.
                         </span>
                         </Button>

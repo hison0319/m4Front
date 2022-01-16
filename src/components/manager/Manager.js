@@ -43,12 +43,12 @@ const Manager = () => {
         {boardModal}
         {bookingModal}
         {dashboardModal}
-          <Row className="my-5">
+          <Row className="my-3">
             <Col className="my-2">
               <div className="text-center btn-wrapper">
                   <Button
                   className="main_button color_3 border_color_3"
-                  color="info"
+                  color="none"
                   outline
                   type="button"
                   onClick={()=>{
@@ -61,12 +61,12 @@ const Manager = () => {
               </div>
             </Col>
           </Row>
-          <Row className="my-5">
+          <Row className="my-3">
             <Col className="my-2">
               <div className="text-center btn-wrapper">
                   <Button
                   className="main_button color_3 border_color_3"
-                  color="info"
+                  color="none"
                   outline
                   type="button"
                   onClick={()=>{
@@ -79,12 +79,12 @@ const Manager = () => {
               </div>
             </Col>
           </Row>
-          <Row className="my-5">
+          <Row className="my-3">
             <Col className="my-2">
               <div className="text-center btn-wrapper">
                   <Button
                   className="main_button color_3 border_color_3"
-                  color="info"
+                  color="none"
                   outline
                   type="button"
                   onClick={()=>{

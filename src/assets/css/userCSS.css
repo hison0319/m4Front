@@ -281,8 +281,17 @@ input[type="checkbox"]:disabled:after {
     cursor: pointer;
     transition: opacity 0.3s ease-in;
 }
-
+/* progress-bar 설정 */
+.progress-bar {
+    background: linear-gradient(45deg, #fafafa, #ff7e67, #a2d5fe, #07689f);
+}
 /* 메인 버튼 */
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 .middle_wrapper {
     display: flex;
     justify-content: center;
@@ -357,6 +366,56 @@ input[type="checkbox"]:disabled:after {
 .border_color_4 {
     border: 0.5px solid #ff7e67;
 }
+.color_1:hover,
+.color_1:active,
+.color_1:focus {
+    color: #333;
+}
+.color_2:hover,
+.color_2:active,
+.color_2:focus {
+    color: #fafafa;
+}
+.color_3:hover,
+.color_3:active,
+.color_3:focus {
+    color: #fafafa;
+}
+.color_4:hover,
+.color_4:active,
+.color_4:focus {
+    color: #fafafa;
+}
+.border_color_1:active,
+.border_color_1:hover,
+.border_color_1:focus {
+    background-color: #fafafa;
+    border: none;
+}
+.border_color_2:active,
+.border_color_2:hover,
+.border_color_2:focus {
+    background-color: #a2d5fe;
+    border: none;
+}
+.border_color_3:active,
+.border_color_3:hover,
+.border_color_3:focus {
+    background-color: #07689f;
+    border: none;
+}
+.border_color_4:active,
+.border_color_4:hover,
+.border_color_4:focus {
+    background-color: #ff7e67;
+    border: none;
+}
+/* .color_2:hover {
+    color: #a2d5fe;
+}
+.color_2:hover {
+    color: #a2d5fe;
+} */
 
 /* 헤더, 네비게이션 */
 .header {
