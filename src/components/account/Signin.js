@@ -11,7 +11,7 @@ const Signin = () => {
     return (
         <Container className="my-5">
             <Row className="my-4">
-                <Col className="my-3">
+                <Col>
                     <Row>
                         <Col>
                             <small>이메일</small>
@@ -33,7 +33,7 @@ const Signin = () => {
                 </Col>
             </Row>
             <Row className="my-4">
-                <Col className="my-3">
+                <Col>
                     <Row>
                         <Col>
                             <small>비밀번호</small>
@@ -54,7 +54,7 @@ const Signin = () => {
                     </Row>
                 </Col>
             </Row>
-            <Row className="pt-3 my-5">
+            <Row className="pt-3 my-3">
                 <Col className="mt-4">
                     <div className="text-center btn-wrapper">
                         <Button
@@ -69,7 +69,7 @@ const Signin = () => {
                     </div>
                 </Col>
             </Row>
-            <Row className="my-5">
+            <Row className="my-3">
                 <Col>
                     <div className="text-center btn-wrapper">
                         <Button
@@ -84,7 +84,7 @@ const Signin = () => {
                     </div>
                 </Col>
             </Row>
-            <Row className="my-5">
+            <Row className="my-3">
                 <Col>
                     <div className="text-center btn-wrapper">
                         <Button

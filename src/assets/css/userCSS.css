@@ -355,16 +355,16 @@ button {
     background-color: #ff7e67;
 }
 .border_color_1 {
-    border: 0.5px solid #fafafa;
+    border: 1px solid #fafafa;
 }
 .border_color_2 {
-    border: 0.5px solid #a2d5fe;
+    border: 1px solid #a2d5fe;
 }
 .border_color_3 {
-    border: 0.5px solid #07689f;
+    border: 1px solid #07689f;
 }
 .border_color_4 {
-    border: 0.5px solid #ff7e67;
+    border: 1px solid #ff7e67;
 }
 .color_1:hover,
 .color_1:active,

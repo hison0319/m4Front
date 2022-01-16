@@ -16,7 +16,7 @@ const Signup = () => {
                 <Progress value={25}/>
             </Col>
         </Row>
-        <Row className="my-4 pt-5">
+        <Row>
             <Col>
                 <Row>
                     <Col>
@@ -85,9 +85,8 @@ const Signup = () => {
                 <Progress value={50}/>
             </Col>
         </Row>
-        <br></br>
         <Row className="my-4 pt-5">
-            <Col className="mt-5 pt-3">
+            <Col className="mt-4">
                 <Row>
                     <Col>
                         <small>상호명을 입력해주세요.</small>
@@ -133,9 +132,8 @@ const Signup = () => {
                 <Progress value={75}/>
             </Col>
         </Row>
-        <br></br>
         <Row className="my-4 pt-5">
-            <Col className="mt-5 pt-3">
+            <Col className="mt-4">
                 <Row>
                     <Col>
                         <small>사업자등록증을 입력해주세요.</small>
@@ -181,9 +179,8 @@ const Signup = () => {
                 <Progress value={100}/>
             </Col>
         </Row>
-        <br></br>
         <Row className="my-4 pt-5">
-            <Col className="mt-5 pt-3">
+            <Col className="mt-4">
                 <Row>
                     <Col>
                         <small>연락처를 입력해주세요.</small>
