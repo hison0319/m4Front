@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaMarker } from 'react-icons/fa';
 
-function ManageChkBoardIcon() {
+function ManageIcon() {
     const _style = {
-        fontSize: "1em",
+        fontSize: "1.2em",
     }
 
     return (
@@ -15,4 +15,4 @@ function ManageChkBoardIcon() {
     )
 }
 
-export default ManageChkBoardIcon;
+export default ManageIcon;

@@ -13,6 +13,7 @@ import ProfileView from "views/ProfileView";
 import ManagerView from "views/ManagerView";
 import AboutusView from "views/AboutusView";
 import AlarmView from "views/AlarmView";
+import IconSample from "components/common/icons/IconSample";
 import ErrorView from "views/ErrorView";
 
 import { ProgressProvider } from "context/Progress"
@@ -63,6 +64,11 @@ ReactDOM.render(
             path="/alarm"
             exact
             render={props => <AlarmView {...props} />}
+          />
+          <Route
+            path="/icons"
+            exact
+            render={props => <IconSample {...props} />}
           />
           <Route
             path="/error/:errorId"

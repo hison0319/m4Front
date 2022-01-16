@@ -330,6 +330,18 @@ button {
 .basic_color_f {
     color: #fff;
 }
+.fix_color_1 {
+    color: #fafafa;
+}
+.fix_color_2 {
+    color: #a2d5fe;
+}
+.fix_color_3 {
+    color: #07689f;
+}
+.fix_color_4 {
+    color: #ff7e67;
+}
 .color_1 {
     color: #fafafa;
 }
@@ -442,14 +454,11 @@ button {
 }
 /* nav태그 아래의 div태그들을 수평정렬 및 세로길이 설정 */
 .navigation_bottom > div {
-    /* 수평정렬, 5개의 button을 각각 20% width만큼 할당 */
     float: left;
     width: 25%;
     text-align: center;
-
-    /* 세로길이 설정 */
-    height: 45px;
-    line-height: 45px;
+    margin-top: 8px;
+    line-height: 12px;
 }
 
 /* 페이드 인 */

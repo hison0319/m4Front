@@ -3,7 +3,7 @@ import { FaStore } from 'react-icons/fa';
 
 function StoreIcon() {
     const _style = {
-        fontSize: "1.2em",
+        fontSize: "1.3em",
     }
 
     return (

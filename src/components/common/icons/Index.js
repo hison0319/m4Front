@@ -9,7 +9,7 @@ import HeartIcon from "./index/HeartIcon";
 import ListDownIcon from "./index/ListDownIcon";
 import ListUpIcon from "./index/ListUpIcon";
 import LogoIcon from "./index/LogoIcon";
-import ManageChkBoardIcon from "./index/ManageChkBoardIcon";
+import ManageIcon from "./index/ManageIcon";
 import ManageChkBookIcon from "./index/ManageChkBookIcon";
 import ManageDashIcon from "./index/ManageDashIcon";
 import ModifyIcon from "./index/ModifyIcon";
@@ -18,6 +18,7 @@ import NoshowGhostIcon from "./index/NoshowGhostIcon";
 import RemoveOptionIcon from "./index/RemoveOptionIcon";
 import SNSFacebookIcon from "./index/SNSFacebookIcon";
 import SNSInstagramIcon from "./index/SNSInstagramIcon";
+import StoreOpenIcon from "./index/StoreOpenIcon";
 import StoreIcon from "./index/StoreIcon";
 import SubmitIcon from "./index/SubmitIcon";
 import TimeCheckedIcon from "./index/TimeCheckedIcon";
@@ -25,6 +26,7 @@ import TimeUncheckedIcon from "./index/TimeUncheckedIcon";
 import WarningIcon from "./index/WarningIcon";
 import WhiteUserIcon from "./index/WhiteUserIcon";
 import WriteCommentIcon from "./index/WriteCommentIcon";
+import QrIcon from "./index/QrIcon";
 
 export {
     AddOptionIcon,
@@ -38,7 +40,7 @@ export {
     ListDownIcon,
     ListUpIcon,
     LogoIcon,
-    ManageChkBoardIcon,
+    ManageIcon,
     ManageChkBookIcon,
     ManageDashIcon,
     ModifyIcon,
@@ -47,6 +49,7 @@ export {
     RemoveOptionIcon,
     SNSFacebookIcon,
     SNSInstagramIcon,
+    StoreOpenIcon,
     StoreIcon,
     SubmitIcon,
     TimeCheckedIcon,
@@ -54,4 +57,5 @@ export {
     WarningIcon,
     WhiteUserIcon,
     WriteCommentIcon,
+    QrIcon,
 };

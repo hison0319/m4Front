@@ -1,7 +1,7 @@
 import React from 'react';
-import { FaClipboardCheck } from 'react-icons/fa';
+import { FaQrcode } from 'react-icons/fa';
 
-function TimeCheckedIcon() {
+function QrIcon() {
     const _style = {
         fontSize: "1.3em",
     }
@@ -9,10 +9,10 @@ function TimeCheckedIcon() {
     return (
         <>
             <span style = {_style}>
-                <FaClipboardCheck />
+                <FaQrcode />
             </span>
         </>
     )
 }
 
-export default TimeCheckedIcon;
+export default QrIcon;
