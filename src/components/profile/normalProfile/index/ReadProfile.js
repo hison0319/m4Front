@@ -11,7 +11,7 @@ import {
   Card,
   CardBody
 } from "reactstrap";
-import ProfileImage2 from 'components/common/imagebox/ProfileImage2'
+import ImgCircle from 'components/common/imagebox/ImgCircle'
 import {
   //NoshowAngryIcon,
   NoshowGhostIcon,
@@ -29,77 +29,79 @@ const ReadProfile = ({
   snsList,
   birth,
   introduce,
+  imageURL,
 }) => {
 
   return (
     <>
-      <Row noGutters className="pt-2 pt-md-2 w-100 px-2 px-xl-0 position-relative">
-        <Col className="py-2 mb-2 py-md-0 mb-md-5">
-            <div className="position-relative">
-                <span className="d-block pb-2 mb-0 h6 text-uppercase text-info font-weight-bold">
-                    PROFILE
-                </span>
-                <span className="d-block pb-4 h2 mb-3 text-dark border-bottom border-gray">{name}</span>
+      <Row>
+        <Col className="mt-5 mb-2">
                 <div className="mt-3">
-                    <Card className="shadow">
+                    <Card>
                         <CardBody>
-                            <br></br><br></br>
-                            <ProfileImage2/>
-                            <span className="d-block pt-5 h4 text-dark border-gray text-center">{street}, {city}</span>
-                            <span className="d-block h7 mb-3 text-dark border-gray text-center">우편번호 : {zipcode}</span>
-                            <span className="d-block h5 mb-3 border-gray text-center text-secondary">+{nationCode}&nbsp;&nbsp;{contactNumber}</span>
-                            {snsList && snsList.map((sns, idx) => 
-                              <Button
-                                key={"sns"+idx}
-                                className="my-1 text-center width_100"
-                                color="neutral"
-                                href={sns}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <small className="text-secondary">{sns}</small>
-                              </Button>
-                            )}
-                            <article className="mt-4 text-secondary text-justify" style={{ fontSize: '0.9rem', whiteSpace: 'pre-line' }}>
-                            {introduce}</article>
+                          <br></br>
+                          <ImgCircle
+                          imageURL={imageURL}/>
+                          <br></br>
+                          <div className="text-center my-2 basic_color_3">
+                            <h5 className="my-2 fix_color_3">안녕하세요. 저는 {name}입니다.</h5>
+                          </div>
+                          <article className="my-3 px-3 basic_color_3" style={{ fontSize: '0.9rem', whiteSpace: 'pre-line' }}>
+                          {introduce?introduce:"아직 자기소개가 없습니다."}</article>
+                          <div className="text-center my-2 basic_color_3">
+                            {city && <small>{street}, {city}</small>}{city && <br></br>}
+                            {zipcode && <small>우편번호 : {zipcode}</small>}{zipcode && <br></br>}
+                            {contactNumber && <small>+{nationCode}&nbsp;&nbsp;{contactNumber}</small>}
+                          </div>
+                          {snsList && snsList.map((sns, idx) => 
+                            <Button
+                              key={"sns"+idx}
+                              className="text-center width_100"
+                              color="neutral"
+                              href={sns}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <small className="text-secondary">{sns}</small>
+                            </Button>
+                          )}
+                          <Row className="align-items-center">
+                            <Col>
+                              <Row className="my-2 pb-2">
+                                <Col className="text-right">
+                                  <div className="pt-1">
+                                    <small className="mr-2 basic_color_6">
+                                        예약 횟수
+                                    </small>
+                                    <small className="mr-2 basic_color_6">
+                                        98
+                                    </small>
+                                  </div>
+                                </Col>
+                              </Row>
+                              <Row>
+                                <Col className="text-center">
+                                  <NoshowGhostIcon/>&nbsp;
+                                  <Button
+                                  className="width_90 sub_button2 color_4 border_color_4"
+                                  outline
+                                  size="sm"
+                                  // disabled={true}
+                                  >
+                                  <span className="btn-inner--icon mr-1">
+                                      도타캰
+                                  </span>
+                                  <span>
+                                      2
+                                  </span>
+                                  </Button>
+                                </Col>
+                              </Row>
+                            </Col>
+                          </Row>
                         </CardBody>
                     </Card>
                 </div>
-            </div>
-        </Col>
-      </Row>
-      <Row noGutters className="align-items-center">
-        <Col>
-          <Row className="my-2">
-            <Col xs="6" className="text-center">
-              <div className="pt-1">
-                <span className="mr-2">
-                    예약
-                </span>
-                <span className="text-success">
-                    98
-                </span>
-              </div>
-            </Col>
-            <Col xs="6" className="text-left btn-wrapper">
-              <NoshowGhostIcon/>&nbsp;
-              <Button
-              className="width_70"
-              outline
-              size="sm"
-              color="danger"
-              // disabled={true}
-              >
-              <span className="btn-inner--icon mr-1">
-                  {/* <InstagramIcon/> */}
-                  도타캰
-              </span>
-              <span>
-                  2
-              </span>
-              </Button>
-            </Col>
-          </Row>
         </Col>
       </Row>
     </>
@@ -117,6 +119,7 @@ ReadProfile.propTypes = {
   snsList: PropTypes.array,
   birth: PropTypes.string,
   introduce: PropTypes.string,
+  imageURL: PropTypes.string,
 };
 
 export default ReadProfile;

@@ -40,10 +40,12 @@ const ModifyProfileContainer = ({
   snsList,
   birth,
   introduce,
+  handleSetMode,
+  imageURL,
 }) => {
   // user image
   const [imgFile, setImgFile] = useState(null);
-  const [previewURL, setPreviewURL] = useState("");
+  const [previewURL, setPreviewURL] = useState(imageURL?imageURL:"");
 
   // user date text input 생성
   const [{ 
@@ -84,7 +86,7 @@ const ModifyProfileContainer = ({
       ref={alertRef1}
       comment="저장 했습니다."
       closingModal={()=>{
-        window.location.href = '/?token=';
+        handleSetMode("R");
       }}
     />;
   const AlertModal2 = 
@@ -92,7 +94,7 @@ const ModifyProfileContainer = ({
       ref={alertRef2}
       comment="죄송합니다. 오류로 인해 저장 실패했습니다. 개발자에게 문의해주세요."
       closingModal={()=>{
-        //nothing
+        handleSetMode("R");
       }}
     />;
 
@@ -168,6 +170,8 @@ ModifyProfileContainer.propTypes = {
   snsList: PropTypes.array,
   birth: PropTypes.string,
   introduce: PropTypes.string,
+  imageURL: PropTypes.string,
+  handleSetMode: PropTypes.func.isRequired,
 };
 
 export default ModifyProfileContainer;

@@ -9,7 +9,7 @@ function NoshowGhostIcon() {
     return (
         <>
             <span style = {_style}>
-                   <FaGhost  className="text-danger"/>
+                   <FaGhost  className="color_4"/>
             </span>
         </>
     )

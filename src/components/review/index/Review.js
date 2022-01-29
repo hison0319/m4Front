@@ -46,7 +46,8 @@ const Review = ({
                         className="btn-1"
                         color="neutral"
                         onClick={()=>{onModal(userId);}}>
-                        <span>
+                        <span
+                        style={{ fontSize: '0.9rem'}}>
                             {name}&nbsp;님
                         </span>
                     </Button>
@@ -56,7 +57,7 @@ const Review = ({
                         )}
                     </span>
                     </div>
-                    <Card className="shadow">
+                    <Card>
                         <CardBody className="px-1 py-1">
                             <Button
                             color="link default-link">

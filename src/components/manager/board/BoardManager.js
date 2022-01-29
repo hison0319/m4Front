@@ -11,29 +11,23 @@ import {
  } from 'reactstrap';
 import BoardModifyContainer from "./BoardModifyContainer";
 import OptionModifyContainer from "./OptionModifyContainer";
-import {
-  ModifyIcon,
-} from "components/common/icons/Index";
 
 const BoardManager = () => {
   useEffect(() => {
     // console.log('BoardManager is rendering!')
   })
-  const [mode, setMode] = useState("B");
+  const [mode, setMode] = useState("O");
 
   const modeB = 
     <Container className="my-4">
-      <div className="text-center btn-wrapper">
+      <div className="text-center btn-wrapper my-2">
           <Button
-          style={{width:"90%"}}
-          color="info"
+          className="width_100 sub_button1 color_3 border_color_3"
           outline
           type="button"
-          onClick={()=>{
-            setMode("O");
-          }}>
+          onClick={()=>{setMode("O")}}>
           <span className="btn-inner--text">
-            <ModifyIcon/>&nbsp;&nbsp;옵션 수정
+            옵션 수정
           </span>
           </Button>
       </div>
@@ -43,17 +37,14 @@ const BoardManager = () => {
   
   const modeO = 
     <Container className="my-4">
-      <div className="text-center btn-wrapper">
+      <div className="text-center btn-wrapper my-2">
           <Button
-          style={{width:"90%"}}
-          color="info"
+          className="width_100 sub_button1 color_3 border_color_3"
           outline
           type="button"
-          onClick={()=>{
-            setMode("B");
-          }}>
+          onClick={()=>{setMode("B")}}>
           <span className="btn-inner--text">
-            <ModifyIcon/>&nbsp;&nbsp;게시글 수정
+            게시글 수정
           </span>
           </Button>
       </div>

@@ -66,9 +66,9 @@ const InputTime = ({
                         color="neutral"
                         onClick={onRemoveClick}
                     >
-                        <span className="btn-inner--icon text-secondary">
+                        <small className="btn-inner--icon text-secondary">
                         <RemoveOptionIcon/>
-                        </span>
+                        </small>
                     </Button>
                 </Col>
                 <Col xs="5">

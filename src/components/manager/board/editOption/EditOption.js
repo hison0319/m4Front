@@ -46,7 +46,7 @@ const EditOption = React.memo(({
               }
               to=""
               >
-                <span className='white_color'>&nbsp;&nbsp;우리는 옵션이 있어요.</span>
+                <small className='white_color'>&nbsp;&nbsp;우리는 옵션이 있어요.</small>
                 {editOpen?upIcon:downIcon}
               </Link>
             </Col>

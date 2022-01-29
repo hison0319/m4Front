@@ -38,7 +38,7 @@ function NavBottom({selected}) {
         <div>
           <Link
           className="default-link"
-          to="/account">
+          to="/qrcode">
             <div className={btn3Color} style={{marginTop:"1px"}}>
               <QrIcon/><br></br>
             </div>

@@ -53,19 +53,25 @@ const OptionModify = ({
       <Row className="mb-2">
         <Col className="my-2 py-2">
           <Row>
-            <Col xs="12">
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">이용시간단위</InputGroupAddon>
-                <Input
-                type="select"
-                name="varTimeUnit"
-                value={varTimeUnit}
-                onChange={setTimeUnit}>
-                    {openingHourCodeList.map((item) => 
-                        <option key={item.code} value={item.code}>{item.text}</option>
-                    )}
-                </Input>
-              </InputGroup>
+            <Col>
+              <Row>
+                  <Col>
+                      <small>이용시간단위</small>
+                  </Col>
+              </Row>
+              <Row className="my-2">
+                <Col>
+                  <Input
+                  type="select"
+                  name="varTimeUnit"
+                  value={varTimeUnit}
+                  onChange={setTimeUnit}>
+                      {openingHourCodeList.map((item) => 
+                          <option key={item.code} value={item.code}>{item.text}</option>
+                      )}
+                  </Input>
+                </Col>
+              </Row>
             </Col>
           </Row>
           <EditDay

@@ -40,38 +40,38 @@ const InputSNSList = ({
 
     return (
         <>
-            {localSnsList.map((sns, idx) =>
-                <Row
-                className="my-4"
-                key={"sns"+idx}>
-                    <Col xs="12" >
-                        <InputGroup>
-                        <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                            SNS주소
-                            </InputGroupText>
-                        </InputGroupAddon>
-                        <Input
-                        type="text"
-                        name={"sns"+idx}
-                        id={"sns"+idx}
-                        placeholder="sns 주소"
-                        maxLength={200}
-                        value={sns}
-                        onChange={(e)=>{onSetInputSnsList(idx, e.target.value)}}
-                        onBlur={(e)=>{
-                            if(e.target.value) {
-                                if(!validateURL(e.target.value)) {
-                                    alertRef.current.showAlert();
-                                    onSetInputSnsList(idx,"");
+            <Row className="my-2">
+                <Col>
+                    <Row>
+                        <Col>
+                            <small>SNS 주소</small>
+                        </Col>
+                    </Row>
+                    {localSnsList.map((sns, idx) =>
+                    <Row key={"sns"+idx} className="my-4">
+                        <Col>
+                            <Input
+                            type="text"
+                            name={"sns"+idx}
+                            id={"sns"+idx}
+                            placeholder="sns 주소"
+                            maxLength={200}
+                            value={sns}
+                            onChange={(e)=>{onSetInputSnsList(idx, e.target.value)}}
+                            onBlur={(e)=>{
+                                if(e.target.value) {
+                                    if(!validateURL(e.target.value)) {
+                                        alertRef.current.showAlert();
+                                        onSetInputSnsList(idx,"");
+                                    }
                                 }
-                            }
-                        }}
-                        />
-                        </InputGroup>
-                    </Col>
-                </Row>
-            )}
+                            }}
+                            />
+                        </Col>
+                    </Row>
+                    )}
+                </Col>
+            </Row>
             <AlertModal
             ref={alertRef}
             comment="SNS 전체 주소를 넣어주세요. 예)https://www.instagram.com/his0319"

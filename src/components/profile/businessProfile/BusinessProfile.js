@@ -14,10 +14,6 @@ import {
  } from 'reactstrap';
 import ModifyProfileContainer from './index/ModifyProfileContainer.js';
 import ReadProfile from './index/ReadProfile';
-import {
-    ModifyIcon,
-    BackReadIcon,
-} from "components/common/icons/Index";
 import PropTypes from "prop-types";
 
 const BusinessProfile = ({
@@ -36,10 +32,11 @@ const BusinessProfile = ({
     zipcode,
     openingHours,
     introduce,
+    imageURL,
 }) => {
 
     const profile = 
-    <Container className="pt-2 pb-3">
+    <Container className="py-4">
         <ReadProfile
         shopId={shopId}
         businessRegNumber={businessRegNumber}
@@ -54,18 +51,18 @@ const BusinessProfile = ({
         zipcode={zipcode}
         openingHours={openingHours}
         introduce={introduce}
+        imageURL={imageURL}
         />
         <Row>
             <Col>
-                <div className="text-center btn-wrapper my-2">
+                <div className="text-center btn-wrapper mt-3">
                     <Button
-                    className="width_90"
-                    color="info"
+                    className="width_100 sub_button2 color_2 border_color_2"
                     outline
                     type="button"
                     onClick={()=>{handleSetMode("M")}}>
                     <span className="btn-inner--text">
-                        <ModifyIcon/>&nbsp;&nbsp;수정하기
+                        수정하기
                     </span>
                     </Button>
                 </div>
@@ -75,7 +72,7 @@ const BusinessProfile = ({
     ;
 
     const modifyProfile = 
-    <Container className="pt-2 pb-3">
+    <Container className="pt-2 pb-5">
         <ModifyProfileContainer
         shopId={shopId}
         businessRegNumber={businessRegNumber}
@@ -90,19 +87,9 @@ const BusinessProfile = ({
         zipcode={zipcode}
         openingHours={openingHours}
         introduce={introduce}
+        handleSetMode={handleSetMode}
+        imageURL={imageURL}
         />
-        <div className="text-center btn-wrapper px-2">
-            <Button
-            className="width_90"
-            color="info"
-            outline
-            type="button"
-            onClick={()=>{handleSetMode("R")}}>
-            <span className="btn-inner--text">
-                <BackReadIcon/>&nbsp;&nbsp;보기
-            </span>
-            </Button>
-        </div>
     </Container>
     ;
     return (
@@ -134,6 +121,7 @@ BusinessProfile.propTypes = {
     zipcode: PropTypes.string,
     openingHours: PropTypes.string,
     introduce: PropTypes.string,
+    imageURL: PropTypes.string,
 };
 
 export default BusinessProfile;

@@ -1,16 +1,18 @@
 import React, { useContext } from 'react';
-import Footer from "components/footers/Footer";
+import Header from 'components/navigation/Header';
+import NavBottom from 'components/navigation/NavBottom';
 import SpinnerGrow from "components/common/spinner/SpinnerGrow";
 import { ProgressContext } from "context/Progress"
 
-function AboutusView() {
+function QrcodeView() {
     const {inProgress} = useContext(ProgressContext);
     return (
         <>
+            <Header/>
             {inProgress && <SpinnerGrow/>}
-            <Footer />
+            <NavBottom selected={3}/>
         </>
     )
 }
 
-export default AboutusView;
+export default QrcodeView;

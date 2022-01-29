@@ -163,7 +163,8 @@ select{
     -moz-appearance: none; 
     appearance: none;
     /*화살표 배경 넣기*/
-    background: #fff no-repeat right/8% url('../img/selectButton.png');
+    background: no-repeat right/8% url('../img/selectButton.png');
+    background-size: 20px;
 }
 
 /* check box 다시 추가 */
@@ -173,20 +174,16 @@ input[type="checkbox"]{
     -moz-appearance: none;
     appearance: none;
     outline: 0;
-    background: lightgray;
+    background: #ddd;
     height: 16px;
     width: 16px;
     border: 1px solid white;
-    border-radius: 10%;
+    border-radius: 50%;
 }
 
 input[type="checkbox"]:checked {
-    /* background: #2aa1c0; */
-    background: #fff no-repeat center/100% url('../img/selectButton.png');
-}
-
-input[type="checkbox"]:hover {
-    filter: brightness(90%);
+    background: #fff no-repeat center url('../img/checked.png') !important;
+    background-size: 16px !important;
 }
 
 input[type="checkbox"]:disabled {
@@ -195,20 +192,8 @@ input[type="checkbox"]:disabled {
     pointer-events: none;
 }
 
-input[type="checkbox"]:after {
-    content: '';
-    position: relative;
-    left: 21%;
-    top: 10%;
-    width: 57%;
-    height: 60%;
-    border: solid #fff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-    display: none;
-}
-
 input[type="checkbox"]:checked:after {
+    background: #fff no-repeat center url('../img/checked.png') !important;
     display: block;
 }
 
@@ -219,15 +204,15 @@ input[type="checkbox"]:disabled:after {
 .custom-control-input:checked~.custom-control-label::before {
     color: #fff;
     border: none;
-    background: linear-gradient(45deg, Violet, Orange);
+    background: linear-gradient(45deg, #07689f, #fafafa, #ff7e67);
 }
 
 .input-group-text {
-    background: linear-gradient(#D66D75);
+    background-color: #fff !important;
 }
 
 .main_background {
-    background: linear-gradient(45deg, Violet, Orange);
+    background: linear-gradient(45deg, #07689f, #a2d5fe, #fafafa, #ff7e67);
 }
 
 .white_color {
@@ -283,7 +268,7 @@ input[type="checkbox"]:disabled:after {
 }
 /* progress-bar 설정 */
 .progress-bar {
-    background: linear-gradient(45deg, #fafafa, #ff7e67, #a2d5fe, #07689f);
+    background: linear-gradient(45deg, #ff7e67, #fafafa, #a2d5fe, #07689f);
 }
 /* 메인 버튼 */
 button {
@@ -300,15 +285,19 @@ button {
 }
 
 .main_button {
-    width: 80%;
     height: 60px;
     border-radius: 10px;
 }
 
 .sub_button1 {
-    width: 100%;
     height: 40px;
     border-radius: 10px;
+}
+
+.sub_button2 {
+    height: 35px;
+    border-radius: 10px;
+    line-height: 0.8em;
 }
 
 /* 기본 색상 */
@@ -436,10 +425,11 @@ button {
     position: fixed;
     top: 0px;
     width: 100%;
-    height: 40px;
+    height: 50px;
+    padding-top: 5px;
     z-index: 999;
     background-color: #fff;
-    border-bottom: 0.5px solid #ccc;
+    /* border-bottom: 1px solid #ff7e67; */
 }
 
 .navigation_bottom {
@@ -450,7 +440,7 @@ button {
     height: 50px;
     overflow: hidden;
     background-color: #fff;
-    border-top: 0.5px solid #ccc;
+    border-top: 1px solid #ccc;
 }
 /* nav태그 아래의 div태그들을 수평정렬 및 세로길이 설정 */
 .navigation_bottom > div {

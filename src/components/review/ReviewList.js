@@ -27,7 +27,7 @@ const ReviewList = ({
   onModal,
 }) => {
   return (
-    <Container className="pb-3">
+    <>
       <WriteReview
       myReview={myReview}
       onSetMyReview={onSetMyReview}
@@ -58,8 +58,8 @@ const ReviewList = ({
           style={{lineHeight:"1.8em"}}
           className="text-secondary text-right pr-4"
           >
-            <span>총점 <HeartIcon/> : </span>
-            <span>4.5</span>
+            <small>총점 <HeartIcon/> : </small>
+            <small>4.5</small>
           </div>
         </Col>
       </Row>
@@ -75,19 +75,21 @@ const ReviewList = ({
       )}
       <Row>
         <Col className="text-center py-3">
-          <Button
-            block
-            className="width_90 display-inline"
-            color="natural"
+          <div className="text-center btn-wrapper mb-2">
+            <Button
+            className="width_100"
+            outline
             type="button"
-            // disabled={true}
-            onClick={onGetReview}
-          >
-            &nbsp;&nbsp;리뷰 더 불러오기
-          </Button>
+            color="neutral"
+            onClick={onGetReview}>
+            <small className="btn-inner--text">
+            리뷰 더 불러오기
+            </small>
+            </Button>
+          </div>
         </Col>
       </Row>
-    </Container>
+    </>
   )
 }
 

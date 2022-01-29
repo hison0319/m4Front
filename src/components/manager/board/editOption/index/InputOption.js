@@ -78,37 +78,40 @@ const InputOption = ({
   return (
     <>
       <Row className="my-2">
-        <Col xs="1" className="text-center btn-wrapper">
-          <Button
-            className="btn-icon-only rounded-circle pt-1 pl-1"
-            color="neutral"
-            onClick={()=>{
-              removeInput(optionCategoryId, optionId);
-            }}
-          >
-            <span className="btn-inner--icon text-secondary">
-              <RemoveOptionIcon/>
-            </span>
-          </Button>
-        </Col>
-        <Col xs="11">
-          <InputGroup>
-            <InputGroupAddon addonType="prepend">
-              <InputGroupText>
-              </InputGroupText>
-            </InputGroupAddon>
-            <Input
-            type="text"
-            id={optionId+"optionName"}
-            name={optionId+"optionName"}
-            value={localOptionName || ''}
-            maxLength={30}
-            placeholder="옵션 이름"
-            onChange={(e) =>{
-              setLocalOptionName(e.target.value);
-              onSetOptionList(optionCategoryId, optionId, "optionName", e.target.value);
-            }}/>
-          </InputGroup>
+        <Col>
+          <Row>
+            <Col>
+                <small>옵션 이름</small>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs="1" className="text-center btn-wrapper">
+              <Button
+                className="btn-icon-only rounded-circle pt-1 pl-1"
+                color="neutral"
+                onClick={()=>{
+                  removeInput(optionCategoryId, optionId);
+                }}
+              >
+                <small className="btn-inner--icon text-secondary">
+                  <RemoveOptionIcon/>
+                </small>
+              </Button>
+            </Col>
+            <Col xs="11">
+              <Input
+              type="text"
+              id={optionId+"optionName"}
+              name={optionId+"optionName"}
+              value={localOptionName || ''}
+              maxLength={30}
+              placeholder=""
+              onChange={(e) =>{
+                setLocalOptionName(e.target.value);
+                onSetOptionList(optionCategoryId, optionId, "optionName", e.target.value);
+              }}/>
+            </Col>
+          </Row>
         </Col>
       </Row>
       <Row>
@@ -153,14 +156,16 @@ const InputOption = ({
         </Col>
       </Row>
       {isHaveDayOfWeek &&
-      <Row className="mt-1">
+      <Row>
         <Col>
           <Row>
             <Col>
-              휴무일 : 
+              <small>
+                휴무일 : 
+              </small>
             </Col>
           </Row>
-          <Row className="mb-4">
+          <Row className="mt-1">
             <Col className="text-right">
               {DayOfWeekList}
             </Col>

@@ -33,7 +33,8 @@ const ModalView = forwardRef(({
         }}
       >
         <div className="modal-header">
-          <Button
+          <small className="fix_color_2">mmmm</small>
+          {/* <Button
           aria-label="Close"
           className="close"
           data-dismiss="modal"
@@ -43,7 +44,7 @@ const ModalView = forwardRef(({
             toggleModal(alertToggle);
             }}>
             <span aria-hidden={true}>×</span>
-          </Button>
+          </Button> */}
         </div>
         {item}
         <div className="modal-footer">

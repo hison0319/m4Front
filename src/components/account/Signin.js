@@ -58,7 +58,7 @@ const Signin = () => {
                 <Col className="mt-4">
                     <div className="text-center btn-wrapper">
                         <Button
-                        className="sub_button1 color_4 border_color_4"
+                        className="sub_button1 width_100 color_4 border_color_4"
                         color="none"
                         onClick={()=>{
                         }}>
@@ -73,7 +73,7 @@ const Signin = () => {
                 <Col>
                     <div className="text-center btn-wrapper">
                         <Button
-                        className="sub_button1 color_2 border_color_2"
+                        className="sub_button1 width_100 color_2 border_color_2"
                         color="none"
                         onClick={()=>{
                         }}>
@@ -88,7 +88,7 @@ const Signin = () => {
                 <Col>
                     <div className="text-center btn-wrapper">
                         <Button
-                        className="sub_button1 color_2 border_color_2"
+                        className="sub_button1 width_100 color_2 border_color_2"
                         color="none"
                         onClick={()=>{
                         }}>

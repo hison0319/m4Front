@@ -46,17 +46,16 @@ const WriteReview = ({
     <>
       <Row>
         <Col>
-          <div className="text-center">
-            <Button
-              block
-              className="width_90 display-inline"
-              color="primary"
+          <div className="text-center btn-wrapper mb-2">
+              <Button
+              className="width_100 sub_button2 color_3 border_color_3"
+              outline
               type="button"
-              // disabled={true}
-              onClick={() => toggleModal(writeToggle)}
-            >
-              <WriteCommentIcon/>&nbsp;&nbsp;리뷰 작성하기
-            </Button>
+              onClick={() => toggleModal(writeToggle)}>
+              <span className="btn-inner--text">
+                리뷰 작성하기
+              </span>
+              </Button>
           </div>
           <Modal
             className="modal-dialog-centered"

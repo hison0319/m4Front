@@ -42,38 +42,41 @@ const Option = ({
 
   return (
     <>
-      <Row className="my-1">
-        <Col xs="1" className="text-center btn-wrapper">
-          <Button
-            className="btn-icon-only rounded-circle pt-1 pl-1"
-            color="neutral"
-            onClick={()=>{
-              onRemove(optionCategoryId);
-            }}
-          >
-            <span className="btn-inner--icon text-secondary">
-              <RemoveOptionIcon/>
-            </span>
-          </Button>
-        </Col>
-        <Col xs="11">
-          <InputGroup>
-            <InputGroupAddon addonType="prepend">
-              <InputGroupText>
-              </InputGroupText>
-            </InputGroupAddon>
-            <Input
-            type="text"
-            name="categoryName"
-            id="categoryName"
-            value={categoryName}
-            maxLength={50}
-            placeholder="옵션 종류"
-            onChange={(e)=>{
-              setCategoryName(e.target.value);
-              onSetOptionList(optionCategoryId, "", "categoryName", e.target.value);
-            }}/>
-          </InputGroup>
+      <Row className="my-4">
+        <Col>
+          <Row>
+              <Col>
+                  <small>옵션 종류</small>
+              </Col>
+          </Row>
+          <Row>
+            <Col xs="1" className="text-center btn-wrapper">
+              <Button
+                className="btn-icon-only rounded-circle pt-1 pl-1"
+                color="neutral"
+                onClick={()=>{
+                  onRemove(optionCategoryId);
+                }}
+              >
+                <small className="btn-inner--icon text-secondary">
+                  <RemoveOptionIcon/>
+                </small>
+              </Button>
+            </Col>
+            <Col xs="11">
+              <Input
+              type="text"
+              name="categoryName"
+              id="categoryName"
+              value={categoryName}
+              maxLength={50}
+              placeholder=""
+              onChange={(e)=>{
+                setCategoryName(e.target.value);
+                onSetOptionList(optionCategoryId, "", "categoryName", e.target.value);
+              }}/>
+            </Col>
+          </Row>
         </Col>
       </Row>
       <Row>
@@ -137,21 +140,21 @@ const Option = ({
           )}
         </Col>
       </Row>
-      <Row className="mt-1 mb-3">
+      <Row className="my-3">
         <Col>
-          <Button
-            className="width_100"
+          <div className="text-center btn-wrapper my-2">
+            <Button
+            color="natural"
             outline
-            size="sm"
-            color="secondary"
+            type="button"
             onClick={()=>{
               addInput(optionCategoryId);
-            }}
-          >
-            <span className="btn-inner--icon">
+            }}>
+            <small className="btn-inner--text">
               <AddOptionIcon/>
-            </span>
-          </Button>
+            </small>
+            </Button>
+          </div>
         </Col>
       </Row>
     </>

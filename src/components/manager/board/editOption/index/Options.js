@@ -43,7 +43,7 @@ const Options = ({
               <div className="text-center btn-wrapper my-3">
                 <Button
                 className="width_100"
-                color="secondary"
+                color="natuarl"
                 outline
                 size="sm"
                 type="button"

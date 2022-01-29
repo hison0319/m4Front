@@ -13,7 +13,7 @@ import {
   CardBody,
   Button,
 } from "reactstrap";
-import ProfileImage2 from 'components/common/imagebox/ProfileImage2'
+import ImgCircle from 'components/common/imagebox/ImgCircle'
 import PropTypes from "prop-types";
 
 const ReadProfile = ({
@@ -22,55 +22,58 @@ const ReadProfile = ({
   name,
   city,
   street,
+  nationCode1,
+  nationCode2,
   contactNumber1,
   contactNumber2,
   snsList,
   zipcode,
   openingHours,
   introduce,
+  imageURL,
 }) => {
 
   const link = "/detail";
 
   return (
     <>
-      <Row noGutters className="pt-2 pt-md-2 w-100 px-2 px-xl-0 position-relative">
-        <Col className="py-2 mb-2 py-md-0 mb-md-5">
-            <div className="position-relative">
-                <span className="d-block pb-2 mb-0 h6 text-uppercase text-info font-weight-bold">
-                    PROFILE
-                </span>
-                <span className="d-block pb-4 h2 mb-3 text-dark border-bottom border-gray">{name}</span>
-                <div className="mt-3">
-                    <Card className="shadow">
-                        <CardBody>
-                            <br></br><br></br>
-                            <ProfileImage2/>
-                            <span className="d-block pt-5 h4 text-dark border-gray text-center">{street}, {city}</span>
-                            <span className="d-block h7 mb-3 text-dark border-gray text-center">우편번호 : {zipcode}</span>
-                            <span className="d-block h5 mb-3 border-gray text-center text-secondary">+82&nbsp;&nbsp;{contactNumber1}</span>
-                            {/* <span className="d-block h5 mb-3 border-gray text-center text-secondary">+82 {contactNumber2}</span> */}
-                            {snsList && snsList.map((sns, idx) => 
-                              <Button
-                                key={"sns"+idx}
-                                className="my-1 text-center width_100"
-                                color="neutral"
-                                href={sns}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <small className="text-secondary">{sns}</small>
-                              </Button>
-                            )}
-                            <Link to={link} target="_blank" className="default-link">
-                              <article className="my-4 text-secondary text-justify" style={{ fontSize: '0.9rem', whiteSpace: 'pre-line' }}>
-                              {introduce}</article>
-                            </Link>
-                            <span className="d-block small my-3 text-dark border-gray text-center">사업자 번호 : {businessRegNumber}</span>
-                            <span className="d-block small my-3 text-dark border-gray text-center">open : {openingHours}</span>
-                        </CardBody>
-                    </Card>
-                </div>
+      <Row>
+        <Col className="mt-5 mb-2">
+            <div className="mt-3">
+                <Card>
+                    <CardBody>
+                        <br></br>
+                        <ImgCircle
+                        imageURL={imageURL}/>
+                        <br></br>
+                        <Link to={link} target="_blank" className="default-link">
+                          <div className="text-center my-2 basic_color_3">
+                            <h5 className="my-2 fix_color_3">안녕하세요. 우리는 {name}입니다.</h5>
+                          </div>
+                          <article className="my-3 px-3 basic_color_3" style={{ fontSize: '0.9rem', whiteSpace: 'pre-line' }}>
+                          {introduce?introduce:"아직 자기소개가 없습니다."}</article>
+                          <div className="text-center my-2 basic_color_3">
+                            {city && <small>{street}, {city}</small>}{city && <br></br>}
+                            {zipcode && <small>우편번호 : {zipcode}</small>}{zipcode && <br></br>}
+                            {contactNumber1 && <small>+{nationCode1}&nbsp;&nbsp;{contactNumber1}</small>}{contactNumber1 && <br></br>}
+                            {/* {contactNumber2 && <small>+{nationCode2}&nbsp;&nbsp;{contactNumber2}</small>}{contactNumber2 && <br></br>} */}
+                            {businessRegNumber && <small>사업자 번호 : {businessRegNumber}</small>}
+                          </div>
+                        </Link>
+                        {snsList && snsList.map((sns, idx) => 
+                          <Button
+                            key={"sns"+idx}
+                            className="my-1 text-center width_100"
+                            color="neutral"
+                            href={sns}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <small className="text-secondary">{sns}</small>
+                          </Button>
+                        )}
+                    </CardBody>
+                </Card>
             </div>
         </Col>
       </Row>
@@ -84,7 +87,10 @@ ReadProfile.propTypes = {
   name: PropTypes.string,
   city: PropTypes.string,
   street: PropTypes.string,
-  contactNumber: PropTypes.string,
+  nationCode1: PropTypes.number,
+  nationCode2: PropTypes.number,
+  contactNumber1: PropTypes.string,
+  contactNumber2: PropTypes.string,
   snsList: PropTypes.array,
   zipcode: PropTypes.string,
   openingHours: PropTypes.string,

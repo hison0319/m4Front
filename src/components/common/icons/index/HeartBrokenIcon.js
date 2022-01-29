@@ -3,9 +3,9 @@ import { FaHeartBroken } from 'react-icons/fa';
 
 function HeartBrokenIcon() {
     const _style = {
-        fontSize: "1em",
-        margin: "1px",
-        color: "#b12742"
+        fontSize: "0.9em",
+        margin: "0.9px",
+        color: "#ff7e67"
     }
 
     return (

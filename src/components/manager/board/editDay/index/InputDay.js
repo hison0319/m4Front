@@ -182,21 +182,20 @@ const InputDay = React.memo(({
       )}
       <Row className="mt-2">
         <Col>
-          <Button
-            className="width_100"
-            outline
-            size="sm"
-            color="secondary"
-            onClick={()=>{
-              addInputTime();
-            }}
-            disabled={buttonAbled}
-          >
-            <span
-            className="btn-inner--icon">
-              <AddOptionIcon/>
-            </span>
-          </Button>
+          <div className="text-center btn-wrapper my-2">
+              <Button
+              color="natural"
+              outline
+              type="button"
+              onClick={()=>{
+                addInputTime();
+              }}
+              disabled={buttonAbled}>
+              <small className="btn-inner--text">
+                <AddOptionIcon/>
+              </small>
+              </Button>
+          </div>
         </Col>
       </Row>
     </>

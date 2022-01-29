@@ -14,10 +14,6 @@ import {
 import ReviewListContainer from 'components/review/ReviewListContainer';
 import ModifyProfileContainer from './index/ModifyProfileContainer.js';
 import ReadProfile from './index/ReadProfile';
-import {
-    ModifyIcon,
-    BackReadIcon,
-} from "components/common/icons/Index";
 import PropTypes from "prop-types";
 
 const NormalProfile = ({
@@ -33,13 +29,14 @@ const NormalProfile = ({
     snsList,
     birth,
     introduce,
+    imageURL,
     //for review
     reviewId
 }) => {
 
     const profile = 
     <>
-        <Container className="pt-2 pb-3">
+        <Container className="pt-2 mb-2 pb-5">
             <ReadProfile
             userId={userId}
             name={name}
@@ -51,33 +48,33 @@ const NormalProfile = ({
             snsList={snsList}
             birth={birth}
             introduce={introduce}
+            imageURL={imageURL}
             />
             <Row>
                 <Col>
                     <div className="text-center btn-wrapper my-2">
                         <Button
-                        className="width_90"
-                        color="info"
+                        className="width_100 sub_button2 color_2 border_color_2"
                         outline
                         type="button"
                         onClick={()=>{handleSetMode("M")}}>
                         <span className="btn-inner--text">
-                            <ModifyIcon/>&nbsp;&nbsp;수정하기
+                            수정하기
                         </span>
                         </Button>
                     </div>
                 </Col>
             </Row>
-        </Container>
         <ReviewListContainer
         userId={userId}
         reviewId={reviewId}/>
+        </Container>
     </>
     ;
 
     const modifyProfile = 
     <>
-        <Container className="pt-2 pb-3">
+        <Container className="pt-2 pb-5">
             <ModifyProfileContainer
             userId={userId}
             name={name}
@@ -89,19 +86,9 @@ const NormalProfile = ({
             snsList={snsList}
             birth={birth}
             introduce={introduce}
+            handleSetMode={handleSetMode}
+            imageURL={imageURL}
             />
-            <div className="text-center btn-wrapper px-2">
-                <Button
-                className="width_90"
-                color="info"
-                outline
-                type="button"
-                onClick={()=>{handleSetMode("R")}}>
-                <span className="btn-inner--text">
-                    <BackReadIcon/>&nbsp;&nbsp;보기
-                </span>
-                </Button>
-            </div>
         </Container>
     </>
     ;
@@ -129,6 +116,7 @@ NormalProfile.propTypes = {
     snsList: PropTypes.array,
     birth: PropTypes.string,
     introduce: PropTypes.string,
+    imageURL: PropTypes.string,
     reviewId: PropTypes.string,
 };
 

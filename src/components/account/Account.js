@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { images } from "utils/images";
 import {
   Container,
   Row,
@@ -30,15 +29,15 @@ const Account = () => {
   />
 
   return (
-    <section className="middle_wrapper">
-      <Container>
+    // <section className="middle_wrapper">
+      <Container className="my-5 py-5">
         {SigninModal}
         {SignupModal}
         <Row className="my-3">
           <Col className="my-2">
             <div className="text-center btn-wrapper">
                 <Button
-                className="main_button color_2 border_color_2"
+                className="main_button width_80 color_2 border_color_2"
                 color="none"
                 onClick={()=>{
                   window.location.href = "http://3.36.163.171:8080/oauth2/authorization/line";
@@ -54,7 +53,7 @@ const Account = () => {
           <Col className="my-2">
             <div className="text-center btn-wrapper">
                 <Button
-                className="main_button color_2 border_color_2"
+                className="main_button width_80 color_2 border_color_2"
                 color="none"
                 onClick={()=>{
                   SigninModalRef.current.showAlert();
@@ -70,7 +69,7 @@ const Account = () => {
           <Col className="my-2">
             <div className="text-center btn-wrapper">
                 <Button
-                className="main_button color_2 border_color_2"
+                className="main_button width_80 color_2 border_color_2"
                 color="none"
                 onClick={()=>{
                   SignupModalRef.current.showAlert();
@@ -83,7 +82,7 @@ const Account = () => {
           </Col>
         </Row>
       </Container>
-    </section>
+    // </section>
   );
 }
 

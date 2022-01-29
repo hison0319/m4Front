@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import {
   Container,
   Row,
@@ -37,6 +37,10 @@ const Manager = () => {
   }}
   />
 
+  useEffect(() => {
+    boardModalRef.current.showAlert();
+  },[])
+
   return (
     <section className="middle_wrapper">
       <Container>
@@ -47,7 +51,7 @@ const Manager = () => {
             <Col className="my-2">
               <div className="text-center btn-wrapper">
                   <Button
-                  className="main_button color_3 border_color_3"
+                  className="main_button width_80 color_3 border_color_3"
                   color="none"
                   outline
                   type="button"
@@ -65,7 +69,7 @@ const Manager = () => {
             <Col className="my-2">
               <div className="text-center btn-wrapper">
                   <Button
-                  className="main_button color_3 border_color_3"
+                  className="main_button width_80 color_3 border_color_3"
                   color="none"
                   outline
                   type="button"
@@ -83,7 +87,7 @@ const Manager = () => {
             <Col className="my-2">
               <div className="text-center btn-wrapper">
                   <Button
-                  className="main_button color_3 border_color_3"
+                  className="main_button width_80 color_3 border_color_3"
                   color="none"
                   outline
                   type="button"

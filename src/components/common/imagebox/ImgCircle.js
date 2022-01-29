@@ -2,7 +2,7 @@ import React from "react";
 import { images } from "utils/images";
 import PropTypes from "prop-types";
 
-const ProfileImage = ({
+const ImgCircle = ({
   imageURL,
   alt,
   caption,
@@ -25,11 +25,11 @@ const ProfileImage = ({
   );
 }
 
-ProfileImage.propTypes = {
+ImgCircle.propTypes = {
   imageURL: PropTypes.string,
   alt: PropTypes.string,
   caption: PropTypes.string,
   header: PropTypes.string,
 };
 
-export default ProfileImage;
+export default ImgCircle;

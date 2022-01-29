@@ -11,7 +11,7 @@ import {
     InputGroupAddon,
     CustomInput,
 } from "reactstrap";
-import ProfileImage from "components/common/imagebox/ProfileImage";
+import ImgCircle from "components/common/imagebox/ImgCircle";
 import PropTypes from "prop-types";
 
 const ProfileImageInput = ({
@@ -29,14 +29,14 @@ const ProfileImageInput = ({
         }
         reader.readAsDataURL(imgFile);
     }
-    const imagePreview = <ProfileImage imageURL={previewURL}/>
+    const imagePreview = <ImgCircle imageURL={previewURL}/>
 
     return (
         <>
-            <Row className="px-2">
+            <Row className="px-2 mt-5">
                 <Col>
                     <Row>
-                        <Col className="my-4 pb-2">
+                        <Col className="my-5">
                         {imagePreview}
                         </Col>
                     </Row>

@@ -8,10 +8,9 @@ import "assets/funcs/commonJs"
 
 // import HomeView from "views/HomeView";
 import BoardDetailView from "views/BoardDetailView";
-import AccountView from "views/AccountView";
 import ProfileView from "views/ProfileView";
 import ManagerView from "views/ManagerView";
-import AboutusView from "views/AboutusView";
+import QrcodeView from "views/QrcodeView";
 import AlarmView from "views/AlarmView";
 import IconSample from "components/common/icons/IconSample";
 import ErrorView from "views/ErrorView";
@@ -36,11 +35,6 @@ ReactDOM.render(
             render={props => <ProfileView {...props} />} 
           />
           <Route 
-            path="/account" 
-            exact 
-            render={props => <AccountView {...props} />} 
-          />
-          <Route 
             path="/profile" 
             exact 
             render={props => <ProfileView {...props} />} 
@@ -56,9 +50,9 @@ ReactDOM.render(
             render={props => <BoardDetailView {...props} />} 
           />
           <Route 
-            path="/aboutus" 
+            path="/qrcode" 
             exact 
-            render={props => <AboutusView {...props} />} 
+            render={props => <QrcodeView {...props} />} 
           />
           <Route
             path="/alarm"

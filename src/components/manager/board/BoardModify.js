@@ -9,7 +9,6 @@ import {
   Row,
   Col,
   Input,
-  InputGroup,
   CustomInput,
 } from "reactstrap";
 import PropTypes from "prop-types";
@@ -38,39 +37,46 @@ const BoardModify = ({
             </Col>
           </Row>
           <Row className="my-2">
-            <Col xs="12" >
-              <div>
-                가게 사진을 올려주세요.(최대15개)
-              </div>
+            <Col>
+              <Row>
+                  <Col>
+                      <small>가게 이미지를 올려주세요.</small>
+                  </Col>
+              </Row>
+              <Row className="my-2">
+                <Col>
+                  <CustomInput
+                  type="file"
+                  id="image"
+                  name="image"
+                  multiple
+                  label="jpg, jpeg, png, ..."
+                  accept='image/jpg,impge/png,image/jpeg,image/gif' 
+                  onChange={handleFileOnChange}/>
+                </Col>
+              </Row>
             </Col>
           </Row>
           <Row className="my-2">
-            <Col xs="12" >
-              <InputGroup>
-                <CustomInput
-                type="file"
-                id="image"
-                name="image"
-                multiple
-                label="jpg, jpeg, png, ..."
-                accept='image/jpg,impge/png,image/jpeg,image/gif' 
-                onChange={handleFileOnChange}/>
-              </InputGroup>
-            </Col>
-          </Row>
-          <Row className="my-2">
-            <Col xs="12" >
-              <InputGroup>
-                <Input
-                type="textarea"
-                name="varContext"
-                id="varContext"
-                placeholder="가게 소개글을 작성해주세요."
-                value={varContext}
-                maxLength={5000}
-                rows="13" 
-                onChange={onChangeText}/>
-              </InputGroup>
+            <Col>
+              <Row>
+                  <Col>
+                      <small>가게 소개글을 작성해주세요.</small>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col>
+                    <Input
+                    type="textarea"
+                    name="varContext"
+                    id="varContext"
+                    placeholder=""
+                    value={varContext}
+                    maxLength={5000}
+                    rows="10" 
+                    onChange={onChangeText}/>
+                  </Col>
+              </Row>
             </Col>
           </Row>
         </Col>

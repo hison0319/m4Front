@@ -75,7 +75,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                <span className='white_color'>&nbsp;&nbsp;우리는 월요일에 문을 열어요.</span>
+                <small className='white_color'>&nbsp;&nbsp;우리는 월요일에 문을 열어요.</small>
                 {monOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -101,7 +101,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                <span className='white_color'>&nbsp;&nbsp;우리는 화요일 문을 열어요.</span>
+                <small className='white_color'>&nbsp;&nbsp;우리는 화요일 문을 열어요.</small>
                 {tueOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -126,7 +126,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                <span className='white_color'>&nbsp;&nbsp;우리는 수요일에 문을 열어요.</span>
+                <small className='white_color'>&nbsp;&nbsp;우리는 수요일에 문을 열어요.</small>
                 {wedOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -151,7 +151,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                <span className='white_color'>&nbsp;&nbsp;우리는 목요일에 문을 열어요.</span>
+                <small className='white_color'>&nbsp;&nbsp;우리는 목요일에 문을 열어요.</small>
                 {thuOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -176,7 +176,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                <span className='white_color'>&nbsp;&nbsp;우리는 금요일에 문을 열어요.</span>
+                <small className='white_color'>&nbsp;&nbsp;우리는 금요일에 문을 열어요.</small>
                 {friOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -201,7 +201,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                <span className='white_color'>&nbsp;&nbsp;우리는 토요일에 문을 열어요.</span>
+                <small className='white_color'>&nbsp;&nbsp;우리는 토요일에 문을 열어요.</small>
                 {satOpen?upIcon:downIcon}
               </Link>
             </Col>
@@ -226,7 +226,7 @@ const EditDay = React.memo(({
               }
               to=""
               >
-                <span className='white_color'>&nbsp;&nbsp;우리는 일요일에 문을 열어요.</span>
+                <small className='white_color'>&nbsp;&nbsp;우리는 일요일에 문을 열어요.</small>
                 {sunOpen?upIcon:downIcon}
               </Link>
             </Col>

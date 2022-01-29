@@ -3,7 +3,7 @@
 작성일 : 2021.10.25
 내용 :  비지니스 계정의 프로필 수정모드(화면)
 */
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Row,
   Col,
@@ -51,149 +51,165 @@ const ModifyProfile = ({
     <>
       <Row className="px-2">
         <Col>
-          <Row className="my-4">
-            <Col xs="12" >
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    가게 이름
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                type="text"
-                name="varName"
-                id="varName"
-                placeholder="가게 이름"
-                maxLength={30}
-                value={varName||''}
-                onChange={(e)=>{
-                  //특수기호 제거
-                  e.target.value = removeSpc(e.target.value);
-                  onChangeText(e);
-                }}
-                />
-              </InputGroup>
+          <Row className="my-2">
+            <Col>
+              <Row>
+                  <Col>
+                      <small>가게 이름</small>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col>
+                    <Input
+                    type="text"
+                    name="varName"
+                    id="varName"
+                    placeholder="가게 이름"
+                    maxLength={30}
+                    value={varName||''}
+                    onChange={(e)=>{
+                      //특수기호 제거
+                      e.target.value = removeSpc(e.target.value);
+                      onChangeText(e);
+                    }}
+                    />
+                  </Col>
+              </Row>
             </Col>
           </Row>
           <Row className="my-4">
-            <Col xs="12" >
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    우편번호
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                type="text"
-                name="varZipcode"
-                id="varZipcode"
-                placeholder="우편번호"
-                maxLength={10}
-                value={varZipcode||''}
-                onChange={(e)=>{
-                  //숫자만 입력해 주세요.
-                  e.target.value = removeNotNumber(e.target.value);
-                  onChangeText(e);
-                }}/>
-              </InputGroup>
+            <Col>
+              <Row>
+                  <Col>
+                      <small>우편번호</small>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col>
+                    <Input
+                    type="text"
+                    name="varZipcode"
+                    id="varZipcode"
+                    placeholder="우편번호"
+                    maxLength={10}
+                    value={varZipcode||''}
+                    onChange={(e)=>{
+                      //숫자만 입력해 주세요.
+                      e.target.value = removeNotNumber(e.target.value);
+                      onChangeText(e);
+                    }}/>
+                  </Col>
+              </Row>
             </Col>
           </Row>
           <Row className="my-4">
-            <Col xs="12" >
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    주소 1
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                type="text"
-                name="varCity"
-                id="varCity"
-                placeholder="주소"
-                maxLength={100}
-                value={varCity||''}
-                onChange={onChangeText}
-                />
-              </InputGroup>
+            <Col>
+              <Row>
+                  <Col>
+                      <small>주소 1</small>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col>
+                    <Input
+                    type="text"
+                    name="varCity"
+                    id="varCity"
+                    placeholder="주소"
+                    maxLength={100}
+                    value={varCity||''}
+                    onChange={onChangeText}
+                    />
+                  </Col>
+              </Row>
             </Col>
           </Row>
           <Row className="my-4">
-            <Col xs="12" >
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    주소 2
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                type="text"
-                name="varStreet"
-                id="varStreet"
-                placeholder="상세주소"
-                maxLength={200}
-                value={varStreet||''}
-                onChange={onChangeText}
-                />
-              </InputGroup>
+            <Col>
+              <Row>
+                  <Col>
+                      <small>주소 2</small>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col>
+                    <Input
+                    type="text"
+                    name="varStreet"
+                    id="varStreet"
+                    placeholder="상세주소"
+                    maxLength={200}
+                    value={varStreet||''}
+                    onChange={onChangeText}
+                    />
+                  </Col>
+              </Row>
             </Col>
           </Row>
           <Row className="my-4">
-            <Col xs="12" >
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    연락처 1
-                  </InputGroupText>
-                </InputGroupAddon>
-                <DropboxSelect
-                  defaultValue={varNationCode1}
-                  dropItem={nationCodeListAll}
-                  onClickDropItem={(item)=>{onSetNAtionCode(1,item)}}
-                />
-                <Input
-                type="text"
-                name="varContactNumber1"
-                id="varContactNumber1"
-                className="width_40"
-                placeholder="연락처1"
-                maxLength={20}
-                value={varContactNumber1||''}
-                onChange={(e)=>{
-                  //번호 양식만
-                  e.target.value = removeNotPhone(e.target.value);
-                  onChangeText(e);
-                }}/>
-              </InputGroup>
+            <Col>
+              <Row>
+                  <Col>
+                      <small>연락처 1</small>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col xs="3">
+                    <DropboxSelect
+                    defaultValue={varNationCode1}
+                    dropItem={nationCodeListAll}
+                    onClickDropItem={(item)=>{onSetNAtionCode(1,item)}}
+                    />
+                  </Col>
+                  <Col xs="9">
+                    <Input
+                    type="text"
+                    name="varContactNumber1"
+                    id="varContactNumber1"
+                    className="width_100"
+                    placeholder="연락처1"
+                    maxLength={20}
+                    value={varContactNumber1||''}
+                    onChange={(e)=>{
+                      //번호 양식만
+                      e.target.value = removeNotPhone(e.target.value);
+                      onChangeText(e);
+                    }}/>
+                  </Col>
+              </Row>
             </Col>
           </Row>
           <Row className="mt-2">
-            <Col xs="12" >
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    연락처 2
-                  </InputGroupText>
-                </InputGroupAddon>
-                <DropboxSelect
-                  defaultValue={varNationCode2}
-                  dropItem={nationCodeListAll}
-                  onClickDropItem={(item)=>{onSetNAtionCode(2,item)}}
-                />
-                <Input
-                type="text"
-                name="varContactNumber2"
-                id="varContactNumber2"
-                className="width_40"
-                placeholder="연락처2"
-                maxLength={20}
-                value={varContactNumber2||''}
-                onChange={(e)=>{
-                  //번호 양식만
-                  e.target.value = removeNotPhone(e.target.value);
-                  onChangeText(e);
-                }}/>
-              </InputGroup>
+            <Col>
+              <Row>
+                  <Col>
+                      <small>연락처 2</small>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col xs="3">
+                    <DropboxSelect
+                    defaultValue={varNationCode2}
+                    dropItem={nationCodeListAll}
+                    onClickDropItem={(item)=>{onSetNAtionCode(2,item)}}
+                    />
+                  </Col>
+                  <Col xs="9">
+                    <Input
+                    type="text"
+                    name="varContactNumber2"
+                    id="varContactNumber2"
+                    className="width_100"
+                    placeholder="연락처2"
+                    maxLength={20}
+                    value={varContactNumber2||''}
+                    onChange={(e)=>{
+                      //번호 양식만
+                      e.target.value = removeNotPhone(e.target.value);
+                      onChangeText(e);
+                    }}/>
+                  </Col>
+              </Row>
             </Col>
           </Row>
           <Row>
@@ -205,63 +221,66 @@ const ModifyProfile = ({
             </Col>
           </Row>
           <Row className="mb-2">
-            <Col xs="12" >
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    사업자 번호
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                type="text"
-                name="varBusinessRegNumber"
-                id="varBusinessRegNumber"
-                placeholder="사업자 번호"
-                maxLength={20}
-                value={varBusinessRegNumber||''}
-                onChange={(e)=>{
-                  //숫자만 입력해 주세요.
-                  e.target.value = removeNotPhone(e.target.value);
-                  onChangeText(e);
-                }}
-                />
-              </InputGroup>
+            <Col>
+              <Row>
+                  <Col>
+                      <small>사업자 번호</small>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col>
+                    <Input
+                    type="text"
+                    name="varBusinessRegNumber"
+                    id="varBusinessRegNumber"
+                    placeholder="사업자 번호"
+                    maxLength={20}
+                    value={varBusinessRegNumber||''}
+                    onChange={(e)=>{
+                      //숫자만 입력해 주세요.
+                      e.target.value = removeNotPhone(e.target.value);
+                      onChangeText(e);
+                    }}
+                    />
+                  </Col>
+              </Row>
             </Col>
           </Row>
           <Row className="my-4">
-            <Col xs="12" >
-              <InputGroup>
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText>
-                    가게 소개
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                type="textarea"
-                name="varIntroduce"
-                id="varIntroduce"
-                className="input_textarea_custom"
-                maxLength={500}
-                placeholder="가게소개"
-                rows="10"
-                value={varIntroduce||''}
-                onChange={onChangeText}
-                />
-              </InputGroup>
+            <Col>
+              <Row>
+                  <Col>
+                      <small>가게 소개</small>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col>
+                    <Input
+                    type="textarea"
+                    name="varIntroduce"
+                    id="varIntroduce"
+                    className="input_textarea_custom"
+                    maxLength={500}
+                    placeholder="가게소개"
+                    rows="10"
+                    value={varIntroduce||''}
+                    onChange={onChangeText}
+                    />
+                  </Col>
+              </Row>
             </Col>
           </Row>
-          <Row className="my-2">
+          <Row className="my-3">
             <Col>
               <div className="text-center btn-wrapper my-3">
                   <Button
-                  className="width_90"
-                  color="success"
+                  className="width_100 sub_button2 color_2 border_color_2"
                   outline
                   type="button"
                   onClick={refetch}
                   >
                   <span className="btn-inner--text">
-                    <SubmitIcon/>&nbsp;&nbsp;제출하기
+                    제출하기
                   </span>
                   </Button>
               </div>

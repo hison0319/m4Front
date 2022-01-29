@@ -10,6 +10,8 @@ import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"
 import NormalProfile from "./NormalProfile";
 
+import { images } from "utils/images";
+
 async function getUser(id) {
   const response = await axios.get(
     `/api/v1/user/${id}`
@@ -59,6 +61,7 @@ const NormalProfileContainer = ({
     const snsList = ["https://www.instagram.com/his0319","https://www.facebook.com/his0319"];
     const birth = "1990-03-19";
     const introduce = "안녕하세요. 손한이입니다. 하면 된다. 안하면 안된다! 현재를 즐겨라! 내일의 나를 믿자! 매너가 사람을 만든다! 잘부탁드립니다.";
+    const imageURL = images.imgTestProfile;
     //end
     
     const [mode, setMode] = useState("R");
@@ -83,6 +86,7 @@ const NormalProfileContainer = ({
             snsList={snsList}
             birth={birth}
             introduce={introduce}
+            imageURL={imageURL}
             //for review
             reviewId={reviewId}
             />

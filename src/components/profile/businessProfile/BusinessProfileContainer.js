@@ -10,6 +10,8 @@ import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"
 import BusinessProfile from "./BusinessProfile";
 
+import { images } from "utils/images";
+
 async function getShop(shopId) {
   const response = await axios.get(
     `/api/v1/shop/${shopId}`
@@ -61,6 +63,7 @@ const BusinessProfileContainer = ({shopId}) => {
     const zipcode = "12345";
     const openingHours = "09:00 ~ 18:00";
     const introduce = "안녕하세요. 손한이 편집샵입니다. 잘부탁드립니다. 에~~~호 무야호~";
+    const imageURL = images.imgTest1;
     //end
 
     const [mode, setMode] = useState("R");
@@ -91,6 +94,8 @@ const BusinessProfileContainer = ({shopId}) => {
             zipcode={zipcode}
             openingHours={openingHours}
             introduce={introduce}
+
+            imageURL={imageURL}
             />
         </>
     );
