@@ -59,7 +59,7 @@ const InputTime = ({
     return(
         <>
             <Row>
-                <Col xs="1" className="text-right btn-wrapper">
+                <Col xs="2" className="text-right btn-wrapper">
                     <Button
                         className="btn-icon-only rounded-circle pt-2 pl-1"
                         // size="sm"
@@ -71,7 +71,7 @@ const InputTime = ({
                         </small>
                     </Button>
                 </Col>
-                <Col xs="5">
+                <Col xs="4">
                     <InputGroup className="my-1 py-0">
                         <Input
                         type="select"
@@ -86,8 +86,8 @@ const InputTime = ({
                         </Input>
                     </InputGroup>
                 </Col>
-                <Col xs="1" className="text-center pt-1">~</Col>
-                <Col xs="5">
+                <Col xs="2" className="text-center pt-1">~</Col>
+                <Col xs="4">
                     <InputGroup className="my-1 py-0">
                         <Input
                         type="select"

@@ -68,7 +68,10 @@ const InputOption = ({
             onChange={()=>{
               onSetLocalOptionDayOfWeek(DAYKEY[i]);
             }}
-            />{DAYTEXT[i]}
+            />
+            <small>
+              {DAYTEXT[i]}
+            </small>
           </Label>
         </FormGroup>
       );
