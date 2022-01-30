@@ -21,8 +21,8 @@ function CheckOption(props) {
   }
 
   return (
-    <div className="my-3">
-      <h5>{optionType}</h5>
+    <div className="pb-3">
+      <span>{optionType}</span>
       <FormGroup>
         {optionList}
       </FormGroup>

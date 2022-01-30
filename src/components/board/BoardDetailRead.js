@@ -25,7 +25,7 @@ const BoardDetailRead = ({
                             <ImgBox
                             item={imageItemList}/>
                             <br></br>
-                            <span className="d-block pb-4 h2 text-dark border-bottom border-gray">{shopName}</span>
+                            <span className="d-block pb-2 h4 fix_color_3 border-bottom border-gray">{shopName}</span>
 
                             <article className="py-4 text-secondary text-justify" style={{ fontSize: '0.9rem', whiteSpace: 'pre-line' }}>
                                 {context}

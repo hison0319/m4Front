@@ -7,7 +7,7 @@ import {
 import ImgCircleSmall from 'components/common/imagebox/ImgCircleSmall';
 import ImgSquredSmall from 'components/common/imagebox/ImgSquredSmall';
 import Account from 'components/account/Account';
-import Footer from "components/footers/Footer";
+import Aboutus from "components/footers/Aboutus";
 import ModalView from "components/common/modalView/ModalView";
 import { images } from "utils/images";
 
@@ -72,7 +72,7 @@ function Header() {
   />
   const AboutusModal = <ModalView
   ref={AboutusModalRef}
-  item={<Footer/>}
+  item={<Aboutus/>}
   closingModal={()=>{
       //nothing
   }}

@@ -3,7 +3,7 @@ import { FaClipboardCheck } from 'react-icons/fa';
 
 function TimeCheckedIcon() {
     const _style = {
-        fontSize: "1.3em",
+        fontSize: "1em",
     }
 
     return (

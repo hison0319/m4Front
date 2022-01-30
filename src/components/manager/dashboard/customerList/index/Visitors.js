@@ -93,9 +93,9 @@ const Visitors = ({
             toggle={() => toggleModal(addToggle)}
           >
             <div className="modal-header">
-              <h6 className="modal-title" id="modal-title-default">
-                {name}
-              </h6>
+              <small className="modal-title pt-1" id="modal-title-default">
+                {name}님은 어떤사람 인가요?
+              </small>
               <button
                 aria-label="Close"
                 className="close"
@@ -126,28 +126,25 @@ const Visitors = ({
               type="textarea"
               name="mannerComment"
               id="mannerComment"
+              rows="5"
               value={mannerComment}
               onChange={(e)=>setMannerComment(e.target.value)}/>
             </FormGroup>
             <div className="modal-footer">
-              <Button
-              color="primary"
-              type="button"
-              onClick={() => {
-              onSave()
-              toggleModal(addToggle)
-              }}>
-                저장
-              </Button>
-              <Button
-                className="ml-auto"
-                color="link"
-                data-dismiss="modal"
+              <div className="text-center btn-wrapper my-2">
+                <Button
+                className="width_100 sub_button3 color_3 border_color_1"
+                outline
                 type="button"
-                onClick={() => toggleModal(addToggle)}
-              >
-                닫기
-              </Button>
+                onClick={() => {
+                  onSave();
+                  toggleModal(addToggle);
+                }}>
+                <small className="btn-inner--text">
+                  저장하기
+                </small>
+                </Button>
+              </div>
             </div>
           </Modal>
         </td>

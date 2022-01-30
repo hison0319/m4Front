@@ -74,24 +74,23 @@ const BoardDetailContainer = ({
                     //nothing
                 }}
                 />
-                <div className="text-center btn-wrapper mt-4">
+                <div className="text-center btn-wrapper my-2">
                     <Button
-                    className="width_90"
-                    color="success"
-                    outline
+                    className="width_100 main_button color_1 back_color_4 border_color_4"
+                    // outline
                     type="button"
                     onClick={()=>{
                         modalRef.current.showAlert();
                     }}>
                     <span className="btn-inner--text">
-                    <BookingIcon/>&nbsp;&nbsp;지금 예약하기
+                    예약하러 가기
                     </span>
                     </Button>
                 </div>
+                <ReviewListContainer
+                userId={shopId}
+                reviewId={reviewId}/>
             </Container>
-            <ReviewListContainer
-            userId={shopId}
-            reviewId={reviewId}/>
         </>
     );
 }

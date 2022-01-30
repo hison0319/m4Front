@@ -16,7 +16,6 @@ import {
 } from "reactstrap";
 import {
   HeartIcon,
-  WriteCommentIcon,
 } from "components/common/icons/Index";
 import PropTypes from "prop-types";
 
@@ -63,9 +62,9 @@ const WriteReview = ({
             toggle={() => toggleModal(writeToggle)}
           >
             <div className="modal-header">
-              <h6 className="modal-title" id="modal-title-default">
+              {/* <h6 className="modal-title" id="modal-title-default">
                 {myReview.name}
-              </h6>
+              </h6> */}
               <button
                 aria-label="Close"
                 className="close"
@@ -80,12 +79,12 @@ const WriteReview = ({
             className="px-2 mt-3">
               <InputGroup>
                 <Label className="width_70">
-                  <small>&nbsp;&nbsp;&nbsp;여기에 리뷰를 작성해주세요!</small>
+                  <small>&nbsp;&nbsp;&nbsp;아래에 리뷰를 작성해주세요!</small>
                 </Label>
                 <div className="width_10 text-right pr-2">
                   <HeartIcon/>
                 </div>
-                <div className="width_20">
+                <div className="width_20 pr-3">
                   <Input
                   bsSize="sm"
                   type="select"
@@ -114,25 +113,20 @@ const WriteReview = ({
               onChange={(e) =>{setComment(e.target.value)}} />
             </FormGroup>
             <div className="modal-footer">
-              <Button
-              color="primary"
-              type="button"
-              onClick={() => {
-                toggleModal(writeToggle);
-                onSaveMyReview();
-              }}
-              >
-                저장하기
-              </Button>
-              <Button
-              className="ml-auto"
-              color="link"
-              data-dismiss="modal"
-              type="button"
-              onClick={() => toggleModal(writeToggle)}
-              >
-                닫기
-              </Button>
+              <div className="text-center btn-wrapper my-2">
+                  <Button
+                  className="width_100 sub_button3 color_3 border_color_1"
+                  outline
+                  type="button"
+                  onClick={() => {
+                    toggleModal(writeToggle);
+                    onSaveMyReview();
+                  }}>
+                  <small className="btn-inner--text">
+                    저장하기
+                  </small>
+                  </Button>
+              </div>
             </div>
           </Modal>
         </Col>

@@ -34,7 +34,7 @@ const ReviewList = ({
       />
       <Row className="my-2">
         <Col xs="6">
-          <div className="pl-3">
+          <div className="pl-2">
             <FormGroup>
               <Input
               bsSize="sm"
@@ -63,18 +63,20 @@ const ReviewList = ({
           </div>
         </Col>
       </Row>
-      {reviewList.map((item, idx)=>
-        <Review
-        key={item.reviewId+idx}
-        userId={item.userId}
-        name={item.name}
-        rating={item.rating}
-        comment={item.comment}
-        onModal={onModal}
-        />
-      )}
+        <Col>
+          {reviewList.map((item, idx)=>
+            <Review
+            key={item.reviewId+idx}
+            userId={item.userId}
+            name={item.name}
+            rating={item.rating}
+            comment={item.comment}
+            onModal={onModal}
+            />
+          )}
+        </Col>
       <Row>
-        <Col className="text-center py-3">
+        <Col className="text-center py-2">
           <div className="text-center btn-wrapper mb-2">
             <Button
             className="width_100"

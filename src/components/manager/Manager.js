@@ -39,10 +39,12 @@ const Manager = () => {
 
   useEffect(() => {
     // dashboardModalRef.current.showAlert();
+    console.log(window.outerWidth);
+    console.log(window.outerHeight);
   },[])
 
   return (
-    <section className="middle_wrapper">
+    <section className="middle_wrapper height_tight">
       <Container>
         {boardModal}
         {bookingModal}

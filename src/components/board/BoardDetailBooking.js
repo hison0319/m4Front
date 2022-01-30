@@ -94,33 +94,32 @@ const BoardDetailBooking = (props) => {
                         </div>
                         </Col>
                     </Row>
-                    <Row className="px-4">
-                        <Col xs="12">
-                            <div className="text-right">
+                    <Row className="mt-5 px-4">
+                        <Col>
+                            <div className="fix_color_3 text-right">
                                 2021-08-16 월요일 14:00 ~ 15:30
                             </div>
                         </Col>
                     </Row>
-                    <Row className="px-4">
-                        <Col xs="12">
-                            <div className="text-right">
+                    <Row className="mt-1 px-4">
+                        <Col>
+                            <div className="fix_color_3 text-right">
                                 총 요금 : 3,500 ¥
                             </div>
                         </Col>
                     </Row>
-                    <Row className="px-4">
+                    <Row className="my-4">
                         <Col>
                         <div className="text-center btn-wrapper my-2">
                             <Button
-                            className="width_100"
-                            color="success"
+                            className="width_100 main_button color_1 back_color_4 border_color_4"
                             outline
                             type="button"
                             onClick={()=>{
                                 
                             }}>
                             <span className="btn-inner--text">
-                                <BookingIcon/>&nbsp;&nbsp;제출하기
+                                예약하기
                             </span>
                             </Button>
                         </div>

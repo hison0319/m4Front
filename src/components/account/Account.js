@@ -29,7 +29,7 @@ const Account = () => {
   />
 
   return (
-    // <section className="middle_wrapper">
+    <section className="middle_wrapper height_70">
       <Container className="my-5 py-5">
         {SigninModal}
         {SignupModal}
@@ -82,7 +82,7 @@ const Account = () => {
           </Col>
         </Row>
       </Container>
-    // </section>
+    </section>
   );
 }
 

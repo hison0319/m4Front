@@ -1,5 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 import {
+  Row,
+  Col,
   InputGroup,
   InputGroupAddon,
   Input,
@@ -42,38 +44,57 @@ const SelectOption = (props) => {
   },[]);
 
   return (
-    <div className="my-3">
-      <h5>{optionType}</h5>
-      <InputGroup>
-        <Input
-        type="select"
-        name="select"
-        id="exampleSelect"
-        value={curOption}
-        onChange={(e)=>{
-          onSelectChange(e.target.value)
-        }}>
-          {optionList}
-        </Input>
-        <InputGroupAddon addonType="prepend">EA</InputGroupAddon>
-        {curOptionEa===0?
-        <Input
-        disabled
-        value=""
-        className="text-right" 
-        placeholder="개수" 
-        type="number"/>:
-        <Input  
-        value={value}
-        onChange={onChange}
-        className="text-right" 
-        placeholder="개수" 
-        min={1} 
-        max={curOptionEa} 
-        type="number"/>
-        }
-      </InputGroup>
-    </div>
+    <>
+      <Row>
+        <Col>
+          <Row className="my-2">
+            <Col>
+              <span>{optionType}</span>
+            </Col>
+          </Row>
+          <Row className="my-2">
+            <Col>
+              <Input
+              type="select"
+              name="select"
+              id="exampleSelect"
+              bsSize="sm"
+              value={curOption}
+              onChange={(e)=>{
+                onSelectChange(e.target.value)
+              }}>
+                {optionList}
+              </Input>
+            </Col>
+          </Row>
+          <Row className="my-2">
+            <Col>
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">EA</InputGroupAddon>
+                {curOptionEa===0?
+                <Input
+                disabled
+                value=""
+                bsSize="sm"
+                className="text-right" 
+                placeholder="개수" 
+                type="number"/>:
+                <Input  
+                value={value}
+                onChange={onChange}
+                className="text-right" 
+                placeholder="개수" 
+                bsSize="sm"
+                min={1} 
+                max={curOptionEa} 
+                type="number"/>
+                }
+              </InputGroup>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </>
   );
 }
 

@@ -17,6 +17,7 @@ const CalenderPick2 = (props) => {
       dateTimeInput.readOnly = true;
       dateTimeInput.style.backgroundColor = "#fff";
       dateTimeInput.style.borderBottom = "none";
+      dateTimeInput.style.textAlign = "center";
     }
   },[])
   const {localDate, onPreCal, onPickCal, onNextCal} = props;

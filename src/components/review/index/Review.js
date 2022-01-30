@@ -4,8 +4,9 @@
 내용 :  Review (뷰)
 */
 import React, { useState } from 'react';
-import { 
-    Container,
+import {
+    Row,
+    Col,
     Card,
     CardBody,
     Button,
@@ -39,46 +40,51 @@ const Review = ({
 
     return (
         <>
-            <div className="my-1 py-1">
-                <Container>
-                    <div>
-                    <Button
-                        className="btn-1"
-                        color="neutral"
-                        onClick={()=>{onModal(userId);}}>
-                        <span
-                        style={{ fontSize: '0.9rem'}}>
-                            {name}&nbsp;님
-                        </span>
-                    </Button>
-                    <span>
-                        {makeHeartArr(Number(rating)).map((icon,idx) => 
-                            <span key={idx}>{icon}</span>
-                        )}
-                    </span>
-                    </div>
-                    <Card>
-                        <CardBody className="px-1 py-1">
+            <Row className="my-1">
+                <Col>
+                    <Row>
+                        <Col>
                             <Button
-                            color="link default-link">
-                                <article
-                                className="text-secondary text-justify txt_review"
-                                style={{ fontSize: '0.9rem', whiteSpace: 'pre-line' }}
-                                onClick={function(e) {
-                                    setReadToggle(!readToggle);
-                                    if(readToggle) {
-                                        e.target.classList.add('txt_review');
-                                    } else {
-                                        e.target.classList.remove('txt_review');
-                                    }
-                                }}>
-                                {comment}
-                                </article>
+                                className="btn-1"
+                                color="neutral"
+                                onClick={()=>{onModal(userId);}}>
+                                <small>
+                                    {name}&nbsp;님
+                                </small>
                             </Button>
-                        </CardBody>
-                    </Card>
-                </Container>
-            </div>
+                            <small className="pt-1">
+                                {makeHeartArr(Number(rating)).map((icon,idx) => 
+                                    <span key={idx}>{icon}</span>
+                                    )}
+                            </small>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                        <Card>
+                            <CardBody className="px-1 py-1">
+                                    <Button
+                                    color="link default-link">
+                                        <article
+                                        className="text-secondary text-justify txt_review"
+                                        style={{ fontSize: '0.9rem', whiteSpace: 'pre-line' }}
+                                        onClick={function(e) {
+                                            setReadToggle(!readToggle);
+                                            if(readToggle) {
+                                                e.target.classList.add('txt_review');
+                                            } else {
+                                                e.target.classList.remove('txt_review');
+                                            }
+                                        }}>
+                                        {comment}
+                                        </article>
+                                    </Button>
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    </Row>
+                </Col>
+            </Row>
         </>
     );
 }

@@ -26,7 +26,7 @@ const SelectTime = (props) => {
             id={time}
             disabled
             className="width_100"
-            color="secondary"
+            color="natural"
             outline
             type="button"
             onClick={()=>{
@@ -45,8 +45,7 @@ const SelectTime = (props) => {
           <Col xs="4" key={time}>
             <Button
               id={time}
-              className="width_100"
-              color="danger"
+              className="width_100 color_4 border_color_4"
               outline
               type="button"
               onClick={()=>{
@@ -64,8 +63,7 @@ const SelectTime = (props) => {
           <Col xs="4" key={time}>
             <Button
               id={time}
-              className="width_100"
-              color="primary"
+              className="width_100 color_2 border_color_2"
               outline
               type="button"
               onClick={()=>{
@@ -88,8 +86,8 @@ const SelectTime = (props) => {
 
   return (
     <div>
-      <h5>시간</h5>
-      <Row>
+      <span>시간</span>
+      <Row className="mt-2">
         {timeList}
       </Row>
       <br></br>

@@ -22,7 +22,7 @@ const BoardManager = () => {
     <Container className="my-4">
       <div className="text-center btn-wrapper my-2">
           <Button
-          className="width_100 sub_button1 color_3 border_color_3"
+          className="width_100 sub_button2 color_2 border_color_2"
           outline
           type="button"
           onClick={()=>{setMode("O")}}>
@@ -39,7 +39,7 @@ const BoardManager = () => {
     <Container className="my-4">
       <div className="text-center btn-wrapper my-2">
           <Button
-          className="width_100 sub_button1 color_3 border_color_3"
+          className="width_100 sub_button2 color_2 border_color_2"
           outline
           type="button"
           onClick={()=>{setMode("B")}}>

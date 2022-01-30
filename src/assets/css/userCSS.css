@@ -250,13 +250,24 @@ input[type="checkbox"]:disabled:after {
     object-fit: cover;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 400px) {
     .form-control {
         font-size: 0.9em !important;
     }
-    * {
-        margin-right: -2px;
-    }
+}
+
+.height_tight {
+    max-height: 100vh !important;
+    min-height: 100vh !important;
+}
+
+.height_70 {
+    max-height: 70vh !important;
+    min-height: 70vh !important;
+}
+
+.container {
+    max-width: 600px;
 }
 
 .topBtn {
@@ -377,7 +388,7 @@ button {
 .color_1:hover,
 .color_1:active,
 .color_1:focus {
-    color: #333;
+    color: #fafafa;
 }
 .color_2:hover,
 .color_2:active,
@@ -397,26 +408,54 @@ button {
 .border_color_1:active,
 .border_color_1:hover,
 .border_color_1:focus {
-    background-color: #fafafa;
-    border: none;
+    background-color: #fff;
+    border-color: #fff;
 }
 .border_color_2:active,
 .border_color_2:hover,
 .border_color_2:focus {
     background-color: #a2d5fe;
-    border: none;
+    border-color: #a2d5fe;
 }
 .border_color_3:active,
 .border_color_3:hover,
 .border_color_3:focus {
     background-color: #07689f;
-    border: none;
+    border-color: #07689f;
 }
 .border_color_4:active,
 .border_color_4:hover,
 .border_color_4:focus {
     background-color: #ff7e67;
-    border: none;
+    border-color: #ff7e67;
+}
+.back_color_1:active,
+.back_color_1:hover,
+.back_color_1:focus {
+    background-color: #999 !important;
+    border-color: #fff !important;
+    color: #fff !important;
+}
+.back_color_2:active,
+.back_color_2:hover,
+.back_color_2:focus {
+    background-color: #fff !important;
+    border-color: #a2d5fe !important;
+    color: #a2d5fe !important;
+}
+.back_color_3:active,
+.back_color_3:hover,
+.back_color_3:focus {
+    background-color: #fff !important;
+    border-color: #07689f !important;
+    color: #07689f !important;
+}
+.back_color_4:active,
+.back_color_4:hover,
+.back_color_4:focus {
+    background-color: #fff !important;
+    border-color: #ff7e67 !important;
+    color: #ff7e67 !important;
 }
 /* .color_2:hover {
     color: #a2d5fe;
