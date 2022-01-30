@@ -48,7 +48,7 @@ const ReadProfile = ({
                         <br></br>
                         <Link to={link} target="_blank" className="default-link">
                           <div className="text-center my-2 basic_color_3">
-                            <h5 className="my-2 fix_color_3">안녕하세요. 우리는 {name}입니다.</h5>
+                            <h5 className="my-2 fix_color_3 font-weight-light">안녕하세요. 우리는 {name}입니다.</h5>
                           </div>
                           <article className="my-3 px-3 basic_color_3" style={{ fontSize: '0.9rem', whiteSpace: 'pre-line' }}>
                           {introduce?introduce:"아직 자기소개가 없습니다."}</article>

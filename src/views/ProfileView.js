@@ -15,8 +15,8 @@ function ProfileView() {
 
     return (
         <>
-            <Header/>
             {inProgress && <SpinnerGrow/>}
+            <Header/>
             {sessionInfo === "BUSINESS_USER"?
             <BusinessProfileContainer
             userId={"test001"}/> :

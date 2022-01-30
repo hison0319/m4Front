@@ -8,8 +8,8 @@ function QrcodeView() {
     const {inProgress} = useContext(ProgressContext);
     return (
         <>
-            <Header/>
             {inProgress && <SpinnerGrow/>}
+            <Header/>
             <NavBottom selected={3}/>
         </>
     )

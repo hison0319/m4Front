@@ -37,7 +37,7 @@ const CalenderEach = (props) => {
       className="height_20">
         <small>
           {bookings>0 &&
-            <Badge style={{margin:0,paddding:0}} className="back_color_2">
+            <Badge style={{margin:0,paddding:0}} className="fix_back_color_2">
               {bookings}
             </Badge>
           }

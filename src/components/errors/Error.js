@@ -17,9 +17,9 @@ const Error = ({
 }) => {
   return (
     <>
-      <footer className="footer py-5 px-3">
+      <section className="middle_wrapper height_tight">
       <br></br>
-        <Container>
+        <Container className="px-5">
           <Row className=" row-grid align-items-center mb-5">
             <Col lg="6" className="text-center">
               <h5 className=" mb-0 font-weight-light text-center">
@@ -70,7 +70,7 @@ const Error = ({
             </Col>
           </Row>
         </Container>
-      </footer>
+      </section>
     </>
   );
 }

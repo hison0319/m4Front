@@ -48,9 +48,9 @@ const Review = ({
                                 className="btn-1"
                                 color="neutral"
                                 onClick={()=>{onModal(userId);}}>
-                                <small>
-                                    {name}&nbsp;님
-                                </small>
+                                <span className='font-weight-light'>
+                                    {name}&nbsp;님의 댓글
+                                </span>
                             </Button>
                             <small className="pt-1">
                                 {makeHeartArr(Number(rating)).map((icon,idx) => 

@@ -33,7 +33,7 @@ const AlertConfirmModal = forwardRef((props, ref) => {
           <div>
             <WarningIcon/>
           </div>
-          <Button
+          {/* <Button
           aria-label="Close"
           className="close"
           data-dismiss="modal"
@@ -42,7 +42,7 @@ const AlertConfirmModal = forwardRef((props, ref) => {
             toggleModal(alertToggle);
             }}>
             <span aria-hidden={true}>×</span>
-          </Button>
+          </Button> */}
         </div>
         <span className="pl-3 py-4 text-secondary">
           {props.comment}

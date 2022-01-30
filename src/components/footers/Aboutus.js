@@ -15,7 +15,7 @@ function Aboutus(){
   return (
     <>
       <section className="middle_wrapper height_70">
-        <Container className="py-3">
+        <Container className="py-3 px-5">
           <Row className=" row-grid align-items-center">
             <Col lg="6" className="text-center">
               <h5 className=" mb-0 font-weight-light text-center">

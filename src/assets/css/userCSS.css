@@ -349,6 +349,18 @@ button {
 .fix_color_4 {
     color: #ff7e67;
 }
+.fix_back_color_1 {
+    background-color: #fafafa !important;
+}
+.fix_back_color_2 {
+    background-color: #a2d5fe !important;
+}
+.fix_back_color_3 {
+    background-color: #07689f !important;
+}
+.fix_back_color_4 {
+    background-color: #ff7e67 !important;
+}
 .color_1 {
     color: #fafafa;
 }

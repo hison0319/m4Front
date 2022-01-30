@@ -24,10 +24,10 @@ const Alarm = ({
         }}
         tag="a"
         >
-        <div className="text-dark">
+        <div className="text-dark font-weight-light">
             {name}{titleComment}
         </div>
-        <div className="text-dark">
+        <div className="basic_color_6">
             <small>{context}</small>
         </div>
         <div className="text-secondary text-right">
