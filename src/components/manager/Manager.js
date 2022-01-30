@@ -44,7 +44,7 @@ const Manager = () => {
   },[])
 
   return (
-    <section className="middle_wrapper height_70">
+    <section className="middle_wrapper height_tight">
       <Container>
         {boardModal}
         {bookingModal}

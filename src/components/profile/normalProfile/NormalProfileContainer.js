@@ -71,23 +71,6 @@ const NormalProfileContainer = ({
         setMode(mode);
     }
 
-    let hasTouch = false;
-
-    useEffect(()=>{
-        window.addEventListener("touchstart", function(e) {
-            if(hasTouch) {
-                console.log(e);
-                e.preventDefault();
-            }
-            hasTouch = true;
-            setTimeout(function() {
-                if(hasTouch) {
-                    hasTouch = false;
-                }
-            }, 500);
-        }, {passive: false})
-    },[])
-
     return (
         <>
             <NormalProfile
