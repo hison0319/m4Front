@@ -17,9 +17,9 @@ const CalenderEach = (props) => {
 
   let dayStyle = "";
   if(dayType === -1) {
-    dayStyle = "text-secondary";
+    dayStyle = "basic_color_6";
   } else if(dayType === 1) {
-    dayStyle = "text-primary font-weight-bold";
+    dayStyle = "fix_color_3 font-weight-bold input_09em";
   }
 
   return (
@@ -37,7 +37,7 @@ const CalenderEach = (props) => {
       className="height_20">
         <small>
           {bookings>0 &&
-            <Badge style={{margin:0,paddding:0}} color="info">
+            <Badge style={{margin:0,paddding:0}} className="back_color_2">
               {bookings}
             </Badge>
           }

@@ -67,16 +67,16 @@ const ChartsContainer = React.memo(() => {
         labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         label: "한주간 고생했어!",
         data: [65, 59, 80, 81, 56, 55, 93],
-        backgroundColor: 'rgba(75,192,192,0.4)',
-        borderColor: 'rgba(75,192,192,1)',
+        backgroundColor: 'rgba(7,104,159,0.4)',
+        borderColor: 'rgba(7,104,159,1)',
         total: 643,
     }
     const noshowChartForTest = {
         labels: ['30일전','27일전','24일전','21일전','18일전','15일전','12일전','9일전','6일전','3일전'],
         label: "한달간 고생했어!",
         data: [6, 4, 9, 3, 4, 2, 0, 1, 2, 0],
-        backgroundColor: 'rgba(252,121,161,0.4)',
-        borderColor: 'rgba(252,121,161,1)',
+        backgroundColor: 'rgba(252,126,103,0.4)',
+        borderColor: 'rgba(252,126,103,1)',
         total: 30,
     }
 

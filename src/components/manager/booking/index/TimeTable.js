@@ -23,10 +23,10 @@ const TimeTable = ({
       <Col>
         <Row>
           <Col xs="3">
-            <h6>시간</h6>
+            <span>시간</span>
           </Col>
           <Col xs="9">
-            <h6>내역</h6>
+            <span>내역</span>
           </Col>
         </Row>
         <hr></hr>

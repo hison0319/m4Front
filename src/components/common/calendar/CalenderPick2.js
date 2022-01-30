@@ -12,9 +12,12 @@ import {
 
 const CalenderPick2 = (props) => {
   useEffect(() => {
-    const dateTimeInput = document.getElementById("calenderPick2").getElementsByClassName("form-control")[0]
-    dateTimeInput.readOnly = true;
-    dateTimeInput.style.backgroundColor = "#fff";
+    if(document.getElementById("calenderPick2")){
+      const dateTimeInput = document.getElementById("calenderPick2").getElementsByClassName("form-control")[0]
+      dateTimeInput.readOnly = true;
+      dateTimeInput.style.backgroundColor = "#fff";
+      dateTimeInput.style.borderBottom = "none";
+    }
   },[])
   const {localDate, onPreCal, onPickCal, onNextCal} = props;
 
@@ -32,6 +35,7 @@ const CalenderPick2 = (props) => {
           <Pagination>
             <PaginationItem>
               <PaginationLink
+              className="color_2 border_color_2"
               previous
               onClick={
                 onPreCal
@@ -59,6 +63,7 @@ const CalenderPick2 = (props) => {
             <PaginationItem>
               <PaginationLink
               next
+              className="color_2 border_color_2"
               onClick={onNextCal}/>
             </PaginationItem>
           </Pagination>

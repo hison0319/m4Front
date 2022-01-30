@@ -38,7 +38,7 @@ const Manager = () => {
   />
 
   useEffect(() => {
-    boardModalRef.current.showAlert();
+    // dashboardModalRef.current.showAlert();
   },[])
 
   return (

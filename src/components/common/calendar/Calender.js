@@ -2,7 +2,8 @@ import React, { useRef, useEffect } from "react";
 import {
   Table,
   Row,
-  Col
+  Col,
+  Container
 } from "reactstrap";
 import CalenderEach from "./CalenderEach";
 import moment from "moment";
@@ -184,32 +185,32 @@ const Calender = React.memo((props) => {
   return (
     <>
       <Row>
-      <Col xs="12">
+      <Col>
       <Table
       borderless
       id={calendarId}>
         <thead>
           <tr>
-            <th className="text-danger">
-            <small className="font_bold">Sun</small>
+            <th>
+            <small className="fix_color_4">Sun</small>
             </th>
             <th>
-            <small className="font_bold">Mon</small>
+            <small>Mon</small>
             </th>
             <th>
-            <small className="font_bold">Tue</small>
+            <small>Tue</small>
             </th>
             <th>
-            <small className="font_bold">Wed</small>
+            <small>Wed</small>
             </th>
             <th>
-            <small className="font_bold">Thu</small>
+            <small>Thu</small>
             </th>
             <th>
-            <small className="font_bold">Fri</small>
+            <small>Fri</small>
             </th>
-            <th className="text-danger">
-            <small className="font_bold">Sat</small>
+            <th>
+            <small className="fix_color_4">Sat</small>
             </th>
           </tr>
         </thead>

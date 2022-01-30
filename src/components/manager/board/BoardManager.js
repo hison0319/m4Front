@@ -16,7 +16,7 @@ const BoardManager = () => {
   useEffect(() => {
     // console.log('BoardManager is rendering!')
   })
-  const [mode, setMode] = useState("O");
+  const [mode, setMode] = useState("B");
 
   const modeB = 
     <Container className="my-4">

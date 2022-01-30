@@ -50,8 +50,8 @@ const VisitorList = ({
       <tfoot>
         <tr>
           <td
-          className="pt-4"
-          colSpan="4">
+          className="pt-4 side_tight"
+          colSpan="3">
             <PaginationFive
             curPage = {curPage}
             totalPage = {totalPage}

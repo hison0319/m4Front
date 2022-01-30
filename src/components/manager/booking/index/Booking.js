@@ -46,7 +46,7 @@ const Booking = ({
         <Col xs="3">
         </Col>
         <Col xs="9">
-          <Card className="shadow">
+          <Card>
             <CardBody className="px-3 py-3">
               <article
               className="text-secondary text-justify"

@@ -28,7 +28,7 @@ const SelectPeriod = ({
         </Col>
       </Row>
       <Row>
-        <Col xs="5">
+        <Col xs="4">
           <FormGroup>
             <Input
             type="select"
@@ -46,7 +46,7 @@ const SelectPeriod = ({
         </Col>
         <Col
         className="text-right pt-2"
-        xs="7">
+        xs="8">
           <small>
             {date1} ~ {date2}
           </small>

@@ -89,7 +89,7 @@ const ReadProfile = ({
                                   // disabled={true}
                                   >
                                   <span className="btn-inner--icon mr-1">
-                                      도타캰
+                                      노쇼
                                   </span>
                                   <span>
                                       2

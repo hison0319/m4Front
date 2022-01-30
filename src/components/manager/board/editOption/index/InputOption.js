@@ -88,7 +88,7 @@ const InputOption = ({
             </Col>
           </Row>
           <Row>
-            <Col xs="1" className="text-center btn-wrapper">
+            <Col xs="2" className="text-center btn-wrapper">
               <Button
                 className="btn-icon-only rounded-circle pt-1 pl-1"
                 color="neutral"
@@ -101,7 +101,7 @@ const InputOption = ({
                 </small>
               </Button>
             </Col>
-            <Col xs="11">
+            <Col xs="10">
               <Input
               type="text"
               id={optionId+"optionName"}

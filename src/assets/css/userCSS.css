@@ -7,6 +7,13 @@
     display: inline-block !important;
 }
 
+.side_tight {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 .width_100 {
     width: 100% !important;
 }
@@ -130,7 +137,7 @@ input,
     border-top: none !important;
     border-left: none !important;
     border-right: none !important;
-    border-bottom: #ccc solid 0.2px !important;
+    border-bottom: #ccc solid 0.2px ;
     border-radius: 0%;
 }
 
@@ -375,17 +382,17 @@ button {
 .color_2:hover,
 .color_2:active,
 .color_2:focus {
-    color: #fafafa;
+    color: #fafafa !important;
 }
 .color_3:hover,
 .color_3:active,
 .color_3:focus {
-    color: #fafafa;
+    color: #fafafa !important;
 }
 .color_4:hover,
 .color_4:active,
 .color_4:focus {
-    color: #fafafa;
+    color: #fafafa !important;
 }
 .border_color_1:active,
 .border_color_1:hover,
@@ -449,6 +456,50 @@ button {
     text-align: center;
     margin-top: 8px;
     line-height: 12px;
+}
+
+/* td, th */
+.table td, .table th {
+    padding: 0.5rem;
+    vertical-align: top;
+    text-align: center;
+}
+
+/* nav link */
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #a2d5fe;
+    font-size: 0.9em !important;
+}
+
+.nav-pills .nav-link {
+    color: #a2d5fe;
+    font-size: 0.9em !important;
+}
+
+/* pagenation */
+.page-item {
+    color: #a2d5fe !important;
+    font-size: 0.7em !important;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    /* padding: 0.5rem 0.75rem; */
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #a2d5fe;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.page-link:hover {
+    z-index: 2;
+    color: #a2d5fe;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
 }
 
 /* 페이드 인 */

@@ -31,15 +31,15 @@ const Charts = ({
     <>
       <Row>
           <Col>
-              <div className="h5 mt-5 mb-2">
+              <div className="mt-4">
               예약 내역
               </div>
-              <div className="my-3">
+              <div className="my-2">
               <LineChart
               chartData={bookingChart}
               />
               </div>
-              <div className="my-2">
+              <div className="my-1">
               <SelectPeriod
               selectP = {rsvSelectP}
               sPOnChange = {rsvSPOnChange}
@@ -53,10 +53,10 @@ const Charts = ({
 
       <Row>
           <Col>
-              <div className="h5 mt-5 mb-2">
-              도타캰 내역
+              <div className="mt-4">
+              노쇼 내역
               </div>
-              <div className="my-3">
+              <div className="my-2">
               <LineChart
               chartData={noshowChart}
               />
