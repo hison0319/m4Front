@@ -36,6 +36,11 @@ const Manager = () => {
       //nothing
   }}
   />
+  useEffect(()=>{
+    //forDevelop
+    console.log("Manager.js rendered!");
+    window.location.href = '/error/100';
+  }, []);
 
   return (
     <section className="middle_wrapper height_tight">

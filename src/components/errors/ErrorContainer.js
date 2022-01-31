@@ -3,47 +3,35 @@ import Error from "./Error"
 import MailCertify from "./MailCertify";
 import PropTypes from "prop-types";
 
-const ErrorContainer = ({errorId}) =>{
+const ErrorContainer = ({errorCode}) =>{
 
-  let errorComment;
-  let returnUrl;
-  let error;
-  let page;
+  let viewPage;
 
-  if(errorId === '100') {
-    error = "BASE";
-    errorComment = "죄송합니다. 프로그램 오류입니다. 개발자에게 문의해주세요.";
-    returnUrl = "/";
-  } else if(errorId === '200') {
-    error = "BASE";
-    errorComment = "죄송합니다. 사용자 정보가 없습니다. 재 로그인 후 이용해주세요.";
-    returnUrl = "";
-  } else if(errorId === '201') {
-    error = "MAIL";
-  } else {
-    error = "BASE";
-    errorComment = "죄송합니다. 프로그램 오류입니다. 개발자에게 문의해주세요.";
-    returnUrl = "/";
-  }
-
-  if(error === "BASE") {
-    page = <Error
-    errorComment={errorComment}
-    returnUrl={returnUrl}
+  if(errorCode === '100') {
+    viewPage = <Error
+    errorComment="죄송합니다. 사용자 정보가 없습니다. 재 로그인 후 이용해주세요."
+    redirectUrl="/"
+    redirectPage="로그인 페이지로 이동합니다."
     />;
-  } else if(error === "MAIL") {
-    page = <MailCertify/>;
+  } else if(errorCode === '101') {
+    viewPage = <MailCertify/>;
+  } else {
+    viewPage = <Error
+    errorComment="죄송합니다. 프로그램 오류입니다. 개발자에게 문의해주세요."
+    redirectUrl="/"
+    redirectPage="로그인 페이지로 이동합니다."
+    />;
   }
 
   return (
     <>
-      {page}
+      {viewPage}
     </>
   );
 }
 
 ErrorContainer.propTypes = {
-  errorId: PropTypes.string.isRequired,
+  errorCode: PropTypes.string.isRequired,
 };
 
 export default ErrorContainer;

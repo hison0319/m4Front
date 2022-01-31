@@ -633,3 +633,12 @@ button {
         opacity: 0;
     }
 }
+
+/* 테스트 임시 */
+.errorImg {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    background: #fff no-repeat center url('../img/error.png');
+    background-size: cover;
+}

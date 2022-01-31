@@ -26,7 +26,7 @@ const ImgBox = ({items}) => {
         <Container>
           <Row className="justify-content-between align-items-center">
             <Col className="mr-lg-auto ml-lg-auto" lg="9">
-              <div className="rounded shadow-lg overflow-hidden transform-perspective-right">
+              <div className="rounded overflow-hidden transform-perspective-right">
                 <UncontrolledCarousel items={localItems} />
               </div>
             </Col>

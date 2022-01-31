@@ -1,71 +1,55 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
-  Button,
   Container,
   Row,
   Col,
 } from "reactstrap";
-import {
-  BackReadIcon,
-  SNSInstagramIcon,
-} from "components/common/icons/Index";
 import PropTypes from "prop-types";
 
 const Error = ({
   errorComment,
-  returnUrl,
+  redirectUrl,
+  redirectPage,
 }) => {
+  let second;
+  let s = 0;
+
+  useEffect(()=>{
+    if(document.getElementById("second")) {
+      second = document.getElementById("second")
+      second.innerText = "5";
+      s = 5;
+      let inv = setInterval(() => {
+        s = s - 1;
+        if(s <= 0) {
+          clearInterval(inv);
+          window.location.href = redirectUrl;
+        }
+        else {
+          second.innerText = s;
+        }
+      }, 1000);
+    }
+  },[]);
+
   return (
     <>
       <section className="middle_wrapper height_tight">
-      <br></br>
-        <Container className="px-5">
-          <Row className=" row-grid align-items-center mb-5">
-            <Col lg="6" className="text-center">
-              <h5 className=" mb-0 font-weight-light text-center">
-                Project Name
-              </h5>
-              <br></br>
-              <h6 className=" mb-3 font-weight-light text-center">
+        <Container className="my-5 py-5 px-5">
+          <div className="font-weight-light text-center">
+            <span className="errorImg"/>
+          </div>
+          <Row className="mb-5 pb-5">
+            <Col>
+              <h5 className="font-weight-light text-center">
                 {errorComment}
-                <br></br><br></br>
-              </h6>
-              {returnUrl &&
-              <Button
-              className="width_90"
-              color="secondary"
-              outline
-              type="button"
-              onClick={()=>{
-                window.location.href = returnUrl;
-              }}>
-                <span className="btn-inner--text">
-                    <BackReadIcon/>&nbsp;&nbsp;돌아가기
-                </span>
-              </Button>}
-              <br></br><br></br>
-              <small>hison0319@gmail.com</small>
-            </Col>
-            <Col className="text-center btn-wrapper" lg="6">
-              <Button
-                className="btn-icon-only rounded-circle ml-1"
-                color="neutral"
-                href="https://instagram.com/his0319"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="btn-inner--icon">
-                  <SNSInstagramIcon/>
-                </span>
-              </Button>
+              </h5>
             </Col>
           </Row>
-          <hr />
-          <Row className=" align-items-center justify-content-md-between">
-            <Col md="6">
-              <div className=" copyright">
-                © {new Date().getFullYear()}{" "}
-                Creative hani &amp; Gwanho
+          <Row className="my-3">
+            <Col>
+              <div className="font-weight-light text-center">
+                <span id="second"></span>초 후 <br></br>{redirectPage}
               </div>
             </Col>
           </Row>
@@ -77,7 +61,8 @@ const Error = ({
 
 Error.propTypes = {
   errorComment: PropTypes.string.isRequired,
-  returnUrl: PropTypes.string.isRequired,
+  redirectUrl: PropTypes.string,
+  redirectPage: PropTypes.string,
 };
 
 export default Error;

@@ -32,7 +32,7 @@ const MailCertify = ({
           </Col>
         </Row>
         <Row className="my-3">
-          <Col className="my-2">
+          <Col>
             <div className="text-center btn-wrapper">
                 <Button
                 className="sub_button1 width_100 color_2 border_color_2"
@@ -40,38 +40,14 @@ const MailCertify = ({
                 onClick={()=>{
                 }}>
                 <span className="btn-inner--text">
-                  인증 코드 메일 발송
+                  인증 메일 발송
                 </span>
                 </Button>
             </div>
           </Col>
         </Row>
         <Row className="my-3">
-          <Col className="my-2">
-            <Row>
-                <Col>
-                    <small>메일에 받은 코드를 입력해주세요.</small>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                  <Input
-                  type="text"
-                  name="varName"
-                  id="varName"
-                  placeholder=""
-                  maxLength={10}
-                  // value={varName||''}
-                  onChange={(e)=>{
-                    // onChangeText(e);
-                  }}
-                  />
-                </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row className="my-3">
-          <Col className="my-2">
+          <Col>
             <div className="text-center btn-wrapper">
                 <Button
                 className="sub_button1 width_100 color_4 border_color_4"
@@ -80,7 +56,7 @@ const MailCertify = ({
                   alertRef.current.showAlert();
                 }}>
                 <span className="btn-inner--text">
-                  인증하기
+                  메일에서 인증을 했습니다.
                 </span>
                 </Button>
             </div>

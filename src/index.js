@@ -65,7 +65,7 @@ ReactDOM.render(
             render={props => <IconSample {...props} />}
           />
           <Route
-            path="/error/:errorId"
+            path="/error/:errorCode"
             exact
             render={props => <ErrorView {...props} />}
           />

@@ -9,14 +9,14 @@ function ErrorView(props) {
     const {inProgress} = useContext(ProgressContext);
 
     const { params } = props.match;
-    const errorId = params.errorId;
+    const errorCode = params.errorCode;
     // console.log(errorId);
     
     return (
         <>
             {inProgress && <SpinnerGrow/>}
             <Header/>
-            <ErrorContainer errorId={errorId}/>
+            <ErrorContainer errorCode={errorCode}/>
             <NavBottom/>
         </>
     )
