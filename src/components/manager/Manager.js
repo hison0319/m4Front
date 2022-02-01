@@ -39,7 +39,7 @@ const Manager = () => {
   useEffect(()=>{
     //forDevelop
     console.log("Manager.js rendered!");
-    window.location.href = '/error/100';
+    // window.location.href = '/error/200';
   }, []);
 
   return (

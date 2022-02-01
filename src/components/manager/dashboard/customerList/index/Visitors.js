@@ -87,68 +87,68 @@ const Visitors = ({
               {btnIcon}
             </span>
           </Button>
-          <Modal
-            className="modal-dialog-centered"
-            isOpen={addToggle}
-            toggle={() => toggleModal(addToggle)}
-          >
-            <div className="modal-header">
-              <small className="modal-title pt-1" id="modal-title-default">
-                {name}님은 어떤사람 인가요?
-              </small>
-              <button
-                aria-label="Close"
-                className="close"
-                data-dismiss="modal"
-                type="button"
-                onClick={() => toggleModal(addToggle)}
-              >
-                <span aria-hidden={true}>×</span>
-              </button>
-            </div>
-            <FormGroup
-            className="px-3 pt-3">
-              <Label for="exampleText"><small>매너 기록(본 내용은 고객에게 보이지 않습니다.)</small></Label>
-              <Input
-              bsSize="sm"
-              type="select"
-              name="mannerType"
-              id="mannerType"
-              value={mannerType}
-              onChange={(e)=>{
-                setMannerType(e.target.value);
-              }}>
-                  <option value="W">화이트</option>
-                  <option value="B">블랙</option>
-                  <option value="N">일반</option>
-              </Input>
-              <Input
-              type="textarea"
-              name="mannerComment"
-              id="mannerComment"
-              rows="5"
-              value={mannerComment}
-              onChange={(e)=>setMannerComment(e.target.value)}/>
-            </FormGroup>
-            <div className="modal-footer">
-              <div className="text-center btn-wrapper my-2">
-                <Button
-                className="width_100 sub_button3 color_3 border_color_1"
-                outline
-                type="button"
-                onClick={() => {
-                  onSave();
-                  toggleModal(addToggle);
-                }}>
-                <small className="btn-inner--text">
-                  저장하기
-                </small>
-                </Button>
-              </div>
-            </div>
-          </Modal>
         </td>
       </tr>
+      <Modal
+        className="modal-dialog-centered"
+        isOpen={addToggle}
+        toggle={() => toggleModal(addToggle)}
+      >
+        <div className="modal-header">
+          <small className="modal-title pt-1" id="modal-title-default">
+            {name}님은 어떤사람 인가요?
+          </small>
+          <button
+            aria-label="Close"
+            className="close"
+            data-dismiss="modal"
+            type="button"
+            onClick={() => toggleModal(addToggle)}
+          >
+            <span aria-hidden={true}>×</span>
+          </button>
+        </div>
+        <FormGroup
+        className="px-3 pt-3">
+          <Label for="exampleText"><small>매너 기록(본 내용은 고객에게 보이지 않습니다.)</small></Label>
+          <Input
+          bsSize="sm"
+          type="select"
+          name="mannerType"
+          id="mannerType"
+          value={mannerType}
+          onChange={(e)=>{
+            setMannerType(e.target.value);
+          }}>
+              <option value="W">화이트</option>
+              <option value="B">블랙</option>
+              <option value="N">일반</option>
+          </Input>
+          <Input
+          type="textarea"
+          name="mannerComment"
+          id="mannerComment"
+          rows="5"
+          value={mannerComment}
+          onChange={(e)=>setMannerComment(e.target.value)}/>
+        </FormGroup>
+        <div className="modal-footer">
+          <div className="text-center btn-wrapper my-2">
+            <Button
+            className="width_100 sub_button3 color_3 border_color_1"
+            outline
+            type="button"
+            onClick={() => {
+              onSave();
+              toggleModal(addToggle);
+            }}>
+            <small className="btn-inner--text">
+              저장하기
+            </small>
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </>
   );
 }

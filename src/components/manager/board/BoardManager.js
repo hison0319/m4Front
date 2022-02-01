@@ -13,9 +13,6 @@ import BoardModifyContainer from "./BoardModifyContainer";
 import OptionModifyContainer from "./OptionModifyContainer";
 
 const BoardManager = () => {
-  useEffect(() => {
-    // console.log('BoardManager is rendering!')
-  })
   const [mode, setMode] = useState("B");
 
   const modeB = 
@@ -51,6 +48,11 @@ const BoardManager = () => {
       <OptionModifyContainer/>
     </Container>
     ;
+
+  useEffect(()=>{
+    //for develop
+    console.log("BoardManager.js rendered!");
+  }, []);
 
   return (
     <>

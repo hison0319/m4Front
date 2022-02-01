@@ -51,7 +51,7 @@ const NormalProfileContainer = ({
     // const introduce = user?user.introduce:"안녕하세요. 손한이입니다. 잘부탁드립니다.";
 
     //forTest start
-    console.log(userId);
+    console.log('userId : ',userId);
     const name = "손한이";
     const zipcode = "12345";
     const city = "경기도 하남시";
@@ -70,6 +70,11 @@ const NormalProfileContainer = ({
         mode === "M" ? mode = "M" : mode = "R";
         setMode(mode);
     }
+
+    useEffect(()=>{
+        //for develop
+        console.log("NormalProfileContainer.js rendered!");
+      }, []);
 
     return (
         <>

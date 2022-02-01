@@ -4,7 +4,7 @@
 내용 :  shop manager의 board 수정 (기능)
        API -  - get, put
 */
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import BoardModify from './BoardModify';
 import { useTextInput } from 'hooks';
 import axios from 'axios';
@@ -19,7 +19,6 @@ async function getShopBoard(id) {
 }
 
 async function putShopBoard(board, id) {
-  // console.log('### putShopBoard boardInfo : ',boardInfo);
   const response = await axios.put(
     '/api/v1/shopBoard/'+id
     ,board
@@ -29,7 +28,6 @@ async function putShopBoard(board, id) {
 
 // image는 인풋에 삽입 시 별도 api전송
 async function putShopImages(Images, id) {
-  // console.log('### putShopBoard Images : ',Images);
   const response = await axios.put(
     '/api/v1/shopBoard/'+id
     ,Images
@@ -84,6 +82,11 @@ const BoardModifyContainer = () => {
     setImgFileList(newImgFileList);
     setImageItemList(newImageItemList);
   }
+
+  useEffect(()=>{
+    //for develop
+    console.log("BoardModifyContainer.js rendered!");
+  }, []);
   
   return (
     <>

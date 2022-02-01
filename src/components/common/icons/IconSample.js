@@ -29,6 +29,8 @@ import {
     WhiteUserIcon,
     WriteCommentIcon,
     QrIcon,
+    PasswordHidden,
+    PasswordText,
 } from "./Index"
 import {
     Container,
@@ -367,6 +369,28 @@ const IconSample = () => {
                 </Col>
                 <Col>
                     QrIcon
+                </Col>
+            </Row>
+            <Row className="my-2">
+                <Col>
+                    30. 
+                </Col>
+                <Col>
+                    <PasswordHidden/>
+                </Col>
+                <Col>
+                    PasswordHidden
+                </Col>
+            </Row>
+            <Row className="my-2">
+                <Col>
+                    31. 
+                </Col>
+                <Col>
+                    <PasswordText/>
+                </Col>
+                <Col>
+                    PasswordText
                 </Col>
             </Row>
         </Container>

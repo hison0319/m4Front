@@ -26,10 +26,6 @@ async function getNoshowChart(id, period) {
 }
 
 const ChartsContainer = React.memo(() => {
-    useEffect(() => {
-        // console.log('DashboardContainer is rendering!')
-    })
-
     // common function
     const setPeriod = (selectPeriod) => {
         let period = 1;
@@ -111,7 +107,10 @@ const ChartsContainer = React.memo(() => {
         }
     },[loadingN, errorN, spinner, noshowChart]);
 
-    
+    useEffect(()=>{
+        //forDevelop
+        console.log("ChartsContainer.js rendered!");
+    },[])
 
     return (
         <>

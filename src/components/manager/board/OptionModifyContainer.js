@@ -8,7 +8,6 @@ import React, { useState, useEffect, useContext, useRef } from 'react';
 import OptionModify from './OptionModify';
 import AlertModal from 'components/common/alert/AlertModal';
 import { 
-  useTextInput,
   useNumberInput,
 } from 'hooks';
 import axios from 'axios';
@@ -28,7 +27,6 @@ async function getShopOption(id) {
 }
 
 async function putShopOption(board, id) {
-  // console.log('### putShopBoard boardInfo : ',boardInfo);
   const response = await axios.put(
     '/api/v1/shopBoard/'+id
     ,board
@@ -175,7 +173,6 @@ const OptionModifyContainer = () => {
   };
   // 옵션 삭제.
   const removeOption = (id) => {
-    console.log('removeOption =>',id);
     setOptionList(optionList.filter(option => option.optionCategoryId !== id));
   }
   // 옵션 추가.
@@ -243,6 +240,11 @@ const OptionModifyContainer = () => {
       //nothing
     }}
   />
+
+  useEffect(()=>{
+    //for develop
+    console.log("OptionModifyContainer.js rendered!");
+  }, []);
 
   return (
     <>

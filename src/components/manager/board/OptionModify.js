@@ -3,7 +3,7 @@
 작성일 : 2021.11.13
 내용 :  shop manager의 수정(뷰)
 */
-import React, { useEffect } from 'react';
+import React from 'react';
 import EditDay from "./editDay/EditDay";
 import EditOption from "./editOption/EditOption";
 import {
@@ -43,10 +43,6 @@ const OptionModify = ({
   addInput,
   optionAlert
 }) => {
-  useEffect(() => {
-    // console.log('!!!Editor is rendering!')
-  })
-
   return (
     <>
       <Row>

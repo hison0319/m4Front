@@ -20,9 +20,6 @@ import {
 import PropTypes from "prop-types";
 
 async function putUser(user, userId, imgFile) {
-  // console.log('### putUser userId : ',userId);
-  // console.log('### putUser user : ',user);
-  // console.log('### putShop imgFile : ',imgFile);
   const response = await axios.put(
     '/api/v1/user/'+userId
     ,user

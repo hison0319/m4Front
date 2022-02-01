@@ -27,6 +27,8 @@ import WarningIcon from "./index/WarningIcon";
 import WhiteUserIcon from "./index/WhiteUserIcon";
 import WriteCommentIcon from "./index/WriteCommentIcon";
 import QrIcon from "./index/QrIcon";
+import PasswordHidden from "./index/PasswordHidden"
+import PasswordText from "./index/PasswordText"
 
 export {
     AddOptionIcon,
@@ -58,4 +60,6 @@ export {
     WhiteUserIcon,
     WriteCommentIcon,
     QrIcon,
+    PasswordHidden,
+    PasswordText,
 };

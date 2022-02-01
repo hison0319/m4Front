@@ -37,7 +37,6 @@ const InputDay = React.memo(({
   const [buttonAbled, setButtonAbled] = useState(false);
 
   useEffect(() => {
-    // console.log('##### InputNormalDay is rendering!');
     checkButtonAbled();
   });
 

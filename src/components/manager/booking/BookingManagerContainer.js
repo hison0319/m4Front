@@ -30,7 +30,8 @@ async function getBookings(id, date) {
 
 const BookingManagerContainer = ({propDate}) => {
     useEffect(() => {
-        // console.log('BookingManagerContainer is rendering!')
+        //for develop
+        console.log('BookingManagerContainer.js rendered!')
     })
     
     // Redux CalenderPick2 operation

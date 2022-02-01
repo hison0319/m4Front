@@ -15,7 +15,8 @@ import CustomerList from "./customerList/CustomerList";
 
 const Dashboard = React.memo(() => {
   useEffect(() => {
-    // console.log('Dashboard is rendering!')
+    //for develop
+    console.log('Dashboard.js rendered!');
   })
 
   return (

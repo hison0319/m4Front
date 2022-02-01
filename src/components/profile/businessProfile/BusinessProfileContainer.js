@@ -14,7 +14,7 @@ import { images } from "utils/images";
 
 async function getShop(shopId) {
   const response = await axios.get(
-    `/api/v1/shop/${shopId}`
+    `/shop/${shopId}`
   );
   return response.data;
 }
@@ -29,6 +29,7 @@ const BusinessProfileContainer = ({shopId}) => {
             spinner.start();
         } else {
             spinner.stop();
+            console.log(shop);
         }
         if(error) {
             // window.location.href = '/error/200';
@@ -73,6 +74,11 @@ const BusinessProfileContainer = ({shopId}) => {
         mode === "M" ? mode = "M" : mode = "R";
         setMode(mode);
     }
+
+    useEffect(()=>{
+        //for develop
+        console.log("BusinessProfileContainer.js rendered!");
+    }, []);
 
     return (
         <>

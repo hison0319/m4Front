@@ -1,12 +1,15 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 // core components
 import Board from "components/board/Board";
 
 function BoardList() {
-  useEffect( ()=> {
-    //event
-  });
+
+  useEffect(()=>{
+    //for develop
+    console.log("BoardList.js rendered!");
+  }, []);
+
   return (
     <>
       <main>

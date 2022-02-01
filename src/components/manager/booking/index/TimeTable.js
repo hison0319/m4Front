@@ -15,9 +15,6 @@ const TimeTable = ({
   dayBookings,
   onModal,
 }) => {
-  
-  console.log(dayBookings);
-
   return (
     <Row className="px-4">
       <Col>

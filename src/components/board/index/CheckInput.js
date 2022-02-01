@@ -11,7 +11,6 @@ function CheckOption(props) {
   const [value, setValue] = useState('');
   const onChange = useCallback(e => {
     if(true) { //가능한 자연수인지 체크
-      // console.log(document.getElementById("SW"+e.target.id));
       document.getElementById("SW"+e.target.id).checked = true;
     }
     setValue(e.target.value);

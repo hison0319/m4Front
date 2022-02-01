@@ -36,7 +36,7 @@ const BusinessProfile = ({
 }) => {
 
     const profile = 
-    <Container className="py-4">
+    <Container className="pt-2 mb-2 pb-5">
         <ReadProfile
         shopId={shopId}
         businessRegNumber={businessRegNumber}
@@ -55,7 +55,7 @@ const BusinessProfile = ({
         />
         <Row>
             <Col>
-                <div className="text-center btn-wrapper mt-3">
+                <div className="text-center btn-wrapper my-2">
                     <Button
                     className="width_100 sub_button2 color_2 border_color_2"
                     outline

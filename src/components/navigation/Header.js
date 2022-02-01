@@ -58,6 +58,8 @@ function Header() {
 
   useEffect(()=>{
     fadeOutHeader();
+    //forDevelop
+    console.log("Header.js rendered!");
   },[])
 
   const AccountModalRef = useRef();
@@ -65,7 +67,7 @@ function Header() {
 
   const AccountModal = <ModalView
   ref={AccountModalRef}
-  item={<Account/>}
+  item={<Account isModalOpen={true}/>}
   closingModal={()=>{
       //nothing
   }}

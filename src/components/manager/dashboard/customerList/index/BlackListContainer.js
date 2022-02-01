@@ -19,10 +19,6 @@ async function getBlack(id, pageNum) {
 }
 
 const BlackListContainer = React.memo(() => {
-    useEffect(() => {
-        // console.log('BlackListContainer is rendering!')
-    })
-
     // page nation 정의
     const [curPage, setCurPage] = useState(3);
     

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   Row,
   Col,
@@ -14,10 +14,6 @@ const SelectPeriod = ({
   date2,
   total,
 }) => {
-  useEffect(() => {
-    // console.log('SelectPeriod is rendering!')
-  })
-
   return (
     <div>
       <Row>

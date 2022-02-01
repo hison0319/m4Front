@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // reactstrap components
 import {
   Button,
@@ -12,6 +12,12 @@ import {
 } from "components/common/icons/Index";
 
 function Aboutus(){
+
+  useEffect(()=>{
+    //for develop
+    console.log("Aboutus.js rendered!");
+  }, []);
+
   return (
     <>
       <section className="middle_wrapper height_70">

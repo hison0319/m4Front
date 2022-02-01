@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import moment from 'moment';
 
 import SpecialDay from './SpecialDay';
@@ -11,10 +11,6 @@ import {
 } from "reactstrap";
 
 const InputGroupSpDay = React.memo(() => {
-  useEffect(() => {
-    // console.log('InputNormalDay is rendering!')
-  });
-
   const alertRef = useRef();
   const idNum = useRef(0);
   const [dayList] = useState([moment().format('YYYY-MM-DD')]);
@@ -22,9 +18,6 @@ const InputGroupSpDay = React.memo(() => {
   
   // const [specialDayList, setSpecialDayList] = useState([{key:DAYID+idNum.current, id:DAYID+idNum.current, date:dayList[idNum.current]}]);
   const [specialDayList, setSpecialDayList] = useState([]);
-
-  console.log('dayList',dayList);
-  console.log('specialDayList',specialDayList);
   
   const removeSpecialDay = (id) => {
     setSpecialDayList(specialDayList.filter(specialDay => specialDay.id !== id));

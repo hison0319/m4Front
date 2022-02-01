@@ -21,15 +21,16 @@ import WhiteListContainer from "./index/WhiteListContainer"
 import BlackListContainer from "./index/BlackListContainer"
 
 const CustomerList = React.memo(() => {
-  useEffect(() => {
-    // console.log('CustomerList is rendering!')
-  })
-
   const [plainTabs, setPlainTabs] = useState(3);
   const toggleNavs = (e, index) => {
     e.preventDefault();
     setPlainTabs(index);
   };
+
+  useEffect(()=>{
+    //forDevelop
+    console.log("CustomerList.js rendered!");
+  },[])
 
   return (
     <>

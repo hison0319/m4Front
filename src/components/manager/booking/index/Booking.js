@@ -13,7 +13,6 @@ import {
   } from 'reactstrap';
 import { makeMoneyType } from "utils/common"
 import PropTypes from "prop-types";
-import NormalProfileContainer from 'components/profile/normalProfile/NormalProfileContainer';
 
 const Booking = ({
   startDateTime,

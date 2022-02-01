@@ -4,13 +4,13 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "assets/css/userCSS.css"
-import "assets/funcs/commonJs"
 
 // import HomeView from "views/HomeView";
 import BoardDetailView from "views/BoardDetailView";
 import ProfileView from "views/ProfileView";
 import ManagerView from "views/ManagerView";
 import QrcodeView from "views/QrcodeView";
+import AccountView from "views/AccountView";
 import AlarmView from "views/AlarmView";
 import IconSample from "components/common/icons/IconSample";
 import ErrorView from "views/ErrorView";
@@ -52,7 +52,8 @@ ReactDOM.render(
           <Route 
             path="/qrcode" 
             exact 
-            render={props => <QrcodeView {...props} />} 
+            render={props => <AccountView {...props} />} 
+            // render={props => <QrcodeView {...props} />} 
           />
           <Route
             path="/alarm"

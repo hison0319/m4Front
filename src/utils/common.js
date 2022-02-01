@@ -1,7 +1,14 @@
+import moment from 'moment';
+
+// 현재날짜 반환
+export function getSysdate() {
+    return moment();
+}
+
 /* 이메일 유효성 검사 */
 export const validateEmail = email => {
     const regex = /^[0-9?A-z0-9?]+(\.)?[0-9?A-z0-9?]+@[0-9?A-z]+\.[A-z]{2}.?[A-z]{0,3}$/;
-    return regex.toString().match(email);
+    return regex.test(email);
 };
 
 /* URL 유효성 검사 */
@@ -10,6 +17,24 @@ export const validateURL = url => {
     // return regex.toString().match(url);
     return true;
 };
+
+/*
+문자열 최소 길이 체크
+ex) 
+*/
+export const chkStrMinLength = (len, text) => {
+    try{
+        if(typeof(text) === "string") {
+            return text.length > len;
+        } else {
+            text = String(text);
+            return text.length > len;
+        }
+    } catch (error) {
+        console.log("chkStrMinLength exception\n"+error);
+        return null
+    }
+}
 
 /* 공백 제거 */
 export const removeWhitespace = text => {
@@ -21,7 +46,8 @@ export const removeWhitespace = text => {
             text = String(text);
             return text.toString().replace(regex, '');
         }
-    }catch{
+    } catch (error) {
+        console.log("removeWhitespace exception\n"+error);
         return null
     }
 };
@@ -36,7 +62,8 @@ export const removeSpc = text => {
             text = String(text);
             return text.toString().replace(regex, '');
         }
-    }catch{
+    } catch (error) {
+        console.log("removeSpc exception\n"+error);
         return null
     }
 };
@@ -51,7 +78,8 @@ export const removeNotNumber = text => {
             text = String(text);
             return text.toString().replace(regex, '');
         }
-    }catch{
+    } catch (error) {
+        console.log("removeNotNumber exception\n"+error);
         return null
     }
 };
@@ -66,7 +94,8 @@ export const removeNotPhone = text => {
             text = String(text);
             return text.toString().replace(regex, '');
         }
-    }catch{
+    } catch (error) {
+        console.log("removeNotPhone exception\n"+error);
         return null
     }
 };

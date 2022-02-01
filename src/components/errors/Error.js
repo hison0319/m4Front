@@ -11,10 +11,10 @@ const Error = ({
   redirectUrl,
   redirectPage,
 }) => {
-  let second;
-  let s = 0;
-
   useEffect(()=>{
+    let second;
+    let s = 0;
+    
     if(document.getElementById("second")) {
       second = document.getElementById("second")
       second.innerText = "5";

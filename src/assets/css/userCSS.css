@@ -469,6 +469,16 @@ button {
     border-color: #ff7e67 !important;
     color: #ff7e67 !important;
 }
+.back_color_4:active,
+.back_color_4:hover,
+.back_color_4:focus {
+    background-color: #fff !important;
+    border-color: #ff7e67 !important;
+    color: #ff7e67 !important;
+}
+.btn.disabled, .btn:disabled {
+    opacity: 0.3;
+}
 /* .color_2:hover {
     color: #a2d5fe;
 }
@@ -637,8 +647,8 @@ button {
 /* 테스트 임시 */
 .errorImg {
     display: inline-block;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     background: #fff no-repeat center url('../img/error.png');
     background-size: cover;
 }

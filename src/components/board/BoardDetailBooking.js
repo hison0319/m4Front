@@ -3,7 +3,7 @@
 작성일 : 2021.12.05
 내용 :  board detail 예약 (뷰)
 */
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
     Container,
     Row,
@@ -15,15 +15,8 @@ import Calender from "components/common/calendar/Calender"
 import SelectTime from "./index/SelectTime"
 import SelectOptions from "./index/SelectOptions"
 import CheckOptions from "./index/CheckOptions"
-import {
-    BookingIcon
-} from "components/common/icons/Index";
 
 const BoardDetailBooking = (props) => {
-    useEffect(() => {
-        // console.log('BoardDetailBooking is rendering!')
-    })
-
     // For CalenderPick2
     const localDate = props.localDate;
     const onPreCal  = props.onPreCal;

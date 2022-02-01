@@ -10,7 +10,6 @@ import {
   Button,
   InputGroup,
   InputGroupAddon,
-  InputGroupText,
   Input,
   FormGroup,
   Label,

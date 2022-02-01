@@ -27,10 +27,6 @@ async function getBookingInfo(id, date) {
 }
 
 const BoardDetailBookingContainer = React.memo(() => {
-    useEffect(() => {
-        // console.log('BoardDetailBookingContainer is rendering!')
-    })
-    
     // Redux CalenderPick2 operation
     const _calendarPick2 = useSelector(state => ({
         date : state.calendarPick2ForBoard.date
@@ -235,6 +231,11 @@ const BoardDetailBookingContainer = React.memo(() => {
         onSetCalDate(newDate);
         onAddCalpick2Date();
     }
+
+    useEffect(()=>{
+        //for develop
+        console.log("BoardDetailBookingContainer.js rendered!");
+    }, []);
 
     return (
         <>

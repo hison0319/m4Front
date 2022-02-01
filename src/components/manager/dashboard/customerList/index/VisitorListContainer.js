@@ -32,10 +32,6 @@ async function putVisitors(id, visitors) {
 }
 
 const VisitorListContainer = () => {
-    useEffect(() => {
-        // console.log('VisitorListContainer is rendering!')
-    })
-
     // page nation 정의
     const [curPage, setCurPage] = useState(7);
     

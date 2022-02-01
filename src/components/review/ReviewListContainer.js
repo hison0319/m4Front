@@ -160,8 +160,10 @@ const ReviewListContainer = ({
     getReviewList(0,"",getReviewIdx.current,listMode);
     onAddReview(reviewListTest);
   }
-
-  console.log('reviewList : ',_review.reviewList);
+  useEffect(()=>{
+    //for develop
+    console.log("ReviewListContainer.js rendered!");
+  }, []);
 
   return (
     <>

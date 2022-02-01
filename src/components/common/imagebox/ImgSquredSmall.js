@@ -12,7 +12,6 @@ const ImgSquredSmall = ({
     <>
         <div sm="6" xs="6">
           <img
-            alt="..."
             className="img-fluid"
             style={{ width: "35px" }}
             src={imageURL?imageURL:images.emptyUser}

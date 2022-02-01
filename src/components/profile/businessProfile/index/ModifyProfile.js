@@ -7,17 +7,11 @@ import React from 'react';
 import {
   Row,
   Col,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
   Input,
   Button,
 } from "reactstrap";
 import InputSNSList from 'components/profile/InputSNSList';
 import DropboxSelect from 'components/common/dropbox/DropboxSelect';
-import {
-  SubmitIcon
-} from "components/common/icons/Index";
 import {
   removeSpc,
   removeNotNumber,
@@ -66,7 +60,7 @@ const ModifyProfile = ({
                     id="varName"
                     placeholder="가게 이름"
                     maxLength={30}
-                    value={varName||''}
+                    value={varName||""}
                     onChange={(e)=>{
                       //특수기호 제거
                       e.target.value = removeSpc(e.target.value);
@@ -92,7 +86,7 @@ const ModifyProfile = ({
                     id="varZipcode"
                     placeholder="우편번호"
                     maxLength={10}
-                    value={varZipcode||''}
+                    value={varZipcode||""}
                     onChange={(e)=>{
                       //숫자만 입력해 주세요.
                       e.target.value = removeNotNumber(e.target.value);
@@ -117,7 +111,7 @@ const ModifyProfile = ({
                     id="varCity"
                     placeholder="주소"
                     maxLength={100}
-                    value={varCity||''}
+                    value={varCity||""}
                     onChange={onChangeText}
                     />
                   </Col>
@@ -139,7 +133,7 @@ const ModifyProfile = ({
                     id="varStreet"
                     placeholder="상세주소"
                     maxLength={200}
-                    value={varStreet||''}
+                    value={varStreet||""}
                     onChange={onChangeText}
                     />
                   </Col>
@@ -169,7 +163,7 @@ const ModifyProfile = ({
                     className="width_100"
                     placeholder="연락처1"
                     maxLength={20}
-                    value={varContactNumber1||''}
+                    value={varContactNumber1||""}
                     onChange={(e)=>{
                       //번호 양식만
                       e.target.value = removeNotPhone(e.target.value);
@@ -202,7 +196,7 @@ const ModifyProfile = ({
                     className="width_100"
                     placeholder="연락처2"
                     maxLength={20}
-                    value={varContactNumber2||''}
+                    value={varContactNumber2||""}
                     onChange={(e)=>{
                       //번호 양식만
                       e.target.value = removeNotPhone(e.target.value);
@@ -235,7 +229,7 @@ const ModifyProfile = ({
                     id="varBusinessRegNumber"
                     placeholder="사업자 번호"
                     maxLength={20}
-                    value={varBusinessRegNumber||''}
+                    value={varBusinessRegNumber||""}
                     onChange={(e)=>{
                       //숫자만 입력해 주세요.
                       e.target.value = removeNotPhone(e.target.value);
@@ -263,7 +257,7 @@ const ModifyProfile = ({
                     maxLength={500}
                     placeholder="가게소개"
                     rows="10"
-                    value={varIntroduce||''}
+                    value={varIntroduce||""}
                     onChange={onChangeText}
                     />
                   </Col>

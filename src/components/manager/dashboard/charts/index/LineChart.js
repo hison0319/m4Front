@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Line } from 'react-chartjs-2';
 import PropTypes from "prop-types";
 
 const LineChart = ({
   chartData
 }) => {
-  useEffect(() => {
-    // console.log('LineChart is rendering!')
-  })
-
   const data = {
     labels: chartData.labels,
     datasets: [

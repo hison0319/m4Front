@@ -10,8 +10,6 @@ function ErrorView(props) {
 
     const { params } = props.match;
     const errorCode = params.errorCode;
-    // console.log(errorId);
-    
     return (
         <>
             {inProgress && <SpinnerGrow/>}

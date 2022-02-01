@@ -7,9 +7,6 @@ import React, { useRef, useState } from "react";
 import {
     Row,
     Col,
-    InputGroup,
-    InputGroupAddon,
-    InputGroupText,
     Input,
 } from "reactstrap";
 import AlertModal from 'components/common/alert/AlertModal';

@@ -1,4 +1,9 @@
-import React, { useRef } from "react";
+/*
+작성자 : 손한이
+작성일 : 2022.01.31
+내용 :  계정 관리 화면
+*/
+import React, { useRef, useEffect } from "react";
 import {
   Container,
   Row,
@@ -6,30 +11,39 @@ import {
   Button,
 } from "reactstrap";
 import ModalView from "components/common/modalView/ModalView";
-import Signin from "./Signin";
-import Signup from "./Signup";
+import SignupContainer from "./SignupContainer"
+import SigninContainer from "./SigninContainer"
 
-const Account = () => {
+const Account = ({
+  isModalOpen
+}) => {
   const SigninModalRef = useRef();
   const SignupModalRef = useRef();
 
   const SigninModal = <ModalView
   ref={SigninModalRef}
-  item={<Signin/>}
+  item={<SigninContainer/>}
   closingModal={()=>{
       //nothing
   }}
   />
   const SignupModal = <ModalView
   ref={SignupModalRef}
-  item={<Signup/>}
+  item={<SignupContainer/>}
   closingModal={()=>{
       //nothing
   }}
   />
 
+  useEffect(()=>{
+    //for develop
+    console.log("Account.js rendered!");
+  }, []);
+
+  let sectionClassName = isModalOpen?"middle_wrapper height_70":"middle_wrapper height_tight"
+
   return (
-    <section className="middle_wrapper height_70">
+    <section className={sectionClassName}>
       <Container className="my-5 py-5">
         {SigninModal}
         {SignupModal}

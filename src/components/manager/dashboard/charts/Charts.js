@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Row,
   Col
@@ -23,10 +23,6 @@ const Charts = ({
   bookingChart,
   noshowChart,
 }) => {
-  useEffect(() => {
-    // console.log('Charts is rendering!')
-  })
-
   return (
     <>
       <Row>

@@ -64,8 +64,6 @@ const AlarmListContainer = () => {
 
     const onModal = (type, id) => {
         //type 또는 userId code에 따라 shop인지, user인지 구분하여 출력
-        console.log(type);
-        console.log(id);
         if(type === "B") {
             modalBookingManagerViewRef.current.onSetDate(id);
             modalBookingManagerViewRef.current.showAlert();
@@ -214,6 +212,11 @@ const AlarmListContainer = () => {
         },
     ]
 
+    useEffect(()=>{
+        //for develop
+        console.log("AlarmListContainer.js rendered!");
+    }, []);
+
     const testGetAlarmLists = [
         {
             period:"",
@@ -296,7 +299,6 @@ const AlarmListContainer = () => {
                     getScrollEventToggle = false;
                     getAlarmIdx.current += 1;
                     getAlarm(0,"",getAlarmIdx.current);
-                    console.log("call event!!!");
                     setAlarmLists(alarmLists.concat(testGetAlarmLists));
                 }
             }

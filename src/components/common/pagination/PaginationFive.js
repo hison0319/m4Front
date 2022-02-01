@@ -3,7 +3,7 @@
 작성일 : 2021.11.30
 내용 : common - page nation - 5 page 조회 (기능, 뷰)
 */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
 const PaginationFive = ({
@@ -11,10 +11,6 @@ const PaginationFive = ({
   totalPage,
   onSetCurPage,
 }) => {
-  useEffect(() => {
-    // console.log('PaginationFive is rendering!')
-  })
-
   const pageList = [];
   const firstPage = parseInt((curPage-1)/5)*5+1;
   const endPage = firstPage+4 > totalPage ? totalPage : firstPage+4;

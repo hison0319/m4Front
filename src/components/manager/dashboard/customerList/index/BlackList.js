@@ -3,7 +3,7 @@
 작성일 : 2021.12.01
 내용 : shop manager의 Dashboard - 블랙 고객 명단 (뷰)
 */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { 
   Table,
 } from 'reactstrap';
@@ -19,10 +19,6 @@ const BlackList = ({
   blackList,
   onModal,
 }) => {
-  useEffect(() => {
-    // console.log('BlackList is rendering!')
-  })
-
   return (
     <Table size="sm" style={{fontSize:"0.8em"}}>
       <thead>

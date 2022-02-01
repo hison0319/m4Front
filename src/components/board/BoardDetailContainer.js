@@ -13,9 +13,6 @@ import BoardDetailRead from "./BoardDetailRead";
 import ModalView from "components/common/modalView/ModalView"
 import BoardDetailBookingContainer from './BoardDetailBookingContainer';
 import ReviewListContainer from 'components/review/ReviewListContainer';
-import {
-    BookingIcon
-} from "components/common/icons/Index";
 import axios from 'axios';
 import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"
@@ -57,6 +54,11 @@ const BoardDetailContainer = ({
 
     //for modify container modal view
     const modalRef = useRef();
+
+    useEffect(()=>{
+        //for develop
+        console.log("BoardDetailContainer.js rendered!");
+    }, []);
 
     return (
         <>

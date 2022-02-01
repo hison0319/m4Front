@@ -44,7 +44,7 @@ const AlertConfirmModal = forwardRef((props, ref) => {
             <span aria-hidden={true}>×</span>
           </Button> */}
         </div>
-        <span className="pl-3 py-4 text-secondary">
+        <span className="pl-3 py-4 h6 text-secondary font-weight-light">
           {props.comment}
         </span>
         <div className="modal-footer">

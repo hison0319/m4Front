@@ -19,10 +19,6 @@ async function getWhite(id, pageNum) {
 }
 
 const WhiteListContainer = React.memo(() => {
-    useEffect(() => {
-        // console.log('WhiteListContainer is rendering!')
-    })
-
     // page nation 정의
     const [curPage, setCurPage] = useState(3);
     

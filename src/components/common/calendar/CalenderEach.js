@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import {
   Badge
 } from "reactstrap";
 
 const CalenderEach = (props) => {
-  useEffect(() => {
-    // console.log(props.id+' CalenderEach is rendering!')
-  })
   const id        = props.id;
   const day       = props.day;
   const bookings  = props.bookings;

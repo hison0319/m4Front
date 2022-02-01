@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import {
   StoreIcon,
@@ -8,6 +8,11 @@ import {
 } from "components/common/icons/Index"
 
 function NavBottom({selected}) {
+  useEffect(()=>{
+    //for develop
+    console.log("NavBottom.js rendered!");
+  }, []);
+
   const btn1Color = selected === 1? "fix_color_3" : "basic_color_6";
   const btn2Color = selected === 2? "fix_color_3" : "basic_color_6";
   const btn3Color = selected === 3? "fix_color_3" : "basic_color_6";

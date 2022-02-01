@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Error from "./Error"
 import MailCertify from "./MailCertify";
 import PropTypes from "prop-types";
@@ -22,6 +22,11 @@ const ErrorContainer = ({errorCode}) =>{
     redirectPage="로그인 페이지로 이동합니다."
     />;
   }
+
+  useEffect(()=>{
+    //for develop
+    console.log("ErrorContainer.js rendered!");
+  }, []);
 
   return (
     <>

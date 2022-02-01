@@ -3,7 +3,6 @@ import {
   Table,
   Row,
   Col,
-  Container
 } from "reactstrap";
 import CalenderEach from "./CalenderEach";
 import moment from "moment";
@@ -47,12 +46,10 @@ const Calender = React.memo((props) => {
     calendarIdRef.current = calendarId;
   });
   const onTouchCal = (flag) => {
-    // console.log(date.clone().add(1,'months'));
     flag === 1 ? onPickCal(date.clone().add(1,'months')) : onPickCal(date.clone().subtract(1,'months'));
   };
 
   useEffect(() => {
-    // console.log('Calender is rendering!')
     let touchstartX;
     let touchstartY;
     let touchendX;
@@ -99,21 +96,6 @@ const Calender = React.memo((props) => {
       }
     }, false);
   },[])
-
-  // console.log('date',date);
-  // console.log('dateform',dateform);
-  // console.log('year',year);
-  // console.log('month',month);
-  // console.log('day',day);
-  // console.log('week',week);
-  // console.log('days',days);
-  // console.log('preMonthDays',preMonthDays);
-  // console.log('firstDayWeek',firstDayWeek);
-  // console.log('lastDayWeek',lastDayWeek);
-  // console.log('preYear',preYear);
-  // console.log('nextYear',nextYear);
-  // console.log('preMonthStr',preMonthStr);
-  // console.log('nextMonthStr',nextMonthStr);
 
   let cals = [];
   let idTemp = "";

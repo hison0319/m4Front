@@ -9,9 +9,6 @@ import {
   Row,
   Col,
   Button,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
   Input,
   CustomInput,
 } from "reactstrap";

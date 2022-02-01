@@ -12,7 +12,6 @@ const ImgCircleSmall = ({
     <>
         <div sm="6" xs="6">
           <img
-            alt="..."
             className="img-fluid rounded-circle shadow-lg"
             style={{ width: "35px" }}
             src={imageURL?imageURL:images.emptyUser}
