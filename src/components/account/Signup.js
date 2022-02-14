@@ -365,7 +365,6 @@ const Signup = ({
                             className="sub_button1 width_100 color_4 border_color_4"
                             color="none"
                             onClick={()=>{
-                                alert("야호~~!");
                                 onRefetch();
                             }}>
                             <span className="btn-inner--text">

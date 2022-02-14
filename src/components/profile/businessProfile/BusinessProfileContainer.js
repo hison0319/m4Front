@@ -16,6 +16,7 @@ async function getShop(shopId) {
   const response = await axios.get(
     `/shop/${shopId}`
   );
+  console.log(response);
   return response.data;
 }
 
@@ -29,7 +30,6 @@ const BusinessProfileContainer = ({shopId}) => {
             spinner.start();
         } else {
             spinner.stop();
-            console.log(shop);
         }
         if(error) {
             // window.location.href = '/error/200';

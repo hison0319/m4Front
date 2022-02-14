@@ -94,11 +94,11 @@ function Header() {
             >
               <span className="btn-inner--icon">
                 <ImgSquredSmall
-                imageURL={images.imgIcon}
+                imageURL={images.imgLogo1}
+                style={{width:"90px",marginTop:"-11px"}}
                 />
               </span>
             </Button>
-            <small className="fix_color_2">mmmm</small>
           </Col>
           <Col xs="6" className="text-right">
             <Button
@@ -111,6 +111,7 @@ function Header() {
               <span className="btn-inner--icon">
                 <ImgCircleSmall
                 imageURL={images.imgTestProfile}
+                style={{width:"35px",marginTop:"-4px",marginRight:"5px"}}
                 />
               </span>
             </Button>

@@ -3,6 +3,8 @@ import {
   Button,
   Modal
 } from 'reactstrap';
+import ImgSquredSmall from 'components/common/imagebox/ImgSquredSmall';
+import { images } from "utils/images";
 
 const ModalView = forwardRef(({
   closingModal,
@@ -33,7 +35,12 @@ const ModalView = forwardRef(({
         }}
       >
         <div className="modal-header">
-          <small className="fix_color_2">mmmm</small>
+          <span className="btn-inner--icon">
+            <ImgSquredSmall
+            imageURL={images.imgLogo2}
+            style={{width:"60px"}}
+            />
+          </span>
           {/* <Button
           aria-label="Close"
           className="close"

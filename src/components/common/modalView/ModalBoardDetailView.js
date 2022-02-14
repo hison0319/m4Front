@@ -4,6 +4,8 @@ import {
   Modal
 } from 'reactstrap';
 import BoardDetailContainer from 'components/board/BoardDetailContainer';
+import ImgSquredSmall from 'components/common/imagebox/ImgSquredSmall';
+import { images } from "utils/images";
 
 const ModalBoardDetailView = forwardRef(({
   closingModal,
@@ -41,7 +43,13 @@ const ModalBoardDetailView = forwardRef(({
         }}
       >
         <div className="modal-header">
-          <Button
+          <span className="btn-inner--icon">
+            <ImgSquredSmall
+            imageURL={images.imgLogo2}
+            style={{width:"60px"}}
+            />
+          </span>
+          {/* <Button
           aria-label="Close"
           className="close"
           data-dismiss="modal"
@@ -51,7 +59,7 @@ const ModalBoardDetailView = forwardRef(({
             toggleModal(alertToggle);
             }}>
             <span aria-hidden={true}>×</span>
-          </Button>
+          </Button> */}
         </div>
         <BoardDetailContainer
         shopId={shopId}

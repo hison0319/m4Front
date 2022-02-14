@@ -4,6 +4,8 @@ import {
   Modal
 } from 'reactstrap';
 import NormalProfileContainer from 'components/profile/normalProfile/NormalProfileContainer';
+import ImgSquredSmall from 'components/common/imagebox/ImgSquredSmall';
+import { images } from "utils/images";
 
 const ModalNormalProfileView = forwardRef(({
   closingModal,
@@ -37,7 +39,13 @@ const ModalNormalProfileView = forwardRef(({
         }}
       >
         <div className="modal-header">
-          <Button
+          <span className="btn-inner--icon">
+            <ImgSquredSmall
+            imageURL={images.imgLogo2}
+            style={{width:"60px"}}
+            />
+          </span>
+          {/* <Button
           aria-label="Close"
           className="close"
           data-dismiss="modal"
@@ -47,7 +55,7 @@ const ModalNormalProfileView = forwardRef(({
             toggleModal(alertToggle);
             }}>
             <span aria-hidden={true}>×</span>
-          </Button>
+          </Button> */}
         </div>
         <NormalProfileContainer userId={userId}/>
         <div className="modal-footer">

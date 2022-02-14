@@ -26,7 +26,7 @@ async function postMember(member) {
 }
 
 const SignupContainer = () => {
-    // user date text input 생성
+    // member date text input 생성
     const [{ 
         varEmail,
         varPassword,
@@ -104,7 +104,7 @@ const SignupContainer = () => {
         email: varEmail,
         password: varPassword,
         businessRegNumber: varBusinessRegNumber,
-        contactNumber: {
+        contactNumbers: {
             values: [{
                 value: varContactNumber
             }]
@@ -121,7 +121,7 @@ const SignupContainer = () => {
     const AlertModal1 = 
     <AlertModal
       ref={alertRef1}
-      comment="저장 했습니다."
+      comment="가입을 축하드립니다!"
       closingModal={()=>{
         window.location.href = "/";
     }}
@@ -140,8 +140,9 @@ const SignupContainer = () => {
         if(member) {
             console.log(member);
             alert(member);
-            alertRef1.current.showAlert();
+            // alertRef1.current.showAlert();
         } else if(error) {
+            console.log(error.response);
             alertRef2.current.showAlert();
         }
         if(loading) {
@@ -149,7 +150,7 @@ const SignupContainer = () => {
         } else {
             spinner.stop();
         }
-    });
+    },[state]);
 
     return (
         <>

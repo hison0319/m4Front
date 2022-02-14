@@ -5,6 +5,8 @@ import {
 } from 'reactstrap';
 import BookingManagerContainer from 'components/manager/booking/BookingManagerContainer';
 import moment from 'moment';
+import ImgSquredSmall from 'components/common/imagebox/ImgSquredSmall';
+import { images } from "utils/images";
 
 const ModalBookingManagerView = forwardRef(({
   closingModal,
@@ -39,7 +41,13 @@ const ModalBookingManagerView = forwardRef(({
         }}
       >
         <div className="modal-header">
-          <Button
+          <span className="btn-inner--icon">
+            <ImgSquredSmall
+            imageURL={images.imgLogo2}
+            style={{width:"60px"}}
+            />
+          </span>
+          {/* <Button
           aria-label="Close"
           className="close"
           data-dismiss="modal"
@@ -49,7 +57,7 @@ const ModalBookingManagerView = forwardRef(({
             toggleModal(alertToggle);
             }}>
             <span aria-hidden={true}>×</span>
-          </Button>
+          </Button> */}
         </div>
         <BookingManagerContainer propDate={date}/>
         <div className="modal-footer">

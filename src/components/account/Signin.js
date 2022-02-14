@@ -3,7 +3,7 @@
 작성일 : 2022.02.01
 내용 :  사업자 계정의 로그인(뷰)
 */
-import React from "react";
+import React, { useState } from "react";
 import {
     Container,
     Row,
@@ -11,27 +11,60 @@ import {
     Input,
     Button
 } from "reactstrap"
+import PropTypes from "prop-types";
+import {
+    PasswordHidden,
+    PasswordText
+} from "components/common/icons/Index";
 
-const Signin = () => {
+const Signin = ({
+    varEmail,
+    varPassword,
+    onChangeText,
+    isValidEmail,
+    emailValidComment,
+    emailValidCommentColor,
+    checkEmail,
+    onRefetch,
+}) => {
+    const [passwordTypeIcon, setPasswordTypeIcon] = useState(<PasswordHidden/>);
+    const [passwordType, setPasswordType] = useState("password");
+    const [passwordTypeToggle, setPasswordTypeToggle] = useState(true);
+    const nextbtn1Disabled = isValidEmail ? false : true;
+
+    const onSetPasswordTypeToggle = (isPasswordType) => {
+        if(isPasswordType) {
+            setPasswordTypeIcon(<PasswordHidden/>);
+            setPasswordType("password");
+            setPasswordTypeToggle(true);
+        } else {
+            setPasswordTypeIcon(<PasswordText/>);
+            setPasswordType("text");
+            setPasswordTypeToggle(false);
+        }
+    };
+
     return (
         <Container className="my-5">
             <Row className="my-4">
                 <Col>
                     <Row>
                         <Col>
-                            <small>이메일</small>
+                            <small className={emailValidCommentColor}>{emailValidComment}</small>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             <Input
                             type="text"
-                            name="email"
-                            id="email"
-                            placeholder=""
+                            name="varEmail"
+                            id="varEmail"
                             maxLength={100}
-                            // value={varCity||''}
-                            // onChange={onChangeText}
+                            value={varEmail}
+                            onChange={(e)=>{
+                                onChangeText(e);
+                                checkEmail(e.target.value);
+                            }}
                             />
                         </Col>
                     </Row>
@@ -45,15 +78,30 @@ const Signin = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col xs="2">
+                            <Button
+                            className="btn-icon-only rounded-circle"
+                            color="neutral"
+                            onClick={()=>{
+                                onSetPasswordTypeToggle(!passwordTypeToggle);
+                            }}
+                            >
+                                <span className="btn-inner--icon">
+                                {passwordTypeIcon}
+                                </span>
+                            </Button>
+                        </Col>
+                        <Col xs="10">
                             <Input
-                            type="password"
-                            name="password"
-                            id="password"
+                            type={passwordType}
+                            name="varPassword"
+                            id="varPassword"
                             placeholder=""
                             maxLength={20}
-                            // value={varCity||''}
-                            // onChange={onChangeText}
+                            value={varPassword||""}
+                            onChange={(e)=>{
+                                onChangeText(e);
+                            }}
                             />
                         </Col>
                     </Row>
@@ -63,9 +111,11 @@ const Signin = () => {
                 <Col className="mt-4">
                     <div className="text-center btn-wrapper">
                         <Button
+                        disabled={nextbtn1Disabled}
                         className="sub_button1 width_100 color_4 border_color_4"
                         color="none"
                         onClick={()=>{
+                            onRefetch();
                         }}>
                         <span>
                             로그인
@@ -106,7 +156,17 @@ const Signin = () => {
             </Row>
         </Container>
     );
-
 }
+
+Signin.propTypes = {
+    varEmail: PropTypes.string,
+    varPassword: PropTypes.string,
+    onChangeText: PropTypes.func,
+    isValidEmail: PropTypes.bool,
+    emailValidComment: PropTypes.string,
+    emailValidCommentColor: PropTypes.string,
+    checkEmail: PropTypes.func,
+    onRefetch: PropTypes.func,
+};
 
 export default Signin

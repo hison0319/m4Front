@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://3.36.163.171:8080/", 
+  "proxy": "http://3.36.163.171:8080/",
   "dependencies": {
     "@easylogic/react-summernote": "^0.0.9",
     "@fortawesome/react-fontawesome": "^0.1.14",

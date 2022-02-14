@@ -9,5 +9,8 @@ export const images = {
     imgTest5: `${prefix}/test%2Fimg-test-5.jpeg?alt=media&token=409212dd-5e4f-4a76-9506-835de77c60bf`,
     imgTest6: `${prefix}/test%2Fimg-test-6.jpeg?alt=media&token=8316f6c5-94a2-40d0-9c70-25043fd18c0d`,
     imgTestProfile: `${prefix}/test%2Fimg-test-profile.jpeg?alt=media&token=9fb3dfa5-8e66-42c6-8e2c-5b997955b142`,
-    imgIcon: `${prefix}/test%2Ficon.png?alt=media&token=8a4571d4-47dc-4702-9816-fec40e7f92e8`,
+    imgIcon: `${prefix}/test%2Ficon.png?alt=media&token=d04bc611-aad5-4787-9451-fda1cd66be00`,
+    imgSplash: `${prefix}/test%2Fsplash.png?alt=media&token=baa80629-b504-4154-99b0-9c009cf4b4b9`,
+    imgLogo1: `${prefix}/test%2Flogo_1.png?alt=media&token=6365e3ad-6257-4edf-baaa-db6b51ed5409`,
+    imgLogo2: `${prefix}/test%2Flogo_2.png?alt=media&token=9b312b1f-cec4-4d9f-af1a-e358621e3a52`,
 };
