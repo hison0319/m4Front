@@ -14,7 +14,7 @@ import { images } from "utils/images";
 
 async function getShop(shopId) {
   const response = await axios.get(
-    `/shop/${shopId}`
+    `${process.env.REACT_APP_API_URL}shop/${shopId}`
   );
   console.log(response);
   return response.data;

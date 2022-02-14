@@ -18,14 +18,14 @@ import {
 
 async function getVisitors(id, pageNum) {
     const response = await axios.get(
-      `/api/v1/shopVisitor/${id}${pageNum}`
-    );
-    return response.data;
-}
-
-async function putVisitors(id, visitors) {
-    const response = await axios.put(
-        '/api/v1/shopVisitor/'+id
+        `${process.env.REACT_APP_API_URL}api/v1/shopVisitor/${id}${pageNum}`
+        );
+        return response.data;
+    }
+    
+    async function putVisitors(id, visitors) {
+        const response = await axios.put(
+        `${process.env.REACT_APP_API_URL}api/v1/shopVisitor/${id}`
         ,visitors
     );
     return response.data;

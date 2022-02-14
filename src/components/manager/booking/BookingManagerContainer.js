@@ -23,7 +23,7 @@ import { ProgressContext } from "context/Progress"
 
 async function getBookings(id, date) {
     const response = await axios.get(
-      `/api/v1/shopBooking/${id}${date}`
+        `${process.env.REACT_APP_API_URL}api/v1/shopBooking/${id}${date}`
     );
     return response.data;
 }

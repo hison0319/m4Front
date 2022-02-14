@@ -21,14 +21,14 @@ import {
 
 async function getShopOption(id) {
   const response = await axios.get(
-    `/api/v1/shopBoard/${id}`
+    `${process.env.REACT_APP_API_URL}api/v1/shopBoard/${id}`
   );
   return response.data;
 }
 
 async function putShopOption(board, id) {
   const response = await axios.put(
-    '/api/v1/shopBoard/'+id
+    `${process.env.REACT_APP_API_URL}api/v1/shopBoard/${id}`
     ,board
   );
   return response.data;

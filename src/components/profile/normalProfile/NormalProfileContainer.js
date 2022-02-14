@@ -14,7 +14,7 @@ import { images } from "utils/images";
 
 async function getUser(id) {
   const response = await axios.get(
-    `/api/v1/user/${id}`
+    `${process.env.REACT_APP_API_URL}api/v1/user/${id}`
   );
   return response.data;
 }

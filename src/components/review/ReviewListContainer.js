@@ -20,7 +20,7 @@ import { ProgressContext } from "context/Progress";
 
 async function getReviewList(id,reviewId,idx,orderType) {
   const response = await axios.get(
-    `/api/v1/reviewList/${id}`
+    `${process.env.REACT_APP_API_URL}api/v1/reviewList/${id}`
   );
   return response.data;
 }

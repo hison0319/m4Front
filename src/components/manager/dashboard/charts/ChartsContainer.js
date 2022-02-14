@@ -13,14 +13,14 @@ import { ProgressContext } from "context/Progress"
 // 예약 내역 차트 get
 async function getBookingChart(id, period) {
     const response = await axios.get(
-      `/api/v1/shopBookingChart/${id}${period}`
+        `${process.env.REACT_APP_API_URL}api/v1/shopBookingChart/${id}${period}`
     );
     return response.data;
 }
 // 노쇼 내역 차트 get
 async function getNoshowChart(id, period) {
     const response = await axios.get(
-      `/api/v1/shopNoshowChart/${id}${period}`
+        `${process.env.REACT_APP_API_URL}api/v1/shopNoshowChart/${id}${period}`
     );
     return response.data;
 }

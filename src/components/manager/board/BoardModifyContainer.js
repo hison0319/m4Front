@@ -13,14 +13,14 @@ import { ProgressContext } from "context/Progress"
 
 async function getShopBoard(id) {
   const response = await axios.get(
-    `/api/v1/shopBoard/${id}`
+    `${process.env.REACT_APP_API_URL}api/v1/shopBoard/${id}`
   );
   return response.data;
 }
 
 async function putShopBoard(board, id) {
   const response = await axios.put(
-    '/api/v1/shopBoard/'+id
+    `${process.env.REACT_APP_API_URL}api/v1/shopBoard/${id}`
     ,board
   );
   return response.data;
@@ -29,7 +29,7 @@ async function putShopBoard(board, id) {
 // image는 인풋에 삽입 시 별도 api전송
 async function putShopImages(Images, id) {
   const response = await axios.put(
-    '/api/v1/shopBoard/'+id
+    `${process.env.REACT_APP_API_URL}api/v1/shopBoard/${id}`
     ,Images
   );
   return response.data;

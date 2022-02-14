@@ -19,7 +19,7 @@ async function deleteMember(type, email) {
     console.log(type);
     console.log(email)
     const response = await axios.delete(
-        `admin/member/${type}/${email}`,
+        `${process.env.REACT_APP_API_URL}admin/member/${type}/${email}`,
     );
     return response.data;
 }

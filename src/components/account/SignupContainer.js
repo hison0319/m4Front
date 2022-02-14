@@ -19,7 +19,7 @@ import {
 
 async function postMember(member) {
     const response = await axios.post(
-        "/member",
+        `${process.env.REACT_APP_API_URL}member`,
         member,
     );
     return response.data;

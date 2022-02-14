@@ -21,7 +21,7 @@ import PropTypes from "prop-types";
 
 async function putUser(user, userId, imgFile) {
   const response = await axios.put(
-    '/api/v1/user/'+userId
+    `${process.env.REACT_APP_API_URL}api/v1/user/${userId}`
     ,user
   );
   return response.data;

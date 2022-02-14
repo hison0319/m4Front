@@ -19,7 +19,7 @@ import { ProgressContext } from "context/Progress"
 
 async function getBoardDetail(id) {
     const response = await axios.get(
-      `/api/v1/shopBooking/${id}`
+        `${process.env.REACT_APP_API_URL}api/v1/shopBooking/${id}`
     );
     return response.data;
 }

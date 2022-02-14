@@ -13,7 +13,7 @@ import { ProgressContext } from "context/Progress"
 
 async function getWhite(id, pageNum) {
     const response = await axios.get(
-      `/api/v1/shopWhite/${id}${pageNum}`
+        `${process.env.REACT_APP_API_URL}api/v1/shopWhite/${id}${pageNum}`
     );
     return response.data;
 }

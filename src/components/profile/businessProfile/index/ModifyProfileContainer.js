@@ -19,7 +19,7 @@ import PropTypes from "prop-types";
 
 async function putShop(shop, shopId, imgFile) {
   const response = await axios.put(
-    '/api/v1/shop/'+shopId
+    `${process.env.REACT_APP_API_URL}api/v1/shop/${shopId}`
     ,shop
   );
   return response.data;

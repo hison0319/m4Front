@@ -21,7 +21,7 @@ import { ProgressContext } from "context/Progress"
 
 async function getBookingInfo(id, date) {
     const response = await axios.get(
-      `/api/v1/shopBookingInfo/${id}${date}`
+        `${process.env.REACT_APP_API_URL}api/v1/shopBookingInfo/${id}${date}`
     );
     return response.data;
 }
