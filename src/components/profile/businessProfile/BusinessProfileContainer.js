@@ -32,6 +32,7 @@ const BusinessProfileContainer = ({shopId}) => {
             spinner.stop();
         }
         if(error) {
+            console.log(error.response);
             // window.location.href = '/error/200';
         }
     },[loading, error, spinner]);

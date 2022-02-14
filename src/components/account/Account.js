@@ -19,7 +19,7 @@ import axios from "axios";
 function test() {
   axios({
     method: "get",
-    url: "http://3.36.163.171:8080/oauth2/authorization/line",
+    url: `${process.env.REACT_APP_API_URL}oauth2/authorization/line`,
   }).then(function (response) {
     console.log(response);
   }).catch(function (e){

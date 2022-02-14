@@ -111,7 +111,7 @@ function Header() {
               <span className="btn-inner--icon">
                 <ImgCircleSmall
                 imageURL={images.imgTestProfile}
-                style={{width:"35px",marginTop:"-4px",marginRight:"5px"}}
+                style={{width:"35px",marginTop:"-6px",marginRight:"5px"}}
                 />
               </span>
             </Button>
