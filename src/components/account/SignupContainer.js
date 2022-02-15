@@ -138,11 +138,8 @@ const SignupContainer = () => {
     useEffect(()=>{
         const { loading, data: member, error } = state;
         if(member) {
-            console.log(member);
-            alert(member);
-            // alertRef1.current.showAlert();
+            alertRef1.current.showAlert();
         } else if(error) {
-            console.log(error.response);
             alertRef2.current.showAlert();
         }
         if(loading) {

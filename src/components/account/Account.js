@@ -76,8 +76,8 @@ const Account = ({
                 className="main_button width_80 color_2 border_color_2"
                 color="none"
                 onClick={()=>{
-                  // test();
-                  window.location.href = "http://localhost:8080/oauth2/authorization/line";
+                  test();
+                  // window.location.href = "http://localhost:8080/oauth2/authorization/line";
                 }}>
                 <span>
                   일반계정 로그인
