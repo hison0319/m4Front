@@ -17,6 +17,7 @@ const BoardManager = () => {
 
   const modeB = 
     <Container className="my-4">
+      <BoardModifyContainer/>
       <div className="text-center btn-wrapper my-2">
           <Button
           className="width_100 sub_button2 color_2 border_color_2"
@@ -28,12 +29,12 @@ const BoardManager = () => {
           </span>
           </Button>
       </div>
-      <BoardModifyContainer/>
     </Container>
     ;
   
   const modeO = 
     <Container className="my-4">
+      <OptionModifyContainer/>
       <div className="text-center btn-wrapper my-2">
           <Button
           className="width_100 sub_button2 color_2 border_color_2"
@@ -45,7 +46,6 @@ const BoardManager = () => {
           </span>
           </Button>
       </div>
-      <OptionModifyContainer/>
     </Container>
     ;
 

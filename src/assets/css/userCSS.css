@@ -289,6 +289,10 @@ input[type="checkbox"]:disabled:after {
     background: linear-gradient(45deg, #ff7e67, #fafafa, #a2d5fe, #07689f);
 }
 /* 메인 버튼 */
+.btn {
+    padding: 2px 12px;
+}
+
 button {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -510,6 +514,7 @@ button {
     background-color: #fff;
     border-top: 1px solid #ccc;
 }
+
 /* nav태그 아래의 div태그들을 수평정렬 및 세로길이 설정 */
 .navigation_bottom > div {
     float: left;
@@ -561,6 +566,19 @@ button {
     text-decoration: none;
     background-color: #e9ecef;
     border-color: #dee2e6;
+}
+
+/* modal */
+.modal-footer {
+    height: 50px;
+    padding: 0 10px;
+}
+.modal-footer>* {
+    margin: 0;
+    padding: 0 10px 0 0;
+}
+.modal-header {
+    padding: 0.7rem;
 }
 
 /* 페이드 인 */

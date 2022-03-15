@@ -12,19 +12,18 @@ import BusinessProfile from "./BusinessProfile";
 
 import { images } from "utils/images";
 
-async function getShop(shopId) {
+async function getShop(_memberId) {
   const response = await axios.get(
-    `${process.env.REACT_APP_API_URL}shop/${shopId}`
+    `${process.env.REACT_APP_API_URL}member/${_memberId}`
   );
-  console.log(response);
   return response.data;
 }
 
-const BusinessProfileContainer = ({shopId}) => {
+const BusinessProfileContainer = ({memberId}) => {
     const {spinner} = useContext(ProgressContext);
-    shopId = "1"; //임시
-    const [state] = useAsync(() => getShop(shopId), [shopId], false);
-    const { loading, data: shop, error } = state;
+    memberId = memberId?memberId:"2"; //임시
+    const [state] = useAsync(() => getShop(memberId), [memberId], false);
+    const { loading, data: member, error } = state;
     useEffect(() => {
         if(loading) {
             spinner.start();
@@ -37,36 +36,19 @@ const BusinessProfileContainer = ({shopId}) => {
         }
     },[loading, error, spinner]);
 
-    // const shopId = shop?shop.shopId:0;
-    // const businessRegNumber = shop?shop.businessRegNumber:"";
-    // const name = shop?shop.name:"";
-    // const city = shop?shop.city:"";
-    // const street = shop?shop.street:"";
-    // const nationCode1 = shop?shop.nationCode:82;
-    // const nationCode2 = shop?shop.nationCode:69;
-    // const contactNumber1 = shop?shop.contactNumber:"";
-    // const contactNumber2 = shop?shop.contactNumber2:"";
-    // const snsList = shop?shop.snsList:["https://www.instagram.com/his0319","https://www.facebook.com/his0319"];
-    // const zipcode = shop?shop.zipcode:"";
-    // const openingHours = shop?shop.openingHours:[];
-    // const introduce = shop?shop.introduce:"안녕하세요. 손한이 편집샵입니다. 잘부탁드립니다.";
-    // const introduce = "안녕하세요. 손한이 편집샵입니다. 잘부탁드립니다. 에~~~호 무야호~";
-    // option hour 필요없음, sns주소(배열), 자기소개, 연락처(배열)(국가코드), 프로필 경로 필요
-    
-    //forTest start
-    const businessRegNumber = "123-456-7890";
-    const name = "한이's 편집샵";
-    const city = "경기도 하남시";
-    const street = "미사강변동로 47";
-    const nationCode1 = 82;
-    const nationCode2 = 69;
-    const contactNumber1 = "010-7530-0079";
-    const snsList = ["https://www.instagram.com/his0319","https://www.facebook.com/his0319"];
-    const zipcode = "12345";
-    const openingHours = "09:00 ~ 18:00";
-    const introduce = "안녕하세요. 손한이 편집샵입니다. 잘부탁드립니다. 에~~~호 무야호~";
+    const businessRegNumber = member?member.data.businessRegNumber:"";
+    const name = member?member.data.name:"";
+    const city = member?member.data.city:"";
+    const street = member?member.data.street:"";
+    const zipcode = member?member.data.zipcode:"";
+    // const nationCode1 = member?member.data.nationCode1:82;
+    // const nationCode2 = member?member.data.nationCode2:69;
+    const contactNumber1 = member?member.data.contactNumbers.values[0].value:"";
+    // const contactNumber2 = member?member.data.contactNumbers.values[1].value:"";
+    const snsList = member?member.data.snsList:["https://www.instagram.com/his0319","https://www.facebook.com/his0319"];
+    const introduce = member?member.data.introduce:"";
     const imageURL = images.imgTest1;
-    //end
+    // sns주소(배열), 자기소개, 연락처(배열)(국가코드), 프로필 경로 필요
 
     const [mode, setMode] = useState("R");
     const link = '/manager'
@@ -88,18 +70,17 @@ const BusinessProfileContainer = ({shopId}) => {
             link={link}
             handleSetMode={handleSetMode}
             
-            shopId={shopId}
+            memberId={memberId}
             businessRegNumber={businessRegNumber}
             name={name}
             city={city}
             street={street}
-            nationCode1={nationCode1}
-            nationCode2={nationCode2}
+            // nationCode1={nationCode1}
+            // nationCode2={nationCode2}
             contactNumber1={contactNumber1}
             // contactNumber2={contactNumber2}
             snsList={snsList}
             zipcode={zipcode}
-            openingHours={openingHours}
             introduce={introduce}
 
             imageURL={imageURL}

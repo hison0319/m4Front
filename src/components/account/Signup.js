@@ -30,10 +30,10 @@ const Signup = ({
     varBusinessRegNumber,
     varContactNumber,
     varNationCode,
-    nationCodeListAll,
     onChangeText,
-    setVarNationCode,
     onRefetch,
+    // nationCodeListAll,
+    // setVarNationCode,
     //유효성검사
     isValidEmail,
     isValidPassword,
@@ -312,7 +312,7 @@ const Signup = ({
                             </Col>
                         </Row>
                         <Row>
-                            <Col xs="3">
+                            {/* <Col xs="3">
                                 <Input
                                 type="select"
                                 name="varNationCode"
@@ -325,8 +325,8 @@ const Signup = ({
                                     <option key={item.value} value={item.value}>{item.text}</option>
                                 )}
                                 </Input>
-                            </Col>
-                            <Col xs="9">
+                            </Col> */}
+                            <Col>
                                 <Input
                                 type="text"
                                 name="varContactNumber"
@@ -386,7 +386,7 @@ Signup.propTypes = {
     varBusinessRegNumber: PropTypes.string,
     varContactNumber: PropTypes.string,
     varNationCode: PropTypes.string,
-    nationCodeListAll: PropTypes.array,
+    // nationCodeListAll: PropTypes.array,
     onChangeText: PropTypes.func,
     setVarNationCode: PropTypes.func,
     onRefetch: PropTypes.func,

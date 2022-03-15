@@ -30,9 +30,9 @@ const ModifyProfile = ({
   varBirth,
   varIntroduce,
   onChangeText,
-  varNationCode,
-  onSetNAtionCode,
-  nationCodeListAll,
+  // varNationCode,
+  // onSetNAtionCode,
+  // nationCodeListAll,
   snsList,
   setSnsList,
   setVarBirth,
@@ -158,14 +158,14 @@ const ModifyProfile = ({
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs="3">
+                    {/* <Col xs="3">
                       <DropboxSelect
                         defaultValue={varNationCode}
                         dropItem={nationCodeListAll}
                         onClickDropItem={(item)=>{onSetNAtionCode(item)}}
                       />
-                    </Col>
-                    <Col xs="9">
+                    </Col> */}
+                    <Col>
                       <Input
                       type="text"
                       name="varContactNumber"
@@ -279,9 +279,9 @@ ModifyProfile.propTypes = {
   setSnsList: PropTypes.func,
   setVarBirth: PropTypes.func,
   
-  varNationCode: PropTypes.string,
-  onSetNAtionCode: PropTypes.func,
-  nationCodeListAll: PropTypes.array,
+  // varNationCode: PropTypes.string,
+  // onSetNAtionCode: PropTypes.func,
+  // nationCodeListAll: PropTypes.array,
   
   AlertModal1: PropTypes.object.isRequired,
   AlertModal2: PropTypes.object.isRequired,

@@ -50,9 +50,9 @@ const AlertModal = forwardRef((props, ref) => {
             <span aria-hidden={true}>×</span>
           </Button> */}
         </div>
-        <span className="px-4 pt-4 pb-5 h6 text-secondary font-weight-light">
+        <div className="px-4 pt-4 pb-5 h6 text-secondary font-weight-light" style={{whiteSpace:"pre-wrap"}}>
           {props.comment}
-        </span>
+        </div>
         <div className="modal-footer">
           <Button
           color="neutral"
@@ -61,7 +61,7 @@ const AlertModal = forwardRef((props, ref) => {
             onClosingModal();
             toggleModal(alertToggle);
             }}>
-            확인
+            <small>닫기</small>
           </Button>
         </div>
       </Modal>

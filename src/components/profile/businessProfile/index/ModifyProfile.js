@@ -29,10 +29,10 @@ const ModifyProfile = ({
   varBusinessRegNumber,
   varIntroduce,
   onChangeText,
-  varNationCode1,
-  varNationCode2,
-  onSetNAtionCode,
-  nationCodeListAll,
+  // varNationCode1,
+  // varNationCode2,
+  // onSetNAtionCode,
+  // nationCodeListAll,
   snsList,
   setSnsList,
 
@@ -148,14 +148,14 @@ const ModifyProfile = ({
                   </Col>
               </Row>
               <Row>
-                  <Col xs="3">
+                  {/* <Col xs="3">
                     <DropboxSelect
                     defaultValue={varNationCode1}
                     dropItem={nationCodeListAll}
                     onClickDropItem={(item)=>{onSetNAtionCode(1,item)}}
                     />
-                  </Col>
-                  <Col xs="9">
+                  </Col> */}
+                  <Col>
                     <Input
                     type="text"
                     name="varContactNumber1"
@@ -181,14 +181,14 @@ const ModifyProfile = ({
                   </Col>
               </Row>
               <Row>
-                  <Col xs="3">
+                  {/* <Col xs="3">
                     <DropboxSelect
                     defaultValue={varNationCode2}
                     dropItem={nationCodeListAll}
                     onClickDropItem={(item)=>{onSetNAtionCode(2,item)}}
                     />
-                  </Col>
-                  <Col xs="9">
+                  </Col> */}
+                  <Col>
                     <Input
                     type="text"
                     name="varContactNumber2"
@@ -298,10 +298,10 @@ ModifyProfile.propTypes = {
   varBusinessRegNumber: PropTypes.string,
   varIntroduce: PropTypes.string,
   onChangeText: PropTypes.func,
-  varNationCode1: PropTypes.string,
-  varNationCode2: PropTypes.string,
-  onSetNAtionCode: PropTypes.func,
-  nationCodeListAll: PropTypes.array,
+  // varNationCode1: PropTypes.string,
+  // varNationCode2: PropTypes.string,
+  // onSetNAtionCode: PropTypes.func,
+  // nationCodeListAll: PropTypes.array,
 
   snsList: PropTypes.array,
   setSnsList: PropTypes.func,

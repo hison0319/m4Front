@@ -23,21 +23,6 @@ const BoardModify = ({
 
   return (
     <>
-      <Row>
-        <Col>
-          <div className="text-center btn-wrapper my-2">
-            <Button
-            className="width_100 sub_button2 color_4 border_color_4"
-            outline
-            type="button"
-            onClick={()=>{}}>
-            <span className="btn-inner--text">
-              저장하기
-            </span>
-            </Button>
-          </div>
-        </Col>
-      </Row>
       <Row className="mb-2">
         <Col className="my-2 py-2">
           <Row className="px-2">
@@ -92,6 +77,21 @@ const BoardModify = ({
               </Row>
             </Col>
           </Row>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <div className="text-center btn-wrapper my-2">
+            <Button
+            className="width_100 sub_button2 color_4 border_color_4"
+            outline
+            type="button"
+            onClick={()=>{}}>
+            <span className="btn-inner--text">
+              저장하기
+            </span>
+            </Button>
+          </div>
         </Col>
       </Row>
     </>

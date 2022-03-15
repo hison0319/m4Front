@@ -19,13 +19,13 @@ import PropTypes from "prop-types";
 const BusinessProfile = ({
     mode,
     handleSetMode,
-    shopId,
+    memberId,
     businessRegNumber,
     name,
     city,
     street,
-    nationCode1,
-    nationCode2,
+    // nationCode1,
+    // nationCode2,
     contactNumber1,
     contactNumber2,
     snsList,
@@ -38,13 +38,13 @@ const BusinessProfile = ({
     const profile = 
     <Container className="pt-2 mb-2 pb-5">
         <ReadProfile
-        shopId={shopId}
+        memberId={memberId}
         businessRegNumber={businessRegNumber}
         name={name}
         city={city}
         street={street}
-        nationCode1={nationCode1}
-        nationCode2={nationCode2}
+        // nationCode1={nationCode1}
+        // nationCode2={nationCode2}
         contactNumber1={contactNumber1}
         contactNumber2={contactNumber2}
         snsList={snsList}
@@ -74,13 +74,13 @@ const BusinessProfile = ({
     const modifyProfile = 
     <Container className="pt-2 pb-5">
         <ModifyProfileContainer
-        shopId={shopId}
+        memberId={memberId}
         businessRegNumber={businessRegNumber}
         name={name}
         city={city}
         street={street}
-        nationCode1={nationCode1}
-        nationCode2={nationCode2}
+        // nationCode1={nationCode1}
+        // nationCode2={nationCode2}
         contactNumber1={contactNumber1}
         contactNumber2={contactNumber2}
         snsList={snsList}
@@ -108,13 +108,13 @@ BusinessProfile.propTypes = {
     handleSetMode: PropTypes.func.isRequired,
     link: PropTypes.string.isRequired,
 
-    shopId: PropTypes.string,
+    memberId: PropTypes.string,
     businessRegNumber: PropTypes.string,
     name: PropTypes.string,
     city: PropTypes.string,
     street: PropTypes.string,
-    nationCode1: PropTypes.number,
-    nationCode2: PropTypes.number,
+    // nationCode1: PropTypes.number,
+    // nationCode2: PropTypes.number,
     contactNumber1: PropTypes.string,
     contactNumber2: PropTypes.string,
     snsList: PropTypes.array,

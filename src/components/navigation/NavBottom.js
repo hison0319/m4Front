@@ -7,7 +7,10 @@ import {
   TimeUncheckedIcon,
 } from "components/common/icons/Index"
 
-function NavBottom({selected}) {
+function NavBottom ({
+  selected,
+  memberType,
+}) {
   useEffect(()=>{
     //for develop
     console.log("NavBottom.js rendered!");
@@ -17,6 +20,9 @@ function NavBottom({selected}) {
   const btn2Color = selected === 2? "fix_color_3" : "basic_color_6";
   const btn3Color = selected === 3? "fix_color_3" : "basic_color_6";
   const btn4Color = selected === 4? "fix_color_3" : "basic_color_6";
+
+  let isBusiness = memberType === "BUSINESS";
+  
   return (
     <>
       <nav id="custom_bottom_nav" className='navigation_bottom'>
@@ -33,11 +39,11 @@ function NavBottom({selected}) {
         <div>
           <Link
           className="default-link"
-          to="/manager">
+          to={isBusiness?"/manager":"/check"}>
             <div className={btn2Color} style={{marginTop:"2px"}}>
               <ManageIcon/><br></br>
             </div>
-            <small className={btn2Color} style={{fontSize:"0.6em"}}>manager</small>
+            <small className={btn2Color} style={{fontSize:"0.6em"}}>{isBusiness?"manager":"check"}</small>
           </Link>
         </div>
         <div>

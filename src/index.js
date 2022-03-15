@@ -9,8 +9,8 @@ import "assets/css/userCSS.css"
 import BoardDetailView from "views/BoardDetailView";
 import ProfileView from "views/ProfileView";
 import ManagerView from "views/ManagerView";
+import CheckView from "views/CheckView";
 import QrcodeView from "views/QrcodeView";
-import AccountView from "views/AccountView";
 import AlarmView from "views/AlarmView";
 import IconSample from "components/common/icons/IconSample";
 import ErrorView from "views/ErrorView";
@@ -44,6 +44,11 @@ ReactDOM.render(
             exact
             render={props => <ManagerView {...props} />}
           />
+          <Route
+            path="/check"
+            exact
+            render={props => <CheckView {...props} />}
+          />
           <Route 
             path="/detail" 
             exact 
@@ -52,8 +57,7 @@ ReactDOM.render(
           <Route 
             path="/qrcode" 
             exact 
-            render={props => <AccountView {...props} />} 
-            // render={props => <QrcodeView {...props} />} 
+            render={props => <QrcodeView {...props} />} 
           />
           <Route
             path="/alarm"

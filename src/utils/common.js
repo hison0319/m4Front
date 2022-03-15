@@ -282,8 +282,8 @@ export const delArrDupObject = (arr, key) => {
 export const getNationCodeListAll = () => {
     const nationCodeList = [
         {text:'kor', value:"82"},
-        {text:'jp', value:"69"},
-        {text:'chi', value:"58"},
+        {text:'jp', value:"00"},
+        {text:'chi', value:"00"},
     ];
     return nationCodeList;
 }
@@ -327,3 +327,48 @@ export const getDotStrMax = (str, maxlength) => {
         return "";
     }
 };
+
+/*
+query string object 가져오기
+*/
+export const getQueryStringObject = (search) => {
+    var a = search.substr(1).split('&');
+    if (a == "") return {};
+    var b = {};
+    for (var i = 0; i < a.length; ++i) {
+        var p = a[i].split('=', 2);
+        if (p.length == 1)
+            b[p[0]] = "";
+        else
+            b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+    }
+    return b;
+}
+
+/*
+cookie 저장
+setCookie(변수이름, 변수값, 기간{1 => 하루})
+*/
+export const setCookie = (name, value, exp) => {
+    var date = new Date();
+    date.setTime(date.getTime() + exp*24*60*60*1000);
+    document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+};
+
+/*
+cookie 가져오기
+getCookie(변수이름)
+*/
+export const getCookie = (name) => {
+    const cookies = document.cookie.split(';');
+    const value = document.cookie.match(`(^|;) ?${name}=([^;]*)(;|$)`);
+    return value ? value[2] : null;
+};
+
+/*
+cookie 삭제
+deleteCookie(변수이름)
+*/
+export const deleteCookie = (name) => {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain=localhost; path=/;';
+}

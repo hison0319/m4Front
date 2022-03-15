@@ -18,7 +18,7 @@ import {
 async function signin(email, password) {
     console.log(email, password);
     const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}login`,
+        `${process.env.REACT_APP_API_URL}auth/login`,
         
         {
             email: email,
@@ -70,8 +70,9 @@ const SigninContainer = () => {
     useEffect(()=>{
         const { loading, data: member, error } = state;
         if(member) {
-            window.location.href = "/";
+            window.location.href = `/?accessToken=${member.data.accessToken}`;
         } else if(error) {
+            console.log(error.response);
             alertRef1.current.showAlert();
         }
         if(loading) {

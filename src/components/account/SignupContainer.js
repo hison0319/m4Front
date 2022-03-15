@@ -12,7 +12,7 @@ import Signup from "./Signup";
 import AlertModal from 'components/common/alert/AlertModal';
 import { useTextInput } from 'hooks';
 import {
-    getNationCodeListAll,
+    // getNationCodeListAll,
     validateEmail,
     chkStrMinLength
 } from "utils/common"
@@ -42,8 +42,8 @@ const SignupContainer = () => {
     });
 
     //연락처 국가코드
-    const [varNationCode, setVarNationCode] = useState("69");
-    const nationCodeListAll = getNationCodeListAll();
+    // const [varNationCode, setVarNationCode] = useState("69");
+    // const nationCodeListAll = getNationCodeListAll();
 
     //유효성 검사용 state
     const [isValidEmail, setIsValidEmail] = useState(false);
@@ -104,11 +104,9 @@ const SignupContainer = () => {
         email: varEmail,
         password: varPassword,
         businessRegNumber: varBusinessRegNumber,
-        contactNumbers: {
-            values: [{
-                value: varContactNumber
-            }]
-        }
+        contactNumbers: [{
+            value: varContactNumber
+        }]
     }), [], true);
     
     const onRefetch = () => {
@@ -126,10 +124,13 @@ const SignupContainer = () => {
         window.location.href = "/";
     }}
     />;
+
+    const [errorComment, setErrorComment] = useState("죄송합니다. 오류로 인해 저장 실패했습니다. 개발자에게 문의해주세요.");
+
     const AlertModal2 = 
     <AlertModal
     ref={alertRef2}
-    comment="죄송합니다. 오류로 인해 저장 실패했습니다. 개발자에게 문의해주세요."
+    comment={errorComment}
     closingModal={()=>{
         window.location.href = "/";
     }}
@@ -138,8 +139,10 @@ const SignupContainer = () => {
     useEffect(()=>{
         const { loading, data: member, error } = state;
         if(member) {
+            console.log(member.response);
             alertRef1.current.showAlert();
         } else if(error) {
+            setErrorComment(error.response.data.message);
             alertRef2.current.showAlert();
         }
         if(loading) {
@@ -157,10 +160,10 @@ const SignupContainer = () => {
             varName={varName}
             varBusinessRegNumber={varBusinessRegNumber}
             varContactNumber={varContactNumber}
-            varNationCode={varNationCode}
-            nationCodeListAll={nationCodeListAll}
             onChangeText={onChangeText}
-            setVarNationCode={setVarNationCode}
+            // varNationCode={varNationCode}
+            // nationCodeListAll={nationCodeListAll}
+            // setVarNationCode={setVarNationCode}
             onRefetch={onRefetch}
             isValidEmail={isValidEmail}
             isValidPassword={isValidPassword}

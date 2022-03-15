@@ -17,18 +17,16 @@ import ImgCircle from 'components/common/imagebox/ImgCircle'
 import PropTypes from "prop-types";
 
 const ReadProfile = ({
-  shopId,
   businessRegNumber,
   name,
   city,
   street,
-  nationCode1,
-  nationCode2,
+  // nationCode1,
+  // nationCode2,
   contactNumber1,
   contactNumber2,
   snsList,
   zipcode,
-  openingHours,
   introduce,
   imageURL,
 }) => {
@@ -55,8 +53,8 @@ const ReadProfile = ({
                           <div className="text-center my-2 basic_color_3">
                             {city && <small>{street}, {city}</small>}{city && <br></br>}
                             {zipcode && <small>우편번호 : {zipcode}</small>}{zipcode && <br></br>}
-                            {contactNumber1 && <small>+{nationCode1}&nbsp;&nbsp;{contactNumber1}</small>}{contactNumber1 && <br></br>}
-                            {/* {contactNumber2 && <small>+{nationCode2}&nbsp;&nbsp;{contactNumber2}</small>}{contactNumber2 && <br></br>} */}
+                            {contactNumber1 && <small>{contactNumber1}</small>}{contactNumber1 && <br></br>}
+                            {contactNumber2 && <small>{contactNumber2}</small>}{contactNumber2 && <br></br>}
                             {businessRegNumber && <small>사업자 번호 : {businessRegNumber}</small>}
                           </div>
                         </Link>
@@ -82,13 +80,12 @@ const ReadProfile = ({
 }
 
 ReadProfile.propTypes = {
-  shopId: PropTypes.string,
   businessRegNumber: PropTypes.string,
   name: PropTypes.string,
   city: PropTypes.string,
   street: PropTypes.string,
-  nationCode1: PropTypes.number,
-  nationCode2: PropTypes.number,
+  // nationCode1: PropTypes.number,
+  // nationCode2: PropTypes.number,
   contactNumber1: PropTypes.string,
   contactNumber2: PropTypes.string,
   snsList: PropTypes.array,

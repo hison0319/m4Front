@@ -103,7 +103,6 @@ const OptionModifyContainer = () => {
 
   // #####################
   // shop option
-  //건의 사항 : 갯수가 유효한 옵션인지, 휴무가 있는 옵션인지에 대한 컬럼 생성.
   const [optionList, setOptionList] = useState(
     board?board.optionList:
     [

@@ -10,6 +10,9 @@ import {
 } from "components/common/icons/Index";
 
 const AlertConfirmModal = forwardRef((props, ref) => {
+  const onClosingModal = props.closingModal?props.closingModal:()=>{return false}
+  const onConfirm = props.onConfirm?props.onConfirm:()=>{return false}
+
   const [alertToggle, setAlertToggle] = useState(false);
 
   const toggleModal = _alertToggle => {
@@ -52,19 +55,22 @@ const AlertConfirmModal = forwardRef((props, ref) => {
           color="neutral"
           type="button"
           onClick={() => {
-            props.onSaveClick();
+            onConfirm();
+            onClosingModal();
             toggleModal(alertToggle);
             }}>
-            확인
+            <small>확인</small>
           </Button>
           <Button
             className="ml-auto"
             color="neutral"
             data-dismiss="modal"
             type="button"
-            onClick={() => toggleModal(alertToggle)}
-          >
-            취소
+            onClick={() => {
+              onClosingModal();
+              toggleModal(alertToggle)
+            }}>
+            <small>취소</small>
           </Button>
         </div>
       </Modal>

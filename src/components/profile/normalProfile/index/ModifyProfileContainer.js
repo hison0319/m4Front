@@ -14,9 +14,9 @@ import {
 import axios from 'axios';
 import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"
-import {
-  getNationCodeListAll,
-} from 'utils/common'
+// import {
+//   getNationCodeListAll,
+// } from 'utils/common'
 import PropTypes from "prop-types";
 
 async function putUser(user, userId, imgFile) {
@@ -65,12 +65,12 @@ const ModifyProfileContainer = ({
   const [varBirth, setVarBirth] = useState(birth);
 
   // 국가코드
-  const [varNationCode, setVarNationCode] = useState("82");
-  const nationCodeListAll = getNationCodeListAll();
+  // const [varNationCode, setVarNationCode] = useState("82");
+  // const nationCodeListAll = getNationCodeListAll();
 
-  const onSetNAtionCode = (code) => {
-    setVarNationCode(code);
-  }
+  // const onSetNAtionCode = (code) => {
+  //   setVarNationCode(code);
+  // }
 
   // snsList
   const [varSnsList, setVarSnsList] = useState(snsList);
@@ -139,9 +139,9 @@ const ModifyProfileContainer = ({
       varBirth={varBirth}
       varIntroduce={varIntroduce}
       onChangeText={onChangeText}
-      varNationCode={varNationCode}
-      onSetNAtionCode={onSetNAtionCode}
-      nationCodeListAll={nationCodeListAll}
+      // varNationCode={varNationCode}
+      // onSetNAtionCode={onSetNAtionCode}
+      // nationCodeListAll={nationCodeListAll}
       snsList={varSnsList}
       setSnsList={setVarSnsList}
       setVarBirth={setVarBirth}

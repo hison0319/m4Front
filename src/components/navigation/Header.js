@@ -95,7 +95,7 @@ function Header() {
               <span className="btn-inner--icon">
                 <ImgSquredSmall
                 imageURL={images.imgLogo1}
-                style={{width:"90px",marginTop:"-11px"}}
+                style={{width:"80px",marginTop:"-10px"}}
                 />
               </span>
             </Button>

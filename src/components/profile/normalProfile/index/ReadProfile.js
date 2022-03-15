@@ -24,7 +24,7 @@ const ReadProfile = ({
   zipcode,
   city,
   street,
-  nationCode,
+  // nationCode,
   contactNumber,
   snsList,
   birth,
@@ -51,7 +51,7 @@ const ReadProfile = ({
                           <div className="text-center my-2 basic_color_6">
                             {city && <small>{street}, {city}</small>}{city && <br></br>}
                             {zipcode && <small>우편번호 : {zipcode}</small>}{zipcode && <br></br>}
-                            {contactNumber && <small>+{nationCode}&nbsp;&nbsp;{contactNumber}</small>}
+                            {contactNumber && <small>{contactNumber}</small>}
                           </div>
                           {snsList && snsList.map((sns, idx) => 
                             <Button
@@ -114,7 +114,7 @@ ReadProfile.propTypes = {
   zipcode: PropTypes.string,
   city: PropTypes.string,
   street: PropTypes.string,
-  nationCode: PropTypes.number,
+  // nationCode: PropTypes.number,
   contactNumber: PropTypes.string,
   snsList: PropTypes.array,
   birth: PropTypes.string,

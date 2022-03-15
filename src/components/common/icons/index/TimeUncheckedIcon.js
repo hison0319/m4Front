@@ -4,7 +4,7 @@ import { FaClipboard } from 'react-icons/fa';
 
 function TimeUncheckedIcon() {
     const _style = {
-        fontSize: "1em",
+        fontSize: "1.3em",
     }
 
     return (

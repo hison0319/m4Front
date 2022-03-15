@@ -62,7 +62,7 @@ const ModalView = forwardRef(({
             onClosingModal();
             toggleModal(alertToggle);
             }}>
-            닫기
+            <small>닫기</small>
           </Button>
         </div>
       </Modal>

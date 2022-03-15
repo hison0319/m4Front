@@ -12,21 +12,21 @@ import { useTextInput } from 'hooks';
 import axios from 'axios';
 import useAsync from "utils/useAsync";
 import { ProgressContext } from "context/Progress"
-import {
-  getNationCodeListAll,
-} from "utils/common"
+// import {
+//   getNationCodeListAll,
+// } from "utils/common"
 import PropTypes from "prop-types";
 
-async function putShop(shop, shopId, imgFile) {
+async function putShop(shop, memberId, imgFile) {
   const response = await axios.put(
-    `${process.env.REACT_APP_API_URL}api/v1/shop/${shopId}`
+    `${process.env.REACT_APP_API_URL}member/shop/${memberId}`
     ,shop
   );
   return response.data;
 }
 
 const ModifyProfileContainer = ({
-  shopId,
+  memberId,
   name,
   zipcode,
   city,
@@ -65,17 +65,17 @@ const ModifyProfileContainer = ({
   });
 
   // 국가코드
-  const [varNationCode1, setVarNationCode1] = useState("82");
-  const [varNationCode2, setVarNationCode2] = useState("69");
-  const nationCodeListAll = getNationCodeListAll();
+  // const [varNationCode1, setVarNationCode1] = useState("82");
+  // const [varNationCode2, setVarNationCode2] = useState("69");
+  // const nationCodeListAll = getNationCodeListAll();
 
-  const onSetNAtionCode = (idx, code) => {
-    if(idx === 1) {
-      setVarNationCode1(code);
-    } else {
-      setVarNationCode2(code);
-    }
-  }
+  // const onSetNAtionCode = (idx, code) => {
+  //   if(idx === 1) {
+  //     setVarNationCode1(code);
+  //   } else {
+  //     setVarNationCode2(code);
+  //   }
+  // }
 
   // snsList
   const [varSnsList, setVarSnsList] = useState(snsList);
@@ -109,7 +109,7 @@ const ModifyProfileContainer = ({
     // contactNumber2: varContactNumber2,
     city: varCity,
     street: varStreet,
-    zipcode: varZipcode},shopId,imgFile), [], true);
+    zipcode: varZipcode},memberId,imgFile), [], true);
   const onRefetch = () => {
     refetch();
   }
@@ -144,10 +144,10 @@ const ModifyProfileContainer = ({
       varBusinessRegNumber={varBusinessRegNumber}
       varIntroduce={varIntroduce}
       onChangeText={onChangeText}
-      varNationCode1={varNationCode1}
-      varNationCode2={varNationCode2}
-      onSetNAtionCode={onSetNAtionCode}
-      nationCodeListAll={nationCodeListAll}
+      // varNationCode1={varNationCode1}
+      // varNationCode2={varNationCode2}
+      // onSetNAtionCode={onSetNAtionCode}
+      // nationCodeListAll={nationCodeListAll}
       snsList={varSnsList}
       setSnsList={setVarSnsList}
 
@@ -164,7 +164,7 @@ const ModifyProfileContainer = ({
 }
 
 ModifyProfileContainer.propTypes = {
-  shopId: PropTypes.string,
+  memberId: PropTypes.string,
   businessRegNumber: PropTypes.string,
   name: PropTypes.string,
   city: PropTypes.string,

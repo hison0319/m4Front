@@ -1,23 +1,18 @@
-import React, { useContext, useEffect } from 'react';
-import Header from 'components/navigation/Header';
+import React, { useContext } from 'react';
+import CheckContainer from "components/check/CheckContainer";
 import NavBottom from 'components/navigation/NavBottom';
 import SpinnerGrow from "components/common/spinner/SpinnerGrow";
 import { ProgressContext } from "context/Progress"
 
-function QrcodeView() {
+function AboutusView() {
     const {inProgress} = useContext(ProgressContext);
-    
-    useEffect(() => {
-        window.location.href = "/error/101";
-    },[]);
-
     return (
         <>
             {inProgress && <SpinnerGrow/>}
-            <Header/>
-            <NavBottom selected={3}/>
+            <CheckContainer />
+            <NavBottom selected={2}/>
         </>
     )
 }
 
-export default QrcodeView;
+export default AboutusView;

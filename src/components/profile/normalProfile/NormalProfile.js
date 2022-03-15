@@ -24,7 +24,7 @@ const NormalProfile = ({
     zipcode,
     city,
     street,
-    nationCode,
+    // nationCode,
     contactNumber,
     snsList,
     birth,
@@ -43,7 +43,7 @@ const NormalProfile = ({
             zipcode={zipcode}
             city={city}
             street={street}
-            nationCode={nationCode}
+            // nationCode={nationCode}
             contactNumber={contactNumber}
             snsList={snsList}
             birth={birth}
@@ -81,7 +81,7 @@ const NormalProfile = ({
             zipcode={zipcode}
             city={city}
             street={street}
-            nationCode={nationCode}
+            // nationCode={nationCode}
             contactNumber={contactNumber}
             snsList={snsList}
             birth={birth}
@@ -111,7 +111,7 @@ NormalProfile.propTypes = {
     zipcode: PropTypes.string,
     city: PropTypes.string,
     street: PropTypes.string,
-    nationCode: PropTypes.number,
+    // nationCode: PropTypes.number,
     contactNumber: PropTypes.string,
     snsList: PropTypes.array,
     birth: PropTypes.string,
